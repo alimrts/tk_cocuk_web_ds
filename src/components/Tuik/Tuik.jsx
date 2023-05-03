@@ -1,0 +1,128 @@
+import React from "react";
+import "./Tuik.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
+import { Pagination } from "swiper";
+import "swiper/css/pagination";
+import profilePic1 from "../../img/g3.png";
+import profilePic2 from "../../img/g3.png";
+import profilePic3 from "../../img/g3.png";
+import profilePic4 from "../../img/g4.png";
+import SwiperCore, { Navigation } from "swiper/core";
+
+// Initialize the Navigation module
+SwiperCore.use([Navigation]);
+const swiperProps = {
+  navigation: {
+    prevEl: ".swiper-button-prev",
+    nextEl: ".swiper-button-next",
+  },
+};
+
+const text1 = (
+  <span>
+    Ülkemize ait çeşitli bilgileri toplar, topladığı bu bilgilerle hesaplamalar
+    yapar ve açıklar.
+    <br />
+    - Ülkemizde kaç kişi yaşıyor, bunların ne kadarı çocuk, yaşadığım yerde kaç
+    kişi var, benim adım kaç kişide var gibi nüfus bilgilerini <br />
+    - Ülkemizde kaç okul, kaç öğrenci var gibi eğitim bilgilerini <br />
+    - Ülkemizde kaç doktor ve kaç hastane var gibi sağlık bilgilerini
+    <br />
+    - Cep telefonunu ve İnterneti ne kadar kullanıyoruz gibi teknoloji
+    bilgilerini
+    <br />
+    - Trafikte kaç araç var, hangi markadan kaç otomobil var, yollarımızın
+    uzunluğu ne kadar gibi ulaştırma bilgilerini
+    <br />- ve daha pek çok merak ettiğin bilgiyi TÜİK’ten öğrenebilirsin.
+  </span>
+);
+
+const text2 = (
+  <span>
+    TÜİK ayrıca, ülkemizdeki diğer kurumlara ve uluslararası kuruluşlara
+    istatistik üretimi ile ilgili çalışmalarda da yardımcı olur.
+  </span>
+);
+
+const Tuik = () => {
+  const icerikler = [
+    {
+      title: "TÜİK Ne İş Yapar?",
+      review: text1,
+    },
+    {
+      title: "TÜİK Ne İş Yapar?",
+      review: text2,
+    },
+  ];
+
+  return (
+    <div className="t-wrapper" id="tuik">
+      <div className="t-heading">
+        <span>
+          TÜİK'i Tanıyalım.. <br />{" "}
+        </span>
+        <span>TÜİK </span>
+        <span>Nedir?</span>
+        <div
+          className="blur t-blur1"
+          style={{ background: "var(--purple)" }}
+        ></div>
+        <div className="blur t-blur2" style={{ background: "skyblue" }}></div>
+      </div>
+      <Swiper
+        // install Swiper modules
+        {...swiperProps}
+        modules={[Pagination]}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+      >
+        {icerikler.map((icerik, index) => {
+          return (
+            <SwiperSlide key={index}>
+              <div className="tuik">
+                {/* <img src={client.img} alt="" /> */}
+                <span
+                  style={{
+                    color: "orange",
+                    fontSize: "18pt",
+                  }}
+                >
+                  {icerik.title}
+                  <br />
+                  <br />
+                </span>
+                <span>{icerik.review}</span>
+              </div>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+      <div className="swiper-button-prev">
+        <svg
+          id="right-arrow"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ transform: "rotate(-180deg)", zIndex: 2 }}
+        >
+          <path d="M6 18L18 12L6 6V18Z" fill="orange" />
+        </svg>
+      </div>
+
+      <div className="swiper-button-next">
+        <svg
+          id="right-arrow"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ zIndex: 2 }}
+        >
+          <path d="M6 18L18 12L6 6V18Z" fill="orange" />
+        </svg>
+      </div>
+    </div>
+  );
+};
+
+export default Tuik;

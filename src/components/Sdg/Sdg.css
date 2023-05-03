@@ -1,0 +1,173 @@
+.sdg {
+  padding: 0 3rem 0 3rem;
+  display: flex;
+  
+  margin-top: 2rem;
+  ;
+  /* scroll view */
+  padding-top: 3rem;
+  min-height: auto;
+  position: relative;
+}
+/* left side */
+.awesome {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-right: 0;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #fff; /* set background color to white */
+}
+
+.awesome > :nth-child(1) {
+  color: var(--black);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.awesome > :nth-child(2) {
+  color: var(--orange);
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.awesome > :nth-child(3) {
+  color: var(--gray);
+  font-size: 12px;
+  margin-top: 1rem;
+}
+
+.s-button {
+  width: 8rem;
+  height: 4rem;
+  margin-top: 1rem;
+}
+
+.blur {
+  display: none; /* hide the blur elements on mobile */
+}
+
+@media screen and (min-width: 481px) {
+  .awesome {
+    margin-right: 20vh;
+    gap: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .awesome > :nth-child(3) {
+    font-size: 14px;
+    margin-top: 1rem;
+  }
+
+  .blur {
+    display: block; /* show the blur elements on larger screens */
+    position: absolute;
+    border-radius: 50%;
+    z-index: -9;
+  }
+
+  .blur:nth-child(1) {
+    top: -18%;
+    left: 56%;
+    width: 22rem;
+    height: 14rem;
+    filter: blur(72px);
+    background: #edd0ff;
+  }
+
+  .blur:nth-child(2) {
+    top: 20rem;
+    left: 58rem;
+    width: 25rem;
+    height: 11rem;
+    filter: blur(72px);
+    background: #f6ffbf;
+  }
+
+  .blur:nth-child(3) {
+    top: 40rem;
+    left: 8rem;
+    width: 25rem;
+    height: 18rem;
+    filter: blur(72px);
+    background: #aaffdf;
+  }
+
+  .blur:nth-child(4) {
+    top: 60rem;
+    left: 58rem;
+    width: 25rem;
+    height: 11rem;
+    filter: blur(72px);
+    background: #c1f5ff;
+  }
+
+  .blur:nth-child(5) {
+    top: 80rem;
+    left: 8rem;
+    width: 25rem;
+    height: 18rem;
+    filter: blur(72px);
+    background: #ffccdd;
+  }
+
+  .blur:nth-child(6) {
+    top: 100rem;
+    left: 58rem;
+    width: 25rem;
+    height: 11rem;
+    filter: blur(72px);
+    background: #f6ffbf;
+  }
+
+  .blur:nth-child(7) {
+    top: 120rem;
+    left: 8rem;
+    width: 25rem;
+    height: 18rem;
+    filter: blur(72px);
+    background: rgb(238 210 255);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sdg {
+    margin-top: 0;
+    flex-direction: column;
+    gap: 5rem;
+    height: 66rem;
+    padding: 0;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 17rem;
+  }
+  .cards > * {
+    position: static;
+  }
+}
+
+
+.imageWithRow {
+  display: flex;
+  align-items: center;
+ 
+  background: rgba(255, 255, 255, 0.26);
+  border: 6px solid var(--blueCard);
+  box-shadow: var(--boxShadow);
+
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.3s; /* Animation */
+}
+.imageWithRow:hover {
+  transform: scale(
+    1.05
+  ); 
+}

@@ -1,0 +1,154 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  height: 18vh;
+  /* background: linear-gradient(to top, rgba(154, 239, 239, 1)); */
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1),
+    rgba(154, 239, 239, 1)
+  );
+
+  box-shadow: 0 2px 8px 2px rgba(255, 255, 255, 0.5);
+}
+
+.n-left {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 10rem;
+  margin-top: -5rem;
+}
+
+.n-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 0rem;
+}
+
+.n-list ul {
+  margin: 0;
+  padding: 0;
+}
+
+.n-list li {
+  display: inline-block;
+}
+
+.n-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.n-nameR1,
+.n-nameR2,
+.n-nameR3,
+.n-nameR4,
+.n-nameR5 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--orange);
+}
+
+.hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--orange);
+  transition: background-color 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.hamburger svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.navigation-menu {
+  display: none;
+}
+
+.navigation-menu.expanded {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin-left: 20vh;
+  top: 8vh;
+  left: 2rem;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(154, 239, 239, 0.95)
+  );
+  box-shadow: 0 2px 8px 2px rgba(255, 165, 0, 0.5);
+  z-index: 998;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.navigation-menu.expanded ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation-menu.expanded li {
+  margin: -0.2rem 0;
+}
+
+.navigation-menu.expanded a {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.navigation-menu.expanded a:hover {
+  color: var(--orange);
+}
+
+@media screen and (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  .navigation-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .navigation-menu ul {
+    display: flex;
+  }
+
+  .navigation-menu li {
+    margin: 0 auto;
+  }
+
+  .navigation-menu a {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .navigation-menu a:hover {
+    color: var(--orange);
+  }
+}

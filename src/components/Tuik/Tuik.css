@@ -1,0 +1,155 @@
+.t-wrapper {
+  padding: 0 3rem;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7rem;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  width: 95%;
+  min-width: 50%;
+  min-height: 60%;
+}
+.t-heading {
+  align-self: start;
+}
+.t-heading > * {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.t-heading span:nth-of-type(2) {
+  color: var(--orange);
+}
+
+.t-blur1 {
+  left: 38rem;
+  top: 16rem;
+}
+.t-blur2 {
+  top: 9rem;
+  left: 0;
+}
+
+.tuik {
+  width: 30rem;
+  height: auto; /* use max-height instead of height */
+  /* styles same as work.css */
+  background: rgba(255, 255, 255, 0.26);
+  border: 7px solid var(--blueCard);
+  box-shadow: var(--boxShadow);
+  border-radius: 20px;
+  cursor: pointer;
+  line-height: 0.8;
+  object-fit: cover;
+  white-space: normal;
+  overflow: hidden; /* add overflow property */
+  font-size: 12pt;
+  padding: 2vh;
+}
+
+.tuik > * {
+  font-size: 1.5rem !important;
+}
+@media screen and (max-width: 480px) {
+  .t-wrapper {
+    padding: 0;
+  }
+  .testimonial > img {
+    width: 70px;
+    height: 70px;
+  }
+  .tuik-header {
+    font-size: 1.5rem;
+  }
+  .tuik-review {
+    font-size: 1.2rem;
+  }
+  .tuik {
+    width: 80%;
+    height: auto;
+    font-size: 1.5rem;
+  }
+
+  .tuik > img {
+    width: 4rem;
+    height: 4rem;
+  }
+  .t-wrapper .tuik > span {
+    font-size: 1rem !important;
+  }
+}
+.tuik > img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 100%;
+}
+
+.tuik > span {
+  color: var(--gray);
+  max-width: 90%;
+}
+
+@media screen and (max-width: 768px) {
+  /* adjust styles for screens up to 768px wide */
+  .tuik {
+    width: 90%;
+    height: auto;
+    transform: scale(0.8);
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .tuik > span {
+    font-size: 1.2rem !important;
+  }
+}
+/* slider */
+.t-wrapper .swiper {
+  padding-top: 6rem;
+  margin-bottom: -6rem;
+  width: 100%;
+  height: 80%;
+}
+
+.t-wrapper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.t-wrapper .swiper-pagination-bullet-active {
+  background: var(--orange);
+}
+
+.swiper-button-prev {
+  display: flex;
+
+  position: absolute;
+  margin-left: -6vh;
+  top: 50%;
+
+  color: orange; /* Change the color of the arrow icon */
+
+  cursor: pointer;
+}
+.swiper-button-next {
+  display: flex;
+
+  position: absolute;
+  margin-right: -6vh;
+  top: 50%;
+
+  color: orange; /* Change the color of the arrow icon */
+
+  cursor: pointer;
+}
+
+.swiper-button-prev {
+  margin-right: -6vh;
+}
+
+.swiper-button-next {
+  right: 30px;
+}
