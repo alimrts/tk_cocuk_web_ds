@@ -7,9 +7,28 @@ const Contact = () => {
   const darkMode = theme.state.darkMode;
   const form = useRef();
   const [done, setDone] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const isEmailValid = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
-
+    if (
+      userName.trim() === "" ||
+      !isEmailValid(userEmail.trim()) ||
+      message.trim() === ""
+    ) {
+      alert("Lütfen Gerekli Alanları Doldurunuz.");
+      return;
+    }
+    setIsLoading(true);
     emailjs
       .sendForm(
         "service_ycz3ujb",
@@ -20,6 +39,7 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
+          setIsLoading(false);
           setDone(true);
           form.reset();
         },
@@ -41,6 +61,7 @@ const Contact = () => {
               display: "flex",
               justifyContent: "right",
               marginLeft: "8rem",
+              zIndex: "10",
             }}
           >
             İletişim
@@ -53,27 +74,46 @@ const Contact = () => {
         </div>
       </div>
       {/* right side form */}
-      <div className="c-right">
+      <div
+        className="c-right"
+        style={{
+          zIndex: "10",
+        }}
+      >
         <form ref={form} onSubmit={sendEmail}>
           <input
             type="text"
             name="user_name"
             className="user"
             placeholder="Ad Soyad"
+            value={userName}
+            onChange={(event) => setUserName(event.target.value)}
           />
           <input
             type="email"
             name="user_email"
             className="user"
             placeholder="Email"
+            value={userEmail}
+            onChange={(event) => setUserEmail(event.target.value)}
           />
-          <textarea name="message" className="user" placeholder="Mesaj" />
-          <input type="submit" value="Gönder" className="button" />
-          <span>{done && "Mesajınız İçin Teşekkür Ederiz"}</span>
-          <div
-            className="blur c-blur1"
-            style={{ background: "var(--purple)" }}
-          ></div>
+          <textarea
+            name="message"
+            className="user"
+            placeholder="Mesaj"
+            value={message}
+            onChange={(event) => setMessage(event.target.value)}
+          />
+          <div>
+            <input
+              type="submit"
+              value="Gönder"
+              className={`button ${done ? "button-disabled" : ""}`}
+              disabled={done}
+            />
+            {isLoading && <div>Mesajınız Gönderiliyor...</div>}
+            {done && "Mesajınız İçin Teşekkür Ederiz"}
+          </div>
         </form>
       </div>
     </div>

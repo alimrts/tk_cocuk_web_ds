@@ -39,6 +39,23 @@
   border: 1px solid var(--orange);
   color: var(--orange);
 }
+
+.button-disabled {
+  color: #ccc;
+  background: linear-gradient(180deg, #adadad 26.71%, #747474 99.36%);
+  background-color: #eee;
+  border-color: #ccc;
+  cursor: default;
+}
+
+.button-disabled:hover {
+  color: #ccc;
+  background: linear-gradient(180deg, #adadad 26.71%, #747474 99.36%);
+  background-color: #eee;
+  border-color: #ccc;
+  cursor: default;
+}
+
 @media screen and (max-width: 480px) {
   .App {
     padding: 0.5rem 1rem;
