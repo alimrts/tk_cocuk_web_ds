@@ -2,9 +2,9 @@
     padding: 0 3rem 0 3rem;
     display: flex;
     height: 80vh;
-    margin-top: 12rem;
+    margin-top: 4rem;
       /* scroll */
-  padding-top: 3rem;
+    
 }
 
 .c-right{
@@ -12,6 +12,7 @@
     justify-content: center;
     position: relative;
     flex: 1;
+    margin-left: -4rem;
 }
 
 .c-right>form

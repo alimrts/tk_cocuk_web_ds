@@ -4,8 +4,8 @@ import Navbar from "../components/Navbar/Navbar";
 import Intro from "../components/Intro/Intro";
 import Istatistik from "../components/Istatistik/Istatistik";
 // import "./App.css";
-import Experience from "../components/Experience/Experience";
-import Works from "../components/Works/Works";
+
+import Works from "./VideoIzle/VideoIzle";
 import Unicef from "../components/Unicef/Unicef";
 
 import Tuik from "../components/Tuik/Tuik";
@@ -16,7 +16,7 @@ import { useContext } from "react";
 import { themeContext } from "../Context";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Cocukhaklari from "../components/cocukhaklari/Cocukhaklari";
-import Testimonial from "../components/Testimonials/Testimonial";
+
 import RegisterPage from "../components/RegisterPage";
 import Metaverse from "./Metaverse";
 
@@ -108,7 +108,7 @@ const MainPage = () => {
 
           <BrowserRouter>
             <Istatistik />
-            {/* <Experience /> */}
+
             <Works />
             {/* <Unicef /> */}
             {/* <Sdg />

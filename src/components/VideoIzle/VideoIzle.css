@@ -2,8 +2,8 @@
   padding: 0 3rem 0 3rem;
   display: flex;
   height: 50vh;
-  margin-top: 20rem;
-  margin-bottom: 24rem;
+  margin-top: 0rem;
+  margin-bottom: 2rem;
 
   /* scroll */
   align-items: center;
@@ -36,9 +36,22 @@
   margin-top: 2rem;
 }
 
+
 /* right side */
 .w-right {
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 4rem;
+  
+}
+
+.w-right img {
+  width: 500px;
+  margin-right: 20px; 
+}
+
+.w-right img:last-child {
+  margin-right: 0;
 }
 
 /* .w-mainCircle {

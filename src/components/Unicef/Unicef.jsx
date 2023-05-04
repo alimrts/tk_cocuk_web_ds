@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./Unicef.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import tkc_kuslar1 from "../../img/tkc_kuslar1.png";
 
 import { themeContext } from "../../Context";
 const Unicef = () => {
@@ -20,18 +21,15 @@ const Unicef = () => {
         grabCursor={true}
         className="portfolio-slider"
       >
-        {/* <SwiperSlide>
-          <img src={Sidebar} alt="" />
+        <SwiperSlide>
+          <img src={tkc_kuslar1} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={Ecommerce} alt="" />
+          <img src={tkc_kuslar1} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={MusicApp} alt="" />
+          <img src={tkc_kuslar1} alt="" />
         </SwiperSlide>
-        <SwiperSlide>
-          <img src={HOC} alt="" />
-        </SwiperSlide> */}
       </Swiper>
     </div>
   );

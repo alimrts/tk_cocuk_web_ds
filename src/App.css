@@ -14,7 +14,7 @@
 @font-face {
   font-family: 'Noteworthy-Bold';
   src: url('./fonts/Noteworthy-Bold.ttf') format('truetype');
-  size-adjust: 150%;
+  size-adjust: 100%;
 }
 
 .App {

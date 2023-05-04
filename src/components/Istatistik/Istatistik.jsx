@@ -5,14 +5,14 @@ import "swiper/css";
 
 import { Pagination } from "swiper";
 import "swiper/css/pagination";
-import profilePic1 from "../../img/g1.png";
-import profilePic2 from "../../img/g1.png";
-import profilePic3 from "../../img/g1.png";
-import profilePic4 from "../../img/g1.png";
+
 import sutunGrafik from "../../img/sutun_grafik.jpg";
 import pastaGrafik from "../../img/pasta_grafik.jpg";
 import cizgiGrafik from "../../img/cizgi_grafik.jpg";
 import SwiperCore, { Navigation } from "swiper/core";
+import tkc_istatistik_timeline from "../../img/tkc_istatistik_timeline.png";
+// import tkc_istatistik_icerik_bg from "../../img/tkc_istatistik_icerik_bg.png";
+import tkc_kuslar1 from "../../img/tkc_kuslar1.png";
 
 // Initialize the Navigation module
 SwiperCore.use([Navigation]);
@@ -266,130 +266,132 @@ const text13 = (
 const Istatistik = () => {
   const infos = [
     {
-      img: profilePic1,
       header: "İstatistik Nedir?",
       review: text1,
     },
     {
-      img: profilePic1,
       header: "İstatistik Nedir?",
       review: text2,
     },
     {
-      img: profilePic2,
       header: "Veri nedir?",
       review: text3,
     },
     {
-      img: profilePic3,
       header: "Bilgi nedir?",
       review: text4,
     },
     {
-      img: profilePic4,
       header: "Sıklık (frekans) tablosu nedir?",
       review: text5,
     },
     {
-      img: profilePic4,
       header: "Sıklık (frekans) tablosu nedir?",
       review: text6,
     },
     {
-      img: profilePic4,
       header: "Aritmetik ortalama nedir?",
       review: text7,
     },
     {
-      img: profilePic4,
       header: "Medyan (ortanca) nedir?",
       review: text8,
     },
     {
-      img: profilePic4,
       header: "Mod (tepe değeri) nedir?",
       review: text9,
     },
     {
-      img: profilePic4,
       header: "Grafik nedir?",
       review: text10,
     },
     {
-      img: profilePic4,
       header: "Sütun grafik nedir?",
       review: text11,
     },
     {
-      img: profilePic4,
       header: "Pasta grafik nedir?",
       review: text12,
     },
 
     {
-      img: profilePic4,
       header: "Çizgi grafik nedir?",
       review: text13,
     },
   ];
 
   return (
-    <div className="t-wrapper" id="istatistik">
-      <div className="t-heading">
-        <span>
-          İstatistik Öğrenelim... <br />{" "}
-        </span>
-        <span>İstatistik </span>
-        <span>Nedir?</span>
-        <div
-          className="blur t-blur1"
-          style={{ background: "var(--purple)" }}
-        ></div>
-        <div className="blur t-blur2" style={{ background: "skyblue" }}></div>
+    <div className="container-istatistik" id="istatistik">
+      <div className="left-column">
+        <div style={{ marginLeft: "2rem" }}>
+          <img src={tkc_istatistik_timeline} alt="" />
+        </div>
       </div>
-      <Swiper
-        // install Swiper modules
-        {...swiperProps}
-        modules={[Pagination]}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-      >
-        {infos.map((info, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <div className="istatistik">
-                {/* <img src={client.img} alt="" /> */}
-                <span className="istatistik-header" style={{ color: "orange" }}>
-                  {info.header}
-                  <br />
-                  <br />
-                </span>
-                <span className="istatistik-review">{info.review}</span>
-              </div>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
-      <div className="swiper-button-prev">
-        <svg
-          id="right-arrow"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ transform: "rotate(-180deg)", zIndex: 2 }}
-        >
-          <path d="M6 18L18 12L6 6V18Z" fill="orange" />
-        </svg>
-      </div>
-
-      <div className="swiper-button-next">
-        <svg
-          id="right-arrow"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ zIndex: 2 }}
-        >
-          <path d="M6 18L18 12L6 6V18Z" fill="orange" />
-        </svg>
+      <div className="right-column">
+        <div>
+          <Swiper
+            {...swiperProps}
+            modules={[Pagination]}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+          >
+            {infos.map((info, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  {/* <div class="istatistik-bg-image"> */}
+                  <div className="istatistik">
+                    <div
+                      style={{
+                        marginLeft: "2rem",
+                        marginRight: "2rem",
+                        marginTop: "2rem",
+                      }}
+                    >
+                      <span
+                        className="istatistik-header"
+                        style={{ color: "orange" }}
+                      >
+                        {info.header}
+                        <br />
+                        <br />
+                      </span>
+                      <span
+                        className="istatistik-review"
+                        style={{ color: "grey" }}
+                      >
+                        {info.review}
+                      </span>{" "}
+                    </div>
+                  </div>
+                  {/* </div> */}
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+        <div className="swiper-button-prev">
+          <svg
+            id="right-arrow"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ transform: "rotate(-180deg)", zIndex: 8 }}
+          >
+            <path d="M6 18L18 12L6 6V18Z" fill="#0099ff" />
+          </svg>
+        </div>
+        <div className="swiper-button-next">
+          <svg
+            id="right-arrow"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ zIndex: 8 }}
+          >
+            <path d="M6 18L18 12L6 6V18Z" fill="#0099ff" />
+          </svg>
+        </div>
+        <div style={{ marginLeft: "2rem" }}>
+          <img src={tkc_kuslar1} alt="" />
+        </div>
       </div>
     </div>
   );

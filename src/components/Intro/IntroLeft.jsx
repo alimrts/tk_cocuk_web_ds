@@ -13,7 +13,7 @@ function Loader() {
       {" "}
       <div
         style={{
-          fontSize: 10,
+          fontSize: "12pt",
           color: "black",
         }}
       >
@@ -161,7 +161,7 @@ const IntroLeft = (props) => {
             {" "}
             <span
               style={{
-                fontSize: "8pt",
+                fontSize: "12pt",
               }}
             >
               {" "}
@@ -180,7 +180,7 @@ const IntroLeft = (props) => {
             {" "}
             <span
               style={{
-                fontSize: "9pt",
+                fontSize: "12pt",
               }}
             >
               {" "}

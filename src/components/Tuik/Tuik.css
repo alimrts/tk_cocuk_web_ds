@@ -1,94 +1,192 @@
-.t-wrapper {
-  padding: 0 3rem;
-  height: auto;
+.container-tuik {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  margin-top: 7rem;
-  flex-direction: column;
-  gap: 2rem;
-  position: relative;
-  width: 95%;
-  min-width: 50%;
-  min-height: 60%;
-}
-.t-heading {
-  align-self: start;
-}
-.t-heading > * {
-  font-size: 2rem;
-  font-weight: bold;
-}
-.t-heading span:nth-of-type(2) {
-  color: var(--orange);
 }
 
-.t-blur1 {
-  left: 38rem;
-  top: 16rem;
+.left-column {
+  width: 30%;
 }
-.t-blur2 {
-  top: 9rem;
-  left: 0;
+
+.right-column {
+  
+  width: 70%;
+  padding: 0 20px;
+  margin-right: 4rem;
+  margin-bottom: 4rem;
+  transform: scale(0.9);
 }
+
+/* blur */
+.blur {
+  position: absolute;
+  width: 22rem;
+  height: 14rem;
+  border-radius: 50%;
+  background: #edd0ff;
+  filter: blur(212px);
+  z-index: -9999;
+  top: -18%;
+  left: 56%;
+  filter: blur(72px);
+}
+
+@media screen and (max-width: 480px) {
+  .container-tuik {
+    flex-direction: column;
+    gap: 7rem;
+    height: 64rem;
+    margin-top: 4rem;
+  }
+
+  .right-column  {
+    transform: scale(0.7);
+    left: -3rem;
+  }
+
+  .right-column .blur {
+    display: none;
+  }
+  .floating-div:nth-of-type(1) {
+    /* display: none; */
+    top: -7rem !important;
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+  .right-column  {
+    transform: scale(0.8);
+    top: -18rem;
+  }
+  .left-column {
+    transform: scale(0.6);
+    top: -8rem;
+    left: -8vh;
+  }
+
+}
+
+/* Media query for mobile devices */
+@media (max-width: 1023px) {
+  .right-column  {
+    transform: scale(0.8);
+    top: -4rem;
+  }
+  .left-column {
+    transform: scale(0.6);
+    top: -4rem;
+    left: -8vh;
+  }
+
+}
+
+/* Media query for tablets in portrait orientation */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  .right-column  {
+    transform: scale(0.8);
+  }
+  .left-column{
+    transform: scale(0.8);
+    left: -3rem;
+  }
+
+}
+
+/* Media query for tablets in landscape orientation */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  .right-column  {
+    transform: scale(0.85);
+  }
+  .left-column {
+    transform: scale(0.85);
+    left: -3rem;
+  }
+
+}
+
 
 .tuik {
-  width: 30rem;
-  height: auto; /* use max-height instead of height */
-  /* styles same as work.css */
-  background: rgba(255, 255, 255, 0.26);
+  position: relative;
+  max-width: 40rem;
+  max-height: auto; 
+  margin-top: -4rem;
+  background: rgba(255, 255, 255, 0.86);
+  /* background-image: url('/src/img/tkc_tuik_icerik_bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100%; */
+
   border: 7px solid var(--blueCard);
   box-shadow: var(--boxShadow);
   border-radius: 20px;
   cursor: pointer;
-  line-height: 0.8;
+  line-height: 1.4;
   object-fit: cover;
   white-space: normal;
-  overflow: hidden; /* add overflow property */
-  font-size: 12pt;
-  padding: 2vh;
+  overflow: hidden; 
+  padding: 6vh;
+}
+
+.swiper-button-prev {
+  display: flex;
+  position: absolute;
+  left: 0; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  cursor: pointer;
+  z-index: 999;
+}
+.swiper-button-next {
+  display: flex;
+  position: absolute;
+  right: 0; 
+  top: 50%; 
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 999;
+}
+
+
+.tuik-header {
+  font-size: 1.1rem;
+}
+.tuik-review {
+  font-size: 1.1rem;
+}
+
+
+
+.tuik > span {
+ 
+  color: var(--gray);
+  max-width: 90%;
 }
 
 .tuik > * {
-  font-size: 1.5rem !important;
+  font-size: 1.1rem !important;
 }
 @media screen and (max-width: 480px) {
-  .t-wrapper {
-    padding: 0;
-  }
-  .testimonial > img {
-    width: 70px;
-    height: 70px;
-  }
   .tuik-header {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
   .tuik-review {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
+
   .tuik {
     width: 80%;
-    height: auto;
-    font-size: 1.5rem;
+    margin-top: -5rem;
+    font-size: 1.1rem;
   }
 
-  .tuik > img {
-    width: 4rem;
-    height: 4rem;
-  }
-  .t-wrapper .tuik > span {
+  
+  .container-tuik .tuik > span {
     font-size: 1rem !important;
   }
-}
-.tuik > img {
-  width: 6rem;
-  height: 6rem;
-  border-radius: 100%;
-}
-
-.tuik > span {
-  color: var(--gray);
-  max-width: 90%;
 }
 
 @media screen and (max-width: 768px) {
@@ -97,6 +195,7 @@
     width: 90%;
     height: auto;
     transform: scale(0.8);
+    font-size: 1.1rem !important;
   }
 }
 
@@ -106,50 +205,30 @@
   }
 }
 /* slider */
-.t-wrapper .swiper {
+.container-tuik .swiper {
   padding-top: 6rem;
   margin-bottom: -6rem;
   width: 100%;
   height: 80%;
 }
 
-.t-wrapper .swiper-slide {
+.container-tuik .swiper-slide {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.t-wrapper .swiper-pagination-bullet-active {
+.container-tuik .swiper-pagination-bullet-active {
   background: var(--orange);
 }
 
-.swiper-button-prev {
-  display: flex;
-
-  position: absolute;
-  margin-left: -6vh;
-  top: 50%;
-
-  color: orange; /* Change the color of the arrow icon */
-
-  cursor: pointer;
-}
-.swiper-button-next {
-  display: flex;
-
-  position: absolute;
-  margin-right: -6vh;
-  top: 50%;
-
-  color: orange; /* Change the color of the arrow icon */
-
-  cursor: pointer;
+@media screen and (max-width: 480px) {
+  .container-tuik {
+    padding: 0;
+  }
+ 
 }
 
-.swiper-button-prev {
-  margin-right: -6vh;
-}
 
-.swiper-button-next {
-  right: 30px;
-}
+
+

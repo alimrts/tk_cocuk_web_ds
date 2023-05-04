@@ -35,8 +35,17 @@ const Contact = () => {
       <div className="w-left">
         <div className="awesome">
           {/* darkMode */}
-          <span style={{ color: darkMode ? "white" : "" }}>İletişime Geç</span>
-          <span>TÜİK Çocuk'a Sor</span>
+          <span
+            style={{
+              color: darkMode ? "white" : "orange",
+              display: "flex",
+              justifyContent: "right",
+              marginLeft: "8rem",
+            }}
+          >
+            İletişim
+          </span>
+
           <div
             className="blur s-blur1"
             style={{ background: "#ABF1FF94" }}

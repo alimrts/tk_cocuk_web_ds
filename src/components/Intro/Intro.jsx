@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
 import "./Intro.css";
 
-import balonlar from "../../img/balonlar.png";
 import istatistik from "../../img/g_istatistik.png";
 import cocukhaklari from "../../img/g1.png";
 import oyun from "../../img/g2.png";
@@ -496,7 +495,7 @@ const Intro = (props) => {
             background: "#C1F5FF",
             top: "14rem",
             width: "91rem",
-            height: "21rem",
+            height: "31rem",
             left: "-48rem",
             zIndex: "-999",
           }}

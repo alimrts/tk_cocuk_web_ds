@@ -1,10 +1,9 @@
 .Intro {
   display: flex;
-
   justify-content: space-between;
   height: 87%;
   margin-top: 16rem;
-  margin-bottom: 18rem;
+  margin-bottom: 8rem;
 }
 
 /* left side styling */
@@ -33,14 +32,14 @@
 .i-name > :nth-child(1) {
   color: var(--orange);
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.4rem;
   text-align: center;
   margin-left: -9rem;
 }
 .i-name > :nth-child(2) {
   color: var(--blue);
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.4rem;
   text-align: center;
   margin-left: -9rem;
 }
@@ -54,7 +53,7 @@
 
 .introleft-text {
   color: var(--grey);
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   text-align: left;
 }
 
@@ -66,7 +65,7 @@
 .i-buttonSertifika {
   width: 9rem;
   height: 3rem;
-  font-size: 8pt;
+  font-size: 14pt;
 }
 
 .i-icons {
@@ -92,6 +91,7 @@
 .i-right > * {
   margin-top: 3rem;
   position: absolute;
+  margin-left: 4rem;
   z-index: 1;
 }
 .i-right > :nth-child(1) {

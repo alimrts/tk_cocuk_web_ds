@@ -10,6 +10,9 @@ import profilePic2 from "../../img/g3.png";
 import profilePic3 from "../../img/g3.png";
 import profilePic4 from "../../img/g4.png";
 import SwiperCore, { Navigation } from "swiper/core";
+import tkc_tuik_timeline from "../../img/tkc_tuik_timeline.png";
+
+import tkc_kuslar1 from "../../img/tkc_kuslar1.png";
 
 // Initialize the Navigation module
 SwiperCore.use([Navigation]);
@@ -49,77 +52,144 @@ const text2 = (
 const Tuik = () => {
   const icerikler = [
     {
-      title: "TÜİK Ne İş Yapar?",
+      header: "TÜİK Ne İş Yapar?",
       review: text1,
     },
     {
-      title: "TÜİK Ne İş Yapar?",
+      header: "TÜİK Ne İş Yapar?",
       review: text2,
     },
   ];
 
   return (
-    <div className="t-wrapper" id="tuik">
-      <div className="t-heading">
-        <span>
-          TÜİK'i Tanıyalım.. <br />{" "}
-        </span>
-        <span>TÜİK </span>
-        <span>Nedir?</span>
-        <div
-          className="blur t-blur1"
-          style={{ background: "var(--purple)" }}
-        ></div>
-        <div className="blur t-blur2" style={{ background: "skyblue" }}></div>
-      </div>
-      <Swiper
-        // install Swiper modules
-        {...swiperProps}
-        modules={[Pagination]}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-      >
-        {icerikler.map((icerik, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <div className="tuik">
-                {/* <img src={client.img} alt="" /> */}
-                <span
-                  style={{
-                    color: "orange",
-                    fontSize: "18pt",
-                  }}
-                >
-                  {icerik.title}
-                  <br />
-                  <br />
-                </span>
-                <span>{icerik.review}</span>
-              </div>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
-      <div className="swiper-button-prev">
-        <svg
-          id="right-arrow"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ transform: "rotate(-180deg)", zIndex: 2 }}
-        >
-          <path d="M6 18L18 12L6 6V18Z" fill="orange" />
-        </svg>
-      </div>
+    // <div className="t-wrapper" id="tuik">
+    //   <div className="t-heading">
+    //     <span>
+    //       TÜİK'i Tanıyalım.. <br />{" "}
+    //     </span>
+    //     <span>TÜİK </span>
+    //     <span>Nedir?</span>
+    //     <div
+    //       className="blur t-blur1"
+    //       style={{ background: "var(--purple)" }}
+    //     ></div>
+    //     <div className="blur t-blur2" style={{ background: "skyblue" }}></div>
+    //   </div>
+    //   <Swiper
+    //     // install Swiper modules
+    //     {...swiperProps}
+    //     modules={[Pagination]}
+    //     slidesPerView={1}
+    //     pagination={{ clickable: true }}
+    //   >
+    //     {icerikler.map((icerik, index) => {
+    //       return (
+    //         <SwiperSlide key={index}>
+    //           <div className="tuik">
+    //             {/* <img src={client.img} alt="" /> */}
+    //             <span
+    //               style={{
+    //                 color: "orange",
+    //                 fontSize: "18pt",
+    //               }}
+    //             >
+    //               {icerik.title}
+    //               <br />
+    //               <br />
+    //             </span>
+    //             <span>{icerik.review}</span>
+    //           </div>
+    //         </SwiperSlide>
+    //       );
+    //     })}
+    //   </Swiper>
+    //   <div className="swiper-button-prev">
+    //     <svg
+    //       id="right-arrow"
+    //       viewBox="0 0 24 24"
+    //       xmlns="http://www.w3.org/2000/svg"
+    //       style={{ transform: "rotate(-180deg)", zIndex: 2 }}
+    //     >
+    //       <path d="M6 18L18 12L6 6V18Z" fill="orange" />
+    //     </svg>
+    //   </div>
 
-      <div className="swiper-button-next">
-        <svg
-          id="right-arrow"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ zIndex: 2 }}
-        >
-          <path d="M6 18L18 12L6 6V18Z" fill="orange" />
-        </svg>
+    //   <div className="swiper-button-next">
+    //     <svg
+    //       id="right-arrow"
+    //       viewBox="0 0 24 24"
+    //       xmlns="http://www.w3.org/2000/svg"
+    //       style={{ zIndex: 2 }}
+    //     >
+    //       <path d="M6 18L18 12L6 6V18Z" fill="orange" />
+    //     </svg>
+    //   </div>
+    // </div>
+    <div className="container-tuik" id="tuik">
+      <div className="left-column">
+        <div style={{ marginLeft: "2rem" }}>
+          <img src={tkc_tuik_timeline} alt="" />
+        </div>
+      </div>
+      <div className="right-column">
+        <div>
+          <Swiper
+            {...swiperProps}
+            modules={[Pagination]}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+          >
+            {icerikler.map((info, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  {/* <div class="istatistik-bg-image"> */}
+                  <div className="tuik">
+                    <div
+                      style={{
+                        marginLeft: "2rem",
+                        marginRight: "2rem",
+                        marginTop: "2rem",
+                      }}
+                    >
+                      <span className="tuik-header" style={{ color: "orange" }}>
+                        {info.header}
+                        <br />
+                        <br />
+                      </span>
+                      <span className="tuik-review" style={{ color: "grey" }}>
+                        {info.review}
+                      </span>{" "}
+                    </div>
+                  </div>
+                  {/* </div> */}
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+        <div className="swiper-button-prev">
+          <svg
+            id="right-arrow"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ transform: "rotate(-180deg)", zIndex: 8 }}
+          >
+            <path d="M6 18L18 12L6 6V18Z" fill="#0099ff" />
+          </svg>
+        </div>
+        <div className="swiper-button-next">
+          <svg
+            id="right-arrow"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ zIndex: 8 }}
+          >
+            <path d="M6 18L18 12L6 6V18Z" fill="#0099ff" />
+          </svg>
+        </div>
+        <div style={{ marginLeft: "2rem" }}>
+          <img src={tkc_kuslar1} alt="" />
+        </div>
       </div>
     </div>
   );
