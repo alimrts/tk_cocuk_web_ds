@@ -10,19 +10,20 @@ const navbar = () => {
   return (
     <div id="Navbar">
       {/* left */}
-      <div className="n-left">
+      <div className="n-left" style={{ marginTop: "-4rem" }}>
         <Link to="Intro" smooth={true} spy={true}>
           <FloatinDivForNavbarLogo img={tkc_logo} />
         </Link>
       </div>
       {/* right */}
-      <div className="n-right" style={{ marginTop: "-4rem" }}>
-        <span style={{ marginRight: "2rem", marginTop: "-2rem" }}>
+      <div className="n-right" style={{ marginTop: "0rem" }}>
+        {/* <span style={{ marginRight: "2rem", marginTop: "-4rem" }}>
           Hoş geldin!{" "}
-        </span>
+        </span> */}
+
         <div
           className="n-list"
-          style={{ marginRight: "2rem", marginTop: "-2rem" }}
+          style={{ marginRight: "2rem", marginTop: "-4rem" }}
         >
           <Toggle />
         </div>
