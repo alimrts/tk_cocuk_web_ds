@@ -3,21 +3,17 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Intro from "../components/Intro/Intro";
 import Istatistik from "../components/Istatistik/Istatistik";
-// import "./App.css";
 
-import Works from "./VideoIzle/VideoIzle";
-import Unicef from "../components/Unicef/Unicef";
+import VideoIzle from "./VideoIzle/VideoIzle";
 
 import Tuik from "../components/Tuik/Tuik";
-import Sdg from "../components/Sdg/Sdg";
+
 import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
 import { useContext } from "react";
 import { themeContext } from "../Context";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
-import Cocukhaklari from "../components/cocukhaklari/Cocukhaklari";
 
-import RegisterPage from "../components/RegisterPage";
 import Metaverse from "./Metaverse";
 
 const MainPage = () => {
@@ -56,17 +52,7 @@ const MainPage = () => {
   const sehir = userInfo?.city;
   const cinsiyet = userInfo?.gender;
 
-  ///
   return (
-    // <div>
-    //   <h1>Welcome to the main page!</h1>
-    //   <div>
-    //     Name: {userInfo?.firstName} {userInfo?.lastName}
-    //   </div>
-    //   <div>Email: {userInfo?.email}</div>
-    //   {/* Add more user information here */}
-    // </div>
-
     <div>
       {showMetaverse ? (
         <>
@@ -108,14 +94,9 @@ const MainPage = () => {
 
           <BrowserRouter>
             <Istatistik />
-
-            <Works />
-            {/* <Unicef /> */}
-            {/* <Sdg />
-      <Cocukhaklari /> */}
+            <VideoIzle />
             <Tuik />
             <Contact />
-
             <Footer />
           </BrowserRouter>
         </div>

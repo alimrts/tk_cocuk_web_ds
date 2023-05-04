@@ -13,7 +13,15 @@ import { useLocation } from "react-router-dom";
 
 import * as THREE from "three";
 
-import { Sky, Stats, useGLTF, useAnimations, useProgress, Html, Text } from "@react-three/drei";
+import {
+  Sky,
+  Stats,
+  useGLTF,
+  useAnimations,
+  useProgress,
+  Html,
+  Text,
+} from "@react-three/drei";
 
 // import CameraOrbitControls from './components/CameraOrbitControls'
 import Lights from "./metaverse/Lights";
@@ -22,23 +30,14 @@ import { DemoScene } from "./metaverse/DemoScene";
 import Interacty from "./metaverse/Interacty";
 import Player from "./metaverse/Player";
 
-// const MyCube = () => {
-//   const model = useGLTF('./models/cube.glb')
-
-//   const { actions } = useAnimations(model.animations, model.scene)
-//   console.log(model)
-//   useEffect(() => {
-//     actions?.bounce?.play()
-//   }, [])
-
-//   return <primitive object={model.scene} />
-// }
 function Loader() {
   const { progress } = useProgress();
   return (
     <Html center>
       {" "}
-      <div style={{ fontSize: 30, color: "white" }}>{progress} % yükleniyor</div>
+      <div style={{ fontSize: 30, color: "white" }}>
+        {progress} % yükleniyor
+      </div>
     </Html>
   );
 }
@@ -85,7 +84,10 @@ function Metaverse(props) {
 
       <div className="canvas-container">
         {
-          <Canvas shadows camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 4, 4.5] }}>
+          <Canvas
+            shadows
+            camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 4, 4.5] }}
+          >
             <Suspense fallback={<Loader />}>
               {testing ? <Stats /> : null}
               {testing ? <axesHelper args={[2]} /> : null}
@@ -111,48 +113,11 @@ function Metaverse(props) {
                 çok yakında oyunlar burada olacak.
               </Text>
 
-              <DemoScene position={[0.5, 0.15, 3]} rotation={[0, 3.1, 0]} scale={[1.2, 1.2, 1.2]} />
-
-              {/* <mesh
-        {...props}
-        position={[-0.9, 1.1, 5.8]}
-        rotation={[0, 90, 0]}
-        visible={true}
-        ref={meshRef}
-        scale={[2, 2, 0.05]}
-        onClick={(event) => click(!clickedTosecond)}
-        onPointerOver={(event) => hover(true)}
-        onPointerOut={(event) => hover(false)}
-      >
-        <boxGeometry args={[1, 1, 1]}  />
-        <Html>{<div>Giriş!</div>}</Html>
-        <meshStandardMaterial color={hovered ? "yellow" : "orange"} />
-      </mesh> */}
-
-              {/* <mesh
-                position={[0, 2.1, -7]}
-                {...props}
-                visible={true}
-                // scale={clickedTofirst ? 1.5 : 1}
-                scale={hoveredFirst ? 1.2 : 1}
-                onClick={(event) => setClickedToFirst(!clickedTofirst)}
-                onPointerOver={(event) => setHoverFirst(true)}
-                onPointerOut={(event) => setHoverFirst(false)}
-              >
-                <boxGeometry args={[1, 1, 0.01]}>
-                  <bufferAttribute
-                    attachObject={["attributes", "uv"]}
-                    array={[0, 0, 1, 0, 1, 1, 0, 1]}
-                    count={4}
-                    itemSize={2}
-                  />
-                </boxGeometry>
-
-                <meshStandardMaterial
-                  map={texture2}
-                  color={hoveredFirst ? "#B4DAD9" : "#CCEBEA"}
-                />
-              </mesh> */}
+              <DemoScene
+                position={[0.5, 0.15, 3]}
+                rotation={[0, 3.1, 0]}
+                scale={[1.2, 1.2, 1.2]}
+              />
 
               <mesh
                 position={[0.6, 2.1, -7]}
@@ -165,25 +130,21 @@ function Metaverse(props) {
                 onPointerOut={(event) => setHoverSecond(false)}
               >
                 <boxGeometry args={[1, 1, 0.01]}>
-                  <bufferAttribute attachObject={["attributes", "uv"]} array={[0, 0, 1, 0, 1, 1, 0, 1]} count={4} itemSize={2} />
+                  <bufferAttribute
+                    attachObject={["attributes", "uv"]}
+                    array={[0, 0, 1, 0, 1, 1, 0, 1]}
+                    count={4}
+                    itemSize={2}
+                  />
                 </boxGeometry>
 
-                <meshStandardMaterial map={texture} color={hoveredSecond ? "#B4DAD9" : "#CCEBEA"} />
+                <meshStandardMaterial
+                  map={texture}
+                  color={hoveredSecond ? "#B4DAD9" : "#CCEBEA"}
+                />
               </mesh>
 
-              {/* <Tree/>
-
-        <Yol/> */}
-
-              {/* <DemoScene1  position={[0, -0.1, 0]}/> */}
-
-              {/* <MyCube /> */}
-
               <Player cinsiyet={cinsiyet} />
-
-              {/* <OrbitControls /> */}
-
-              {/* <CameraOrbitControls /> */}
             </Suspense>
           </Canvas>
         }

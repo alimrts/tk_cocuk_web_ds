@@ -10,13 +10,32 @@
 }
 
 .right-column {
-  
   width: 70%;
   padding: 0 20px;
   margin-right: 4rem;
   margin-bottom: 4rem;
   transform: scale(0.9);
 }
+
+/* .istatistik-bg-image {
+  background-image: url('/src/img/tkc_istatistik_icerik_bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 600px;
+  height: 527px;
+}
+
+@media screen and (max-width: 600px) {
+  .istatistik-bg-image {
+    height: 550px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .istatistik-bg-image {
+    height: 600px;
+  }
+} */
 
 /* blur */
 .blur {
@@ -40,7 +59,7 @@
     margin-top: 4rem;
   }
 
-  .right-column  {
+  .right-column {
     transform: scale(0.7);
     left: -3rem;
   }
@@ -56,7 +75,7 @@
 
 /* Media query for mobile devices */
 @media (max-width: 767px) {
-  .right-column  {
+  .right-column {
     transform: scale(0.8);
     top: -18rem;
   }
@@ -65,12 +84,11 @@
     top: -8rem;
     left: -8vh;
   }
-
 }
 
 /* Media query for mobile devices */
 @media (max-width: 1023px) {
-  .right-column  {
+  .right-column {
     transform: scale(0.8);
     top: -4rem;
   }
@@ -79,38 +97,34 @@
     top: -4rem;
     left: -8vh;
   }
-
 }
 
 /* Media query for tablets in portrait orientation */
 @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
-  .right-column  {
+  .right-column {
     transform: scale(0.8);
   }
-  .left-column{
+  .left-column {
     transform: scale(0.8);
     left: -3rem;
   }
-
 }
 
 /* Media query for tablets in landscape orientation */
 @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
-  .right-column  {
+  .right-column {
     transform: scale(0.85);
   }
   .left-column {
     transform: scale(0.85);
     left: -3rem;
   }
-
 }
-
 
 .istatistik {
   position: relative;
   max-width: 40rem;
-  max-height: auto; 
+  max-height: auto;
   min-height: 16rem;
   margin-top: -4rem;
   background: rgba(255, 255, 255, 0.86);
@@ -128,29 +142,28 @@
   line-height: 1.4;
   object-fit: cover;
   white-space: normal;
-  overflow: hidden; 
+  overflow: hidden;
   padding: 6vh;
 }
 
 .swiper-button-prev {
   display: flex;
   position: absolute;
-  left: 0; 
-  top: 50%; 
-  transform: translateY(-50%); 
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
   z-index: 999;
 }
 .swiper-button-next {
   display: flex;
   position: absolute;
-  right: 0; 
-  top: 50%; 
+  right: 0;
+  top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
   z-index: 999;
 }
-
 
 .istatistik-header {
   font-size: 1.1rem;
@@ -159,10 +172,7 @@
   font-size: 1.1rem;
 }
 
-
-
 .istatistik > span {
- 
   color: var(--gray);
   max-width: 90%;
 }
@@ -184,7 +194,6 @@
     font-size: 1.1rem;
   }
 
-  
   .container-istatistik .istatistik > span {
     font-size: 1rem !important;
   }
@@ -227,9 +236,4 @@
   .container-istatistik {
     padding: 0;
   }
- 
 }
-
-
-
-

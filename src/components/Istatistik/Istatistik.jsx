@@ -338,32 +338,32 @@ const Istatistik = () => {
             {infos.map((info, index) => {
               return (
                 <SwiperSlide key={index}>
-                  {/* <div class="istatistik-bg-image"> */}
-                  <div className="istatistik">
-                    <div
-                      style={{
-                        marginLeft: "2rem",
-                        marginRight: "2rem",
-                        marginTop: "2rem",
-                      }}
-                    >
-                      <span
-                        className="istatistik-header"
-                        style={{ color: "orange" }}
+                  <div class="istatistik-bg-image">
+                    <div className="istatistik">
+                      <div
+                        style={{
+                          marginLeft: "2rem",
+                          marginRight: "2rem",
+                          marginTop: "2rem",
+                        }}
                       >
-                        {info.header}
-                        <br />
-                        <br />
-                      </span>
-                      <span
-                        className="istatistik-review"
-                        style={{ color: "grey" }}
-                      >
-                        {info.review}
-                      </span>{" "}
+                        <span
+                          className="istatistik-header"
+                          style={{ color: "orange" }}
+                        >
+                          {info.header}
+                          <br />
+                          <br />
+                        </span>
+                        <span
+                          className="istatistik-review"
+                          style={{ color: "grey" }}
+                        >
+                          {info.review}
+                        </span>{" "}
+                      </div>
                     </div>
                   </div>
-                  {/* </div> */}
                 </SwiperSlide>
               );
             })}

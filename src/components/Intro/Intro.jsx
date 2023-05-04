@@ -7,7 +7,6 @@ import istatistik from "../../img/g_istatistik.png";
 import cocukhaklari from "../../img/g1.png";
 import oyun from "../../img/g2.png";
 import tuiktani from "../../img/g3.png";
-// import uniceftani from "../../img/g4.png";
 import sdg from "../../img/g5.png";
 import FloatinDiv from "../FloatingDiv/FloatingDiv";
 
@@ -249,14 +248,14 @@ const Intro = (props) => {
 
   useEffect(() => {
     getInfo();
-  }, []); // Empty dependency array to ensure effect only runs once
+  }, []);
 
   let str = props.ad;
-  let words = str.split(" "); // split the string into an array of words
+  let words = str.split(" ");
   for (let i = 0; i < words.length; i++) {
-    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1); // capitalize the first letter of each word
+    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
   }
-  let capitalizedStr = words.join(" "); // join the words back into a string
+  let capitalizedStr = words.join(" ");
   return (
     <div className="Intro" id="Intro">
       {/* left name side */}
@@ -278,7 +277,7 @@ const Intro = (props) => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              // padding: "0 60px ", // added padding to help with layout
+              // padding: "0 60px ",
 
               marginLeft: "0rem",
               marginTop: "0rem",
@@ -307,13 +306,7 @@ const Intro = (props) => {
             )}
           </div>
         </div>
-        {/* <Link to="contact" smooth={true} spy={true}> */}
-        {/* <Link
-        to={{ pathname: "https://tuikcocuk-webdemo.vercel.app/" }}
-        target="_blank"
-      >
-        <button className="button i-button">Başla</button>
-      </Link> */}
+
         <div
           style={{
             display: "flex",
@@ -348,8 +341,6 @@ const Intro = (props) => {
       {/* right image side */}
       <div className="i-right">
         {/* animation */}
-
-        {/* animation */}
         <motion.div
           initial={{ left: "-34%", top: "-8rem" }}
           whileInView={{ left: "-6%", top: "-8rem" }}
@@ -360,7 +351,6 @@ const Intro = (props) => {
           <Link to="istatistik" smooth={true} spy={true}>
             <FloatinDivForIntroRight img={tkc_istatistik_ogrenelim} />
           </Link>
-          {/* floatinDiv mein change hy dark mode ka */}
         </motion.div>
 
         <motion.div
@@ -386,7 +376,6 @@ const Intro = (props) => {
           <NavLink to={{ pathname: "/cocukhaklari" }} target="_blank">
             <FloatinDivForIntroRight img={tkc_cocuk_haklari} />
           </NavLink>
-          {/* floatinDiv mein change hy dark mode ka */}
         </motion.div>
 
         <motion.div
@@ -404,19 +393,7 @@ const Intro = (props) => {
           >
             <FloatinDivForIntroRight img={tkc_oyun_oynayalim} />
           </Link>
-          {/* floatinDiv mein change hy dark mode ka */}
         </motion.div>
-
-        {/* <motion.div
-        initial={{ top: "-12%", left: "74%" }}
-        whileInView={{ left: "18%" }}
-        transition={transition}
-        className="floating-div"
-      >
-        <Link to="unicef" smooth={true} spy={true}>
-          <FloatinDiv img={uniceftani} text1="UNICEF'i " text2="Tanıyalım" />
-        </Link>
-      </motion.div> */}
 
         <motion.div
           initial={{ left: "48%", top: "2%" }}
@@ -439,56 +416,12 @@ const Intro = (props) => {
           }}
           // initial={{ left: "-20%" }}
           // whileInView={{ left: "-14%" }}
-          animate={{ top: ["-2%", "2%", "-2%"] }} // array of values to loop
+          animate={{ top: ["-2%", "2%", "-2%"] }}
           transition={transitionOfBalloon}
           src={tkc_balon}
           alt=""
         />
 
-        {/* <div className="blur" style={{ background: "rgb(238 210 255)" }}></div>
-        <div
-          className="blur"
-          style={{
-            background: "#F6FFBF",
-            top: "-6rem",
-            width: "21rem",
-            height: "11rem",
-            left: "4rem",
-          }}
-        ></div>
-
-        <div
-          className="blur"
-          style={{
-            background: "#FFAAFB",
-            top: "0rem",
-            width: "21rem",
-            height: "11rem",
-            left: "-18rem",
-          }}
-        ></div>
-
-        <div
-          className="blur"
-          style={{
-            background: "#80ffff",
-            top: "0rem",
-            width: "21rem",
-            height: "11rem",
-            left: "22rem",
-          }}
-        ></div>
-
-        <div
-          className="blur"
-          style={{
-            background: "#AAFFCD",
-            top: "10rem",
-            width: "21rem",
-            height: "11rem",
-            left: "-14rem",
-          }}
-        ></div> */}
         <div
           className="blur"
           style={{
@@ -500,16 +433,6 @@ const Intro = (props) => {
             zIndex: "-999",
           }}
         ></div>
-        {/* <div
-          className="blur"
-          style={{
-            background: "#ffb3b3",
-            top: "10rem",
-            width: "21rem",
-            height: "11rem",
-            left: "16rem",
-          }}
-        ></div> */}
       </div>
     </div>
   );
