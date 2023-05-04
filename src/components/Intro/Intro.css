@@ -169,7 +169,7 @@
   }
 
   .i-left {
-    transform: scale(0.7);
+    transform: scale(0.6);
     left: -3rem;
   }
   .i-left-canvas {
@@ -208,17 +208,31 @@
 @media (max-width: 1023px) {
   .i-right {
     transform: scale(0.8);
-    top: -4rem;
+    top: -8rem;
+    left: -6rem;
   }
   .i-left {
-    transform: scale(0.6);
-    top: -4rem;
-    left: -8vh;
+    transform: scale(0.45);
+    top: -1rem;
+    left: -10vh;
   }
   .i-left-canvas {
     transform: scale(1.28);
     top: 3rem;
     left: 1rem;
+  }
+
+  .i-name > :nth-child(1) {
+    color: var(--orange);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  .i-name > :nth-child(2) {
+    color: var(--blue);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
   }
 }
 
