@@ -173,7 +173,7 @@
     left: -3rem;
   }
   .i-left-canvas {
-    transform: scale(1.28);
+    transform: scale(1.58);
     top: 3rem;
     left: 1rem;
   }
@@ -198,7 +198,7 @@
     left: -8vh;
   }
   .i-left-canvas {
-    transform: scale(1.28);
+    transform: scale(1.58);
     top: 3rem;
     left: 1rem;
   }
@@ -217,9 +217,9 @@
     left: -10vh;
   }
   .i-left-canvas {
-    transform: scale(1.28);
-    top: 3rem;
-    left: 1rem;
+    transform: scale(1.58);
+    top: 6.5rem;
+    left: 5rem;
   }
 
   .i-name > :nth-child(1) {
@@ -246,7 +246,7 @@
     left: -3rem;
   }
   .i-left-canvas {
-    transform: scale(1.15);
+    transform: scale(1.58);
     top: 0.5rem;
     left: 0.5rem;
   }
@@ -262,7 +262,7 @@
     left: -3rem;
   }
   .i-left-canvas {
-    transform: scale(1.1);
+    transform: scale(1.58);
     top: 0.5rem;
     left: 0.5rem;
   }

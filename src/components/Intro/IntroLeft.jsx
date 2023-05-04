@@ -113,7 +113,7 @@ const IntroLeft = (props) => {
             marginTop: "4rem",
             paddingLeft: "2rem",
             paddingRight: "20rem",
-            minWidth: "35%",
+            minWidth: "65%",
           }}
         >
           {" "}

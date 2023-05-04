@@ -8,7 +8,8 @@
   left: 0;
   right: 0;
   z-index: 999;
-  height: 18vh;
+  height: 8rem;
+
   /* background: linear-gradient(to top, rgba(154, 239, 239, 1)); */
   background: linear-gradient(
     to top,
@@ -62,6 +63,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -4rem;
   background-color: var(--orange);
   transition: background-color 0.2s ease-in-out;
   border: none;
@@ -85,7 +87,7 @@
   flex-direction: column;
   position: absolute;
   margin-left: 20vh;
-  top: 8vh;
+  top: 12vh;
   left: 2rem;
   background: linear-gradient(
     to bottom,
@@ -119,9 +121,14 @@
   color: var(--orange);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
   .hamburger {
     display: none;
+  }
+
+  .n-left {
+    display: flex;
+    align-items: flex-start;
   }
 
   .navigation-menu {

@@ -116,8 +116,8 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+        <Toggle />
       </div>
-      <Toggle />
     </nav>
   );
 };
