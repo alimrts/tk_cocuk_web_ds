@@ -41,21 +41,19 @@ const VideoIzle = () => {
   // transition
   return (
     <>
-      <div>
+      <div className="videolar">
         <span
+          className="video-izle-text"
           style={{
             color: darkMode ? "white" : "#99cc33",
             display: "flex",
-            justifyContent: "right",
-            marginRight: "12rem",
-            fontSize: "2.25rem",
           }}
         >
           Video izleyelim
         </span>
       </div>
 
-      <div className="works" id="works">
+      <div className="videorow" id="works">
         {/* left side */}
 
         <div className="w-right">

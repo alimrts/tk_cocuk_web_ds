@@ -27,7 +27,7 @@ const swiperProps = {
 let bullet;
 bullet = "\u007F" + "\u007F" + "\u2022";
 const text1 = (
-  <span style={{ fontSize: "14pt" }}>
+  <span style={{ fontSize: "12pt" }}>
     İstatistik, çevremizdeki olup bitenin sayılarla ifadesidir. Belirli bir
     araştırmadan toplanan sayısal değerler ile bu sayısal değerlerden
     yararlanarak hazırlanan tablo, şekil ve grafiklerdir.
@@ -35,7 +35,7 @@ const text1 = (
 );
 
 const text2 = (
-  <span style={{ fontSize: "14pt" }}>
+  <span style={{ fontSize: "12pt" }}>
     İstatistik ayrıca, geçmişin ve şimdiki durumu çeşitli sayısal tekniklerle
     analiz ederek gelecek hakkında karar vermeyi sağlayan bir bilim dalıdır.
     <br /> <br /> Örneğin,
@@ -47,7 +47,7 @@ const text2 = (
 );
 
 const text3 = (
-  <span style={{ fontSize: "14pt" }}>
+  <span style={{ fontSize: "12pt" }}>
     Bir amaca yönelik yapılan sayım, anket, araştırma veya gözlem sonucunda elde
     edilen değerlerin her birine veri denir.
     <br /> <br /> Bir okuldaki öğrencilerin; yaş, kilo ve boylarının incelenmesi
@@ -57,7 +57,7 @@ const text3 = (
 );
 
 const text4 = (
-  <span style={{ fontSize: "14pt" }}>
+  <span style={{ fontSize: "12pt" }}>
     Toplanan verilerin işlenmesi ve değerlendirilmesi sonucu elde edilen
     değerlere bilgi denir.
     <br /> <br />
@@ -69,7 +69,7 @@ const text4 = (
 );
 
 const text5 = (
-  <span style={{ fontSize: "14pt" }}>
+  <span style={{ fontSize: "12pt" }}>
     Bir olayın tekrarlanma sıklığını gösteren verilerden oluşan tabloya sıklık
     (frekans) tablosu denir.
     <br />
@@ -139,7 +139,7 @@ const tableObject = (
 const text6 = (
   <>
     {" "}
-    <span style={{ fontSize: "14pt" }}>
+    <span style={{ fontSize: "12pt" }}>
       Örnek 2: <br />
       Okulumuzdaki öğrencilerin en sevdiği spor türlerine ait sıklık tablosunun
       aşağıdaki şekilde olduğunu düşünürsek, okulumuzdaki en sevilen sporun
@@ -152,14 +152,14 @@ const text6 = (
 const text7 = (
   <>
     {" "}
-    <span style={{ fontSize: "14pt" }}>
+    <span style={{ fontSize: "12pt" }}>
       Aritmetik ortalama, bir sayı dizisindeki verilerin toplamının veri
       sayısına bölünmesi ile elde edilen değerdir. <br /> <br />
-      {bullet} Bir ailede bulunan fertlerin yaşları 36, 40, 14, 4, 6 olsun.{" "}
+      {bullet} Bir ailede bulunan fertlerin yaşları 36, 40, 12, 4, 6 olsun.{" "}
       <br />
       {bullet} Bu sayı dizisinde veri sayısı 5’tir
       <br />
-      {bullet} 36 + 40 + 14 + 4 + 6 = 100
+      {bullet} 36 + 40 + 12 + 4 + 6 = 100
       <br />
       {bullet} Aritmetik ortalama = 100 ÷ 5 = 20’dir
     </span>
@@ -169,7 +169,7 @@ const text7 = (
 const text8 = (
   <>
     {" "}
-    <span style={{ fontSize: "14pt" }}>
+    <span style={{ fontSize: "12pt" }}>
       Sayı dizisi, büyükten küçüğe veya küçükten büyüğe sıralandıktan sonra,
       dizinin ortasındaki değere medyan denir.
       <br />
@@ -186,7 +186,7 @@ const text8 = (
 const text9 = (
   <>
     {" "}
-    <span style={{ fontSize: "14pt" }}>
+    <span style={{ fontSize: "12pt" }}>
       Bir sayı dizisinde en çok tekrarlanan değerdir.
       <br /> <br />
       Örnek:
@@ -209,7 +209,7 @@ const text9 = (
 const text10 = (
   <>
     {" "}
-    <span style={{ fontSize: "14pt" }}>
+    <span style={{ fontSize: "12pt" }}>
       Veriler arasında karşılaştırma yapmaya yarayan şekle grafik denir.
       <br />
       Veri, grafikle gösterildiğinde daha kolay anlaşılabilir.
@@ -224,7 +224,7 @@ const text10 = (
 const text11 = (
   <>
     {" "}
-    <span style={{ fontSize: "14pt" }}>
+    <span style={{ fontSize: "12pt" }}>
       Verilerin sütun şeklinde gösterildiği grafik türüne sütun grafiği denir.
       <br />
       {bullet} Verinin değeri arttıkça sütunların yüksekliği de artar.
@@ -233,14 +233,14 @@ const text11 = (
       <br />
       <br />
     </span>
-    <img src={sutunGrafik} alt="sutun_grafik" />
+    <img style={{ width: "90%" }} src={sutunGrafik} alt="sutun_grafik" />
   </>
 );
 
 const text12 = (
   <>
     {" "}
-    <span style={{ fontSize: "14pt" }}>
+    <span style={{ fontSize: "12pt" }}>
       Verilerin, pastanın dilimleri şeklinde gösterildiği grafik türüne pasta
       grafiği denir.
       <br />
@@ -248,14 +248,14 @@ const text12 = (
       <br />
       <br />
     </span>
-    <img src={pastaGrafik} alt="pasta_grafik" />
+    <img style={{ width: "90%" }} src={pastaGrafik} alt="pasta_grafik" />
   </>
 );
 
 const text13 = (
   <>
     {" "}
-    <span style={{ fontSize: "14pt" }}>
+    <span style={{ fontSize: "12pt" }}>
       Verilerin zaman içindeki değişimini göstermek amacıyla çizgi şeklinde
       hazırlanan grafik türüne çizgi grafik denir. <br /> <br />
     </span>
@@ -323,52 +323,39 @@ const Istatistik = () => {
   return (
     <div className="container-istatistik" id="istatistik">
       <div className="left-column">
-        <div style={{ marginLeft: "2rem" }}>
-          <img src={tkc_istatistik_timeline} alt="" />
-        </div>
+        <img src={tkc_istatistik_timeline} alt="" />
       </div>
       <div className="right-column">
-        <div>
-          <Swiper
-            {...swiperProps}
-            modules={[Pagination]}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-          >
-            {infos.map((info, index) => {
-              return (
-                <SwiperSlide key={index}>
-                  <div class="istatistik-bg-image">
-                    <div className="istatistik">
-                      <div
-                        style={{
-                          marginLeft: "2rem",
-                          marginRight: "2rem",
-                          marginTop: "2rem",
-                        }}
-                      >
-                        <span
-                          className="istatistik-header"
-                          style={{ color: "orange" }}
-                        >
-                          {info.header}
-                          <br />
-                          <br />
-                        </span>
-                        <span
-                          className="istatistik-review"
-                          style={{ color: "grey" }}
-                        >
-                          {info.review}
-                        </span>{" "}
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        </div>
+        <Swiper
+          {...swiperProps}
+          modules={[Pagination]}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+        >
+          {infos.map((info, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <div className="istatistik-card">
+                  <span
+                    className="istatistik-card-text"
+                    style={{ color: "orange" }}
+                  >
+                    {info.header}
+                    <br />
+                    <br />
+                  </span>
+                  <span
+                    className="istatistik-card-text"
+                    style={{ color: "grey" }}
+                  >
+                    {info.review}
+                  </span>{" "}
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+
         <div className="swiper-button-prev">
           <svg
             id="right-arrow"
@@ -389,8 +376,21 @@ const Istatistik = () => {
             <path d="M6 18L18 12L6 6V18Z" fill="#0099ff" />
           </svg>
         </div>
-        <div style={{ marginLeft: "2rem" }}>
-          <img src={tkc_kuslar1} alt="" />
+        <div
+          style={{
+            backgroundImage: `url(${tkc_kuslar1})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            width: "18rem",
+            height: "8rem",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginLeft: "-4rem",
+            marginTop: "-4rem",
+          }}
+        >
+          {/* <img src={tkc_kuslar1} alt="" /> */}
         </div>
       </div>
     </div>

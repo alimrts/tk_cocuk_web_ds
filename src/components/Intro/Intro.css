@@ -199,8 +199,11 @@
   }
   .i-left-canvas {
     transform: scale(1.58);
-    top: 3rem;
+    top: 1rem;
     left: 1rem;
+  }
+  .i-right .blur {
+    display: none;
   }
 }
 
@@ -218,8 +221,8 @@
   }
   .i-left-canvas {
     transform: scale(1.58);
-    top: 6.5rem;
-    left: 5rem;
+    top: 3rem;
+    left: 4rem;
   }
 
   .i-name > :nth-child(1) {
@@ -233,6 +236,9 @@
     font-weight: bold;
     font-size: 1.1rem;
     text-align: center;
+  }
+  .i-right .blur {
+    display: none;
   }
 }
 

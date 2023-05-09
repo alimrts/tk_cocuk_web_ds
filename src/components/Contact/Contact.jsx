@@ -51,11 +51,11 @@ const Contact = () => {
 
   return (
     <div className="contact-form" id="contact">
-      {/* left side copy and paste from work section */}
       <div className="w-left">
-        <div className="awesome">
+        <div>
           {/* darkMode */}
           <span
+            className="awesome"
             style={{
               color: darkMode ? "white" : "orange",
               display: "flex",
@@ -67,10 +67,10 @@ const Contact = () => {
             İletişim
           </span>
 
-          <div
+          {/* <div
             className="blur s-blur1"
             style={{ background: "#ABF1FF94" }}
-          ></div>
+          ></div> */}
         </div>
       </div>
       {/* right side form */}

@@ -67,10 +67,10 @@ function App() {
         </Switch>
       </BrowserRouter>
       <div id="progress" style={{transform: 'rotate(-90deg)', zIndex:"999"}}>
-  <svg id="progress-value" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6 18L18 12L6 6V18Z" fill="orange"/>
-  </svg>
-</div>
+        <svg id="progress-value" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 18L18 12L6 6V18Z" fill="orange"/>
+        </svg>
+      </div>
     </div>
   )
 }

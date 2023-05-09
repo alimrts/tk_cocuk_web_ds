@@ -6,6 +6,9 @@
       /* scroll */
     
 }
+.awesome{
+    font-size: 2.2rem;
+}
 
 .c-right{
     display: flex;
@@ -38,10 +41,6 @@ textarea{
     height: 4rem!important;
 }
 
-.c-blur1{
-    top: 1rem;
-    left: 8rem;
-}
 
 @media screen and (max-width: 480px) {
     .contact-form{
@@ -49,9 +48,75 @@ textarea{
         flex-direction: column;
         gap: 5rem;
         height: 40rem;
+        
+        margin-top: -10rem;
     }
     .c-right .user{
         width: 16rem;
     }
+    .c-right>form
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        margin-top: -6rem;
+        margin-left: 4rem;
+        
+    }
+    .awesome{
+        font-size: 1rem;
+    }
 
 }   
+
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .contact-form {
+      flex-direction: column;
+      gap: 2rem;
+      height: 40rem;
+      margin-top: 2rem;
+      
+    }
+  
+    .c-right {
+      margin-left: 0;
+    }
+  
+    .c-right > form {
+    
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+      margin-top: 2rem;
+      margin-left: 2rem;
+    }
+  
+    .awesome {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media screen and (min-width: 769px) {
+    .contact-form {
+        height: 40rem;
+      margin-top: 2rem;
+    }
+  
+    .c-right {
+      margin-left: 0;
+      flex: 1;
+    }
+  
+    .c-right > form {
+      margin-top: 0;
+      margin-left: 2rem;
+      max-width: 30rem;
+    }
+  
+    .awesome {
+      font-size: 2.2rem;
+    }
+  }

@@ -30,9 +30,13 @@ const text1 = (
     <br />
     - Ülkemizde kaç kişi yaşıyor, bunların ne kadarı çocuk, yaşadığım yerde kaç
     kişi var, benim adım kaç kişide var gibi nüfus bilgilerini <br />
-    - Ülkemizde kaç okul, kaç öğrenci var gibi eğitim bilgilerini <br />
-    - Ülkemizde kaç doktor ve kaç hastane var gibi sağlık bilgilerini
-    <br />
+    - Ülkemizde kaç okul, kaç öğrenci var gibi eğitim bilgilerini <br />-
+    Ülkemizde kaç doktor ve kaç hastane var gibi sağlık bilgilerini
+  </span>
+);
+
+const text2 = (
+  <span>
     - Cep telefonunu ve İnterneti ne kadar kullanıyoruz gibi teknoloji
     bilgilerini
     <br />
@@ -42,7 +46,7 @@ const text1 = (
   </span>
 );
 
-const text2 = (
+const text3 = (
   <span>
     TÜİK ayrıca, ülkemizdeki diğer kurumlara ve uluslararası kuruluşlara
     istatistik üretimi ile ilgili çalışmalarda da yardımcı olur.
@@ -58,6 +62,10 @@ const Tuik = () => {
     {
       header: "TÜİK Ne İş Yapar?",
       review: text2,
+    },
+    {
+      header: "TÜİK Ne İş Yapar?",
+      review: text3,
     },
   ];
 
@@ -125,11 +133,9 @@ const Tuik = () => {
     //     </svg>
     //   </div>
     // </div>
-    <div className="container-tuik" id="tuik">
+    <div className="container-istatistik" id="tuik">
       <div className="left-column">
-        <div style={{ marginLeft: "2rem" }}>
-          <img src={tkc_tuik_timeline} alt="" />
-        </div>
+        <img src={tkc_tuik_timeline} alt="" />
       </div>
       <div className="right-column">
         <div>
@@ -143,24 +149,23 @@ const Tuik = () => {
               return (
                 <SwiperSlide key={index}>
                   {/* <div class="istatistik-bg-image"> */}
-                  <div className="tuik">
-                    <div
-                      style={{
-                        marginLeft: "2rem",
-                        marginRight: "2rem",
-                        marginTop: "2rem",
-                      }}
+                  <div className="istatistik-card">
+                    <span
+                      className="istatistik-card-text"
+                      style={{ color: "orange" }}
                     >
-                      <span className="tuik-header" style={{ color: "orange" }}>
-                        {info.header}
-                        <br />
-                        <br />
-                      </span>
-                      <span className="tuik-review" style={{ color: "grey" }}>
-                        {info.review}
-                      </span>{" "}
-                    </div>
+                      {info.header}
+                      <br />
+                      <br />
+                    </span>
+                    <span
+                      className="istatistik-card-text"
+                      style={{ color: "grey" }}
+                    >
+                      {info.review}
+                    </span>{" "}
                   </div>
+
                   {/* </div> */}
                 </SwiperSlide>
               );
@@ -187,8 +192,21 @@ const Tuik = () => {
             <path d="M6 18L18 12L6 6V18Z" fill="#0099ff" />
           </svg>
         </div>
-        <div style={{ marginLeft: "2rem" }}>
-          <img src={tkc_kuslar1} alt="" />
+        <div
+          style={{
+            backgroundImage: `url(${tkc_kuslar1})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            width: "18rem",
+            height: "8rem",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginLeft: "-4rem",
+            marginTop: "-4rem",
+          }}
+        >
+          {/* <img src={tkc_kuslar1} alt="" /> */}
         </div>
       </div>
     </div>
