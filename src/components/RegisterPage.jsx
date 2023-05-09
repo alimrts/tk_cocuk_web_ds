@@ -15,6 +15,8 @@ import ModelChar from "../components/Intro/ModelChar";
 import ModelCharEge from "../components/Intro/ModelCharEge";
 import { Suspense } from "react";
 
+import tkc_kuslar1 from "../img/tkc_kuslar1.png";
+
 function Loader() {
   const { progress } = useProgress();
   return (
@@ -234,7 +236,20 @@ const RegisterPage = () => {
               }}
             ></div>
 
-            <div>
+            <div
+              style={{
+                backgroundImage: `url(${tkc_kuslar1})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                width: "18rem",
+                height: "8rem",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginLeft: "-4rem",
+                marginTop: "-4rem",
+              }}
+            >
               <Canvas
                 camera={{ position: [0, 0, 4.25], fov: 15 }}
                 style={{
@@ -280,7 +295,20 @@ const RegisterPage = () => {
               />
             </div>
 
-            <div>
+            <div
+              style={{
+                backgroundImage: `url(${tkc_kuslar1})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                width: "18rem",
+                height: "8rem",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginLeft: "-4rem",
+                marginTop: "-4rem",
+              }}
+            >
               <Canvas
                 camera={{ position: [0, 0, 4.25], fov: 15 }}
                 style={{
