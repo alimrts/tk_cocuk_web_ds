@@ -111,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiOutlinedInput-root": {
       borderRadius: "25px",
       "& fieldset": {
-        borderColor: "#FF69B4",
+        borderColor: "#00EBF6",
         borderWidth: "3px",
       },
       "&:hover fieldset": {
@@ -124,7 +124,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-    backgroundColor: "#FF69B4",
+    backgroundColor: "#00EBF6",
     borderRadius: "25px",
     color: "#fff",
     padding: "10px 50px",
@@ -137,7 +137,7 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiOutlinedInput-root": {
       borderRadius: "25px",
       "& fieldset": {
-        borderColor: "#FF69B4",
+        borderColor: "#00EBF6",
         borderWidth: "3px",
       },
       "&:hover fieldset": {
@@ -154,7 +154,7 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiOutlinedInput-root": {
       borderRadius: "25px",
       "& fieldset": {
-        borderColor: "#FF69B4",
+        borderColor: "#00EBF6",
         borderWidth: "3px",
       },
       "&:hover fieldset": {
@@ -172,7 +172,7 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiOutlinedInput-root": {
       borderRadius: "25px",
       "& fieldset": {
-        borderColor: "#FF69B4",
+        borderColor: "#00EBF6",
         borderWidth: "3px",
       },
       "&:hover fieldset": {
