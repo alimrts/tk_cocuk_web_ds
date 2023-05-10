@@ -367,6 +367,7 @@ const RegisterPage = () => {
 
               width: "120%",
               height: "250px" /* adjust the height as needed */,
+              zIndex: -1,
             }}
           >
             <img
