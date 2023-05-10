@@ -4,7 +4,7 @@ import video from "../img/bayram_kutlama.mp4";
 import leftImage from "../img/leftImage.png";
 import rightImage from "../img/rightImage.png";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 
 import NavbarRegister from "../components/Navbar/NavbarRegister";
@@ -15,7 +15,10 @@ import ModelChar from "../components/Intro/ModelChar";
 import ModelCharEge from "../components/Intro/ModelCharEge";
 import { Suspense } from "react";
 
-import tkc_kuslar1 from "../img/tkc_kuslar1.png";
+import tkc_kuslar1_edit from "../img/tkc_kuslar1_edit.png";
+import tkc_kuslar2_edit from "../img/tkc_kuslar2_edit.png";
+import FooterBg from "../img/tkc_footer_bg.png";
+import zIndex from "@material-ui/core/styles/zIndex";
 
 function Loader() {
   const { progress } = useProgress();
@@ -38,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    marginTop: "-5rem",
+    marginTop: "-8rem",
     [theme.breakpoints.up("md")]: {
       flexDirection: "row",
     },
@@ -79,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formTitle: {
     marginBottom: "1rem",
-    fontSize: "12pt",
+    fontSize: "14pt",
   },
 }));
 
@@ -92,6 +95,12 @@ const RegisterPage = () => {
   const videoRef = useRef(null);
   const [isIOS, setIsIOS] = React.useState(false);
   const [isMobile, setIsMobile] = React.useState(false);
+
+  const transitionOfBulut = {
+    duration: 3.2,
+    ease: "easeInOut",
+    loop: Infinity,
+  };
 
   const handlePlayClick = () => {
     setShowVideo(true);
@@ -230,6 +239,7 @@ const RegisterPage = () => {
               className="blur"
               style={{
                 background: "#ffe6ff",
+
                 top: "5rem",
                 width: "31rem",
                 height: "41rem",
@@ -238,15 +248,15 @@ const RegisterPage = () => {
 
             <div
               style={{
-                backgroundImage: `url(${tkc_kuslar1})`,
+                backgroundImage: `url(${tkc_kuslar1_edit})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
-                width: "18rem",
-                height: "8rem",
+                width: "32rem",
+                height: "32rem",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                marginLeft: "-4rem",
+                marginLeft: "-8rem",
                 marginTop: "-4rem",
               }}
             >
@@ -257,7 +267,7 @@ const RegisterPage = () => {
                   height: "60vh",
                   minWidth: "20vw",
                   minHeight: "30vh",
-
+                  marginLeft: "18rem",
                   cursor: "pointer",
                   border: getBorderStyle(),
                 }}
@@ -297,15 +307,15 @@ const RegisterPage = () => {
 
             <div
               style={{
-                backgroundImage: `url(${tkc_kuslar1})`,
+                backgroundImage: `url(${tkc_kuslar2_edit})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
-                width: "18rem",
-                height: "8rem",
+                width: "32rem",
+                height: "32rem",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                marginLeft: "-4rem",
+                marginLeft: "-2rem",
                 marginTop: "-4rem",
               }}
             >
@@ -347,6 +357,24 @@ const RegisterPage = () => {
               height: "41rem",
             }}
           ></div>
+          <div
+            className="footer"
+            style={{
+              position: "fixed",
+              bottom: 0,
+              left: 0,
+              right: 0,
+
+              width: "120%",
+              height: "250px" /* adjust the height as needed */,
+            }}
+          >
+            <img
+              src={FooterBg}
+              alt=""
+              style={{ width: "100%", marginTop: "4rem" }}
+            />
+          </div>
         </>
       )}
     </>

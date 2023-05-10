@@ -33,6 +33,12 @@ import tkc_cocuk_haklari from "../../img/tkc_cocuk_haklari.png";
 import tkc_tuiki_taniyalim from "../../img/tkc_tuiki_taniyalim.png";
 import tkc_sdg_amaclari from "../../img/tkc_sdg_amaclari.png";
 import tkc_balon from "../../img/tkc_balon.png";
+import kus1 from "../../img/kus1.png";
+import kus2 from "../../img/kus2.png";
+import kus3 from "../../img/kus3.png";
+import kus4 from "../../img/kus4.png";
+import kus5 from "../../img/kus5.png";
+
 import FloatinDivForNavbarMenu from "../FloatingDiv/FloatinDivForNavbarMenu";
 import FloatinDivForIntroRight from "../FloatingDiv/FloatinDivForIntroRight";
 
@@ -124,6 +130,31 @@ const Intro = (props) => {
   const transition = { duration: 2, type: "spring" };
   const transitionOfBalloon = {
     duration: 3,
+    ease: "easeInOut",
+    loop: Infinity,
+  };
+  const transitionOfKus1 = {
+    duration: 3.5,
+    ease: "easeInOut",
+    loop: Infinity,
+  };
+  const transitionOfKus2 = {
+    duration: 4,
+    ease: "easeInOut",
+    loop: Infinity,
+  };
+  const transitionOfKus3 = {
+    duration: 3.8,
+    ease: "easeInOut",
+    loop: Infinity,
+  };
+  const transitionOfKus4 = {
+    duration: 3.2,
+    ease: "easeInOut",
+    loop: Infinity,
+  };
+  const transitionOfKus5 = {
+    duration: 4.1,
     ease: "easeInOut",
     loop: Infinity,
   };
@@ -421,7 +452,18 @@ const Intro = (props) => {
           src={tkc_balon}
           alt=""
         />
-
+        <motion.img
+          style={{
+            marginLeft: "-8rem",
+            marginTop: "8rem",
+            width: "70px",
+            height: "50px",
+          }}
+          animate={{ top: ["-2%", "2%", "-2%"], left: ["-1%", "1%", "-1%"] }}
+          transition={transitionOfKus1}
+          src={kus1}
+          alt=""
+        />
         <div
           className="blur"
           style={{
@@ -433,6 +475,70 @@ const Intro = (props) => {
             zIndex: "-999",
           }}
         ></div>
+        <motion.img
+          style={{
+            marginLeft: "1rem",
+            marginTop: "18rem",
+            width: "40px",
+            height: "20px",
+          }}
+          animate={{
+            top: ["-2%", "2%", "-2%"],
+            left: ["-2%", "2%", "-2%"],
+            rotate: [0, 0, 8, 8, 0],
+          }}
+          transition={transitionOfKus2}
+          src={kus2}
+          alt=""
+        />
+        <motion.img
+          style={{
+            marginLeft: "21rem",
+            marginTop: "24rem",
+            width: "40px",
+            height: "20px",
+          }}
+          animate={{
+            top: ["-2%", "2%", "-2%"],
+            left: ["-2%", "2%", "-2%"],
+            rotate: [0, 0, 8, 8, 0],
+          }}
+          transition={transitionOfKus3}
+          src={kus3}
+          alt=""
+        />
+        <motion.img
+          style={{
+            marginLeft: "26rem",
+            marginTop: "20rem",
+            width: "50px",
+            height: "25px",
+          }}
+          animate={{
+            top: ["-2%", "2%", "-2%"],
+            left: ["-2%", "2%", "-2%"],
+            rotate: [0, 0, 8, 8, 0],
+          }}
+          transition={transitionOfKus4}
+          src={kus4}
+          alt=""
+        />
+        <motion.img
+          style={{
+            marginLeft: "18rem",
+            marginTop: "18rem",
+            width: "50px",
+            height: "25px",
+          }}
+          animate={{
+            top: ["-2%", "2%", "-2%"],
+            left: ["-2%", "2%", "-2%"],
+            rotate: [0, 0, 8, 8, 0],
+          }}
+          transition={transitionOfKus5}
+          src={kus5}
+          alt=""
+        />
       </div>
     </div>
   );

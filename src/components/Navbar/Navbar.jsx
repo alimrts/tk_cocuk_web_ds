@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import Toggle from "../Toggle/Toggle";
 import "./Navbar.css";
 import tkc_logo from "../../img/tkc_logo.png";
@@ -11,7 +12,16 @@ import { NavLink } from "react-router-dom";
 import FloatinDivForNavbarLogo from "../FloatingDiv/FloatingDivForNavbarLogo";
 import FloatinDivForNavbarMenu from "../FloatingDiv/FloatinDivForNavbarMenu";
 
+import tkc_kuslar1 from "../../img/tkc_kuslar1.png";
+import tkc_kuslar2 from "../../img/tkc_kuslar2.png";
+import kus1 from "../../img/kus1.png";
+
 const Navbar = () => {
+  const transitionOfKus1 = {
+    duration: 3,
+    ease: "easeInOut",
+    loop: Infinity,
+  };
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   const ulRef = useRef(null);
@@ -33,9 +43,41 @@ const Navbar = () => {
   return (
     <nav className="navigation">
       <div className="n-left">
+        <div
+          style={{
+            backgroundImage: `url(${tkc_kuslar2})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            width: "12rem",
+            height: "6rem",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginLeft: "-12rem",
+            marginTop: "4rem",
+          }}
+        >
+          {" "}
+        </div>
+
         <Link to="Intro" smooth={true} spy={true}>
           <FloatinDivForNavbarLogo img={tkc_logo} />
         </Link>
+
+        <div
+          style={{
+            backgroundImage: `url(${tkc_kuslar1})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            width: "12rem",
+            height: "6rem",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginLeft: "4rem",
+            marginTop: "4rem",
+          }}
+        ></div>
       </div>
       <button
         className="hamburger"
