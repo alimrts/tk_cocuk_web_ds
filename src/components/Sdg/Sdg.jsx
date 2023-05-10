@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import Dokuman from "./ÇOCUKLAR İÇİN SÜRDÜRÜLEBİLİR KALKINMA GÖSTERGELERİ.pdf";
 import WrapperComponent from "./WrapperComponent";
 import NavbarRegister from "../../components/Navbar/NavbarRegister";
+import tkc_kuslar2_edit from "../../img/tkc_kuslar2_edit.png";
 
 const Sdg = () => {
   // context
@@ -115,6 +116,20 @@ const Sdg = () => {
             }}
           ></div>
         </div>
+        <div
+          style={{
+            backgroundImage: `url(${tkc_kuslar2_edit})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            width: "22rem",
+            height: "22rem",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginLeft: "58rem",
+            marginTop: "-18rem",
+          }}
+        />
         <WrapperComponent />
       </div>
     </>
