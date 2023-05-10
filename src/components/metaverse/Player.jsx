@@ -76,15 +76,17 @@ const Player = (props) => {
 
   const updateCameraTarget = (moveX, moveZ) => {
     // move camera
-    if (
-      camera.position.x > !model.scene.position.x &&
-      camera.position.z > !model.scene.position.z &&
-      camera.position.x > 10 &&
-      camera.position.z > 10
-    ) {
-      camera.position.x += moveX;
-      camera.position.z += moveZ;
-    }
+    // if (
+    //   camera.position.x > !model.scene.position.x &&
+    //   camera.position.z > !model.scene.position.z &&
+    //   camera.position.x > 10 &&
+    //   camera.position.z > 10
+    // ) {
+    //   camera.position.x += moveX;
+    //   camera.position.z += moveZ;
+    // }
+    camera.position.x += moveX;
+    camera.position.z += moveZ;
 
     // update camera target
     cameraTarget.x = model.scene.position.x;
@@ -92,6 +94,7 @@ const Player = (props) => {
     cameraTarget.z = model.scene.position.z;
     if (controlsRef.current) controlsRef.current.target = cameraTarget;
   };
+
   cameraTarget.y = model.scene.position.y + 2;
   useEffect(() => {
     // actions?.walking?.play()
@@ -154,23 +157,26 @@ const Player = (props) => {
       const moveX = walkDirection.x * velocity * delta;
       const moveZ = walkDirection.z * velocity * delta;
 
-      // limit x parameter
-      if (model.scene.position.x + moveX > maxX) {
-        model.scene.position.x = maxX;
-      } else if (model.scene.position.x + moveX < -maxX) {
-        model.scene.position.x = -maxX;
-      } else {
-        model.scene.position.x += moveX;
-      }
+      model.scene.position.z += moveZ;
+      model.scene.position.x += moveX;
 
-      // limit z parameter
-      if (model.scene.position.z + moveZ > maxZ) {
-        model.scene.position.z = maxZ;
-      } else if (model.scene.position.z + moveZ < -maxZ) {
-        model.scene.position.z = -maxZ;
-      } else {
-        model.scene.position.z += moveZ;
-      }
+      // // limit x parameter
+      // if (model.scene.position.x + moveX > maxX) {
+      //   model.scene.position.x = maxX;
+      // } else if (model.scene.position.x + moveX < -maxX) {
+      //   model.scene.position.x = -maxX;
+      // } else {
+      //   model.scene.position.x += moveX;
+      // }
+
+      // // limit z parameter
+      // if (model.scene.position.z + moveZ > maxZ) {
+      //   model.scene.position.z = maxZ;
+      // } else if (model.scene.position.z + moveZ < -maxZ) {
+      //   model.scene.position.z = -maxZ;
+      // } else {
+      //   model.scene.position.z += moveZ;
+      // }
       updateCameraTarget(moveX, moveZ);
     }
   });
@@ -179,7 +185,7 @@ const Player = (props) => {
     <>
       <OrbitControls
         ref={controlsRef}
-        enableZoom={false}
+        enableZoom={true}
         enablePan={true}
         maxPolarAngle={1.4}
         minPolarAngle={1.1}

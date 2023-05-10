@@ -27,6 +27,7 @@ import {
 import Lights from "./metaverse/Lights";
 
 import { DemoScene } from "./metaverse/DemoScene";
+import { CityScene1 } from "./metaverse/CityScene1";
 import Interacty from "./metaverse/Interacty";
 import Player from "./metaverse/Player";
 
@@ -85,7 +86,7 @@ function Metaverse(props) {
       <div className="canvas-container">
         {
           <Canvas
-            shadows
+            // shadows
             camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 4, 4.5] }}
           >
             <Suspense fallback={<Loader />}>
@@ -116,6 +117,11 @@ function Metaverse(props) {
               <DemoScene
                 position={[0.5, 0.15, 3]}
                 rotation={[0, 3.1, 0]}
+                scale={[1.2, 1.2, 1.2]}
+              />
+              <CityScene1
+                position={[0.5, -0.1, 3]}
+                // rotation={[0, 3.1, 0]}
                 scale={[1.2, 1.2, 1.2]}
               />
 
