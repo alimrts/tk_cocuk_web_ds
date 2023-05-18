@@ -155,7 +155,7 @@ export default function PlayerCollider(props) {
       <group ref={group}>
         {/* <Ece mixer={mixer} actions={actions} /> */}
 
-        {cinsiyet === 1 ? (
+        {cinsiyet === "1" ? (
           <Ege mixer={mixer} actions={actions} /> // render this if cinsiyet is 1
         ) : (
           <Ece mixer={mixer} actions={actions} /> // render this if cinsiyet is not 1
