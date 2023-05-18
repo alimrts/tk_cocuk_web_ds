@@ -5,6 +5,10 @@ import { Canvas } from "@react-three/fiber";
 // import { useFrame } from '@react-three/fiber'
 import { Suspense } from "react";
 import { useRef, useState } from "react";
+
+import { Physics } from "@react-three/cannon";
+import Game from "../components/metaworld/Game";
+
 import textureImage3 from "../img/g1.png";
 import textureImage2 from "../img/g3.png";
 import textureImage from "../img/g5m.png";
@@ -30,6 +34,7 @@ import { DemoScene } from "./metaverse/DemoScene";
 import { CityScene1 } from "./metaverse/CityScene1";
 import Interacty from "./metaverse/Interacty";
 import Player from "./metaverse/Player";
+import Yaris1 from "./metaverse/Yaris1";
 
 function Loader() {
   const { progress } = useProgress();
@@ -86,15 +91,41 @@ function Metaverse(props) {
       <div className="canvas-container">
         {
           <Canvas
-            // shadows
-            camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 4, 4.5] }}
+          // shadows
+          // camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 4, 4.5] }}
           >
             <Suspense fallback={<Loader />}>
               {testing ? <Stats /> : null}
               {testing ? <axesHelper args={[2]} /> : null}
               {testing ? <gridHelper args={[10, 10]} /> : null}
 
-              <Lights />
+              {/* <Lights /> */}
+              <ambientLight intensity={0.4} />
+              <pointLight
+                color="white"
+                intensity={0.75}
+                position={[10, 10, 10]}
+              />
+              <spotLight
+                position={[-2.5, 5, 5]}
+                angle={Math.PI / 3}
+                penumbra={0.5}
+                castShadow
+                shadow-mapSize-height={2048}
+                shadow-mapSize-width={2048}
+              />
+
+              <Physics>
+                <Sky
+                  distance={450000}
+                  sunPosition={[5, 1, 8]}
+                  inclination={0}
+                  azimuth={0.25}
+                  {...props}
+                />
+                <Game cinsiyet={cinsiyet} />
+              </Physics>
+
               <Text
                 scale={[0.25, 0.25, 0.25]}
                 position={[0.5, 3.5, -7]}
@@ -119,11 +150,11 @@ function Metaverse(props) {
                 rotation={[0, 3.1, 0]}
                 scale={[1.2, 1.2, 1.2]}
               />
-              <CityScene1
+              {/* <CityScene1
                 position={[0.5, -0.1, 3]}
                 // rotation={[0, 3.1, 0]}
                 scale={[1.2, 1.2, 1.2]}
-              />
+              /> */}
 
               <mesh
                 position={[0.6, 2.1, -7]}
@@ -150,7 +181,7 @@ function Metaverse(props) {
                 />
               </mesh>
 
-              <Player cinsiyet={cinsiyet} />
+              {/* <Player cinsiyet={cinsiyet} /> */}
             </Suspense>
           </Canvas>
         }
@@ -221,6 +252,7 @@ function Metaverse(props) {
         >
           <>
             <Interacty />
+            {/* <Yaris1 /> */}
             <button
               style={{
                 position: "absolute",

@@ -7,6 +7,8 @@ const ImageWithText = ({ text, fullText, imageUrl, fontColor, fontFamily }) => {
   useEffect(() => {
     // Load the image and create a new Fabric.js canvas
     const img = new Image();
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const today = new Date().toLocaleDateString("tr", options);
     img.onload = () => {
       const newCanvas = new fabric.Canvas("canvas");
       newCanvas.setWidth(img.naturalWidth);
@@ -57,6 +59,16 @@ const ImageWithText = ({ text, fullText, imageUrl, fontColor, fontFamily }) => {
       newCanvas.add(fabricText3); // add the text object to the canvas
       //   fabricText3.setCoords(); // update the coordinates of the text object
       //   fabricText3.splitTextIntoLines(); // split text into lines
+
+      const fabricText4 = new fabric.Text("Tarih: " + today, {
+        left: 500, // Custom x position
+        top: 420, // Custom y position
+        fontSize: 14,
+        fontFamily: fontFamily,
+        fontStyle: "italic",
+        fill: "grey",
+      });
+      newCanvas.add(fabricText4);
 
       // Save the canvas to state
       setCanvas(newCanvas);
