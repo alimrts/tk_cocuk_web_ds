@@ -44,17 +44,9 @@ const Navbar = () => {
     <nav className="navigation">
       <div className="n-left">
         <div
+          className="navkuslar2"
           style={{
             backgroundImage: `url(${tkc_kuslar2})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            width: "12rem",
-            height: "6rem",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginLeft: "-12rem",
-            marginTop: "4rem",
           }}
         >
           {" "}
@@ -65,17 +57,9 @@ const Navbar = () => {
         </Link>
 
         <div
+          className="navkuslar1"
           style={{
             backgroundImage: `url(${tkc_kuslar1})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            width: "12rem",
-            height: "6rem",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginLeft: "4rem",
-            marginTop: "4rem",
           }}
         ></div>
       </div>
