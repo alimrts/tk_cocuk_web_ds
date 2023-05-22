@@ -42,7 +42,7 @@ function Loader() {
     <Html center>
       {" "}
       <div style={{ fontSize: 30, color: "white" }}>
-        {progress} % yükleniyor
+        {Math.round(progress)} % yükleniyor
       </div>
     </Html>
   );

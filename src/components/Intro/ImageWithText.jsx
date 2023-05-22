@@ -1,6 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { fabric } from "fabric";
 
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  rootOfCanvas: {
+    position: "relative",
+    width: "100%",
+    height: "100%",
+  },
+  canvas: {
+    border: "1px solid black",
+    width: "100%",
+    height: "100%",
+  },
+}));
+
 const ImageWithText = ({
   text,
   fullText,
@@ -23,6 +38,8 @@ const ImageWithText = ({
   const [canvasInitialized, setCanvasInitialized] = useState(false);
 
   console.log("fullText: ", fullText);
+
+  const classes = useStyles();
 
   useEffect(() => {
     const img = new Image();
@@ -141,11 +158,11 @@ const ImageWithText = ({
   };
 
   return (
-    <div style={{ position: "relative" }}>
-      <canvas id="canvas" style={{ border: "1px solid black" }} />
+    <div className={classes.rootOfCanvas}>
+      <canvas className={classes.canvas} id="canvas" />
       {canvas && (
         <button
-          className="button i-button"
+          className={`button i-button`}
           style={{
             position: "absolute",
             bottom: "20px",

@@ -37,14 +37,26 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    width: "100%",
+    height: "100%",
+    padding: theme.spacing(2),
+    margin: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(2),
+      margin: theme.spacing(1),
+      width: "85%",
+    },
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
     border: "2px solid lightblue",
     borderRadius: "6px",
-
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    [theme.breakpoints.down("sm")]: {
+      width: "85%",
+      maxWidth: "400px",
+    },
   },
 }));
 
@@ -471,23 +483,25 @@ export default function AnimatedModal(props) {
               düzenleyebilirsin.
             </p>
 
-            <ImageWithText
-              key={selectedImage} // to rerender with new state
-              imageUrl={selectedImage}
-              text={capitalizedStr}
-              fullText={fullText}
-              fontColor={isMale ? "#0099ff" : "#ff0080"}
-              fontFamily="Bradley Hand, cursive, sans-serif"
-              text1Left={textPositions.text1Left}
-              text1Top={textPositions.text1Top}
-              text2Left={textPositions.text2Left}
-              text2Top={textPositions.text2Top}
-              text3Left={textPositions.text3Left}
-              text3Top={textPositions.text3Top}
-              text3Width={textPositions.text3Width}
-              text4Left={textPositions.text4Left}
-              text4Top={textPositions.text4Top}
-            />
+            <div className="imageWithTex">
+              <ImageWithText
+                key={selectedImage} // to rerender with new state
+                imageUrl={selectedImage}
+                text={capitalizedStr}
+                fullText={fullText}
+                fontColor={isMale ? "#0099ff" : "#ff0080"}
+                fontFamily="Bradley Hand, cursive, sans-serif"
+                text1Left={textPositions.text1Left}
+                text1Top={textPositions.text1Top}
+                text2Left={textPositions.text2Left}
+                text2Top={textPositions.text2Top}
+                text3Left={textPositions.text3Left}
+                text3Top={textPositions.text3Top}
+                text3Width={textPositions.text3Width}
+                text4Left={textPositions.text4Left}
+                text4Top={textPositions.text4Top}
+              />
+            </div>
           </div>
         </Fade>
       </Modal>

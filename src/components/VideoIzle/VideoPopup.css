@@ -1,0 +1,61 @@
+/* VideoPopup.css */
+.video-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+  }
+  
+  .video-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  
+  .close-button:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+  
+  /* Responsive Modifications */
+  
+  @media only screen and (max-width: 768px) {
+    /* Adjust the styles for screens with a maximum width of 768px */
+    .video-popup {
+      align-items: center;
+    }
+    
+    .video-container {
+      width: 90%;
+      max-height: 90%;
+    }
+    
+    .close-button {
+      top: 5px;
+      right: 5px;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Add more media queries as needed for different screen sizes */
+  

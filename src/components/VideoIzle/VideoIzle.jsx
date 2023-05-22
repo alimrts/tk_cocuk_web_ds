@@ -1,11 +1,9 @@
-import React, { useContext, useRef, useEffect, Fragment } from "react";
+import React, { useContext, useState } from "react";
 import "./VideoIzle.css";
 
+import VideoPopup from "./VideoPopup";
 import { themeContext } from "../../Context";
 
-import { motion } from "framer-motion";
-import { Link } from "react-scroll";
-import { NavLink } from "react-router-dom";
 import FloatinDivForIntroRight from "../FloatingDiv/FloatinDivForIntroRight";
 import ReactPlayer from "react-player";
 import tkc_video1 from "../../img/tkc_video1.png";
@@ -13,32 +11,33 @@ import tkc_video2 from "../../img/tkc_video2.png";
 import tkc_video3 from "../../img/tkc_video3.png";
 
 import GuvenVideo from "../../video/GuvenAilesi.mp4";
+import TuikCocukVideo from "../../video/GuvenAilesi.mp4";
+import TanitimVideo from "../../video/GuvenAilesi.mp4";
+
 const VideoIzle = () => {
   // context
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
 
-  // const videoRef = useRef();
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState("");
 
-  // useEffect(() => {
-  //   videoRef.current.addEventListener(
-  //     "contextmenu",
-  //     function (e) {
-  //       e.preventDefault();
-  //     },
-  //     false
-  //   );
+  const handleVideoClick = (videoSrc) => {
+    // const video = document.getElementById("videoElement");
+    // video.src = videoSrc;
+    // video.play();
 
-  //   return videoRef.current.removeEventListener(
-  //     "contextmenu",
-  //     function (e) {
-  //       e.preventDefault();
-  //     },
-  //     false
-  //   );
-  // }, []);
+    setSelectedVideo(videoSrc);
+    setShowPopup(true);
 
-  // transition
+    console.log("click worked...");
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+    setSelectedVideo("");
+  };
+
   return (
     <>
       <div className="videolar">
@@ -63,6 +62,7 @@ const VideoIzle = () => {
               flexDirection: "column",
               alignItems: "center",
             }}
+            onClick={() => handleVideoClick(TuikCocukVideo)}
           >
             <FloatinDivForIntroRight img={tkc_video1} />
             <span style={{ marginTop: "5.5rem", color: "#99cc33" }}>
@@ -75,6 +75,7 @@ const VideoIzle = () => {
               flexDirection: "column",
               alignItems: "center",
             }}
+            onClick={() => handleVideoClick(GuvenVideo)}
           >
             <FloatinDivForIntroRight img={tkc_video2} />
             <span style={{ marginTop: "5.5rem", color: "#99cc33" }}>
@@ -87,27 +88,18 @@ const VideoIzle = () => {
               flexDirection: "column",
               alignItems: "center",
             }}
+            onClick={() => handleVideoClick(TanitimVideo)}
           >
             <FloatinDivForIntroRight img={tkc_video3} />
             <span style={{ marginTop: "5.5rem", color: "#99cc33" }}>
-              TÜİK tanıtımı
+              TÜİK Tanıtımı
             </span>
           </div>
-
-          <div></div>
-          {/* <Fragment>
-          <div ref={videoRef}>
-            <ReactPlayer
-              width="100%"
-              height="100%"
-              controls={true}
-              url={GuvenVideo}
-              config={{ file: { attributes: { controlsList: "nodownload" } } }}
-            />
-          </div>
-        </Fragment> */}
         </div>
       </div>
+      {showPopup && (
+        <VideoPopup videoSrc={selectedVideo} onClose={handleClosePopup} />
+      )}
     </>
   );
 };

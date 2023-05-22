@@ -93,7 +93,7 @@ const Contact = () => {
             type="email"
             name="user_email"
             className="user"
-            placeholder="Email"
+            placeholder="E-posta"
             value={userEmail}
             onChange={(event) => setUserEmail(event.target.value)}
           />
