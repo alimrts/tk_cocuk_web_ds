@@ -9,8 +9,8 @@ const VideoPopup = ({ videoSrc, onClose }) => {
           src={videoSrc}
           controls
           autoPlay
-          width="100%"
-          height="100%"
+          width="85%"
+          height="85%"
         />
         <button className="close-button" onClick={onClose}>
           Kapat

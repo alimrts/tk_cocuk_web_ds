@@ -33,11 +33,11 @@
 .w-right {
   display: flex;
   justify-content: space-between;
-  margin-left: 4rem;
+  margin-left: -4rem;
   
 }
 .w-right > * {
-  margin-right: 10px; 
+  margin-right: 4px; 
 }
 
 .w-right > *:last-child {
@@ -45,8 +45,14 @@
 }
 
 .w-right img {
-  width: 500px;
-  margin-right: 10px; 
+  width: 450px;
+  margin-right: 4px; 
+}
+
+.w-right span {
+  margin-top: 5.5rem;
+  margin-right: 1rem;
+  color: #99cc33;
 }
 
 
@@ -66,22 +72,29 @@
     justify-content: left;
     margin-left: 0rem;
     margin-bottom: -1rem;
+   
     font-size: 1rem;
   }
 
   .w-right {
     display: flex;
     justify-content: space-between;
-    margin-left: -6.5rem;
-    transform: scale(0.5);
+    margin-left: 0rem;
+    transform: scale(0.4);
     
   }
   .w-right > * {
-    margin-right: -14rem; 
+    margin-right: -12rem; 
   }
   
   .w-right > *:last-child {
     margin-right: 0; 
+  }
+
+  .w-right span {
+    margin-top: 2.5rem;
+    margin-right: 1rem;
+    color: #99cc33;
   }
 }
 

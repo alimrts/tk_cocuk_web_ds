@@ -6,13 +6,16 @@ import { themeContext } from "../../Context";
 
 import FloatinDivForIntroRight from "../FloatingDiv/FloatinDivForIntroRight";
 import ReactPlayer from "react-player";
-import tkc_video1 from "../../img/tkc_video1.png";
-import tkc_video2 from "../../img/tkc_video2.png";
-import tkc_video3 from "../../img/tkc_video3.png";
 
-import GuvenVideo from "../../video/GuvenAilesi.mp4";
-import TuikCocukVideo from "../../video/GuvenAilesi.mp4";
-import TanitimVideo from "../../video/GuvenAilesi.mp4";
+import tkc_video_istatistiknedir from "../../img/tkc_video_istatistiknedir.png";
+import tkc_video_ulkemizitaniyalim from "../../img/tkc_video_ulkemizitaniyalim.png";
+import tkc_video_cocukhaklari from "../../img/tkc_video_cocukhaklari.png";
+import tkc_video_guvenailesi from "../../img/tkc_video_guvenailesi.png";
+
+import IstatistikNedir from "../../video/IstatistikNedir.mp4";
+import UlkemiziTaniyalim from "../../video/UlkemiziTaniyalim.mp4";
+import CocukHaklari from "../../video/CocukHaklari.mp4";
+import GuvenAilesi from "../../video/GuvenAilesi.mp4";
 
 const VideoIzle = () => {
   // context
@@ -62,38 +65,46 @@ const VideoIzle = () => {
               flexDirection: "column",
               alignItems: "center",
             }}
-            onClick={() => handleVideoClick(TuikCocukVideo)}
+            onClick={() => handleVideoClick(IstatistikNedir)}
           >
-            <FloatinDivForIntroRight img={tkc_video1} />
-            <span style={{ marginTop: "5.5rem", color: "#99cc33" }}>
-              TÜİK Çocuk
-            </span>
+            <FloatinDivForIntroRight img={tkc_video_istatistiknedir} />
+            <span>İstatistik Nedir?</span>
           </div>
+
           <div
             style={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
             }}
-            onClick={() => handleVideoClick(GuvenVideo)}
+            onClick={() => handleVideoClick(UlkemiziTaniyalim)}
           >
-            <FloatinDivForIntroRight img={tkc_video2} />
-            <span style={{ marginTop: "5.5rem", color: "#99cc33" }}>
-              Güven Ailesi
-            </span>
+            <FloatinDivForIntroRight img={tkc_video_ulkemizitaniyalim} />
+            <span>Ülkemizi Tanıyalım</span>
           </div>
+
           <div
             style={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
             }}
-            onClick={() => handleVideoClick(TanitimVideo)}
+            onClick={() => handleVideoClick(CocukHaklari)}
           >
-            <FloatinDivForIntroRight img={tkc_video3} />
-            <span style={{ marginTop: "5.5rem", color: "#99cc33" }}>
-              TÜİK Tanıtımı
-            </span>
+            <FloatinDivForIntroRight img={tkc_video_cocukhaklari} />
+            <span>Çocuk Hakları</span>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+            onClick={() => handleVideoClick(GuvenAilesi)}
+          >
+            <FloatinDivForIntroRight img={tkc_video_guvenailesi} />
+            <span>Güven Ailesi</span>
           </div>
         </div>
       </div>
