@@ -137,7 +137,7 @@
     margin-top: 0;
     flex-direction: column;
     gap: 5rem;
-    height: 66rem;
+    /* height: 66rem; */
     padding: 0;
   }
 
@@ -172,14 +172,28 @@
 
 .sdgGrid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Four elements per row */
-  gap: 10px; /* Adjust the gap between grid items as needed */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 10px; 
+
+   @media (max-width: 1600px) {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+
+   @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; 
+  }
 }
 
 .sdgGrid-item {
   padding: 10px;
   text-align: center;
 }
+
+
 
 /****/
 
@@ -200,6 +214,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 1600px) {
+    
+    transform: scale(0.95);
+  }
+
+  @media (max-width: 1200px) {
+    
+    transform: scale(0.9);
+  }
+
+  @media (max-width: 768px) {
+   margin-left: -2rem;
+    transform: scale(0.8);
+  }
+
 }
 
 /****/
@@ -245,6 +275,24 @@
   border-radius: 5px;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.8);
   z-index: 9999;
+
+  @media (max-width: 1600px) {
+    top: 35%;
+    left: 40%;
+    transform: scale(0.9);
+  }
+
+  @media (max-width: 1200px) {
+    top: 35%;
+    left: 30%;
+    transform: scale(0.8);
+  }
+
+  @media (max-width: 768px) {
+    top: 15%;
+    left: 15%;
+    transform: scale(0.8);
+  }
 }
 
 .textPopup span {

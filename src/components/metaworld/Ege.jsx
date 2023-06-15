@@ -73,4 +73,5 @@ useGLTF.preload([
   "./models/ege.glb",
   "./models/ece@walking.glb",
   "./models/ece@jump.glb",
+  "./models/ece@idle.glb",
 ]);
