@@ -188,6 +188,45 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UserRegister = ({ onSubmit, onGenderChange }) => {
+  /////////////////////////
+  const maxValueForBoy = 160;
+
+  const handleBoyChange = (e) => {
+    const { name, value } = e.target;
+
+    if (Number(e.target.value) > maxValueForBoy) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: maxValueForBoy,
+      }));
+    } else {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+      }));
+    }
+  };
+  /////////////////////////
+  /////////////////////////
+  const maxValueForKilo = 100;
+
+  const handleKiloChange = (e) => {
+    const { name, value } = e.target;
+
+    if (Number(e.target.value) > maxValueForKilo) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: maxValueForKilo,
+      }));
+    } else {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+      }));
+    }
+  };
+  /////////////////////////
+
   const classes = useStyles();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -334,9 +373,17 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
     <form className={classes.form} onSubmit={handleSubmit}>
       <TextField
         label={<span style={{ color: "grey", fontSize: "12pt" }}>Adın</span>}
+        type="text"
         name="firstName"
         value={formData.firstName}
-        onChange={handleChange}
+        // onChange={handleChange}
+        onChange={(event) => {
+          const value = event.target.value;
+          const sanitizedValue = value.replace(/\d+/g, "").slice(0, 25);
+          handleChange({
+            target: { name: "firstName", value: sanitizedValue },
+          });
+        }}
         variant="outlined"
         className={classes.textField}
         error={formErrors.firstName}
@@ -349,13 +396,14 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
         }
         name="height"
         type="number"
+        InputProps={{ inputProps: { min: 50, max: 160 } }}
         value={formData.height}
         onInput={(e) => {
           e.target.value = Math.max(0, parseInt(e.target.value))
             .toString()
             .slice(0, 3);
         }}
-        onChange={handleChange}
+        onChange={handleBoyChange}
         variant="outlined"
         className={classes.textField}
         error={formErrors.height}
@@ -367,13 +415,14 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
         }
         name="weight"
         type="number"
+        InputProps={{ inputProps: { min: 25, max: 100 } }}
         value={formData.weight}
         onInput={(e) => {
           e.target.value = Math.max(0, parseInt(e.target.value))
             .toString()
             .slice(0, 3);
         }}
-        onChange={handleChange}
+        onChange={handleKiloChange}
         variant="outlined"
         className={classes.textField}
         error={formErrors.weight}
@@ -513,7 +562,7 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
               <MenuItem value="">
                 <em>-</em>
               </MenuItem>
-              {Array.from({ length: 82 }, (_, i) => 2021 - i).map((year) => (
+              {Array.from({ length: 16 }, (_, i) => 2021 - i).map((year) => (
                 <MenuItem key={year} value={year}>
                   {year}
                 </MenuItem>
