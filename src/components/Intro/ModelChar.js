@@ -11,7 +11,8 @@ export default function ModelChar({ ...props }) {
       group.current.rotation.y += 0.005;
     }
   });
-  const { nodes, materials, animations } = useGLTF('/ece.glb')
+  // const { nodes, materials, animations } = useGLTF('/ece.glb')
+  const { nodes, materials, animations } = useGLTF('../models/ece.glb')
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {
@@ -27,70 +28,44 @@ export default function ModelChar({ ...props }) {
           setHover(false);
         }}>
         
-        <group
-          name="ece_basePelvis"
-          position={[0, 0.82, -0.11]}
-          rotation={[3.14, 0, -Math.PI / 2]}
-          scale={0.01}
-        />
-        <group name="Armature" rotation={[Math.PI, 0, Math.PI]}>
+       
+        <group name="Armature" rotation={[Math.PI / 2, 0, -Math.PI]} scale={0.01}>
           <primitive object={nodes.mixamorigHips} />
-          <primitive object={nodes.Ctrl_Master} />
-          <primitive object={nodes.Ctrl_ArmPole_IK_Left} />
-          <primitive object={nodes.Ctrl_Hand_IK_Left} />
-          <primitive object={nodes.Ctrl_ArmPole_IK_Right} />
-          <primitive object={nodes.Ctrl_Hand_IK_Right} />
-          <primitive object={nodes.Ctrl_Foot_IK_Left} />
-          <primitive object={nodes.Ctrl_LegPole_IK_Left} />
-          <primitive object={nodes.Ctrl_Foot_IK_Right} />
-          <primitive object={nodes.Ctrl_LegPole_IK_Right} />
+         
           <skinnedMesh
-            name="ecekirpik_sag"
-            geometry={nodes.ecekirpik_sag.geometry}
-            material={materials['Material #26']}
-            skeleton={nodes.ecekirpik_sag.skeleton}
+            geometry={nodes.ece_gozler.geometry}
+            material={materials.ece_goz}
+            skeleton={nodes.ece_gozler.skeleton}
           />
           <skinnedMesh
-            name="ecekirpik_sol"
-            geometry={nodes.ecekirpik_sol.geometry}
-            material={materials['Material #26']}
-            skeleton={nodes.ecekirpik_sol.skeleton}
+            geometry={nodes.ece_ayak.geometry}
+            material={materials.ece_ayakkabi}
+            skeleton={nodes.ece_ayak.skeleton}
           />
           <skinnedMesh
-            name="eceg1_1"
-            geometry={nodes.eceg1_1.geometry}
-            material={materials['Material #25']}
-            skeleton={nodes.eceg1_1.skeleton}
+            geometry={nodes.ece_tshirt.geometry}
+            material={materials.ece_tshirt}
+            skeleton={nodes.ece_tshirt.skeleton}
           />
           <skinnedMesh
-            name="eceg2_2"
-            geometry={nodes.eceg2_2.geometry}
-            material={materials['Material #25']}
-            skeleton={nodes.eceg2_2.skeleton}
+            geometry={nodes.ece_pnt.geometry}
+            material={materials.ece_pnt}
+            skeleton={nodes.ece_pnt.skeleton}
           />
           <skinnedMesh
-            name="eceeller"
-            geometry={nodes.eceeller.geometry}
-            material={materials.kc1_hand}
-            skeleton={nodes.eceeller.skeleton}
+            geometry={nodes.ece_eller.geometry}
+            material={materials.ece_kol}
+            skeleton={nodes.ece_eller.skeleton}
           />
           <skinnedMesh
-            name="ecekiz1_govde"
-            geometry={nodes.ecekiz1_govde.geometry}
-            material={materials.kc1_thirt_pnt}
-            skeleton={nodes.ecekiz1_govde.skeleton}
+            geometry={nodes.ece_sac.geometry}
+            material={materials.ece_sac}
+            skeleton={nodes.ece_sac.skeleton}
           />
           <skinnedMesh
-            name="ecekafaa_aaa"
-            geometry={nodes.ecekafaa_aaa.geometry}
-            material={materials.kc1_kafa}
-            skeleton={nodes.ecekafaa_aaa.skeleton}
-          />
-          <skinnedMesh
-            name="ecesac_r_d"
-            geometry={nodes.ecesac_r_d.geometry}
-            material={materials.kc1_sac}
-            skeleton={nodes.ecesac_r_d.skeleton}
+            geometry={nodes.ece_kafa.geometry}
+            material={materials.ece_kafa}
+            skeleton={nodes.ece_kafa.skeleton}
           />
         </group>
       </group>

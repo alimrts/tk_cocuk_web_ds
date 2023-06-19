@@ -6,9 +6,9 @@ import { LoopOnce } from "three";
 export default function Ege({ mixer, actions }) {
   const ref = useRef();
   const { nodes, materials, animations } = useGLTF("./models/ege.glb");
-  const idleAnimation = useGLTF("./models/ece@idle.glb").animations;
-  const walkAnimation = useGLTF("./models/ece@walking.glb").animations;
-  const jumpAnimation = useGLTF("./models/ece@jump.glb").animations;
+  const idleAnimation = useGLTF("./models/ege_idle.glb").animations;
+  const walkAnimation = useGLTF("./models/ege_walking.glb").animations;
+  const jumpAnimation = useGLTF("./models/ege_jump.glb").animations;
 
   useEffect(() => {
     actions["default"] = mixer.clipAction(animations[0], ref.current);
@@ -26,7 +26,7 @@ export default function Ege({ mixer, actions }) {
     <group ref={ref} dispose={null}>
       <group name="Scene">
         <group name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
-          <primitive object={nodes.mixamorigHips} />
+          {/* <primitive object={nodes.mixamorigHips} />
           <skinnedMesh
             name="egeg1_002"
             geometry={nodes.egeg1_002.geometry}
@@ -62,6 +62,42 @@ export default function Ege({ mixer, actions }) {
             geometry={nodes.ege_sac.geometry}
             material={materials.ege_sac}
             skeleton={nodes.ege_sac.skeleton}
+          /> */}
+          <primitive object={nodes.mixamorigHips} />
+          <skinnedMesh
+            geometry={nodes.ege_bacak.geometry}
+            material={materials.ege_pnt}
+            skeleton={nodes.ege_bacak.skeleton}
+          />
+          <skinnedMesh
+            geometry={nodes.ege_gozler.geometry}
+            material={materials.ege_goz}
+            skeleton={nodes.ege_gozler.skeleton}
+          />
+          <skinnedMesh
+            geometry={nodes.ege_ayakkabi.geometry}
+            material={materials.ege_ayakkabi}
+            skeleton={nodes.ege_ayakkabi.skeleton}
+          />
+          <skinnedMesh
+            geometry={nodes.ege_govde.geometry}
+            material={materials.ege_tshirt}
+            skeleton={nodes.ege_govde.skeleton}
+          />
+          <skinnedMesh
+            geometry={nodes.ege_kafa.geometry}
+            material={materials.ege_kafa}
+            skeleton={nodes.ege_kafa.skeleton}
+          />
+          <skinnedMesh
+            geometry={nodes.ege_kol.geometry}
+            material={materials.ege_kol}
+            skeleton={nodes.ege_kol.skeleton}
+          />
+          <skinnedMesh
+            geometry={nodes.ege_sac.geometry}
+            material={materials.ege_sac}
+            skeleton={nodes.ege_sac.skeleton}
           />
         </group>
       </group>
@@ -71,7 +107,7 @@ export default function Ege({ mixer, actions }) {
 
 useGLTF.preload([
   "./models/ege.glb",
-  "./models/ece@walking.glb",
-  "./models/ece@jump.glb",
-  "./models/ece@idle.glb",
+  "./models/ege_walking.glb",
+  "./models/ege_jump.glb",
+  "./models/ege_idle.glb",
 ]);
