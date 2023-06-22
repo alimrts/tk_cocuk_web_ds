@@ -70,6 +70,7 @@ const IntroLeft = (props) => {
           camera={{ position: [0, 0, 10.15], fov: 15 }}
           style={{
             cursor: "pointer",
+            marginLeft: "3.5rem",
             // boxShadow:
             //   "0 4px 8px 0 rgba(200, 200, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
           }}
@@ -140,20 +141,18 @@ const IntroLeft = (props) => {
             kg {kiloMessage}
           </span>
         </div>
-        <div style={{ width: "%50" }}></div>
       </div>
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           zIndex: "0",
-          paddingTop: "2.8rem",
         }}
       >
         <div
           style={{
-            paddingRight: "0.5rem",
-            paddingBottom: "7.9rem",
+            marginRight: "6.4rem",
+            paddingBottom: "9.9rem",
             marginBottom: "-3rem",
           }}
         >
@@ -173,7 +172,7 @@ const IntroLeft = (props) => {
           <span
             style={{
               marginLeft: "-15rem",
-
+              paddingLeft: "6rem",
               color: "green",
             }}
           >
