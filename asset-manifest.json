@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.c8d8c212.css",
-    "main.js": "./static/js/main.1bf34b95.js",
+    "main.js": "./static/js/main.268f2247.js",
     "static/media/IstatistikNedir.mp4": "./static/media/IstatistikNedir.2e113636702597fb8a0e.mp4",
     "static/media/CocukHaklari.mp4": "./static/media/CocukHaklari.bc1863cb9e92d7aad9d2.mp4",
     "static/media/UlkemiziTaniyalim.mp4": "./static/media/UlkemiziTaniyalim.0de89e48c9ac6f7c9be5.mp4",
@@ -147,10 +147,10 @@
     "static/media/c2.png": "./static/media/c2.616073abc631247c39a4.png",
     "index.html": "./index.html",
     "main.c8d8c212.css.map": "./static/css/main.c8d8c212.css.map",
-    "main.1bf34b95.js.map": "./static/js/main.1bf34b95.js.map"
+    "main.268f2247.js.map": "./static/js/main.268f2247.js.map"
   },
   "entrypoints": [
     "static/css/main.c8d8c212.css",
-    "static/js/main.1bf34b95.js"
+    "static/js/main.268f2247.js"
   ]
 }
