@@ -97,7 +97,7 @@ export default function ModelCharEge({ ...props }) {
     }
   });
   // const { nodes, materials, animations } = useGLTF('/ege.glb')
-  const { nodes, materials, animations } = useGLTF('/models/ege.glb')
+  const { nodes, materials, animations } = useGLTF('./models/ege.glb')
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {
@@ -158,4 +158,4 @@ export default function ModelCharEge({ ...props }) {
   )
 }
 
-useGLTF.preload('/models/ege.glb')
+useGLTF.preload('./models/ege.glb')
