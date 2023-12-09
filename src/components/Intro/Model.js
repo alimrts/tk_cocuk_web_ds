@@ -11,7 +11,7 @@ export default function Model({ ...props }) {
       group.current.rotation.y += 0.005;
     }
   });
-  const { nodes, materials, animations } = useGLTF('/lab.glb')
+  const { nodes, materials, animations } = useGLTF('/models/lab.glb')
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {
