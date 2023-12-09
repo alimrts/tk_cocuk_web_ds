@@ -12,7 +12,7 @@ export default function ModelChar({ ...props }) {
     }
   });
   // const { nodes, materials, animations } = useGLTF('/ece.glb')
-  const { nodes, materials, animations } = useGLTF('../models/ece.glb')
+  const { nodes, materials, animations } = useGLTF('/models/ece.glb')
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {
@@ -73,4 +73,4 @@ export default function ModelChar({ ...props }) {
   )
 }
 
-useGLTF.preload('../models/ece.glb')
+useGLTF.preload('/models/ece.glb')
