@@ -181,4 +181,4 @@ export default function Model({ ...props }) {
   )
 }
 
-useGLTF.preload('/lab.glb')
+useGLTF.preload('/models/lab.glb')

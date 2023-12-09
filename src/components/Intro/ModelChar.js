@@ -73,4 +73,4 @@ export default function ModelChar({ ...props }) {
   )
 }
 
-useGLTF.preload('/ece.glb')
+useGLTF.preload('/models/ece.glb')
