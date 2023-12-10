@@ -31,17 +31,17 @@ const Contact = () => {
     setIsLoading(true);
     emailjs
       .sendForm(
-        "service_ycz3ujb",
-        "template_wgx6uq4",
+        "service_los6pu7",
+        "template_64au44w",
         form.current,
-        "3psXGRcvDdBWY1muI"
+        "RWH1a8gTZ08e_3r0o"
       )
       .then(
         (result) => {
           console.log(result.text);
           setIsLoading(false);
           setDone(true);
-          form.reset();
+          form.current.reset();
         },
         (error) => {
           console.log(error.text);

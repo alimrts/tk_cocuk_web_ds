@@ -13,6 +13,10 @@ import SwiperCore, { Navigation } from "swiper/core";
 import tkc_istatistik_timeline from "../../img/tkc_istatistik_timeline.png";
 // import tkc_istatistik_icerik_bg from "../../img/tkc_istatistik_icerik_bg.png";
 import tkc_kuslar1 from "../../img/tkc_kuslar1.png";
+import istatistik_nedir1 from "../../img/istatistik_nedir_img1.png";
+import istatistik_nedir2 from "../../img/istatistik_nedir_img2.png";
+import aritmetik_ortalama from "../../img/aritmetik_ortalama_img.png";
+import grafik_nedir from "../../img/grafik_nedir_img.png";
 
 // Initialize the Navigation module
 SwiperCore.use([Navigation]);
@@ -27,23 +31,39 @@ const swiperProps = {
 let bullet;
 bullet = "\u007F" + "\u007F" + "\u2022";
 const text1 = (
-  <span style={{ fontSize: "12pt" }}>
-    İstatistik, çevremizdeki olup bitenin sayılarla ifadesidir. Belirli bir
-    araştırmadan toplanan sayısal değerler ile bu sayısal değerlerden
-    yararlanarak hazırlanan tablo, şekil ve grafiklerdir.
-  </span>
+  <>
+    <span style={{ fontSize: "12pt" }}>
+      İstatistik, çevremizdeki olup bitenin sayılarla ifadesidir. Belirli bir
+      araştırmadan toplanan sayısal değerler ile bu sayısal değerlerden
+      yararlanarak hazırlanan tablo, şekil ve grafiklerdir.
+    </span>
+    <img
+      style={{ marginTop: "1rem", width: "30%", justifyContent: "center" }}
+      src={istatistik_nedir1}
+      alt="istatistik_nedir1"
+    />
+  </>
 );
 
 const text2 = (
-  <span style={{ fontSize: "12pt" }}>
-    İstatistik ayrıca, geçmişin ve şimdiki durumu çeşitli sayısal tekniklerle
-    analiz ederek gelecek hakkında karar vermeyi sağlayan bir bilim dalıdır.
-    <br /> <br /> Örneğin,
-    <br /> {bullet} Evde yaşayan kişi sayısı
+  <>
+    <span style={{ fontSize: "12pt" }}>
+      İstatistik ayrıca, geçmişin ve şimdiki durumu çeşitli sayısal tekniklerle
+      analiz ederek gelecek hakkında karar vermeyi sağlayan bir bilim dalıdır.
+      <br />
+      <span style={{ fontSize: "12pt", color: "red" }}> Örneğin, </span>
+      <br />
+      {/* <br /> {bullet} Evde yaşayan kişi sayısı
     <br /> {bullet} Okuldaki sınıf sayısı
     <br /> {bullet} Trafikteki otomobil sayısı
-    <br /> {bullet} Günlük tüketilen ekmek sayısı
-  </span>
+    <br /> {bullet} Günlük tüketilen ekmek sayısı */}
+    </span>
+    <img
+      style={{ marginTop: "1rem", width: "70%", justifyContent: "center" }}
+      src={istatistik_nedir2}
+      alt="istatistik_nedir2"
+    />
+  </>
 );
 
 const text3 = (
@@ -92,6 +112,7 @@ const text5 = (
 const tableStyle = {
   borderCollapse: "collapse",
   margin: "20px",
+  width: "auto",
 };
 
 const headerCellStyle = {
@@ -101,7 +122,7 @@ const headerCellStyle = {
 };
 
 const cellStyle = {
-  width: "200px",
+  width: "auto",
   padding: "10px",
   paddingLeft: "10px",
   border: "1px solid #999",
@@ -138,31 +159,32 @@ const tableObject = (
 
 const text6 = (
   <>
-    {" "}
     <span style={{ fontSize: "12pt" }}>
       Örnek 2: <br />
       Okulumuzdaki öğrencilerin en sevdiği spor türlerine ait sıklık tablosunun
       aşağıdaki şekilde olduğunu düşünürsek, okulumuzdaki en sevilen sporun
       futbol, frekansının 54 olduğu görülür.
     </span>
-    {tableObject}
+    <div style={{ width: "auto", display: "flex", justifyContent: "center" }}>
+      {tableObject}
+    </div>
   </>
 );
 
 const text7 = (
   <>
-    {" "}
     <span style={{ fontSize: "12pt" }}>
       Aritmetik ortalama, bir sayı dizisindeki verilerin toplamının veri
-      sayısına bölünmesi ile elde edilen değerdir. <br /> <br />
-      {bullet} Bir ailede bulunan fertlerin yaşları 36, 40, 12, 4, 6 olsun.{" "}
+      sayısına bölünmesi ile elde edilen değerdir.
       <br />
-      {bullet} Bu sayı dizisinde veri sayısı 5’tir
+      <span style={{ fontSize: "12pt", color: "red" }}> Örneğin, </span>
       <br />
-      {bullet} 36 + 40 + 12 + 4 + 6 = 100
-      <br />
-      {bullet} Aritmetik ortalama = 100 ÷ 5 = 20’dir
     </span>
+    <img
+      style={{ marginTop: "1rem", width: "70%", justifyContent: "center" }}
+      src={aritmetik_ortalama}
+      alt="aritmetik_ortalama"
+    />
   </>
 );
 
@@ -208,16 +230,18 @@ const text9 = (
 
 const text10 = (
   <>
-    {" "}
     <span style={{ fontSize: "12pt" }}>
       Veriler arasında karşılaştırma yapmaya yarayan şekle grafik denir.
       <br />
       Veri, grafikle gösterildiğinde daha kolay anlaşılabilir.
       <br /> <br />
       Aşağıdakiler, en çok kullanılan grafik türleridir: <br />
-      {bullet} Sütun grafik <br />
-      {bullet} Pasta grafik <br /> {bullet} Çizgi grafik
     </span>
+    <img
+      style={{ marginTop: "1rem", width: "60%", justifyContent: "center" }}
+      src={grafik_nedir}
+      alt="grafik_nedir"
+    />
   </>
 );
 

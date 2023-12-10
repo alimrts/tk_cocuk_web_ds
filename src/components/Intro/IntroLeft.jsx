@@ -164,14 +164,14 @@ const IntroLeft = (props) => {
               }}
             >
               {" "}
-              -{props.boy} cm
+              {props.boy} cm
             </span>
           </span>
         </div>
         <div style={{ paddingTop: "8.5rem" }}>
           <span
             style={{
-              marginLeft: "-15rem",
+              marginLeft: "-16rem",
               paddingLeft: "6rem",
               color: "green",
             }}

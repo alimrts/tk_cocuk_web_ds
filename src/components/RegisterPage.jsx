@@ -20,6 +20,8 @@ import tkc_kuslar2_edit from "../img/tkc_kuslar2_edit.png";
 import FooterBg from "../img/tkc_footer_bg.png";
 import zIndex from "@material-ui/core/styles/zIndex";
 
+import useZustandStore from "../zustandStore";
+
 function Loader() {
   const { progress } = useProgress();
   return (
@@ -89,12 +91,34 @@ const useStyles = makeStyles((theme) => ({
 const RegisterPage = () => {
   const classes = useStyles();
   const history = useHistory();
-  const [userInfo, setUserInfo] = useState(null);
+  // const [userInfo, setUserInfo] = useState(null);
+
+  const { setUserInfo } = useZustandStore();
 
   const [showVideo, setShowVideo] = useState(false);
   const videoRef = useRef(null);
   const [isIOS, setIsIOS] = React.useState(false);
   const [isMobile, setIsMobile] = React.useState(false);
+
+  const { language, setLanguage, languageData } = useZustandStore();
+  const [selectedLanguage, setSelectedLanguage] = useState("");
+
+  const strings = languageData[language];
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("selectedLanguage");
+    if (storedLanguage) {
+      setSelectedLanguage(storedLanguage);
+    }
+  }, []);
+
+  const handleLanguageChange = (selectedLanguage) => {
+    setLanguage(selectedLanguage);
+
+    //to remember which select value
+    setSelectedLanguage(selectedLanguage);
+    localStorage.setItem("selectedLanguage", selectedLanguage);
+  };
 
   const transitionOfBulut = {
     duration: 3.2,
@@ -181,7 +205,6 @@ const RegisterPage = () => {
   return (
     <>
       <NavbarRegister />
-
       {showVideo && (
         <>
           <video
@@ -294,9 +317,9 @@ const RegisterPage = () => {
             </div>
 
             <div className={classes.formWrapper}>
-              <h2 className={classes.formTitle}>TÜİK Çocuk Platformu Giriş</h2>
+              <h2 className={classes.formTitle}>{strings.registerPageGiris}</h2>
               <h1 className={classes.formTitle}>
-                Bilgileri Doldur ve Karakterini Seç
+                {strings.registerPageBilgileriDoldur}
               </h1>
 
               <UserRegister

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useLocation, useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import Toggle from "../Toggle/Toggle";
 import "./Navbar.css";
@@ -16,19 +15,8 @@ import FloatinDivForNavbarMenu from "../FloatingDiv/FloatinDivForNavbarMenu";
 import tkc_kuslar1 from "../../img/tkc_kuslar1.png";
 import tkc_kuslar2 from "../../img/tkc_kuslar2.png";
 import kus1 from "../../img/kus1.png";
-import useZustandStore from "../../zustandStore";
 
 const Navbar = () => {
-  const history = useHistory();
-  const { setUserInfo } = useZustandStore();
-
-  const handleExitButtonClick = () => {
-    // Reset user information
-    setUserInfo(null);
-    // Redirect to RegisterPage
-    history.push("/");
-  };
-
   const transitionOfKus1 = {
     duration: 3,
     ease: "easeInOut",
@@ -104,19 +92,11 @@ const Navbar = () => {
           <div className="n-list">
             <ul style={{ listStyleType: "none" }} className="n-list">
               <li className="n-list">
-                <Link
-                  to="Intro"
-                  spy={true}
-                  smooth={true}
-                  offset={-350}
-                  onClick={() => {
-                    setTimeout(() => setIsNavExpanded(false), 300);
-                  }}
-                >
+                <NavLink to={{ pathname: "/main" }} target="_self">
                   <FloatinDivForNavbarMenu img={tkc_anasayfa} />
-                </Link>
+                </NavLink>
               </li>
-              <li className="n-list">
+              {/* <li className="n-list">
                 <Link
                   to="istatistik"
                   spy={true}
@@ -128,8 +108,8 @@ const Navbar = () => {
                 >
                   <FloatinDivForNavbarMenu img={tkc_istatistik} />
                 </Link>
-              </li>
-              <li className="n-list">
+              </li> */}
+              {/* <li className="n-list">
                 <Link
                   to="works"
                   spy={true}
@@ -141,8 +121,8 @@ const Navbar = () => {
                 >
                   <FloatinDivForNavbarMenu img={tkc_video} />
                 </Link>
-              </li>
-              <li className="n-list">
+              </li> */}
+              {/* <li className="n-list">
                 <Link
                   to="tuik"
                   spy={true}
@@ -154,29 +134,14 @@ const Navbar = () => {
                 >
                   <FloatinDivForNavbarMenu img={tkc_tuik} />
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
         <div style={{ padding: "1rem" }}>
-          {/* <NavLink to={{ pathname: "/" }} target="_self">
+          <NavLink to={{ pathname: "/" }} target="_self">
             Çıkış
-          </NavLink> */}
-          <button
-            onClick={handleExitButtonClick}
-            style={{
-              background: "none",
-              border: "none",
-              color: "orange", // Choose the color you want
-              cursor: "pointer",
-              marginBottom: "1rem",
-              transition: "color 0.3s", // Add transition for a smooth color change
-            }}
-            onMouseEnter={(e) => (e.target.style.color = "red")} // Change color on hover
-            onMouseLeave={(e) => (e.target.style.color = "orange")} // Reset color when not hovered
-          >
-            Çıkış
-          </button>
+          </NavLink>
           <Toggle />
         </div>
       </div>

@@ -43,7 +43,10 @@ import FloatinDivForNavbarMenu from "../FloatingDiv/FloatinDivForNavbarMenu";
 import FloatinDivForIntroRight from "../FloatingDiv/FloatinDivForIntroRight";
 
 function capitalizeFirstLetter(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+  if (str && typeof str === "string") {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+  return str;
 }
 
 function Loader() {
@@ -281,7 +284,7 @@ const Intro = (props) => {
     getInfo();
   }, []);
 
-  let str = props.ad;
+  let str = props.ad || "";
   let words = str.split(" ");
   for (let i = 0; i < words.length; i++) {
     words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
@@ -404,7 +407,7 @@ const Intro = (props) => {
           transition={transition}
           className="floating-div"
         >
-          <NavLink to={{ pathname: "/cocukhaklari" }} target="_blank">
+          <NavLink to={{ pathname: "/cocukhaklari" }} target="_self">
             <FloatinDivForIntroRight img={tkc_cocuk_haklari} />
           </NavLink>
         </motion.div>
@@ -434,7 +437,7 @@ const Intro = (props) => {
           className="floating-div"
         >
           {/* floatinDiv mein change hy dark mode ka */}
-          <NavLink to={{ pathname: "/sdg" }} target="_blank">
+          <NavLink to={{ pathname: "/sdg" }} target="_self">
             <FloatinDivForIntroRight img={tkc_sdg_amaclari} />
           </NavLink>
         </motion.div>

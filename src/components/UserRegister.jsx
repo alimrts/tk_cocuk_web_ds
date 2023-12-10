@@ -13,6 +13,8 @@ import Radio from "@material-ui/core/Radio";
 import InputLabel from "@material-ui/core/InputLabel";
 import Tooltip from "@material-ui/core/Tooltip";
 
+import useZustandStore from "../zustandStore";
+
 // Define a list of cities
 const cities = {
   1: "Adana",
@@ -133,6 +135,17 @@ const useStyles = makeStyles((theme) => ({
       color: "#333",
     },
   },
+
+  buttonTemizle: {
+    backgroundColor: "#FF00A6",
+    borderRadius: "25px",
+    color: "#fff",
+    padding: "10px 20px",
+    "&:hover": {
+      backgroundColor: "#FFFFD4",
+      color: "#333",
+    },
+  },
   select: {
     "& .MuiOutlinedInput-root": {
       borderRadius: "25px",
@@ -188,6 +201,36 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UserRegister = ({ onSubmit, onGenderChange }) => {
+  const { language, setLanguage, languageData } = useZustandStore();
+  const strings = languageData[language];
+  //////////////to clear
+  const handleClearForm = () => {
+    setFormData({
+      firstName: "",
+      birthDay: "",
+      birthMonth: "",
+      birthYear: "",
+      height: "",
+      weight: "",
+      city: "",
+      gender: "",
+    });
+
+    setCity(""); // Clear city separately if needed
+
+    setFormErrors({
+      firstName: false,
+      lastName: false,
+      birthDay: false,
+      birthMonth: false,
+      birthYear: false,
+      height: false,
+      weight: false,
+      city: false,
+      gender: false,
+    });
+  };
+
   /////////////////////////
   const maxValueForBoy = 160;
 
@@ -291,7 +334,7 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
     const formFields = Object.values(formData);
     const hasEmptyFields = formFields.some((field) => field === ""); // check for empty fields
     if (hasEmptyFields) {
-      alert("Lütfen gerekli bilgileri doldurunuz."); // show an alert to the user
+      alert(strings.registerPageLutfenGerekliBilgiler); // show an alert to the user
       return;
     }
 
@@ -370,100 +413,143 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
   // };
 
   return (
-    <form className={classes.form} onSubmit={handleSubmit}>
-      <TextField
-        label={<span style={{ color: "grey", fontSize: "12pt" }}>Adın</span>}
-        type="text"
-        name="firstName"
-        value={formData.firstName}
-        // onChange={handleChange}
-        onChange={(event) => {
-          const value = event.target.value;
-          const sanitizedValue = value.replace(/\d+/g, "").slice(0, 25);
-          handleChange({
-            target: { name: "firstName", value: sanitizedValue },
-          });
-        }}
-        variant="outlined"
-        className={classes.textField}
-        error={formErrors.firstName}
-        helperText={formErrors.firstName && "Bu alan zorunludur."}
-      />
-
-      <TextField
-        label={
-          <span style={{ color: "grey", fontSize: "12pt" }}>Boyun cm</span>
-        }
-        name="height"
-        type="number"
-        InputProps={{ inputProps: { min: 50, max: 160 } }}
-        value={formData.height}
-        onInput={(e) => {
-          e.target.value = Math.max(0, parseInt(e.target.value))
-            .toString()
-            .slice(0, 3);
-        }}
-        onChange={handleBoyChange}
-        variant="outlined"
-        className={classes.textField}
-        error={formErrors.height}
-        helperText={formErrors.height && "Bu alan zorunludur."}
-      />
-      <TextField
-        label={
-          <span style={{ color: "grey", fontSize: "12pt" }}>Kilon kg</span>
-        }
-        name="weight"
-        type="number"
-        InputProps={{ inputProps: { min: 25, max: 100 } }}
-        value={formData.weight}
-        onInput={(e) => {
-          e.target.value = Math.max(0, parseInt(e.target.value))
-            .toString()
-            .slice(0, 3);
-        }}
-        onChange={handleKiloChange}
-        variant="outlined"
-        className={classes.textField}
-        error={formErrors.weight}
-        helperText={formErrors.weight && "Bu alan zorunludur."}
-      />
-
-      <FormControl variant="outlined" className={classes.selectCity}>
-        <InputLabel id="city-select-label">
-          {
+    <>
+      {" "}
+      <form className={classes.form} onSubmit={handleSubmit}>
+        <TextField
+          label={
             <span style={{ color: "grey", fontSize: "12pt" }}>
-              Yaşadığın Şehir
+              {strings.registerPageAdin}
             </span>
           }
-        </InputLabel>
-        <Select
-          labelId="city-select-label"
-          id="city-select"
-          name="city"
-          value={formData.city}
-          onChange={handleChange}
-          label="Yaşadığın Şehir"
-          error={formErrors.city}
-          helperText={formErrors.city && "Bu alan zorunludur."}
-        >
-          {Object.values(cities).map((city) => (
-            <MenuItem
-              key={city}
-              value={Object.keys(cities).find((key) => cities[key] === city)}
-            >
-              {city}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+          type="text"
+          name="firstName"
+          value={formData.firstName}
+          // onChange={handleChange}
+          onChange={(event) => {
+            const value = event.target.value;
+            const sanitizedValue = value.replace(/\d+/g, "").slice(0, 25);
+            handleChange({
+              target: { name: "firstName", value: sanitizedValue },
+            });
+          }}
+          variant="outlined"
+          className={classes.textField}
+          error={formErrors.firstName}
+          helperText={
+            formErrors.firstName && strings.registerPageBuAlanZorunludur
+          }
+        />
 
-      <FormControl
-        variant="outlined"
-        component="fieldset"
-        className={classes.radioGroup}
-        style={{ display: "flex", alignItems: "center", color: "grey" }}
-      >
+        <TextField
+          label={
+            <span style={{ color: "grey", fontSize: "12pt" }}>
+              {strings.registerPageBoyun}
+            </span>
+          }
+          name="height"
+          type="number"
+          InputProps={{ inputProps: { min: 50, max: 160 } }}
+          value={formData.height}
+          onInput={(e) => {
+            e.target.value = Math.max(0, parseInt(e.target.value))
+              .toString()
+              .slice(0, 3);
+          }}
+          onChange={handleBoyChange}
+          variant="outlined"
+          className={classes.textField}
+          error={formErrors.height}
+          helperText={formErrors.height && strings.registerPageBuAlanZorunludur}
+          style={{ width: "40%" }}
+        />
+        <TextField
+          label={
+            <span style={{ color: "grey", fontSize: "12pt" }}>
+              {strings.registerPageKilon}
+            </span>
+          }
+          name="weight"
+          type="number"
+          InputProps={{ inputProps: { min: 25, max: 100 } }}
+          value={formData.weight}
+          onInput={(e) => {
+            e.target.value = Math.max(0, parseInt(e.target.value))
+              .toString()
+              .slice(0, 3);
+          }}
+          onChange={handleKiloChange}
+          variant="outlined"
+          className={classes.textField}
+          error={formErrors.weight}
+          helperText={formErrors.weight && strings.registerPageBuAlanZorunludur}
+          style={{ width: "40%" }}
+        />
+
+        <FormControl variant="outlined" className={classes.selectCity}>
+          <InputLabel id="city-select-label">
+            {
+              <span style={{ color: "grey", fontSize: "12pt" }}>
+                {strings.registerPageSehir}
+              </span>
+            }
+          </InputLabel>
+          <Select
+            labelId="city-select-label"
+            id="city-select"
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
+            label={strings.registerPageSehir}
+            error={formErrors.city}
+            helperText={formErrors.city && strings.registerPageBuAlanZorunludur}
+          >
+            {Object.values(cities).map((city) => (
+              <MenuItem
+                key={city}
+                value={Object.keys(cities).find((key) => cities[key] === city)}
+              >
+                {city}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+
+        <FormControl
+          variant="outlined"
+          component="fieldset"
+          className={classes.radioGroup}
+          style={{ display: "flex", alignItems: "center", color: "grey" }}
+        >
+          <span
+            style={{
+              marginTop: "1rem",
+              marginBottom: "-0.5rem",
+              fontSize: "12pt",
+            }}
+          >
+            {strings.registerPageCinsiyetin}
+          </span>
+          <RadioGroup
+            aria-label={strings.registerPageCinsiyetin}
+            name="gender"
+            value={formData.gender}
+            onChange={handleRadioChange}
+            style={{ display: "flex", flexDirection: "row" }}
+          >
+            <FormControlLabel
+              value="1"
+              control={<Radio />}
+              label={strings.registerPageErkek}
+            />
+            <FormControlLabel
+              value="2"
+              control={<Radio />}
+              label={strings.registerPageKiz}
+            />
+          </RadioGroup>
+        </FormControl>
+
         <span
           style={{
             marginTop: "1rem",
@@ -471,110 +557,115 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
             fontSize: "12pt",
           }}
         >
-          Cinsiyetin
+          {strings.registerPageDogumTarihin}
         </span>
-        <RadioGroup
-          aria-label="Cinsiyet"
-          name="gender"
-          value={formData.gender}
-          onChange={handleRadioChange}
-          style={{ display: "flex", flexDirection: "row" }}
-        >
-          <FormControlLabel value="1" control={<Radio />} label="Erkek" />
-          <FormControlLabel value="2" control={<Radio />} label="Kız" />
-        </RadioGroup>
-      </FormControl>
-
-      <span
-        style={{ marginTop: "1rem", marginBottom: "-0.5rem", fontSize: "12pt" }}
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <Tooltip title={strings.registerPageDogumTarihin}>
+            <FormControl variant="outlined" className={classes.select}>
+              <InputLabel id="birthday-day-label">
+                {" "}
+                {
+                  <span style={{ color: "grey", fontSize: "12pt" }}>
+                    {strings.registerPageGun}
+                  </span>
+                }
+              </InputLabel>
+              <Select
+                labelId="birthday-day-label"
+                id="birthday-day"
+                value={formData.birthDay}
+                onChange={handleChange}
+                label={strings.registerPageGun}
+                name="birthDay"
+                error={formErrors.birthDay}
+                helperText={
+                  formErrors.birthDay && strings.registerPageBuAlanZorunludur
+                }
+              >
+                {[...Array(31)].map((_, i) => (
+                  <MenuItem key={i + 1} value={i + 1}>
+                    {i + 1}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Tooltip>
+          <Tooltip title={strings.registerPageDogumTarihin}>
+            <FormControl variant="outlined" className={classes.select}>
+              <InputLabel id="birthday-month-label">
+                {" "}
+                {
+                  <span style={{ color: "grey", fontSize: "12pt" }}>
+                    {strings.registerPageAy}
+                  </span>
+                }
+              </InputLabel>
+              <Select
+                labelId="birthday-month-label"
+                id="birthday-month"
+                value={formData.birthMonth}
+                onChange={handleChange}
+                label={strings.registerPageAy}
+                name="birthMonth"
+                error={formErrors.birthMonth}
+                helperText={
+                  formErrors.birthMonth && strings.registerPageBuAlanZorunludur
+                }
+              >
+                {[...Array(12)].map((_, i) => (
+                  <MenuItem key={i + 1} value={i + 1}>
+                    {i + 1}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Tooltip>
+          <Tooltip title={strings.registerPageDogumTarihin}>
+            <FormControl variant="outlined" className={classes.select}>
+              <InputLabel id="birth-year-label">
+                {" "}
+                {
+                  <span style={{ color: "grey", fontSize: "12pt" }}>
+                    {strings.registerPageYil}
+                  </span>
+                }
+              </InputLabel>
+              <Select
+                labelId="birth-year-label"
+                id="birth-year"
+                name="birthYear"
+                value={formData.birthYear}
+                onChange={handleChange}
+                label={strings.registerPageYil}
+                error={formErrors.birthYear}
+                helperText={
+                  formErrors.birthYear && strings.registerPageBuAlanZorunludur
+                }
+              >
+                <MenuItem value="">
+                  <em>-</em>
+                </MenuItem>
+                {Array.from({ length: 16 }, (_, i) => 2021 - i).map((year) => (
+                  <MenuItem key={year} value={year}>
+                    {year}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Tooltip>
+        </div>
+        <Button variant="contained" type="submit" className={classes.button}>
+          {strings.registerPageBaslayalim}
+        </Button>
+      </form>
+      <Button
+        variant="contained"
+        onClick={handleClearForm}
+        className={classes.buttonTemizle}
       >
-        Doğum Tarihin
-      </span>
-      <div style={{ display: "flex", flexDirection: "row" }}>
-        <Tooltip title="Doğum Tarihin">
-          <FormControl variant="outlined" className={classes.select}>
-            <InputLabel id="birthday-day-label">
-              {" "}
-              {<span style={{ color: "grey", fontSize: "12pt" }}>Gün</span>}
-            </InputLabel>
-            <Select
-              labelId="birthday-day-label"
-              id="birthday-day"
-              value={formData.birthDay}
-              onChange={handleChange}
-              label="Gün"
-              name="birthDay"
-              error={formErrors.birthDay}
-              helperText={formErrors.birthDay && "Bu alan zorunludur."}
-            >
-              {[...Array(31)].map((_, i) => (
-                <MenuItem key={i + 1} value={i + 1}>
-                  {i + 1}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Tooltip>
-        <Tooltip title="Doğum Tarihin">
-          <FormControl variant="outlined" className={classes.select}>
-            <InputLabel id="birthday-month-label">
-              {" "}
-              {<span style={{ color: "grey", fontSize: "12pt" }}>Ay</span>}
-            </InputLabel>
-            <Select
-              labelId="birthday-month-label"
-              id="birthday-month"
-              value={formData.birthMonth}
-              onChange={handleChange}
-              label="Ay"
-              name="birthMonth"
-              error={formErrors.birthMonth}
-              helperText={formErrors.birthMonth && "Bu alan zorunludur."}
-            >
-              {[...Array(12)].map((_, i) => (
-                <MenuItem key={i + 1} value={i + 1}>
-                  {i + 1}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Tooltip>
-        <Tooltip title="Doğum Tarihin">
-          <FormControl variant="outlined" className={classes.select}>
-            <InputLabel id="birth-year-label">
-              {" "}
-              {
-                <span style={{ color: "grey", fontSize: "12pt" }}>
-                  Doğum Yılı
-                </span>
-              }
-            </InputLabel>
-            <Select
-              labelId="birth-year-label"
-              id="birth-year"
-              name="birthYear"
-              value={formData.birthYear}
-              onChange={handleChange}
-              label="Doğum Yılı"
-              error={formErrors.birthYear}
-              helperText={formErrors.birthYear && "Bu alan zorunludur."}
-            >
-              <MenuItem value="">
-                <em>-</em>
-              </MenuItem>
-              {Array.from({ length: 16 }, (_, i) => 2021 - i).map((year) => (
-                <MenuItem key={year} value={year}>
-                  {year}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Tooltip>
-      </div>
-      <Button variant="contained" type="submit" className={classes.button}>
-        Kaydet
+        {strings.registerPageFormuTemizle}
       </Button>
-    </form>
+    </>
   );
 };
 

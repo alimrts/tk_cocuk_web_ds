@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Intro from "../components/Intro/Intro";
@@ -15,8 +15,10 @@ import { themeContext } from "../Context";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 import Metaverse from "./Metaverse";
+import useZustandStore from "../zustandStore";
 
 const MainPage = () => {
+  const history = useHistory();
   const [showMetaverse, setShowMetaverse] = useState(false);
 
   const handleKeyDown = (event) => {
@@ -36,21 +38,44 @@ const MainPage = () => {
     setShowMetaverse(true);
   };
 
+  const { userInfo } = useZustandStore();
+
   const location = useLocation();
-  const userInfo = location.state.userInfo;
+  // const userInfo = location.state.userInfo;
+
+  useEffect(() => {
+    // Check if user information is available
+    if (userInfo === null) {
+      // Redirect to RegisterPage if user information is not available
+      history.push("/");
+    }
+  }, [userInfo, history]);
 
   console.log("gelen userinfo: ", userInfo);
 
   ///
-  const ad = userInfo?.firstName;
-  const soyad = userInfo?.lastName;
-  const dogumGunu = userInfo?.birthDay;
-  const dogumAyi = userInfo?.birthMonth;
-  const dogumYili = userInfo?.birthYear;
-  const boy = userInfo?.height;
-  const kilo = userInfo?.weight;
-  const sehir = userInfo?.city;
-  const cinsiyet = userInfo?.gender;
+  // const ad = userInfo?.firstName;
+  // const soyad = userInfo?.lastName;
+  // const dogumGunu = userInfo?.birthDay;
+  // const dogumAyi = userInfo?.birthMonth;
+  // const dogumYili = userInfo?.birthYear;
+  // const boy = userInfo?.height;
+  // const kilo = userInfo?.weight;
+  // const sehir = userInfo?.city;
+  // const cinsiyet = userInfo?.gender;
+
+  // Destructure user information
+  const {
+    firstName: ad,
+    lastName: soyad,
+    birthDay: dogumGunu,
+    birthMonth: dogumAyi,
+    birthYear: dogumYili,
+    height: boy,
+    weight: kilo,
+    city: sehir,
+    gender: cinsiyet,
+  } = userInfo || {};
 
   return (
     <div>

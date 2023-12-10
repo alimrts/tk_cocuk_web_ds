@@ -1,7 +1,9 @@
 import React from "react";
 import "./Cocukhaklari.css";
 import Grid from "./Grid";
-import NavbarRegister from "../../components/Navbar/NavbarRegister";
+// import NavbarRegister from "../../components/Navbar/NavbarRegister";
+
+import NavbarRegister from "../../components/Navbar/NavbarCocukSdg";
 
 import tkc_kuslar2_edit from "../../img/tkc_kuslar2_edit.png";
 

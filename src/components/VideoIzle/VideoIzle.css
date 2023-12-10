@@ -16,11 +16,22 @@
 
 .video-izle-text{
   display: flex;
-  justify-content: right;
-  margin-right: 12rem;
+  justify-content: left;
+  margin-left: 12rem;
+  margin-top: 8rem;
   margin-bottom: 2rem;
   font-size: 2rem;
 }
+
+.kitaplik-text{
+  display: flex;
+  justify-content: left;
+  margin-left: 12rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
 
 .s-button {
   width: 6rem;

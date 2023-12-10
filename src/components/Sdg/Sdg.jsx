@@ -6,7 +6,7 @@ import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
 import Dokuman from "./ÇOCUKLAR İÇİN SÜRDÜRÜLEBİLİR KALKINMA GÖSTERGELERİ.pdf";
 import WrapperComponent from "./WrapperComponent";
-import NavbarRegister from "../../components/Navbar/NavbarRegister";
+import NavbarRegister from "../../components/Navbar/NavbarCocukSdg";
 import tkc_kuslar2_edit from "../../img/tkc_kuslar2_edit.png";
 
 const Sdg = () => {

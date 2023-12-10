@@ -17,3 +17,8 @@
   background: var(--blue);
   position: absolute;
 }
+
+.toggle:hover {
+  
+  border: 3px solid var(--yellow);
+}

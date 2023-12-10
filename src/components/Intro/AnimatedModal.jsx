@@ -170,7 +170,7 @@ export default function AnimatedModal(props) {
     setOpen(false);
   };
 
-  let str = props.ad;
+  let str = props.ad || "";
   let words = str.split(" "); // split the string into an array of words
   for (let i = 0; i < words.length; i++) {
     words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1); // capitalize the first letter of each word

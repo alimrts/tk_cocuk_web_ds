@@ -13,6 +13,8 @@ import Metaverse from './components/Metaverse'
 import Sdg from './components/Sdg/Sdg'
 import Cocukhaklari from './components/cocukhaklari/Cocukhaklari'
 
+import useZustandStore from "./zustandStore";
+
 let calcScrollValue = () => {
   if (
     document.getElementById('progress') &&
@@ -42,6 +44,8 @@ window.onload = calcScrollValue
 function App() {
   const theme = useContext(themeContext)
   const darkMode = theme.state.darkMode
+  const { language, setLanguage, languageData } = useZustandStore();
+  const strings = languageData[language]
 
   const [userInfo, setUserInfo] = useState(null)
 

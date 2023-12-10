@@ -5,6 +5,7 @@
   align-items: center;
   margin-top: -4rem;
   
+  
 }
 
 .left-column {
@@ -46,7 +47,7 @@
 
 
 .istatistik-card-text {
-  text-align: left;
+  text-align: center;
   font-size: 1rem;
 }
 

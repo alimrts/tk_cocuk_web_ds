@@ -135,7 +135,7 @@ const VideoIzle = () => {
       <div>
         <div className="videolar">
           <span
-            className="video-izle-text"
+            className="kitaplik-text"
             style={{
               color: darkMode ? "white" : "#99cc33",
               display: "flex",
@@ -176,7 +176,7 @@ const VideoIzle = () => {
                 <FloatinDivForIntroRight img={ktp_piechart} />
               </div>
 
-              <span>Pasta Dilimi Grafiği Nasıl Hazırlanır?</span>
+              <span>Pasta Grafiği Nasıl Hazırlanır?</span>
             </div>
 
             <div
