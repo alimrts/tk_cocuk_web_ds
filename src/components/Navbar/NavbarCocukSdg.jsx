@@ -52,9 +52,9 @@ const Navbar = () => {
           {" "}
         </div>
 
-        <Link to="Intro" smooth={true} spy={true}>
+        <NavLink to={{ pathname: "/main" }} target="_self">
           <FloatinDivForNavbarLogo img={tkc_logo} />
-        </Link>
+        </NavLink>
 
         <div
           className="navkuslar1"

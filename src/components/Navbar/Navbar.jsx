@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useContext } from "react";
+import { themeContext } from "../../Context";
 import { useLocation, useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import Toggle from "../Toggle/Toggle";
@@ -19,6 +21,9 @@ import kus1 from "../../img/kus1.png";
 import useZustandStore from "../../zustandStore";
 
 const Navbar = () => {
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
+
   const history = useHistory();
   const { setUserInfo } = useZustandStore();
 
@@ -53,7 +58,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="navigation">
+    <nav className={darkMode ? "navigationBlack" : "navigation"}>
       <div className="n-left">
         <div
           className="navkuslar2"
@@ -64,7 +69,7 @@ const Navbar = () => {
           {" "}
         </div>
 
-        <Link to="Intro" smooth={true} spy={true}>
+        <Link to="Intro" smooth={true} spy={true} offset={-350}>
           <FloatinDivForNavbarLogo img={tkc_logo} />
         </Link>
 

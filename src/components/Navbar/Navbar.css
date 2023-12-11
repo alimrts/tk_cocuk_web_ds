@@ -20,6 +20,28 @@
   box-shadow: 0 2px 8px 2px rgba(255, 255, 255, 0.5);
 }
 
+.navigationBlack{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  height: 8rem;
+
+  /* background: linear-gradient(to top, rgba(154, 239, 239, 1)); */
+  background: linear-gradient(
+    to top,
+    rgb(12, 3, 48),
+    rgb(0, 0, 0)
+  );
+
+  box-shadow: 0 2px 8px 2px rgba(255, 255, 255, 0.5);
+}
+
 
 
 .n-left {

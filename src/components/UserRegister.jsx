@@ -232,7 +232,7 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
   };
 
   /////////////////////////
-  const maxValueForBoy = 160;
+  const maxValueForBoy = 200;
 
   const handleBoyChange = (e) => {
     const { name, value } = e.target;
@@ -449,7 +449,7 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
           }
           name="height"
           type="number"
-          InputProps={{ inputProps: { min: 50, max: 160 } }}
+          InputProps={{ inputProps: { min: 50, max: 200 } }}
           value={formData.height}
           onInput={(e) => {
             e.target.value = Math.max(0, parseInt(e.target.value))
@@ -662,6 +662,7 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
         variant="contained"
         onClick={handleClearForm}
         className={classes.buttonTemizle}
+        style={{ textTransform: "none" }}
       >
         {strings.registerPageFormuTemizle}
       </Button>
