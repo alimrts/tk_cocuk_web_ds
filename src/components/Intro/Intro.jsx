@@ -255,7 +255,7 @@ const Intro = (props) => {
       if (response_data.data) {
         console.log("data: " + response_data.data);
         console.log("data Ad: " + response_data.data.Ad);
-        if (response_data.data.Ad === null) {
+        if (response_data.data.Ad === undefined) {
           setState({
             ...state,
 
