@@ -44,193 +44,107 @@ const WrapperComponent = () => {
           src1={sdg1}
           src2={sdg1_1}
           rowTitle="Yoksulluğa Son"
-          row1="Dünyanın her yerinde yoksulluğu sona erdirmek birinci amaçtır. Bu amaç, herkesin yiyecek,
-barınma, giyim, sağlık ve eğitime ulaşmasını böylece topluma tam anlamıyla katılabilmesini
-sağlayacaktır. Yoksul olmak demek çoğu kez sosyal güvenlik, yeni teknoloji, mal-mülk, arazi sahipliği
-ve mali yardım gibi temel şeylere erişememek anlamına geliyor. Bu amaç bunların hepsini
-düzeltmeyi hedefliyor. İklimin ve diğer doğal afetlerin, sosyal ve ekonomik sarsıntıların etkilediği
-insanlara yardım etmemiz gerekir."
+          row1="Bu amaç, dünyanın her yerinde insanların yaşamak için yeterli yiyecek bulduğu, yeme içmenin yanında yaşamak ve yerleşmek için de uygun bir yerde barınabildiği, yeterli giysilere sahip olduğu, sağlıklı bir yaşam sürmek için hastanelere erişebildiği, eğitim olanaklarından yararlanarak özellikle çocuklar ve gençlerin bilgi ve beceri elde etmesini ve ne düşündüğünü söyleyebilmesini sağlamayı amaçlamaktadır."
         />{" "}
         <ImageWithTwoRows
           src1={sdg2}
           src2={sdg2_2}
           rowTitle="Açlığa Son"
-          row1="Herkese yetecek kadar yiyecek varken, çocuklar dahil birçok insan hala açlık çekiyor. Amaç 2, hiç
-kimsenin açlık çekmemesini sağlamak için, yetersiz tarım uygulamaları, yiyecek israfı ve çevrenin
-bozulmasını ele alıyor. Bugün ve gelecekte, doğaya zarar vermeden gıda üretimini teşvik ediyor."
+          row1="Açlık, uzun süre düzgün yemek yemediğinizde ortaya çıkan yetersiz beslenme durumudur. Bu hedef, çocuklardan yaşlılara kadar herkesin yeterli beslenmeyle yeterli gıdayı almasını sağlamakta ve yiyecek israfı yapılmamasını desteklemektedir."
         />
         <ImageWithTwoRows
           src1={sdg3}
           src2={sdg3_3}
           rowTitle="Sağlık ve Kaliteli Yaşam"
-          row1="İnsanların sağlığı yerinde olunca, toplumların refahı artar. Son yıllarda HIV/AIDS, sıtma ve diğer
-hastalıkların etkilerini azaltmak için çok çaba gösterilmekle birlikte, gerçek ilerleme ancak ve
-ancak kadınlar ve çocuklar dahil herkes yeterli sağlık hizmetine erişebildiğinde gerçekleşmiş olur.
-Amaç 3, tüm dünyada anne, bebek ve çocuk ölümlerini azaltma, aile planlamasını destekleme,
-madde bağımlılığını önleme ve tedavi etme, trafik kazalarının sayısını yarı yarıya azaltma gibi
-temel hedefleri içeriyor. Dünyada salgınları sona erdirme, herkes için erişilebilir aşı ve zorunlu
-ilaçlara erişim sağlama, kimyasal ve biyolojik kirlilik ve insanlara bulaşma riskini ortadan
-kaldırmaya acilen ihtiyaç var. Dünyanın en kırılgan bölgelerinde doktor ve hemşire sayısını
-artırmadan bu amaca ulaşamayız."
+          row1="Amaç, herkesin sağlıklı olması, hastalıkları önlemesi ve yeterli tıbbi tedaviye erişebilmesidir. Kadınlar güvenli bir şekilde bebek sahibi olabilmeli ve ilaçlar veya aşılar herkes tarafından erişilebilir olmalıdır. Bu hedef aynı zamanda kazalar ve havanın, suyun ve toprağın kirlenmesinden kaynaklanan yaralanma veya ölümlerin azaltılmasını da içerir."
         />
         <ImageWithTwoRows
           src1={sdg4}
           src2={sdg4_4}
           rowTitle="Nitelikli Eğitim"
-          row1="Eğitime erişim insanların yoksulluktan kurtulmasını, çevremizdeki dünyayı daha iyi anlamasını,
-kızlar dahil herkes için daha iyi olanaklar sunulmasını sağlar. Amaç 4, kim ve nerede olursa olsun
-tüm insanların eğitime erişebilmesini sağlamayı hedefliyor. Zor durumdaki çocuklar, engelliler ve
-yerli halklar dahil kırılgan insanların nitelikli eğitim alabilmeleri gerekiyor. Amaç 4, tüm insanların
-insan haklarını, barışı ve şiddetsizliği destekleyecek biçimde yetiştirilmesinin önemini ve
-böylelikle uyum içinde bir arada yaşayabileceğimizi vurguluyor."
+          row1="Amaç, kız çocukları, engelliler, zor durumdaki kişiler dahil herkesin hayatı boyunca öğrenme fırsatlarıyla birlikte kaliteli ve eşit bir şekilde eğitim almasını sağlamaktır. Güvenli, kolay erişilebilir okulların sağlanması ve nitelikli öğretmen sayısının artırılması bunu başarmaya yardımcı olacaktır. Kim, nerede ve durumu ne olursa olsun; çatışma ve felaketin ortasında bile eğitime devam etmek önemlidir ve iyi bir eğitime ulaşabilmelidir."
         />
         <ImageWithTwoRows
           src1={sdg5}
           src2={sdg5_5}
           rowTitle="Toplumsal Cinsiyet Eşitliği"
-          row1="Kadınlar ve kız çocukları hala ayrımcılık ve şiddete uğruyor; unutmayın ki dünya nüfusunun yarısını
-        onlar oluşturuyor! Amaç 5, eğitim, sağlık ve insana yakışır işler de dahil olmak üzere her bakımdan
-        toplumsal cinsiyet eşitliğini hedefliyor, ki bunların tümü topluma yarar sağlar. Dünyanın her
-        yerinde kadınlar ve kız çocuklarına yönelik, zorla evlendirme ve kadın sünneti dahil her türlü
-        ayrımcılık ve şiddetin ortadan kaldırılması bu amaca ulaşmanın temelidir. Ayrıca, kadınlar ve kız
-        çocuklarının cinsellik ve üreme ile ilgili insan haklarına tam erişime sahip olmalarını sağlamamız
-        gerekiyor. Kadınlar, mülke sahip olabilmeli, mali hizmetler ve yeni teknolojilere erişebilmeli,
-        toplumlarında siyasi, ekonomik ve kamusal yaşama tüm düzeylerde katılabilmelidir. Yönetici,
-        işletme yöneticisi, meclis üyesi kadın sayısının artırılması da bu amacın temel hedeflerindendir."
+          row1="Amaç, kadınları ve kız çocuklarını onlara karşı ayrımcılığa son vermeleri için güçlendirmektir. Bunu yapmanın yolları arasında kadınlara fiziksel, duygusal ve cinsel zararlar gelmesini önlemek; evde yapılan işe değer vermek; kadınların hamilelik ve doğumla ilgili haklarının korunması ile politika, ekonomi vb. alanlarda eşit katılımın teşvik edilmesi sayılabilir.
+          "
         />
         <ImageWithTwoRows
           src1={sdg6}
           src2={sdg6_6}
           rowTitle="Temiz Su ve Sanitazyon"
-          row1="Dünyada milyarlarca insanın, çoğumuzun kanıksadığı bir insan hakkı olan, temiz su ve tuvaletlere
-        erişimi bulunmamaktadır. Su yaşamın temeli ve hiçbir şekilde kirletilmemeli, herkes tarafından
-        geri dönüştürülmeli ve yeniden kullanılmalıdır."
+          row1="Amaç, uygun hijyen yönetimi yoluyla herkese temiz su ve sağlıklı bir ortam sağlamaktır. Bu, herkes için iyi bir su yönetimi ve atıkların imhası ve suyu yeniden kullanma adımlarını gerekli kılar.
+          "
         />
         <ImageWithTwoRows
           src1={sdg7}
           src2={sdg7_7}
           rowTitle="Erişilebilir ve Temiz Enerji"
-          row1="Pişirme ve ısınma için hala odun ve odun kömürü kullanan milyarlarca insana karşılanabilir
-        ve güvenilir enerji sağlamalıyız. Amaç 7 aynı zamanda, iklim değişikliği ile mücadeleye
-        katkıda bulunmak için temiz ve yenilenebilir enerjiye ihtiyaç duyduğumuzu vurguluyor.
-        Enerji modern, ucuz, güvenilir ve sürdürülebilir biçimde üretilmeli. Mümkün olduğunca
-        temiz olmalı ve güneş ve rüzgar gibi kirlenme yaratmayan kaynaklardan elde edilmeli. Bu
-        amaç, gelişmekte olan ülkelere modern enerji biçimleri arzını desteklemeyi ve artırmayı,
-        tüm ülkelerin bir araya gelerek, tüm insanlara ve Yerküremize yarar sağlayacak biçimde
-        temiz enerji araştırmalarını desteklemesi ve teknolojiyi geliştirmesini hedefliyor."
+          row1="Amaç, herkese yalnızca odun veya kömürden değil, aynı zamanda yeni elektrik veya gaz kaynaklarından da güvenilir, düşük fiyatlı enerji sağlamaktır. Temiz, yenilenebilir enerjiden (güneş ışığı, rüzgar, akan nehirler ve okyanus gelgitleri gibi) daha fazla yararlanmak ve enerji verimliliğini artırmak hedeflenmektedir.
+          "
         />
         <ImageWithTwoRows
           src1={sdg8}
           src2={sdg8_8}
           rowTitle="İnsana Yakışır İş ve Ekonomik Büyüme"
-          row1="Bir yanda küresel işsizlik artarken, daha çok iş yaratmanın yollarını bulmamız gerekiyor.
-        Amaç 8, ekonomiyi canlandıran ve hem kadınlar hem de erkeklere eşit fırsatlar sağlayan,
-        bir yanda da çevreyi koruyan daha çok işin yaratılmasını hedefliyor. Kadınlar, erkekler,
-        gençler, engelliler dahil herkesin iş sahibi olmasını ve eşit değerde iş için eşit ücret almasını
-        sağlamayı amaçlıyor."
+          row1="Kadınlar, erkekler, gençler, engelliler dahil herkesin eşit şartlarda ve iyi ücretlerle çalışmaya hakkı var. İnsana yakışır iş, herkesin doğal kaynakları korurken ekonomik büyümeye fayda sağlayan tatmin edici işlere erişebilmesi anlamına gelir. Bu amaç, herkesin iş sahibi olabilmesini ve insana yakışır işlerde çalışabilmesini hedefliyor. Amaç, çalışmaya zorlanan 18 yaş altı çocukları zihinsel ve fiziksel olarak zarara uğratan çocuk işçiliğine son vermektir.
+          "
         />
         <ImageWithTwoRows
           src1={sdg9}
           src2={sdg9_9}
           rowTitle="Sanayi, Yenilikçilik ve Altyapı"
-          row1="Basit ifadeyle, Amaç 9, toplumların büyümesi için, bir yanda çevreyi korurken diğer yanda
-        herkese eşit fırsatlar sağlayan sektörlerin teşvik edilmesi gerektiğini söylüyor. Bu
-        sektörlerin aynı zamanda güvenilir ulaşım ve teknolojik yenilikçilik gibi dayanıklı altyapılar
-        ile de desteklenmesini amaçlıyor."
+          row1="Bu amaç, toplumların büyümesi için yenilikçi, herkese eşit fırsatların sunulduğu ve çevreyi koruyan sektörleri geliştirmeyi hedefliyor. Altyapı, insanların günlük yaşamlarında ihtiyaç duydukları binalar, ulaşım, hizmetler vb. anlamına gelir. Bu hizmetlere örnek olarak su temini, demiryolları, gaz, elektrik ve internet verilebilir. Amaç, felaketlere dayanıklı altyapı oluşturmak, sürdürülebilir ve kapsayıcı ekonomik kalkınmayı teşvik etmek ve yeni teknolojilerin ortaya çıkmasını kolaylaştırmaktır."
         />
         <ImageWithTwoRows
           src1={sdg10}
           src2={sdg10_10}
           rowTitle="Eşitsizliklerin Azaltılması"
-          row1="Toplumda gerçek ilerleme sağlanması için, insanların birey olarak gelişmesini
-        sağlayacak fırsatlara herkesin erişebilmesi gerekiyor. Ancak birçok yerde insanlar
-        toplumsal cinsiyet, engellilik, etnik veya ırksal grup veya geçmişi nedeniyle
-        ayrımcılıkla karşı karşıya kalıyor. Amaç 10 herkesin sağlıklı ve mutlu bir yaşam
-        sürme olanağına sahip olmasını hedefliyor."
+          row1="Amaç, hem ülkeler arasındaki hem de ülke içindeki eşitsizlikleri veya farklılıkları azaltmaktır. Yoksul insanların gelirlerini artırarak ve belirli kişilere herhangi bir sebepten ötürü ayrımcılık yapan yasa ve uygulamalardan kurtularak eşitsizlik ortadan kaldırılabilir."
         />
         <ImageWithTwoRows
           src1={sdg11}
           src2={sdg11_11}
           rowTitle="Sürdürülebilir Şehirler ve Topluluklar"
-          row1="Şehirlerimiz ve köylerimizin temiz ve güvenli olması, yeterli barınma ve elektriksu
-        gibi temel hizmetlere sahip olması gerekiyor. Aynı zamanda, herkesin keyifle
-        kullanabileceği temiz ve verimli ulaşım sistemleri ve yeşil alanlar olması gerek.
-        İnsanların afetler ve iklim değişikliği etkilerine karşı korunması gerek. Önemli
-        kültürel ve doğal alanların herkes için korunması gerek. Hava kalitesi ve atık
-        yönetimini iyileştirmemiz, bir yandan da gelişmekte olan ülkelerde yerli
-        malzeme ile daha iyi binalar yapılmasını desteklememiz gerekiyor."
+          row1="Amaç, herkesin su, elektrik ve diğer temel hizmetlere erişimi olan güvenli, kaliteli konutlarda yaşadığı şehirler ve topluluklar yaratmaktır. Toplumlar afetlere karşı dayanıklı olmalıdır. Çocuklar, yaşlılar ve diğer savunmasız kişiler için hizmetlere güvenli ve kolay erişim sağlarken hava kirliliğini ve atık yönetimini de izlemelidirler."
         />
         <ImageWithTwoRows
           src1={sdg12}
           src2={sdg12_12}
           rowTitle="Sorumlu Üretim ve Tüketim"
-          row1="Amaç 12, kullandığımız şeyler, yarattığımız atıklar ve bunların Yerküremizi nasıl
-        etkilediği hakkında iki kez düşünmemizi istemektedir. Geri dönüşüm gibi daha
-        sürdürülebilir eylemlere doğru davranışlarımızı değiştirmek, bireyler, işletmeler,
-        hükümetler dahil herkes katkıda bulununca gerçekten fark yaratır. Bu amaca
-        ulaşmak için hepimizin yapabileceği birçok şey var. Amaç 12, dünyamızda küçük
-        bir azınlık için değil herkes için yaşam kalitesini yükseltmeyi hedefliyor."
+          row1="Kullandığımız ürünler nereden geliyor ve yarattığımız atıklar nereye gidiyor hiç düşünüyor musunuz? Amaç, bir şeyler yapılırken ve kullanılırken kaynakların israf edilmediğinden emin olmaktır. Bunu başarmanın önemli yolları arasında dünya çapında gıda israfının yarıya indirilmesi; su, hava ve toprak kirlenmesini önleyecek şeyler yapılırken açığa çıkan zararlı kimyasalların izlenmesi; ve atıkları en aza indirmek için Üç R'nin (azalt, yeniden kullan, geri dönüştür) benimsenmesi."
         />
         <ImageWithTwoRows
           src1={sdg13}
           src2={sdg13_13}
           rowTitle="İklim Eylemi"
-          row1="İklim sürekli değişim halindedir, ancak son 200 yılda, insan faaliyetleri nedeniyle bu
-        değişiklikler daha fazla olmaktadır. İklim değişikliği artık tüm ülkeleri etkiliyor, en çok
-        da en yoksul ve kırılgan insanlar etkileniyor. Amaç 13, iklim değişikliği ile mücadele
-        için yenilenebilir enerji ve temiz teknolojiler gibi çözümler bulmayı hedefliyor.
-        Gelişmekte olan ülkeler ve küçük ada devletlerinin özellikle kadınlar, gençler, yerel
-        toplumlar ve dezavantajlı kesimlere odaklanarak çevre değişimi sonuçlarıyla başa
-        çıkabilmeleri için desteğe ihtiyaçları var."
+          row1="Bu amaç, iklim değişikliği ve etkileri ile mücadele etmek için yenilenebilir enerji (rüzgar, güneş, jeotermal gibi) ve temiz teknolojiler gibi çözümler bulmayı hedefliyor."
         />
         <ImageWithTwoRows
           src1={sdg14}
           src2={sdg14_14}
           rowTitle="Sudaki Yaşam"
-          row1="Amaç 14 okyanuslar, denizler ve içinde yaşayan türlerin tümünü korumayı hedefliyor.
-        Çünkü okyanuslar yiyecek, ilaç, biyo-yakıt ve milyonlarca insana iş sağlıyor.
-        Okyanuslara iyi bakarsak iklim değişikliğiyle baş etmemize katkısı olacak. Bizim
-        sağlıklı okyanuslara ihtiyacımız var, okyanusların da bizim korumamıza! Özellikle bitki
-        ve hayvan yaşamına büyük zarar veren ve türlerin neslini tehlikeye sokan plastik çöp
-        yığınlarını azaltmak için hep birlikte çalışmak zorundayız."
+          row1="Bizim sağlıklı okyanuslara, okyanusların da bizim korumamıza ihtiyacı var. Bu amaç, okyanuslar, denizler ve içinde yaşayan canlıların tümünü koruyarak okyanus kirliliğini azaltmak, çevreye zarar veren yasa dışı balıkçılığa son vermek ve deniz kaynaklarının sürdürülebilir bir şekilde kullanılmasını sağlamaktır."
         />
         <ImageWithTwoRows
           src1={sdg15}
           src2={sdg15_15}
           rowTitle="Karasal Yaşam"
-          row1="Hepimiz küresel ekosistemin bir parçasıyız. Amaç 15, kendi küresel evimizi tehdit
-        eden faaliyetlerimizi durdurmayı hedefliyor. Durdurulması gerekenler arasında
-        ormanların yok edilmesi, arazi bozunumu, hayvan ve bitki türlerinin kaybı var. Doğa,
-        insanların yaşamlarına o kadar büyük katkıda bulunuyor ki doğayı korumak
-        zorundayız. Bu amaç, korunan bitki ve hayvan türlerinin kaçak avlanması ve
-        kaçırılmasına son vermek için acil önlemler almayı, doğayı korumak için
-        harcamalarımızı artırmayı ve gelişmekte olan ülkelerin de bunu yapabilmesine yardım
-        etmeyi gerektiriyor."
+          row1="Karadaki bütün hayvanlar ve bitkilerle aynı evi paylaşıyoruz ve birbirimize saygı duymamız gerekiyor. Bu amaç, hayvan ve bitkilerin korunmasını, önlemler almayı, sürdürülebilir bir birlikte yaşamı hedefliyor. Ormanların korunması ve çölleşmenin  durdurulması, kara ekosistemlerinin (yani hayvanların ve yaşadıkları ortamların) korunması, yenilenmesi ve sürdürülebilir bir şekilde kullanılması açısından önemlidir. Nesli tükenmekte olan türler korunmalı ve biyolojik çeşitlilik kaybı önlenmelidir."
         />
         <ImageWithTwoRows
           src1={sdg16}
           src2={sdg16_16}
           rowTitle="Barış, Adalet ve Güçlü Kurumlar"
-          row1="Amaç 16, herkesin adalete erişebileceği, korku
-        duymadan hayatını sürdüreceği barışçıl toplumlarda
-        yaşamasını sağlayacak yollar bulmayı
-        hedeflemektedir. Dünyanın her yerinde çocuklar,
-        genç kadınlar ve erkeklere yönelik her türlü taciz,
-        istismar, kaçırma, şiddet ve işkenceye son vermeyi
-        hedefliyor. Tüm insanlar kendi ülkelerindeki kamusal
-        yaşama katılmaya teşvik ediliyor."
+          row1="Bu amaç, dünyanın her yerindeki insanların adalete (mahkemeler ve yasal prosedürler) erişebileceği, korku duymadan hayatını sürdürebileceği barışçıl toplumlarda yaşamasını sağlayacak yollar bulmayı  ve toplum, ülke ve küresel düzeylerde adil kurumların aktif olmasını sağlamayı hedeflemektedir."
         />
         <ImageWithTwoRows
           src1={sdg17}
           src2={sdg17_17}
           rowTitle="Amaçlar İçin Ortalıklar"
-          row1="Amaçlara ulaşmak için hükümetler, özel sektör, sivil
-        toplum ve bizim gibi insanlar dahil herkesin sürece
-        katılması gerekmektedir. Gelişmiş ülkeler, gelişmekte
-        olan ülkelere daha çok mali, bilimsel ve teknolojik
-        yardım sağlamalı, ürünlerini uluslararası pazarlara
-        daha çok satabilmelerine ve yerel kapasitelerini
-        güçlendirmelerine destek vermelidir."
+          row1="Bu amaç, dünya genelinde sürdürülebilir kalkınma için ortak hareket etmeyi ve 1'den 16'ya kadar olan amaçlara ulaşmak için tüm ülkelerin birlikte çalışmasını  sağlamayı hedeflemektedir.Sürdürülebilir Kalkınma Amaçları ulusal planlara dahil edilmeli ve bunlara ulaşmak için daha büyük adımlar atılmalıdır. Her ülke, hedeflere ulaşmak için hangi önlemleri alabileceğini ve mali kaynaklarını nasıl kullanabileceğini düşünmelidir."
         />
       </div>
     </>

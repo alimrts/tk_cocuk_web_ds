@@ -1,13 +1,20 @@
 import React, { useState, useRef, useEffect } from "react";
 import Toggle from "../Toggle/Toggle";
+import { useContext } from "react";
+import { themeContext } from "../../Context";
 import "./Navbar.css";
 import { Link } from "react-scroll";
+import tkc_kuslar1 from "../../img/tkc_kuslar1.png";
+import tkc_kuslar2 from "../../img/tkc_kuslar2.png";
 import { NavLink } from "react-router-dom";
 import tkc_logo from "../../img/tkc_logo.png";
 import FloatinDivForNavbarLogo from "../FloatingDiv/FloatingDivForNavbarLogo";
 import useZustandStore from "../../zustandStore";
 
 const Navbar = () => {
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
+
   const { language, setLanguage, languageData } = useZustandStore();
   const [selectedLanguage, setSelectedLanguage] = useState("");
 
@@ -28,17 +35,32 @@ const Navbar = () => {
     localStorage.setItem("selectedLanguage", selectedLanguage);
   };
   return (
-    <div id="Navbar">
+    <nav className={darkMode ? "navigationBlack" : "navigation"}>
       {/* left */}
-      <div className="n-left" style={{ marginTop: "-4rem" }}>
+      <div className="n-left" style={{}}>
         <Link to="Intro" smooth={true} spy={true}>
           <FloatinDivForNavbarLogo img={tkc_logo} />
         </Link>
+        <div
+          className="navkuslar2"
+          style={{
+            backgroundImage: `url(${tkc_kuslar2})`,
+            marginLeft: "8rem",
+          }}
+        >
+          {" "}
+        </div>
+        <div
+          className="navkuslar1"
+          style={{
+            backgroundImage: `url(${tkc_kuslar1})`,
+          }}
+        ></div>
       </div>
       {/* right */}
       <div
         className="n-right"
-        style={{ display: "flex", flexDirection: "row", marginTop: "-4rem" }}
+        style={{ display: "flex", flexDirection: "row" }}
       >
         {/* <span style={{ marginRight: "2rem", marginTop: "" }}>
           Hoş geldin!{" "}
@@ -53,16 +75,15 @@ const Navbar = () => {
             >
               <option value="default">Türkçe</option>
               <option value="eng">English</option>
-              <option value="ger">Deutsch</option>
+              {/* <option value="ger">Deutsch</option>
               <option value="french">Français</option>
-              <option value="spanish">Española</option>
-              <option value="arab">عربي</option>
+              <option value="spanish">Española</option> */}
             </select>
           </div>
         </div>
         <Toggle />
       </div>
-    </div>
+    </nav>
   );
 };
 

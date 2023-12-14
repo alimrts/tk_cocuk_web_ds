@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useContext } from "react";
+import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
 import Toggle from "../Toggle/Toggle";
 import "./Navbar.css";
@@ -17,6 +19,8 @@ import tkc_kuslar2 from "../../img/tkc_kuslar2.png";
 import kus1 from "../../img/kus1.png";
 
 const Navbar = () => {
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
   const transitionOfKus1 = {
     duration: 3,
     ease: "easeInOut",
@@ -41,7 +45,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="navigation">
+    <nav className={darkMode ? "navigationBlack" : "navigation"}>
       <div className="n-left">
         <div
           className="navkuslar2"

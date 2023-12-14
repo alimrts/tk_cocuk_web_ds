@@ -10,13 +10,14 @@
 }
 
 .right-column {
-  
   width: 70%;
   padding: 0 20px;
   margin-right: 4rem;
   margin-bottom: 4rem;
   transform: scale(0.9);
 }
+
+
 
 /* blur */
 .blur {

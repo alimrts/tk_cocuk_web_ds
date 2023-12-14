@@ -43,14 +43,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    marginTop: "-8rem",
     [theme.breakpoints.up("md")]: {
       flexDirection: "row",
     },
     alignItems: "center",
     justifyContent: "center",
-    minHeight: "100vh",
-    padding: "1rem",
+    marginTop: "4rem",
     transform: "scale(0.8)",
   },
   left: {
@@ -259,17 +257,6 @@ const RegisterPage = () => {
         <>
           <div className={classes.root}>
             <div
-              className="blur"
-              style={{
-                background: "#ffe6ff",
-
-                top: "5rem",
-                width: "31rem",
-                height: "41rem",
-              }}
-            ></div>
-
-            <div
               style={{
                 backgroundImage: `url(${tkc_kuslar1_edit})`,
                 backgroundRepeat: "no-repeat",
@@ -371,32 +358,21 @@ const RegisterPage = () => {
               </Canvas>
             </div>
           </div>
+
           <div
-            className="blur"
-            style={{
-              background: "#e6ffff",
-              top: "5rem",
-              width: "31rem",
-              height: "41rem",
-            }}
-          ></div>
-          <div
-            className="footer"
             style={{
               position: "fixed",
-              bottom: 0,
+              bottom: -20,
               left: 0,
               right: 0,
-
-              width: "120%",
-              height: "250px" /* adjust the height as needed */,
+              width: "100%",
               zIndex: -1,
             }}
           >
             <img
               src={FooterBg}
               alt=""
-              style={{ width: "100%", marginTop: "4rem" }}
+              style={{ width: "100%", marginBottom: "0rem" }}
             />
           </div>
         </>

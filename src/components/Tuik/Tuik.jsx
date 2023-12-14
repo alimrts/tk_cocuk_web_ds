@@ -1,17 +1,12 @@
 import React from "react";
 import "./Tuik.css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation } from "swiper/core";
 import "swiper/css";
-
 import { Pagination } from "swiper";
 import "swiper/css/pagination";
-import profilePic1 from "../../img/g3.png";
-import profilePic2 from "../../img/g3.png";
-import profilePic3 from "../../img/g3.png";
-import profilePic4 from "../../img/g4.png";
-import SwiperCore, { Navigation } from "swiper/core";
-import tkc_tuik_timeline from "../../img/tkc_tuik_timeline.png";
 
+import tkc_tuik_timeline from "../../img/tkc_tuik_timeline.png";
 import tkc_kuslar1 from "../../img/tkc_kuslar1.png";
 
 // Initialize the Navigation module
@@ -70,69 +65,6 @@ const Tuik = () => {
   ];
 
   return (
-    // <div className="t-wrapper" id="tuik">
-    //   <div className="t-heading">
-    //     <span>
-    //       TÜİK'i Tanıyalım.. <br />{" "}
-    //     </span>
-    //     <span>TÜİK </span>
-    //     <span>Nedir?</span>
-    //     <div
-    //       className="blur t-blur1"
-    //       style={{ background: "var(--purple)" }}
-    //     ></div>
-    //     <div className="blur t-blur2" style={{ background: "skyblue" }}></div>
-    //   </div>
-    //   <Swiper
-    //     // install Swiper modules
-    //     {...swiperProps}
-    //     modules={[Pagination]}
-    //     slidesPerView={1}
-    //     pagination={{ clickable: true }}
-    //   >
-    //     {icerikler.map((icerik, index) => {
-    //       return (
-    //         <SwiperSlide key={index}>
-    //           <div className="tuik">
-    //             {/* <img src={client.img} alt="" /> */}
-    //             <span
-    //               style={{
-    //                 color: "orange",
-    //                 fontSize: "18pt",
-    //               }}
-    //             >
-    //               {icerik.title}
-    //               <br />
-    //               <br />
-    //             </span>
-    //             <span>{icerik.review}</span>
-    //           </div>
-    //         </SwiperSlide>
-    //       );
-    //     })}
-    //   </Swiper>
-    //   <div className="swiper-button-prev">
-    //     <svg
-    //       id="right-arrow"
-    //       viewBox="0 0 24 24"
-    //       xmlns="http://www.w3.org/2000/svg"
-    //       style={{ transform: "rotate(-180deg)", zIndex: 2 }}
-    //     >
-    //       <path d="M6 18L18 12L6 6V18Z" fill="orange" />
-    //     </svg>
-    //   </div>
-
-    //   <div className="swiper-button-next">
-    //     <svg
-    //       id="right-arrow"
-    //       viewBox="0 0 24 24"
-    //       xmlns="http://www.w3.org/2000/svg"
-    //       style={{ zIndex: 2 }}
-    //     >
-    //       <path d="M6 18L18 12L6 6V18Z" fill="orange" />
-    //     </svg>
-    //   </div>
-    // </div>
     <div className="container-istatistik" id="tuik">
       <div className="left-column">
         <img src={tkc_tuik_timeline} alt="" />

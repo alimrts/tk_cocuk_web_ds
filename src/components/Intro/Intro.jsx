@@ -382,7 +382,7 @@ const Intro = (props) => {
           transition={transition}
           className="floating-div"
         >
-          <Link to="istatistik" smooth={true} spy={true}>
+          <Link to="istatistik" smooth={true} spy={true} offset={-180}>
             <FloatinDivForIntroRight img={tkc_istatistik_ogrenelim} />
           </Link>
         </motion.div>
@@ -394,7 +394,7 @@ const Intro = (props) => {
           transition={transition}
           className="floating-div"
         >
-          <Link to="tuik" smooth={true} spy={true}>
+          <Link to="tuik" smooth={true} spy={true} offset={-240}>
             <FloatinDivForIntroRight img={tkc_tuiki_taniyalim} />
           </Link>
         </motion.div>

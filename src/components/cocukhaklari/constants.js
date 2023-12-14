@@ -36,15 +36,6 @@ import c34 from "../../img/c34.png";
 import c35 from "../../img/c35.png";
 import c36 from "../../img/c36.png";
 import c37 from "../../img/c37.png";
-import c38 from "../../img/c38.png";
-import c39 from "../../img/c39.png";
-import c40 from "../../img/c40.png";
-import c41 from "../../img/c41.png";
-import c42 from "../../img/c42.png";
-
-
-
-
 
 
 export const FilterTabs = [
@@ -193,71 +184,47 @@ export const FilterTabs = [
     nameBack: "Eğitimin amacı çocuğun kişiliğinin, becerilerinin ve yeteneklerinin mümkün olduğunca geliştirilmesi olmalıdır. Eğitim; çocuğu insan haklarına, ana-babasına, kendi kültürü ile diğer kültürlere ve çevreye saygı duymaya teşvik etmelidir.",
     icon: c29,
   },
+ 
   {
     nameFront: 'c30',
-    nameBack: "Her çocuk, yaşadığı ülkedeki insanların çoğunluğu tarafından paylaşılmasa bile ailesinin dili, gelenekleri ve dini hakkında bilgi edinme ve bunları icra etme hakkına sahiptir.",
+    nameBack: "Her çocuk dinlenme, oynama ve çeşitli kültürel ve sanatsal faaliyetlere katılma hakkına sahiptir.",
     icon: c30,
   },
   {
     nameFront: 'c31',
-    nameBack: "Her çocuk dinlenme, oynama ve çeşitli kültürel ve sanatsal faaliyetlere katılma hakkına sahiptir.",
+    nameBack: "Devletler, çocukları kendileri için tehlikeli olabilecek veya sağlıkları veya eğitimlerine zarar verebilecek işlerde çalıştırılmaktan korumalıdır.",
     icon: c31,
   },
   {
     nameFront: 'c32',
-    nameBack: "Devletler, çocukları kendileri için tehlikeli olabilecek veya sağlıkları veya eğitimlerine zarar verebilecek işlerde çalıştırılmaktan korumalıdır.",
+    nameBack: "Hiçbir çocuk, işkence veya diğer zalimane muamele veya cezaya tâbi tutulamaz. Bir çocuğun tutuklanması veya hapsi ancak en son başvurulacak bir önlem olarak düşünülüp, uygun olabilecek en kısa süre ile sınırlı tutulacaktır. Ceza infaz kurumlarında bulunan çocuklar yetişkinlerle aynı yerde tutulmamalı ve aileleriyle irtibatlarını sürdürebilmelidir.",
     icon: c32,
   },
   {
     nameFront: 'c33',
-    nameBack: "Devletler, çocukları uyuşturucu maddelerin yasadışı kullanımına karşı korumalıdır.",
+    nameBack: "Devletler savaştan etkilenen çocukların korunması ve bakım altına alınması için mümkün olan azami çabayı gösterirler. Devletler 15 yaşından küçük çocukların savaşa katılmasına veya silah altına alınmasına izin vermemelidir.",
     icon: c33,
   },
   {
     nameFront: 'c34',
-    nameBack: "Devletler, çocukları cinsel istismar ve suiistimale karşı korumalıdır.",
+    nameBack: "İhmal, sömürü ya da istismar, işkence ya da silahlı çatışma mağduru olan çocukların sağlığına yeniden kavuşması ve onuru ve öz saygısını yeniden kazanması için özel yardım sunulmalıdır.",
     icon: c34,
   },
   {
     nameFront: 'c35',
-    nameBack: "Devletler, çocukların kaçırılmasını veya para karşılığı satılmasını engellemelidir.",
+    nameBack: "Kanunları ihlal ettiği iddia edilen veya kabul edilen bir çocuğa, insana yaraşır ve saygın bir şekilde muamele edilmelidir. Çocukların avukattan destek alma ve yaş veya içinde bulunduğu durumu dikkate alan adil bir yargılamaya tabi tutulma hakkı vardır. Çocuğun mahremiyet hakkına daima saygı gösterilmelidir.",
     icon: c35,
   },
   {
     nameFront: 'c36',
-    nameBack: "Devletler, çocukları diğer tüm istismar çeşitlerine karşı korumalıdır.",
-    icon: c36,
-  },
-  {
-    nameFront: 'c37',
-    nameBack: "Hiçbir çocuk, işkence veya diğer zalimane muamele veya cezaya tâbi tutulamaz. Bir çocuğun tutuklanması veya hapsi ancak en son başvurulacak bir önlem olarak düşünülüp, uygun olabilecek en kısa süre ile sınırlı tutulacaktır. Ceza infaz kurumlarında bulunan çocuklar yetişkinlerle aynı yerde tutulmamalı ve aileleriyle irtibatlarını sürdürebilmelidir.",
-    icon: c37,
-  },
-  {
-    nameFront: 'c38',
-    nameBack: "Devletler savaştan etkilenen çocukların korunması ve bakım altına alınması için mümkün olan azami çabayı gösterirler. Devletler 15 yaşından küçük çocukların savaşa katılmasına veya silah altına alınmasına izin vermemelidir.",
-    icon: c38,
-  },
-  {
-    nameFront: 'c39',
-    nameBack: "İhmal, sömürü ya da istismar, işkence ya da silahlı çatışma mağduru olan çocukların sağlığına yeniden kavuşması ve onuru ve öz saygısını yeniden kazanması için özel yardım sunulmalıdır.",
-    icon: c39,
-  },
-  {
-    nameFront: 'c40',
-    nameBack: "Kanunları ihlal ettiği iddia edilen veya kabul edilen bir çocuğa, insana yaraşır ve saygın bir şekilde muamele edilmelidir. Çocukların avukattan destek alma ve yaş veya içinde bulunduğu durumu dikkate alan adil bir yargılamaya tabi tutulma hakkı vardır. Çocuğun mahremiyet hakkına daima saygı gösterilmelidir.",
-    icon: c40,
-  },
-  {
-    nameFront: 'c41',
     nameBack: "Belirli bir ülkenin mevzuatı çocuklara Sözleşme maddelerinden daha iyi koruma sağlıyorsa, söz konusu mevzuat aynen uygulanmaya devam etmelidir.",
-    icon: c41,
+    icon: c36,
   },
 
   {
-    nameFront: 'c42',
+    nameFront: 'c37',
     nameBack: "Devletler, çocuklar ve yetişkinleri Sözleşme hakkında bilgilendirmelidir. Sözleşme toplamda 54 maddeden oluşmaktadır. Aşağıda yer alan madde de dahil olmak üzere 43 ila 54. maddeler, çocukların sahip oldukları haklardan faydalanmalarını sağlamak amacıyla yetişkinler ve devletlerin iş birliği içerisinde yürüteceği faaliyetleri açıklamaktadır.",
-    icon: c42,
+    icon: c37,
   },
 
 

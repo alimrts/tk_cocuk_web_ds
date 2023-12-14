@@ -4,10 +4,8 @@ import {devtools, persist} from 'zustand/middleware'
 
 import strings from './components/strings/strings.json';
 import stringsEng from './components/strings/stringsEng.json';
-import stringsGer from './components/strings/stringsGer.json';
-import stringsFrench from './components/strings/stringsFrench.json';
-import stringsSpanish from './components/strings/stringsSpanish.json';
-import stringsArab from './components/strings/stringsArab.json';
+
+
 
 
 
@@ -42,13 +40,11 @@ const zustandStore = (set) => ({
     languageData: {
         default: strings,
         eng: stringsEng,
-        ger: stringsGer,
-        french: stringsFrench,
-        spanish: stringsSpanish,
-        arab: stringsArab,
-        // Add more languages here
-        // spanish: stringsSpanish,
+        // ger: stringsGer,
         // french: stringsFrench,
+        // spanish: stringsSpanish,
+        // Add more languages here
+ 
     },
 
      // User information
