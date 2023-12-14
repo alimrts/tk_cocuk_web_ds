@@ -252,7 +252,7 @@ const Intro = (props) => {
         }
       );
 
-      if (response_data.data) {
+      if (response_data.data.Ad) {
         console.log("data: " + response_data.data);
         setState({
           ...state,
