@@ -252,8 +252,27 @@ const Intro = (props) => {
         }
       );
 
-      if (response_data.data.Ad) {
+      if (response_data.data) {
         console.log("data: " + response_data.data);
+        if (!response_data.data.Ad) {
+          setState({
+            ...state,
+
+            loading: true,
+
+            adi: "Adi",
+            yilYas: 5,
+            ayYas: 11,
+            gunYas: 13,
+            il: "Bilecik",
+            ayniIsimdeIlSayi: 0,
+            ayniIsimdeTurkiyeSayi: 140,
+            ayniTarihDoganIlSayi: 3,
+            ayniTarihDoganTurkiyeSayi: 1214,
+            boyOrtancaDeger: 13,
+            kiloOrtancaDeger: -3,
+          });
+        }
         setState({
           ...state,
           adi: response_data.data.Ad,
