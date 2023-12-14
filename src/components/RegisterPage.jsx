@@ -336,12 +336,10 @@ const RegisterPage = () => {
                   height: "60vh",
                   minWidth: "20vw",
                   minHeight: "30vh",
-
                   cursor: "pointer",
                 }}
               >
                 <ambientLight intensity={1.25} />
-
                 <directionalLight intensity={0.4} />
                 <Suspense fallback={<Loader />}>
                   <ModelChar position={[0, -1.2, -3]} rotation={[0, -60, 0]} />
