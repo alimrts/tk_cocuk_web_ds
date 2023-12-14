@@ -62,7 +62,7 @@ const ImageWithText = ({
 
         // Add the first text object to the canvas
         const fabricText1 = new fabric.Text("Sevgili", {
-          selectable: true,
+          selectable: false,
           // left: 160, // Custom x position
           // top: 90, // Custom y position
           left: text1Left, // Custom x position
@@ -76,7 +76,7 @@ const ImageWithText = ({
 
         // Add the second text object to the canvas
         const fabricText2 = new fabric.Text(text, {
-          selectable: true,
+          selectable: false,
           // left: 320, // Custom x position
           // top: 120, // Custom y position
           left: text2Left, // Custom x position
@@ -93,7 +93,7 @@ const ImageWithText = ({
 
         // Add the third text object to the canvas
         const fabricText3 = new fabric.Textbox(fullText, {
-          selectable: true,
+          selectable: false,
           // left: 210, // Custom x position
           // top: 160, // Custom y position
           left: text3Left, // Custom x position
@@ -112,7 +112,7 @@ const ImageWithText = ({
         //   fabricText3.splitTextIntoLines(); // split text into lines
 
         const fabricText4 = new fabric.Text("Tarih: " + today, {
-          selectable: true,
+          selectable: false,
           // left: 500, // Custom x position
           // top: 420, // Custom y position
           left: text4Left, // Custom x position

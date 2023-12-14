@@ -232,7 +232,7 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
   };
 
   /////////////////////////
-  const maxValueForBoy = 200;
+  const maxValueForBoy = 250;
 
   const handleBoyChange = (e) => {
     const { name, value } = e.target;
@@ -251,7 +251,7 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
   };
   /////////////////////////
   /////////////////////////
-  const maxValueForKilo = 100;
+  const maxValueForKilo = 200;
 
   const handleKiloChange = (e) => {
     const { name, value } = e.target;
@@ -318,6 +318,7 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
 
   const handleGenderChange = (event) => {
     setGender(event.target.value);
+    onGenderChange(event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -449,7 +450,7 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
           }
           name="height"
           type="number"
-          InputProps={{ inputProps: { min: 50, max: 200 } }}
+          InputProps={{ inputProps: { min: 30, max: 250 } }}
           value={formData.height}
           onInput={(e) => {
             e.target.value = Math.max(0, parseInt(e.target.value))
@@ -471,7 +472,7 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
           }
           name="weight"
           type="number"
-          InputProps={{ inputProps: { min: 25, max: 100 } }}
+          InputProps={{ inputProps: { min: 1, max: 200 } }}
           value={formData.weight}
           onInput={(e) => {
             e.target.value = Math.max(0, parseInt(e.target.value))

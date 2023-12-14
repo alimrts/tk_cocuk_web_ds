@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 
 import NavbarRegister from "../components/Navbar/NavbarRegister";
 
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Html, useProgress } from "@react-three/drei";
 import ModelChar from "../components/Intro/ModelChar";
 import ModelCharEge from "../components/Intro/ModelCharEge";
@@ -21,6 +21,10 @@ import FooterBg from "../img/tkc_footer_bg.png";
 import zIndex from "@material-ui/core/styles/zIndex";
 
 import useZustandStore from "../zustandStore";
+
+import * as THREE from "three";
+
+import { Trail, Float } from "@react-three/drei";
 
 function Loader() {
   const { progress } = useProgress();
@@ -85,6 +89,43 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "14pt",
   },
 }));
+
+function Atom(props) {
+  return (
+    <group {...props}>
+      <Electron position={[0, 0, 0.5]} speed={4} />
+    </group>
+  );
+}
+
+function Electron({ radius = 0.62, speed = 6, ...props }) {
+  const ref = useRef();
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime() * speed;
+    ref.current.position.set(
+      Math.sin(t) * radius,
+      (Math.cos(t) * radius * Math.atan(t)) / Math.PI / 1.25 - 1.1,
+      -3.2
+    );
+  });
+  return (
+    <group {...props}>
+      <Trail
+        local
+        width={5}
+        length={12}
+        // color={new THREE.Color(2, 1, 10)}
+        color={new THREE.Color(0x00ffe4)}
+        attenuation={(t) => t * t}
+      >
+        <mesh ref={ref}>
+          {/* <sphereGeometry args={[0.15]} /> */}
+          <meshBasicMaterial color={[10, 8, 10]} toneMapped={false} />
+        </mesh>
+      </Trail>
+    </group>
+  );
+}
 
 const RegisterPage = () => {
   const classes = useStyles();
@@ -187,7 +228,7 @@ const RegisterPage = () => {
   const [gender, setGender] = useState("");
   const handleGenderChange = (value) => {
     setGender(value);
-    console.log("erkek");
+    console.log(value);
   };
 
   const handleUserRegister = (formData) => {
@@ -286,6 +327,13 @@ const RegisterPage = () => {
 
                 <directionalLight intensity={0.4} />
                 <Suspense fallback={<Loader />}>
+                  {gender === "1" && (
+                    <>
+                      <Float speed={4} rotationIntensity={1} floatIntensity={2}>
+                        <Atom />
+                      </Float>
+                    </>
+                  )}
                   <ModelCharEge
                     position={[0, -1.2, -3]}
                     rotation={[0, -60, 0]}
@@ -343,6 +391,13 @@ const RegisterPage = () => {
                 <directionalLight intensity={0.4} />
                 <Suspense fallback={<Loader />}>
                   <ModelChar position={[0, -1.2, -3]} rotation={[0, -60, 0]} />
+                  {gender === "2" && (
+                    <>
+                      <Float speed={4} rotationIntensity={1} floatIntensity={2}>
+                        <Atom position={[0, -1.2, -3]} />
+                      </Float>
+                    </>
+                  )}
                 </Suspense>
                 <OrbitControls
                   enableZoom={false}

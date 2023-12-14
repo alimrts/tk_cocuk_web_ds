@@ -189,17 +189,28 @@ const Intro = (props) => {
   const [state, setState] = useState({
     infoText: "",
     loading: false,
-    adi: "",
-    yilYas: "",
-    ayYas: "",
-    gunYas: "",
-    il: "",
-    ayniIsimdeIlSayi: "",
-    ayniIsimdeTurkiyeSayi: "",
-    ayniTarihDoganIlSayi: "",
-    ayniTarihDoganTurkiyeSayi: "",
-    boyOrtancaDeger: "",
-    kiloOrtancaDeger: "",
+    // adi: "",
+    // yilYas: "",
+    // ayYas: "",
+    // gunYas: "",
+    // il: "",
+    // ayniIsimdeIlSayi: "",
+    // ayniIsimdeTurkiyeSayi: "",
+    // ayniTarihDoganIlSayi: "",
+    // ayniTarihDoganTurkiyeSayi: "",
+    // boyOrtancaDeger: "",
+    // kiloOrtancaDeger: "",
+    adi: "Adi",
+    yilYas: 5,
+    ayYas: 11,
+    gunYas: 13,
+    il: "Bilecik",
+    ayniIsimdeIlSayi: 0,
+    ayniIsimdeTurkiyeSayi: 140,
+    ayniTarihDoganIlSayi: 3,
+    ayniTarihDoganTurkiyeSayi: 1214,
+    boyOrtancaDeger: 13,
+    kiloOrtancaDeger: -3,
   });
 
   const {
@@ -242,6 +253,7 @@ const Intro = (props) => {
       );
 
       if (response_data.data) {
+        console.log("data: " + response_data.data);
         setState({
           ...state,
           adi: response_data.data.Ad,
@@ -441,7 +453,7 @@ const Intro = (props) => {
             <FloatinDivForIntroRight img={tkc_sdg_amaclari} />
           </NavLink>
         </motion.div>
-        <motion.img
+        {/* <motion.img
           style={{
             marginLeft: "18rem",
             marginTop: "14rem",
@@ -454,7 +466,7 @@ const Intro = (props) => {
           transition={transitionOfBalloon}
           src={tkc_balon}
           alt=""
-        />
+        /> */}
         <motion.img
           style={{
             marginLeft: "-8rem",
@@ -480,8 +492,8 @@ const Intro = (props) => {
         ></div>
         <motion.img
           style={{
-            marginLeft: "1rem",
-            marginTop: "18rem",
+            marginLeft: "-1rem",
+            marginTop: "-1rem",
             width: "40px",
             height: "20px",
           }}
@@ -496,8 +508,8 @@ const Intro = (props) => {
         />
         <motion.img
           style={{
-            marginLeft: "21rem",
-            marginTop: "24rem",
+            marginLeft: "31rem",
+            marginTop: "4rem",
             width: "40px",
             height: "20px",
           }}
@@ -512,8 +524,8 @@ const Intro = (props) => {
         />
         <motion.img
           style={{
-            marginLeft: "26rem",
-            marginTop: "20rem",
+            marginLeft: "40rem",
+            marginTop: "6rem",
             width: "50px",
             height: "25px",
           }}
@@ -528,8 +540,8 @@ const Intro = (props) => {
         />
         <motion.img
           style={{
-            marginLeft: "18rem",
-            marginTop: "18rem",
+            marginLeft: "36rem",
+            marginTop: "1rem",
             width: "50px",
             height: "25px",
           }}

@@ -115,7 +115,7 @@ const VideoIzle = () => {
               <span>Çocuk Hakları</span>
             </div>
 
-            <div
+            {/* <div
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -125,14 +125,14 @@ const VideoIzle = () => {
             >
               <FloatinDivForIntroRight img={tkc_video_guvenailesi} />
               <span>Güven Ailesi</span>
-            </div>
+            </div> */}
           </div>
         </div>
         {showPopup && (
           <VideoPopup videoSrc={selectedVideo} onClose={handleClosePopup} />
         )}
       </div>
-      <div>
+      {/* <div>
         <div className="videolar">
           <span
             className="kitaplik-text"
@@ -146,8 +146,7 @@ const VideoIzle = () => {
         </div>
 
         <div className="videorow" id="works">
-          {/* left side */}
-
+    
           <div className="w-right">
             <div
               style={{
@@ -209,10 +208,8 @@ const VideoIzle = () => {
             </div>
           </div>
         </div>
-        {/* {showPopup && (
-          <VideoPopup videoSrc={selectedVideo} onClose={handleClosePopup} />
-        )} */}
-      </div>
+      
+      </div> */}
     </>
   );
 };

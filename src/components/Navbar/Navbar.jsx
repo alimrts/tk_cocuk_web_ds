@@ -139,7 +139,7 @@ const Navbar = () => {
                   to="works"
                   spy={true}
                   smooth={true}
-                  offset={-280}
+                  offset={-360}
                   onClick={() => {
                     setTimeout(() => setIsNavExpanded(false), 300);
                   }}
