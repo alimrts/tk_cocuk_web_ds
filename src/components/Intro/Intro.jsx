@@ -273,23 +273,24 @@ const Intro = (props) => {
             boyOrtancaDeger: 13,
             kiloOrtancaDeger: -3,
           });
+        } else {
+          setState({
+            ...state,
+            adi: response_data.data.Ad,
+            yilYas: response_data.data.Yil,
+            ayYas: response_data.data.Ay,
+            gunYas: response_data.data.Gun,
+            il: response_data.data.Il,
+            ayniIsimdeIlSayi: response_data.data.AyniIsimdeIlSayi,
+            ayniIsimdeTurkiyeSayi: response_data.data.AyniIsimdeTurkiyeSayi,
+            ayniTarihDoganIlSayi: response_data.data.AyniTarihDoganIlSayi,
+            ayniTarihDoganTurkiyeSayi:
+              response_data.data.ayniTarihDoganTurkiyeSayi,
+            boyOrtancaDeger: response_data.data.BoyOrtancaDeger,
+            kiloOrtancaDeger: response_data.data.KiloOrtancaDeger,
+            loading: true,
+          });
         }
-        setState({
-          ...state,
-          adi: response_data.data.Ad,
-          yilYas: response_data.data.Yil,
-          ayYas: response_data.data.Ay,
-          gunYas: response_data.data.Gun,
-          il: response_data.data.Il,
-          ayniIsimdeIlSayi: response_data.data.AyniIsimdeIlSayi,
-          ayniIsimdeTurkiyeSayi: response_data.data.AyniIsimdeTurkiyeSayi,
-          ayniTarihDoganIlSayi: response_data.data.AyniTarihDoganIlSayi,
-          ayniTarihDoganTurkiyeSayi:
-            response_data.data.ayniTarihDoganTurkiyeSayi,
-          boyOrtancaDeger: response_data.data.BoyOrtancaDeger,
-          kiloOrtancaDeger: response_data.data.KiloOrtancaDeger,
-          loading: true,
-        });
       }
     } catch (error) {
       console.log(error);
