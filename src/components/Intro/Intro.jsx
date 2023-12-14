@@ -261,17 +261,17 @@ const Intro = (props) => {
 
             loading: true,
 
-            adi: "Adi",
-            yilYas: 5,
-            ayYas: 11,
-            gunYas: 13,
-            il: "Bilecik",
+            adi: "---",
+            yilYas: 0,
+            ayYas: 0,
+            gunYas: 0,
+            il: "---",
             ayniIsimdeIlSayi: 0,
-            ayniIsimdeTurkiyeSayi: 140,
-            ayniTarihDoganIlSayi: 3,
-            ayniTarihDoganTurkiyeSayi: 1214,
-            boyOrtancaDeger: 13,
-            kiloOrtancaDeger: -3,
+            ayniIsimdeTurkiyeSayi: 0,
+            ayniTarihDoganIlSayi: 0,
+            ayniTarihDoganTurkiyeSayi: 0,
+            boyOrtancaDeger: 0,
+            kiloOrtancaDeger: 0,
           });
         } else {
           setState({
