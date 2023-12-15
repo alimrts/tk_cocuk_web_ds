@@ -1,13 +1,10 @@
 import React, { useContext } from "react";
 import "./Sdg.css";
-import Card from "../Card/Card";
 
 import { themeContext } from "../../Context";
-import { motion } from "framer-motion";
-import Dokuman from "./ÇOCUKLAR İÇİN SÜRDÜRÜLEBİLİR KALKINMA GÖSTERGELERİ.pdf";
+
 import WrapperComponent from "./WrapperComponent";
 import NavbarRegister from "../../components/Navbar/NavbarCocukSdg";
-import tkc_kuslar2_edit from "../../img/tkc_kuslar2_edit.png";
 
 const Sdg = () => {
   // context
@@ -24,37 +21,18 @@ const Sdg = () => {
     <>
       {" "}
       <NavbarRegister />
-      <div className="sdg" id="sdg">
-        {/* left side */}
-        <div className="awesome">
-          {/* dark mode */}
-          <span style={{ color: darkMode ? "white" : "" }}>
-            Sürdürülebilir Kalkınma
-          </span>
-          <span> Amaçları</span>
-          {/* <span>
-          Lorem ispum is simpley dummy text of printing of
+      {/* left side */}
+      <div className="t-heading ">
+        <span>Sürdürülebilir Kalkınma Amaçları</span>
+        <span> Nedir?</span>
+        <span style={{ fontSize: "14pt" }}>
           <br />
-          ispum is simpley dummy text of printing
-        </span> */}
-          {/* <a href={Dokuman} download>
-          <button className="button s-button">Dokumanı İndir</button>
-        </a> */}
-        </div>
-        {/* right */}
+          Açıklamalar için kartlara tıklayınız.
+        </span>
       </div>
+      {/* right */}
       <div>
         <div style={{ display: "flex", position: "absolute", zIndex: "-1" }}>
-          <div
-            className="blur"
-            style={{
-              background: "#FFAAFB",
-              top: "0rem",
-              width: "21rem",
-              height: "11rem",
-              left: "18rem",
-            }}
-          ></div>
           <div
             className="blur"
             style={{
@@ -118,9 +96,9 @@ const Sdg = () => {
         </div>
         <div
           style={{
-            backgroundImage: `url(${tkc_kuslar2_edit})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            // backgroundImage: `url(${tkc_kuslar2_edit})`,
+            // backgroundRepeat: "no-repeat",
+            // backgroundSize: "cover",
             width: "22rem",
             height: "22rem",
             display: "flex",

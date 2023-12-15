@@ -52,7 +52,8 @@ const useStyles = makeStyles((theme) => ({
     },
     alignItems: "center",
     justifyContent: "center",
-    marginTop: "4rem",
+    marginTop: "1 rem",
+    height: "100vh",
     transform: "scale(0.8)",
   },
   left: {

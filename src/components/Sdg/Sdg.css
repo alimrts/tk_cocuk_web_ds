@@ -1,8 +1,6 @@
 .sdg {
   padding: 0 3rem 0 3rem;
   display: flex;
-
-  margin-top: 2rem;
   /* scroll view */
   padding-top: 3rem;
   min-height: auto;
@@ -15,6 +13,7 @@
   position: relative;
   margin-right: 0;
   gap: 1rem;
+  margin-top: 3rem;
   padding: 1rem;
   background-color: #fff; /* set background color to white */
 }
@@ -37,6 +36,19 @@
   font-size: 12px;
   margin-top: 1rem;
 }
+
+.t-heading {
+  margin-top: 8rem;
+  align-self: start;
+}
+.t-heading > * {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.t-heading span:nth-of-type(2) {
+  color: var(--orange);
+}
+
 
 .s-button {
   width: 8rem;
@@ -304,6 +316,13 @@
 .textPopup button {
   background-color: transparent;
   border: none;
-  color: blue;
+  color: rgb(255, 0, 0);
+  font-size: 22pt;
   cursor: pointer;
+  transition: transform 0.3s; /* Add a smooth transition for a better effect */
+}
+
+.textPopup button:hover {
+  transform: scale(1.1); /* Scale up the button by 10% on hover */
+  filter: brightness(120%);
 }

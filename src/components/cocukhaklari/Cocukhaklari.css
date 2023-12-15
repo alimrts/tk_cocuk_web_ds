@@ -8,8 +8,10 @@ padding: 0 3rem 0 3rem;
   flex-direction: column;
   gap: 2rem;
   position: relative;
-}.t-heading {
-    margin-top: 4rem;
+}
+
+.t-heading {
+    margin-top: 8rem;
     align-self: start;
   }
   .t-heading > * {

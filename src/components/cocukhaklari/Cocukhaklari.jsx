@@ -69,9 +69,9 @@ const Cocukhaklari = () => {
       {" "}
       <NavbarRegister />
       <div className="t-heading">
-        <span>
+        {/* <span>
           Haklarımızı Öğrenelim... <br />{" "}
-        </span>
+        </span> */}
         <span>Çocuk Hakları </span>
         <span>Nedir?</span>
         <span style={{ fontSize: "14pt" }}>
@@ -85,7 +85,7 @@ const Cocukhaklari = () => {
         <div className="blur t-blur2" style={{ background: "#ccffee" }}></div>
       </div>
       <div style={{ marginTop: "9rem" }}>
-        <div
+        {/* <div
           style={{
             backgroundImage: `url(${tkc_kuslar2_edit})`,
             backgroundRepeat: "no-repeat",
@@ -98,7 +98,7 @@ const Cocukhaklari = () => {
             marginLeft: "58rem",
             marginTop: "-26rem",
           }}
-        />
+        /> */}
         <div className="right-column" style={{ marginLeft: "7rem" }}>
           <div>
             <Swiper
