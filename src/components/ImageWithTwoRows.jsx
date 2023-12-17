@@ -2,33 +2,47 @@ import React, { useState } from "react";
 
 const TextPopup = ({ rowTitle, row1, onClose }) => {
   return (
-    <div className="textPopup">
+    <>
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "-4rem",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.5)", // Adjust the alpha value for transparency
+          zIndex: 999, // Make sure the overlay is on top
         }}
-      >
-        <button onClick={onClose}>X</button>
-      </div>
+        onClick={onClose} // Close the popup when clicking on the overlay
+      ></div>
+      <div className="textPopup">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "-4rem",
+          }}
+        >
+          <button onClick={onClose}>X</button>
+        </div>
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          color: "orange",
-          paddingTop: "1rem",
-        }}
-      >
-        {rowTitle}
-        <br /> <br />
-      </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "orange",
+            paddingTop: "2rem",
+          }}
+        >
+          {rowTitle}
+          <br /> <br />
+        </div>
 
-      <span>{row1}</span>
-    </div>
+        <span>{row1}</span>
+      </div>
+    </>
   );
 };
 

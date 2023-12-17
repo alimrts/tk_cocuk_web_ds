@@ -11,6 +11,7 @@ import MainPage from './components/MainPage'
 
 import Metaverse from './components/Metaverse'
 import Sdg from './components/Sdg/Sdg'
+import Geleneksel from './components/Geleneksel/Geleneksel'
 import Cocukhaklari from './components/cocukhaklari/Cocukhaklari'
 
 import useZustandStore from "./zustandStore";
@@ -65,6 +66,7 @@ function App() {
           <Route path="/" exact component={RegisterPage} />
           <Route path="/main" exact component={MainPage} />
           <Route path="/sdg" exact component={Sdg} />
+          <Route path="/geleneksel-oyunlar" exact component={Geleneksel} />
           <Route path="/cocukhaklari" exact component={Cocukhaklari} />
           <Route path="/metaverse" exact component={Metaverse} />
           

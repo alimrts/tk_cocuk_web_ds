@@ -166,11 +166,9 @@
 .imageWithRow {
   display: flex;
   align-items: center;
-
   background: rgba(255, 255, 255, 0.26);
   border: 6px solid var(--blueCard);
   box-shadow: var(--boxShadow);
-
   border-radius: 10px;
   margin-bottom: 10px;
   cursor: pointer;
@@ -297,13 +295,13 @@
   @media (max-width: 1200px) {
     top: 35%;
     left: 30%;
-    transform: scale(0.8);
+    transform: scale(0.85);
   }
 
   @media (max-width: 768px) {
     top: 15%;
-    left: 15%;
-    transform: scale(0.8);
+    left: 1%;
+    transform: scale(0.9);
   }
 }
 
@@ -312,6 +310,7 @@
   font-size: 14pt;
   line-height: 1.2;
 }
+
 
 .textPopup button {
   background-color: transparent;
@@ -323,6 +322,53 @@
 }
 
 .textPopup button:hover {
+  transform: scale(1.1); /* Scale up the button by 10% on hover */
+  filter: brightness(120%);
+}
+
+
+.imagePopup {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -8rem;
+  border-radius: 5px;
+  z-index: 9999;
+
+  @media (max-width: 1600px) {
+    top: 35%;
+    left: 40%;
+    transform: scale(0.9);
+  }
+
+  @media (max-width: 1200px) {
+    top: 35%;
+    left: 30%;
+    transform: scale(0.8);
+  }
+
+  @media (max-width: 768px) {
+    top: 25%;
+    left: 46%;
+    transform: scale(0.65);
+  }
+}
+
+
+.imagePopup button {
+  background-color: transparent;
+  border: none;
+  color: rgb(255, 0, 0);
+  font-size: 22pt;
+  cursor: pointer;
+  transition: transform 0.3s; /* Add a smooth transition for a better effect */
+}
+
+.imagePopup button:hover {
   transform: scale(1.1); /* Scale up the button by 10% on hover */
   filter: brightness(120%);
 }

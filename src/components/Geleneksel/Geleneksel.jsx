@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import "./Sdg.css";
+import "../../components/Sdg/Sdg.css";
 
 import { themeContext } from "../../Context";
 
-import WrapperComponent from "../WrapperComponent";
+import WrapperComponentForOne from "../WrapperComponentForOne";
 import NavbarRegister from "../../components/Navbar/NavbarCocukSdg";
-import sdgData from "../../sdgData.json";
+import gelenekselData from "../../gelenekselData.json";
 
-const Sdg = () => {
+const Geleneksel = () => {
   // context
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
@@ -24,11 +24,11 @@ const Sdg = () => {
       <NavbarRegister />
       {/* left side */}
       <div className="t-heading ">
-        <span>Sürdürülebilir Kalkınma Amaçları</span>
-        <span> Nedir?</span>
+        <span>Geleneksel Çocuk Oyunlarını</span>
+        <span> Öğrenelim!</span>
         <span style={{ fontSize: "14pt" }}>
           <br />
-          Açıklamalar için kartlara tıklayınız.
+          Detaylar için kartlara tıklayınız.
         </span>
       </div>
       {/* right */}
@@ -109,10 +109,10 @@ const Sdg = () => {
             marginTop: "-18rem",
           }}
         />
-        <WrapperComponent data={sdgData} />
+        <WrapperComponentForOne data={gelenekselData} />
       </div>
     </>
   );
 };
 
-export default Sdg;
+export default Geleneksel;

@@ -75,7 +75,7 @@ const VideoIzle = () => {
           </span>
         </div>
 
-        <div className="videorow" id="works">
+        <div className="videorow" id="video">
           {/* left side */}
 
           <div className="w-right">

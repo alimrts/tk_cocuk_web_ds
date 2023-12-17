@@ -32,6 +32,8 @@ import tkc_istatistik_ogrenelim from "../../img/tkc_istatistik_ogrenelim.png";
 import tkc_cocuk_haklari from "../../img/tkc_cocuk_haklari.png";
 import tkc_tuiki_taniyalim from "../../img/tkc_tuiki_taniyalim.png";
 import tkc_sdg_amaclari from "../../img/tkc_sdg_amaclari.png";
+import tkc_video_izleyelim from "../../img/tkc_video_izleyelim.png";
+import tkc_geleneksel_oyunlar from "../../img/tkc_geleneksel_oyunlar.png";
 import tkc_balon from "../../img/tkc_balon.png";
 import kus1 from "../../img/kus1.png";
 import kus2 from "../../img/kus2.png";
@@ -409,8 +411,8 @@ const Intro = (props) => {
       <div className="i-right">
         {/* animation */}
         <motion.div
-          initial={{ left: "-34%", top: "-8rem" }}
-          whileInView={{ left: "-6%", top: "-8rem" }}
+          initial={{ left: "-34%", top: "-7.5rem" }}
+          whileInView={{ left: "-6%", top: "-7.5rem" }}
           style={{ left: "calc(100vw * -0.32)", top: "2%" }}
           transition={transition}
           className="floating-div"
@@ -421,8 +423,8 @@ const Intro = (props) => {
         </motion.div>
 
         <motion.div
-          initial={{ top: "-8rem", left: "30%" }}
-          whileInView={{ left: "36%", top: "-8rem" }}
+          initial={{ left: "30%", top: "-7rem" }}
+          whileInView={{ left: "36%", top: "-7rem" }}
           style={{ left: "calc(100vw * -0.06)", top: "30%" }}
           transition={transition}
           className="floating-div"
@@ -472,6 +474,31 @@ const Intro = (props) => {
           {/* floatinDiv mein change hy dark mode ka */}
           <NavLink to={{ pathname: "/sdg" }} target="_self">
             <FloatinDivForIntroRight img={tkc_sdg_amaclari} />
+          </NavLink>
+        </motion.div>
+
+        <motion.div
+          initial={{ left: "-34%", top: "10 rem" }}
+          whileInView={{ left: "-6%", top: "14rem" }}
+          style={{ left: "calc(100vw * -0.32)", top: "2%" }}
+          transition={transition}
+          className="floating-div"
+        >
+          <Link to="video" smooth={true} spy={true} offset={-360}>
+            <FloatinDivForIntroRight img={tkc_video_izleyelim} />
+          </Link>
+        </motion.div>
+
+        <motion.div
+          initial={{ left: "38%", top: "6%" }}
+          whileInView={{ left: "22%", top: "15rem" }}
+          style={{ left: "calc(100vw * 0.04)", top: "2%" }}
+          transition={transition}
+          className="floating-div"
+        >
+          {/* floatinDiv mein change hy dark mode ka */}
+          <NavLink to={{ pathname: "/geleneksel-oyunlar" }} target="_self">
+            <FloatinDivForIntroRight img={tkc_geleneksel_oyunlar} />
           </NavLink>
         </motion.div>
         {/* <motion.img

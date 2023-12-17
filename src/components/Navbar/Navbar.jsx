@@ -136,7 +136,7 @@ const Navbar = () => {
               </li>
               <li className="n-list">
                 <Link
-                  to="works"
+                  to="video"
                   spy={true}
                   smooth={true}
                   offset={-360}

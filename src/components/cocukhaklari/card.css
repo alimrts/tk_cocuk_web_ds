@@ -1,7 +1,7 @@
 .card {
   /* Sizing */
-  height: 95%;
-  width: 75%;
+  height: 100%;
+  width: 85%;
   
   transform-style: preserve-3d;
 
@@ -36,8 +36,8 @@
 
   /* Content Styling */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 200;
-  font-size: 14px;
+  font-weight: 180;
+  font-size: 13px;
   padding-left: 4px;
   padding-right: 4px;
   text-align: left;

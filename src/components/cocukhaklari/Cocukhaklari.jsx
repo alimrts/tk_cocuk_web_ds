@@ -78,13 +78,8 @@ const Cocukhaklari = () => {
           <br />
           Açıklamalar için çocuk hakları logolarına tıklayınız.
         </span>
-        <div
-          className="blur t-blur1"
-          style={{ background: "var(--purple)" }}
-        ></div>
-        <div className="blur t-blur2" style={{ background: "#ccffee" }}></div>
       </div>
-      <div style={{ marginTop: "9rem" }}>
+      <div style={{ marginTop: "1 rem" }}>
         {/* <div
           style={{
             backgroundImage: `url(${tkc_kuslar2_edit})`,
@@ -99,7 +94,10 @@ const Cocukhaklari = () => {
             marginTop: "-26rem",
           }}
         /> */}
-        <div className="right-column" style={{ marginLeft: "7rem" }}>
+        <div
+          className="right-column"
+          style={{ marginLeft: "7rem", marginTop: "1rem" }}
+        >
           <div>
             <Swiper
               {...swiperProps}

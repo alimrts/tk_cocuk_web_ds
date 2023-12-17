@@ -1,0 +1,79 @@
+[
+    {
+      "title":"Beştaş",
+      "src_cover": "./img/gln_bestas.jpg",
+      "src_image": "./img/1-bestas.jpg"
+    },
+    {
+      "title":"Deve Cüce",
+      "src_cover": "./img/gln_deve_cuce.jpg",
+      "src_image": "./img/2-deve-cuce.jpg"
+    },
+    {
+      "title":"Elim Sende",
+      "src_cover": "./img/gln_elim_sende.jpg",
+      "src_image": "./img/3-elim-sende.jpg"
+    },
+    {
+      "title":"Evet Hayır",
+      "src_cover": "./img/gln_evet_hayir.jpg",
+      "src_image": "./img/4-evet-hayir.jpg"
+    },
+    {
+      "title":"İsim Şehir",
+      "src_cover": "./img/gln_isim_sehir.jpg",
+      "src_image": "./img/5-isim-sehir.jpg"
+    },
+    {
+      "title":"İstop",
+      "src_cover": "./img/gln_istop.jpg",
+      "src_image": "./img/6-istop.jpg"
+    },
+    {
+      "title":"Körebe",
+      "src_cover": "./img/gln_korebe.jpg",
+      "src_image": "./img/7-korebe.jpg"
+    },
+    {
+      "title":"Kutu Kutu Pense",
+      "src_cover": "./img/gln_kutu_kutu.jpg",
+      "src_image": "./img/8-kutu-kutu.jpg"
+    },
+    {
+      "title":"Lastik Atlama",
+      "src_cover": "./img/gln_lastik_atlama.jpg",
+      "src_image": "./img/9-lastik-atlama.jpg"
+    },
+    {
+      "title":"Nesi Var",
+      "src_cover": "./img/gln_nesi_var.jpg",
+      "src_image": "./img/10-nesi-var.jpg"
+    },
+    {
+      "title":"Saklambaç",
+      "src_cover": "./img/gln_saklambac.jpg",
+      "src_image": "./img/11-saklambac.jpg"
+    },
+    {
+      "title":"Sek Sek",
+      "src_cover": "./img/gln_sek_sek.jpg",
+      "src_image": "./img/12-sek-sek.jpg"
+    },
+    {
+      "title":"Sıcak Soğuk",
+      "src_cover": "./img/gln_sicak_soguk.jpg",
+      "src_image": "./img/13-sicak-soguk.jpg"
+    },
+    {
+      "title":"Üç Taş",
+      "src_cover": "./img/gln_uc_tas.jpg",
+      "src_image": "./img/14-uc-tas.jpg"
+    },
+    {
+      "title":"Yakan Top",
+      "src_cover": "./img/gln_yakan_top.jpg",
+      "src_image": "./img/15-yakan-top.jpg"
+    }
+
+    
+]
