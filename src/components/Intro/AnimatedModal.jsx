@@ -195,19 +195,19 @@ export default function AnimatedModal(props) {
         text3Left: 210,
         text3Top: 160,
         text3Width: 280,
-        text4Left: 500,
-        text4Top: 420,
+        text4Left: 510,
+        text4Top: 450,
       });
     } else if (image === sertifika2) {
       setTextPositions({
         text1Left: 280,
         text1Top: 60,
-        text2Left: 360,
+        text2Left: 345,
         text2Top: 130,
-        text3Left: 220,
+        text3Left: 270,
         text3Top: 160,
-        text3Width: 320,
-        text4Left: 80,
+        text3Width: 240,
+        text4Left: 420,
         text4Top: 460,
       });
     } else if (image === sertifika3) {
@@ -255,7 +255,7 @@ export default function AnimatedModal(props) {
         text3Left: 180,
         text3Top: 240,
         text3Width: 420,
-        text4Left: 410,
+        text4Left: 400,
         text4Top: 420,
       });
     } else if (image === sertifika7) {
@@ -268,7 +268,7 @@ export default function AnimatedModal(props) {
         text3Top: 215,
         text3Width: 420,
         text4Left: 410,
-        text4Top: 420,
+        text4Top: 395,
       });
     } else if (image === sertifika8) {
       setTextPositions({
