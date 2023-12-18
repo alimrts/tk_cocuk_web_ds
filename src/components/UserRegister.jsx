@@ -99,7 +99,16 @@ const cities = {
   81: "Düzce",
 };
 
+const lowerLimit = 1900;
+const currentYear = new Date().getFullYear();
+
+const years = Array.from({ length: currentYear - lowerLimit + 1 }, (_, i) => currentYear - i);
+
+
 const useStyles = makeStyles((theme) => ({
+
+  
+
   form: {
     display: "flex",
     flexDirection: "column",
@@ -646,7 +655,7 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
                 <MenuItem value="">
                   <em>-</em>
                 </MenuItem>
-                {Array.from({ length: 16 }, (_, i) => 2021 - i).map((year) => (
+                {years.map((year) => (
                   <MenuItem key={year} value={year}>
                     {year}
                   </MenuItem>
