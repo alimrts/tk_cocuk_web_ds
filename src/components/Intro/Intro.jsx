@@ -478,8 +478,8 @@ const Intro = (props) => {
         </motion.div>
 
         <motion.div
-          initial={{ left: "-34%", top: "10 rem" }}
-          whileInView={{ left: "-6%", top: "14rem" }}
+          initial={{ left: "38%", top: "6%" }}
+          whileInView={{ left: "22%", top: "15rem" }}
           style={{ left: "calc(100vw * -0.32)", top: "2%" }}
           transition={transition}
           className="floating-div"
@@ -490,8 +490,8 @@ const Intro = (props) => {
         </motion.div>
 
         <motion.div
-          initial={{ left: "38%", top: "6%" }}
-          whileInView={{ left: "22%", top: "15rem" }}
+          initial={{ left: "-34%", top: "10 rem" }}
+          whileInView={{ left: "-6%", top: "14rem" }}
           style={{ left: "calc(100vw * 0.04)", top: "2%" }}
           transition={transition}
           className="floating-div"
