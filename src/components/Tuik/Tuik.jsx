@@ -9,6 +9,11 @@ import "swiper/css/pagination";
 import tkc_tuik_timeline from "../../img/tkc_tuik_timeline.png";
 import tkc_kuslar1 from "../../img/tkc_kuslar1.png";
 
+import tuik1i from "../../img/tuik_cards/tuik1.png";
+import tuik2i from "../../img/tuik_cards/tuik2.png";
+import tuik3i from "../../img/tuik_cards/tuik3.png";
+import tuik4i from "../../img/tuik_cards/tuik4.png";
+
 // Initialize the Navigation module
 SwiperCore.use([Navigation]);
 const swiperProps = {
@@ -18,49 +23,24 @@ const swiperProps = {
   },
 };
 
-const text1 = (
-  <span>
-    Ülkemize ait çeşitli bilgileri toplar, topladığı bu bilgilerle hesaplamalar
-    yapar ve açıklar.
-    <br />
-    - Ülkemizde kaç kişi yaşıyor, bunların ne kadarı çocuk, yaşadığım yerde kaç
-    kişi var, benim adım kaç kişide var gibi nüfus bilgilerini <br />
-    - Ülkemizde kaç okul, kaç öğrenci var gibi eğitim bilgilerini <br />-
-    Ülkemizde kaç doktor ve kaç hastane var gibi sağlık bilgilerini
-  </span>
-);
-
-const text2 = (
-  <span>
-    - Cep telefonunu ve İnterneti ne kadar kullanıyoruz gibi teknoloji
-    bilgilerini
-    <br />
-    - Trafikte kaç araç var, hangi markadan kaç otomobil var, yollarımızın
-    uzunluğu ne kadar gibi ulaştırma bilgilerini
-    <br />- ve daha pek çok merak ettiğin bilgiyi TÜİK’ten öğrenebilirsin.
-  </span>
-);
-
-const text3 = (
-  <span>
-    TÜİK ayrıca, ülkemizdeki diğer kurumlara ve uluslararası kuruluşlara
-    istatistik üretimi ile ilgili çalışmalarda da yardımcı olur.
-  </span>
-);
+const tuik1 = <img src={tuik1i} width="640px" alt="" />;
+const tuik2 = <img src={tuik2i} width="640px" alt="" />;
+const tuik3 = <img src={tuik3i} width="640px" alt="" />;
+const tuik4 = <img src={tuik4i} width="640px" alt="" />;
 
 const Tuik = () => {
   const icerikler = [
     {
-      header: "TÜİK Ne İş Yapar?",
-      review: text1,
+      image: tuik1,
     },
     {
-      header: "TÜİK Ne İş Yapar?",
-      review: text2,
+      image: tuik2,
     },
     {
-      header: "TÜİK Ne İş Yapar?",
-      review: text3,
+      image: tuik3,
+    },
+    {
+      image: tuik4,
     },
   ];
 
@@ -69,7 +49,10 @@ const Tuik = () => {
       <div className="left-column">
         <img src={tkc_tuik_timeline} alt="" />
       </div>
-      <div className="right-column">
+      <div
+        className="right-column"
+        style={{ width: "700px", marginRight: "20rem" }}
+      >
         <div>
           <Swiper
             {...swiperProps}
@@ -80,25 +63,17 @@ const Tuik = () => {
             {icerikler.map((info, index) => {
               return (
                 <SwiperSlide key={index}>
-                  {/* <div class="istatistik-bg-image"> */}
-                  <div className="istatistik-card">
-                    <span
-                      className="istatistik-card-text"
-                      style={{ color: "orange" }}
-                    >
-                      {info.header}
-                      <br />
-                      <br />
-                    </span>
-                    <span
-                      className="istatistik-card-text"
-                      style={{ color: "grey" }}
-                    >
-                      {info.review}
-                    </span>{" "}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      aligntItems: "center",
+                      marginBottom: "2rem",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {info.image}
                   </div>
-
-                  {/* </div> */}
                 </SwiperSlide>
               );
             })}
@@ -137,9 +112,7 @@ const Tuik = () => {
             marginLeft: "-4rem",
             marginTop: "-4rem",
           }}
-        >
-          {/* <img src={tkc_kuslar1} alt="" /> */}
-        </div>
+        ></div>
       </div>
     </div>
   );

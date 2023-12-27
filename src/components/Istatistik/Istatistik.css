@@ -16,11 +16,9 @@
 }
 
 .right-column {
-  width: 150%;
-  margin-left: 3rem;
   margin-top: -12rem;
-
 }
+
 
 .istatistik-card {
   display: flex;

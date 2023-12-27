@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import UserRegister from "./UserRegister";
 import video from "../img/bayram_kutlama.mp4";
-import leftImage from "../img/leftImage.png";
-import rightImage from "../img/rightImage.png";
+
 import { makeStyles } from "@material-ui/core/styles";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";

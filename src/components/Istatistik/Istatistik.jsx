@@ -18,6 +18,20 @@ import istatistik_nedir2 from "../../img/istatistik_nedir_img2.png";
 import aritmetik_ortalama from "../../img/aritmetik_ortalama_img.png";
 import grafik_nedir from "../../img/grafik_nedir_img.png";
 
+import istatistik1i from "../../img/istatistik_cards/istatistik1.png";
+import istatistik2i from "../../img/istatistik_cards/istatistik2.png";
+import istatistik3i from "../../img/istatistik_cards/istatistik3.png";
+import istatistik4i from "../../img/istatistik_cards/istatistik4.png";
+import istatistik5i from "../../img/istatistik_cards/istatistik5.png";
+import istatistik6i from "../../img/istatistik_cards/istatistik6.png";
+import istatistik7i from "../../img/istatistik_cards/istatistik7.png";
+import istatistik8i from "../../img/istatistik_cards/istatistik8.png";
+import istatistik9i from "../../img/istatistik_cards/istatistik9.png";
+import istatistik10i from "../../img/istatistik_cards/istatistik10.png";
+import istatistik11i from "../../img/istatistik_cards/istatistik11.png";
+import istatistik12i from "../../img/istatistik_cards/istatistik12.png";
+import { width } from "@mui/system";
+
 // Initialize the Navigation module
 SwiperCore.use([Navigation]);
 
@@ -27,6 +41,19 @@ const swiperProps = {
     nextEl: ".swiper-button-next",
   },
 };
+
+const istatistik1 = <img src={istatistik1i} width="640px" alt="" />;
+const istatistik2 = <img src={istatistik2i} width="640px" alt="" />;
+const istatistik3 = <img src={istatistik3i} width="640px" alt="" />;
+const istatistik4 = <img src={istatistik4i} width="640px" alt="" />;
+const istatistik5 = <img src={istatistik5i} width="640px" alt="" />;
+const istatistik6 = <img src={istatistik6i} width="640px" alt="" />;
+const istatistik7 = <img src={istatistik7i} width="640px" alt="" />;
+const istatistik8 = <img src={istatistik8i} width="640px" alt="" />;
+const istatistik9 = <img src={istatistik9i} width="640px" alt="" />;
+const istatistik10 = <img src={istatistik10i} width="640px" alt="" />;
+const istatistik11 = <img src={istatistik11i} width="640px" alt="" />;
+const istatistik12 = <img src={istatistik12i} width="640px" alt="" />;
 
 let bullet;
 bullet = "\u007F" + "\u007F" + "\u2022";
@@ -290,57 +317,40 @@ const text13 = (
 const Istatistik = () => {
   const infos = [
     {
-      header: "İstatistik Nedir?",
-      review: text1,
+      image: istatistik1,
     },
     {
-      header: "İstatistik Nedir?",
-      review: text2,
+      image: istatistik2,
     },
     {
-      header: "Veri nedir?",
-      review: text3,
+      image: istatistik3,
     },
     {
-      header: "Bilgi nedir?",
-      review: text4,
+      image: istatistik4,
     },
     {
-      header: "Sıklık (frekans) tablosu nedir?",
-      review: text5,
+      image: istatistik5,
     },
     {
-      header: "Sıklık (frekans) tablosu nedir?",
-      review: text6,
+      image: istatistik6,
     },
     {
-      header: "Aritmetik ortalama nedir?",
-      review: text7,
+      image: istatistik7,
     },
     {
-      header: "Medyan (ortanca) nedir?",
-      review: text8,
+      image: istatistik8,
     },
     {
-      header: "Mod (tepe değeri) nedir?",
-      review: text9,
+      image: istatistik9,
     },
     {
-      header: "Grafik nedir?",
-      review: text10,
+      image: istatistik10,
     },
     {
-      header: "Sütun grafik nedir?",
-      review: text11,
+      image: istatistik11,
     },
     {
-      header: "Pasta grafik nedir?",
-      review: text12,
-    },
-
-    {
-      header: "Çizgi grafik nedir?",
-      review: text13,
+      image: istatistik12,
     },
   ];
 
@@ -349,7 +359,10 @@ const Istatistik = () => {
       <div className="left-column">
         <img src={tkc_istatistik_timeline} alt="" />
       </div>
-      <div className="right-column">
+      <div
+        className="right-column"
+        style={{ width: "700px", marginRight: "20rem" }}
+      >
         <Swiper
           {...swiperProps}
           modules={[Pagination]}
@@ -359,21 +372,16 @@ const Istatistik = () => {
           {infos.map((info, index) => {
             return (
               <SwiperSlide key={index}>
-                <div className="istatistik-card">
-                  <span
-                    className="istatistik-card-text"
-                    style={{ color: "orange" }}
-                  >
-                    {info.header}
-                    <br />
-                    <br />
-                  </span>
-                  <span
-                    className="istatistik-card-text"
-                    style={{ color: "grey" }}
-                  >
-                    {info.review}
-                  </span>{" "}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    aligntItems: "center",
+                    marginBottom: "2rem",
+                    cursor: "pointer",
+                  }}
+                >
+                  {info.image}
                 </div>
               </SwiperSlide>
             );

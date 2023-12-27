@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { fabric } from "fabric";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -30,14 +30,11 @@ const ImageWithText = ({
   text3Width,
   text4Left,
   text4Top,
-
   fontFamily,
 }) => {
   const [canvas, setCanvas] = useState(null);
-
   const [canvasInitialized, setCanvasInitialized] = useState(false);
-
-  console.log("fullText: ", fullText);
+  const canvasRef = useRef(null);
 
   const classes = useStyles();
 
@@ -46,89 +43,83 @@ const ImageWithText = ({
 
     const options = { year: "numeric", month: "long", day: "numeric" };
     const today = new Date().toLocaleDateString("tr", options);
-    // Load the image and create a new Fabric.js canvas
-    if (!canvasInitialized) {
-      img.onload = () => {
-        const newCanvas = new fabric.Canvas("canvas");
 
-        newCanvas.setWidth(img.naturalWidth);
-        newCanvas.setHeight(img.naturalHeight);
+    img.onload = () => {
+      if (!canvasInitialized && canvasRef.current) {
+        try {
+          const newCanvas = new fabric.Canvas(canvasRef.current);
 
-        // Add the image as a Fabric.js image object to the canvas
-        const fabricImg = new fabric.Image(img, {
-          selectable: false, // Make the image non-selectable
-        });
-        newCanvas.add(fabricImg);
+          newCanvas.setWidth(img.naturalWidth);
+          newCanvas.setHeight(img.naturalHeight);
 
-        // Add the first text object to the canvas
-        const fabricText1 = new fabric.Text("Sevgili", {
-          selectable: false,
-          // left: 160, // Custom x position
-          // top: 90, // Custom y position
-          left: text1Left, // Custom x position
-          top: text1Top, // Custom y position
-          fontSize: 18,
-          fontFamily: fontFamily,
-          fontStyle: "italic",
-          fill: "grey",
-        });
-        newCanvas.add(fabricText1);
+          const fabricImg = new fabric.Image(img, { selectable: false });
+          newCanvas.add(fabricImg);
 
-        // Add the second text object to the canvas
-        const fabricText2 = new fabric.Text(text, {
-          selectable: false,
-          // left: 320, // Custom x position
-          // top: 120, // Custom y position
-          left: text2Left, // Custom x position
-          top: text2Top, // Custom y position
-          fontSize: 38,
-          fontFamily: fontFamily,
-          fontStyle: "italic",
-          fill: fontColor,
-          textAlign: "center",
-          originX: "center",
-          originY: "center",
-        });
-        newCanvas.add(fabricText2);
+          // Add the first text object to the canvas
+          const fabricText1 = new fabric.Text("Sevgili", {
+            selectable: false,
+            left: text1Left,
+            top: text1Top,
+            fontSize: 18,
+            fontFamily: fontFamily,
+            fontStyle: "italic",
+            fill: "grey",
+          });
+          newCanvas.add(fabricText1);
 
-        // Add the third text object to the canvas
-        const fabricText3 = new fabric.Textbox(fullText, {
-          selectable: false,
-          // left: 210, // Custom x position
-          // top: 160, // Custom y position
-          left: text3Left, // Custom x position
-          top: text3Top, // Custom y position
-          fontSize: 12,
-          fontFamily: fontFamily,
-          fontStyle: "italic",
-          fill: "grey",
-          // width: 280, // set width to allow line-wrapping
-          width: text3Width, // set width to allow line-wrapping
+          // Add the second text object to the canvas
+          const fabricText2 = new fabric.Text(text, {
+            selectable: false,
+            left: text2Left,
+            top: text2Top,
+            fontSize: 38,
+            fontFamily: fontFamily,
+            fontStyle: "italic",
+            fill: fontColor,
+            textAlign: "center",
+            originX: "center",
+            originY: "center",
+          });
+          newCanvas.add(fabricText2);
 
-          lineHeight: 1.2, // set line-height for better readability
-        });
-        newCanvas.add(fabricText3); // add the text object to the canvas
-        //   fabricText3.setCoords(); // update the coordinates of the text object
-        //   fabricText3.splitTextIntoLines(); // split text into lines
+          // Add the third text object to the canvas
+          const fabricText3 = new fabric.Textbox(fullText, {
+            selectable: false,
+            left: text3Left,
+            top: text3Top,
+            fontSize: 12,
+            fontFamily: fontFamily,
+            fontStyle: "italic",
+            fill: "grey",
+            width: text3Width,
+            lineHeight: 1.2,
+          });
+          newCanvas.add(fabricText3);
 
-        const fabricText4 = new fabric.Text("Tarih: " + today, {
-          selectable: false,
-          // left: 500, // Custom x position
-          // top: 420, // Custom y position
-          left: text4Left, // Custom x position
-          top: text4Top, // Custom y position
-          fontSize: 14,
-          fontFamily: fontFamily,
-          fontStyle: "italic",
-          fill: "grey",
-        });
-        newCanvas.add(fabricText4);
+          // Add the fourth text object to the canvas
+          const fabricText4 = new fabric.Text("Tarih: " + today, {
+            selectable: false,
+            left: text4Left,
+            top: text4Top,
+            fontSize: 14,
+            fontFamily: fontFamily,
+            fontStyle: "italic",
+            fill: "grey",
+          });
+          newCanvas.add(fabricText4);
 
-        // Save the canvas to state
-        setCanvas(newCanvas);
-        setCanvasInitialized(true);
-      };
-    }
+          setCanvas(newCanvas);
+          setCanvasInitialized(true);
+        } catch (error) {
+          console.error("Error creating canvas:", error);
+        }
+      }
+    };
+
+    img.onerror = (error) => {
+      console.error("Error loading image:", error);
+    };
+
     img.src = imageUrl;
   }, [
     imageUrl,
@@ -145,22 +136,36 @@ const ImageWithText = ({
     text3Width,
     text4Left,
     text4Top,
+    canvasInitialized,
   ]);
 
   const handleDownload = () => {
-    const dataURL = canvas.toDataURL({ format: "png" });
-    const link = document.createElement("a");
-    link.download = text + "-tuik-cocuk-sertifika.png";
-    link.href = dataURL;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      if (canvas) {
+        const dataURL = canvas.toDataURL({ format: "png" });
+        const link = document.createElement("a");
+        link.download = text + "-tuik-cocuk-sertifika.png";
+        link.href = dataURL;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        console.error("Canvas not initialized yet.");
+      }
+    } catch (error) {
+      console.error("Error handling download:", error);
+    }
   };
 
   return (
     <div className={classes.rootOfCanvas}>
-      <canvas className={classes.canvas} id="canvas" />
-      {canvas && (
+      <canvas
+        className={classes.canvas}
+        id="canvas"
+        ref={canvasRef}
+        style={{ display: canvasInitialized ? "block" : "none" }}
+      />
+      {canvasInitialized && (
         <button
           className={`button i-button`}
           style={{

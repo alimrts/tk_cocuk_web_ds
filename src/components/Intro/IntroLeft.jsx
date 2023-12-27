@@ -58,10 +58,11 @@ const IntroLeft = (props) => {
   return (
     <>
       <div
+        id="canvas"
         className="i-left-canvas"
         style={{
           zIndex: "1",
-          marginLeft: "20rem",
+          marginLeft: "11.5rem",
           width: "160px",
           height: "355px",
         }}
@@ -98,6 +99,7 @@ const IntroLeft = (props) => {
       </div>
 
       <div
+        id="infoText"
         style={{
           display: "flex",
           flexDirection: "row",
@@ -142,20 +144,19 @@ const IntroLeft = (props) => {
           </span>
         </div>
       </div>
+
       <div
+        id="infoProps"
         style={{
           display: "flex",
           flexDirection: "column",
+          position: "absolute",
           zIndex: "0",
+          top: "90px",
+          left: "540px",
         }}
       >
-        <div
-          style={{
-            marginRight: "6.4rem",
-            paddingBottom: "9.9rem",
-            marginBottom: "-3rem",
-          }}
-        >
+        <div style={{}}>
           <span>
             {" "}
             <span
@@ -168,11 +169,9 @@ const IntroLeft = (props) => {
             </span>
           </span>
         </div>
-        <div style={{ paddingTop: "8.5rem" }}>
+        <div style={{ marginTop: "12rem", marginLeft: "-8rem" }}>
           <span
             style={{
-              marginLeft: "-16rem",
-              paddingLeft: "6rem",
               color: "green",
             }}
           >
