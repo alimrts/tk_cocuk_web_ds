@@ -355,7 +355,9 @@ export default function AnimatedModal(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 style={{ textAlign: "center", fontSize: "10pt" }}>
+            <h2
+              style={{ textAlign: "center", fontSize: "12pt", color: "orange" }}
+            >
               Sertifikalar
             </h2>
             <div>
@@ -478,12 +480,12 @@ export default function AnimatedModal(props) {
               </button>
             </div>
 
-            <p style={{ fontSize: "10pt" }}>
+            {/* <p style={{ fontSize: "10pt" }}>
               Sertifika yazılarını büyültüp küçültebilir ve yerlerini
               düzenleyebilirsin.
-            </p>
+            </p> */}
 
-            <div className="imageWithTex">
+            <div className="imageWithTex" style={{ marginTop: "1rem" }}>
               <ImageWithText
                 key={selectedImage} // to rerender with new state
                 imageUrl={selectedImage}

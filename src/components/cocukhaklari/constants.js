@@ -93,7 +93,7 @@ export const FilterTabs = [
   {
     nameFront: "c9",
     nameBack:
-      "Çocuğun yüksek yararına olan haller (örneğin, istismar ya da ihmâl) dışında çocuk anababasından ayrılmamalıdır. Ana-babanın sorumluluklarına ilişkin kararlarda çocuğun görüşü sorulmalıdır. Zarar göreceği haller dışında, çocuk her iki ebeveyni ile kişisel ilişkisini sürdürme hakkına sahiptir.",
+      "Çocuğun yüksek yararına olan haller (örneğin, istismar ya da ihmâl) dışında çocuk ana-babasından ayrılmamalıdır. Ana-babanın sorumluluklarına ilişkin kararlarda çocuğun görüşü sorulmalıdır. Zarar göreceği haller dışında, çocuk her iki ebeveyni ile kişisel ilişkisini sürdürme hakkına sahiptir.",
     icon: c9,
   },
   {
@@ -292,7 +292,7 @@ export const FilterTabs = [
   {
     nameFront: "c42",
     nameBack:
-      "Devletler, çocuklar ve yetişkinleri Sözleşme hakkında bilgilendirmelidir. Sözleşme toplamda 54 maddeden oluşmaktadır. Aşağıda yer alan madde de dahil olmak üzere 43 ila 54. maddeler, çocukların sahip oldukları haklardan faydalanmalarını sağlamak amacıyla yetişkinler ve devletlerin iş birliği içerisinde yürüteceği faaliyetleri açıklamaktadır.",
+      "Devletler, çocuklar ve yetişkinleri Sözleşme hakkında bilgilendirmelidir.",
     icon: c42,
   },
 
