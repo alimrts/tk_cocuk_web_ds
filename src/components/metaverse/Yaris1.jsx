@@ -3,13 +3,15 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 
 function Yaris1() {
   const { unityProvider } = useUnityContext({
-    loaderUrl: "./public/yaris1/Build/yaris1.asm.loader.js",
-    dataUrl: "./pucblic/yaris1/Build/yaris1.data",
-    frameworkUrl: "./pucblic/yaris1/Build/yaris1.asm.framework.js",
-    codeUrl: "./pucblic/yaris1/Build/yaris1.asm.js",
+    loaderUrl: "yaris1/Build/Build.loader.js",
+    dataUrl: "yaris1/Build/Build.data",
+    frameworkUrl: "yaris1/Build/Build.framework.js",
+    codeUrl: "yaris1/Build/Build.wasm",
   });
 
-  return <Unity unityProvider={unityProvider} />;
+  return (
+    <Unity unityProvider={unityProvider} style={{ width: 800, height: 600 }} />
+  );
 }
 
 export default Yaris1;

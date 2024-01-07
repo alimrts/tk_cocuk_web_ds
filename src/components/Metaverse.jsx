@@ -253,6 +253,7 @@ function Metaverse(props) {
           <>
             <Interacty />
             {/* <Yaris1 /> */}
+            {/* <Yaris2 /> */}
             <button
               style={{
                 position: "absolute",

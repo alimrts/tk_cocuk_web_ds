@@ -57,6 +57,14 @@ const CardsGrid = () => {
           icon={tab.icon}
         />
       ))}
+      <span
+        style={{ fontSize: "11pt", marginTop: "1.5rem", marginLeft: "0.2rem" }}
+      >
+        Sözleşme toplamda 54 maddeden oluşmaktadır. 43-54. maddeler, çocukların
+        sahip oldukları haklardan faydalanmalarını sağlamak amacıyla yetişkinler
+        ve devletlerin iş birliği içerisinde yürüteceği faaliyetleri
+        açıklamaktadır.
+      </span>
     </Grid>
   );
 };
