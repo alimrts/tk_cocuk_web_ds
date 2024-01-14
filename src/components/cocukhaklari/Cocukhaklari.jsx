@@ -127,7 +127,7 @@ const Cocukhaklari = () => {
             })}
           </Swiper>
 
-          <div className="swiper-button-prev" style={{ marginLeft: "4rem" }}>
+          <div className="swiper-button-prev" style={{ marginLeft: "8rem" }}>
             <svg
               id="right-arrow"
               viewBox="0 0 24 24"
@@ -137,7 +137,7 @@ const Cocukhaklari = () => {
               <path d="M6 18L18 12L6 6V18Z" fill="#0099ff" />
             </svg>
           </div>
-          <div className="swiper-button-next" style={{ marginRight: "4rem" }}>
+          <div className="swiper-button-next" style={{ marginRight: "8rem" }}>
             <svg
               id="right-arrow"
               viewBox="0 0 24 24"
