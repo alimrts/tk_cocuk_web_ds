@@ -80,7 +80,7 @@ const Cocukhaklari = () => {
         <span>Nedir?</span>
         <span style={{ fontSize: "14pt" }}>
           <br />
-          Açıklamalar için çocuk hakları logolarına tıklayınız.
+          Açıklamalar kartlara tıklayınız.
         </span>
       </div>
       <div style={{ marginTop: "1 rem" }}>

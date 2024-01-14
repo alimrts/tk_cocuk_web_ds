@@ -24,11 +24,11 @@ const Geleneksel = () => {
       <NavbarRegister />
       {/* left side */}
       <div className="t-heading ">
-        <span>Geleneksel Çocuk Oyunlarını</span>
+        <span>Geleneksel Oyunlarımızı</span>
         <span> Öğrenelim!</span>
         <span style={{ fontSize: "14pt" }}>
           <br />
-          Detaylar için kartlara tıklayınız.
+          Açıklamalar için kartlara tıklayınız.
         </span>
       </div>
       {/* right */}

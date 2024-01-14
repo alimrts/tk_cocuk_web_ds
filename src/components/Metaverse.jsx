@@ -1,7 +1,7 @@
 import "../App.css";
 
 import ReactDOM from "react-dom";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 // import { useFrame } from '@react-three/fiber'
 import { Suspense } from "react";
 import { useRef, useState } from "react";
@@ -9,13 +9,16 @@ import { useRef, useState } from "react";
 import { Physics } from "@react-three/cannon";
 import Game from "../components/metaworld/Game";
 
-import textureImage3 from "../img/g1.png";
-import textureImage2 from "../img/g3.png";
-import textureImage from "../img/g5m.png";
+import textureImage3 from "../img/game_icon_ulkeler.png";
+import textureImage2 from "../img/game_icon_uzay_macerasi.png";
+import textureImage from "../img/g5.png";
+import textureImage4 from "../img/game_icon_super_araba.png";
 
 import { useLocation } from "react-router-dom";
 
 import * as THREE from "three";
+
+import { Color } from "three";
 
 import {
   Sky,
@@ -35,6 +38,9 @@ import { CityScene1 } from "./metaverse/CityScene1";
 import Interacty from "./metaverse/Interacty";
 import Player from "./metaverse/Player";
 import Yaris1 from "./metaverse/Yaris1";
+import UzayMacerasi from "./metaverse/UzayMacerasi";
+import UlkelerBayrak from "./metaverse/UlkelerBayrak";
+import ArabaYarisi from "./metaverse/ArabaYarisi";
 
 function Loader() {
   const { progress } = useProgress();
@@ -49,16 +55,23 @@ function Loader() {
 }
 
 function Metaverse(props) {
+  const [cursorStyle, setCursorStyle] = useState("auto");
+
+  const defaultColor = new Color("#CCffff");
+  const hoverColor = new Color("#ffffff");
+
   console.log("state is:", props.cinsiyet);
   const cinsiyet = props.cinsiyet;
   // console.log("gelen cinsiyet metaverse: ", cinsiyet);
-
-  const [clickedTosecond, setClickedToSecond] = useState(false);
   const [clickedTofirst, setClickedToFirst] = useState(false);
-  const meshRef = useRef();
+  const [clickedTosecond, setClickedToSecond] = useState(false);
+  const [clickedToThird, setClickedToThird] = useState(false);
+  const [clickedToFourth, setClickedToFourth] = useState(false);
 
   const [hoveredFirst, setHoverFirst] = useState(false);
   const [hoveredSecond, setHoverSecond] = useState(false);
+  const [hoveredThird, setHoverThird] = useState(false);
+  const [hoveredFourth, setHoverFourth] = useState(false);
 
   const testing = false;
 
@@ -66,6 +79,12 @@ function Metaverse(props) {
   const texture = textureLoader.load(textureImage);
   const texture2 = textureLoader.load(textureImage2);
   const texture3 = textureLoader.load(textureImage3);
+  const texture4 = textureLoader.load(textureImage4);
+
+  function closeYaris() {
+    setClickedToFirst(false);
+    setClickedToFourth(false);
+  }
 
   return (
     <>
@@ -128,21 +147,12 @@ function Metaverse(props) {
 
               <Text
                 scale={[0.25, 0.25, 0.25]}
-                position={[0.5, 3.5, -7]}
+                position={[0.5, 3.8, -7]}
                 color="black" // default
                 anchorX="center" // default
                 anchorY="middle" // default
               >
-                Tüik Çocuk der ki;
-              </Text>
-              <Text
-                scale={[0.25, 0.25, 0.25]}
-                position={[0.5, 3, -7]}
-                color="black" // default
-                anchorX="center" // default
-                anchorY="middle" // default
-              >
-                çok yakında oyunlar burada olacak.
+                Oyunlar
               </Text>
 
               <DemoScene
@@ -157,27 +167,108 @@ function Metaverse(props) {
               /> */}
 
               <mesh
-                position={[0.6, 2.1, -7]}
+                position={[-0.6, 3.1, -7]}
+                {...props}
+                visible={true}
+                scale={hoveredFirst ? 1.2 : 1}
+                onClick={(event) => setClickedToFirst(!clickedTofirst)}
+                onPointerOver={(event) => {
+                  setHoverFirst(true);
+                  setCursorStyle("pointer");
+                }}
+                onPointerOut={(event) => {
+                  setHoverFirst(false);
+                  setCursorStyle("auto");
+                }}
+              >
+                <planeGeometry args={[1, 1]} />
+
+                <meshBasicMaterial
+                  // color={hoveredFirst ? "#B4DAD9" : "#CCEBEA"}
+                  color={hoveredFirst ? hoverColor : defaultColor}
+                  map={texture2} // Replace with the path to your PNG image
+                  transparent
+                  alphaTest={0.5} // Adjust as needed
+                  side={THREE.DoubleSide}
+                />
+              </mesh>
+              {/* /// */}
+              <mesh
+                position={[0.5, 2, -7]}
                 {...props}
                 visible={true}
                 // scale={clickedTosecond ? 1.5 : 1}
                 scale={hoveredSecond ? 1.2 : 1}
                 onClick={(event) => setClickedToSecond(!clickedTosecond)}
-                onPointerOver={(event) => setHoverSecond(true)}
-                onPointerOut={(event) => setHoverSecond(false)}
+                onPointerOver={(event) => {
+                  setHoverSecond(true);
+                  setCursorStyle("pointer");
+                }}
+                onPointerOut={(event) => {
+                  setHoverSecond(false);
+                  setCursorStyle("auto");
+                }}
               >
-                <boxGeometry args={[1, 1, 0.01]}>
-                  <bufferAttribute
-                    attachObject={["attributes", "uv"]}
-                    array={[0, 0, 1, 0, 1, 1, 0, 1]}
-                    count={4}
-                    itemSize={2}
-                  />
-                </boxGeometry>
+                <planeGeometry args={[1, 1]} />
 
-                <meshStandardMaterial
+                <meshBasicMaterial
                   map={texture}
-                  color={hoveredSecond ? "#B4DAD9" : "#CCEBEA"}
+                  color={hoveredSecond ? hoverColor : defaultColor}
+                  transparent
+                  alphaTest={0.5} // Adjust as needed
+                  side={THREE.DoubleSide}
+                />
+              </mesh>
+
+              <mesh
+                position={[0.5, 3.1, -7]}
+                {...props}
+                visible={true}
+                scale={hoveredThird ? 1.2 : 1}
+                onClick={(event) => setClickedToThird(!clickedToThird)}
+                onPointerOver={(event) => {
+                  setHoverThird(true);
+                  setCursorStyle("pointer");
+                }}
+                onPointerOut={(event) => {
+                  setHoverThird(false);
+                  setCursorStyle("auto");
+                }}
+              >
+                <planeGeometry args={[1, 1]} />
+
+                <meshBasicMaterial
+                  map={texture3}
+                  color={hoveredThird ? hoverColor : defaultColor}
+                  transparent
+                  alphaTest={0.5} // Adjust as needed
+                  side={THREE.DoubleSide}
+                />
+              </mesh>
+
+              <mesh
+                position={[1.6, 3.1, -7]}
+                {...props}
+                visible={true}
+                scale={hoveredFourth ? 1.2 : 1}
+                onClick={(event) => setClickedToFourth(!clickedToFourth)}
+                onPointerOver={(event) => {
+                  setHoverFourth(true);
+                  setCursorStyle("pointer");
+                }}
+                onPointerOut={(event) => {
+                  setHoverFourth(false);
+                  setCursorStyle("auto");
+                }}
+              >
+                <planeGeometry args={[1, 1]} />
+
+                <meshBasicMaterial
+                  map={texture4}
+                  color={hoveredFourth ? hoverColor : defaultColor}
+                  transparent
+                  alphaTest={0.5} // Adjust as needed
+                  side={THREE.DoubleSide}
                 />
               </mesh>
 
@@ -186,7 +277,8 @@ function Metaverse(props) {
           </Canvas>
         }
       </div>
-      {/* {clickedTofirst && (
+
+      {clickedTofirst && (
         <div
           style={{
             position: "absolute",
@@ -202,39 +294,10 @@ function Metaverse(props) {
           }}
         >
           <>
-            <InteractyKolay />
-            <button
-              style={{
-                position: "absolute",
-                top: "0",
-                right: "0",
-                color: "red",
-                zIndex: "1",
-                cursor: "pointer",
-              }}
-              onClick={(event) => setClickedToFirst(false)}
-            >
-              X
-            </button>
-            <button
-              style={{
-                position: "absolute",
-                bottom: "2vh",
-                right: "2vh",
-                color: "red",
-                zIndex: "1",
-                width: "100%",
-                height: "270px",
-                marginRight: "-2vh",
-                cursor: "pointer",
-                backgroundColor: "#ffd9b3",
-              }}
-            >
-              Kartları çevirerek aynı olan kartları bul.
-            </button>
+            <UzayMacerasi closeTheGame={closeYaris} />
           </>
         </div>
-      )} */}
+      )}
       {clickedTosecond && (
         <div
           style={{
@@ -252,8 +315,7 @@ function Metaverse(props) {
         >
           <>
             <Interacty />
-            {/* <Yaris1 /> */}
-            {/* <Yaris2 /> */}
+
             <button
               style={{
                 position: "absolute",
@@ -283,6 +345,65 @@ function Metaverse(props) {
           </>
         </div>
       )}
+      {clickedToThird && (
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            fontSize: "24px",
+            color: "lightblue",
+            zIndex: 2,
+            padding: "20px",
+            borderRadius: "5px",
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
+          }}
+        >
+          <>
+            <UlkelerBayrak />
+
+            <button
+              style={{
+                position: "absolute",
+                top: "0",
+                right: "0",
+                color: "red",
+                zIndex: "1",
+                cursor: "pointer",
+              }}
+              onClick={(event) => setClickedToThird(false)}
+            >
+              X
+            </button>
+          </>
+        </div>
+      )}
+      {clickedToFourth && (
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            fontSize: "24px",
+            color: "lightblue",
+            zIndex: 2,
+            padding: "20px",
+            borderRadius: "5px",
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
+          }}
+        >
+          <>
+            <ArabaYarisi closeTheGame={closeYaris} />
+          </>
+        </div>
+      )}
+      <style>{`
+        .canvas-container {
+          cursor: ${cursorStyle};
+        }
+      `}</style>
     </>
   );
 }

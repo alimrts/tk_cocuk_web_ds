@@ -57,8 +57,28 @@ const CardsGrid = () => {
           icon={tab.icon}
         />
       ))}
+
       <span
-        style={{ fontSize: "11pt", marginTop: "1.5rem", marginLeft: "0.2rem" }}
+        style={{
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          color: "white",
+          fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
+          fontSize: "10pt",
+          marginTop: "0.85rem",
+
+          backgroundColor: "#ffad66",
+          paddingLeft: "4px",
+          paddingRight: "4px",
+          borderRadius: "4px",
+          border: "4px solid white",
+          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.8)",
+          width: "92%",
+          height: "96%",
+          userSelect: "none",
+        }}
       >
         Sözleşme toplamda 54 maddeden oluşmaktadır. 43-54. maddeler, çocukların
         sahip oldukları haklardan faydalanmalarını sağlamak amacıyla yetişkinler
