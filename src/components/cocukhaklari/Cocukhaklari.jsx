@@ -80,7 +80,7 @@ const Cocukhaklari = () => {
         <span>Nedir?</span>
         <span style={{ fontSize: "14pt" }}>
           <br />
-          Açıklamalar kartlara tıklayınız.
+          Açıklamalar için kartlara tıklayınız.
         </span>
       </div>
       <div style={{ marginTop: "1 rem" }}>
