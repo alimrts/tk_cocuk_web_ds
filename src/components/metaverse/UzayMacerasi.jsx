@@ -1,14 +1,14 @@
 import React from "react";
-import { useRef, useState, useEffect } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 function UzayMacerasi({ closeTheGame }) {
-  const { unityProvider, unload } = useUnityContext({
-    loaderUrl: "UzayMacerasi/UzayMacerasi.loader.js",
-    dataUrl: "UzayMacerasi/UzayMacerasi.data",
-    frameworkUrl: "UzayMacerasi/UzayMacerasi.framework.js",
-    codeUrl: "UzayMacerasi/UzayMacerasi.wasm",
-  });
+  const { unityProvider, unload, loadingProgression, isLoaded } =
+    useUnityContext({
+      loaderUrl: "UzayMacerasi/UzayMacerasi.loader.js",
+      dataUrl: "UzayMacerasi/UzayMacerasi.data",
+      frameworkUrl: "UzayMacerasi/UzayMacerasi.framework.js",
+      codeUrl: "UzayMacerasi/UzayMacerasi.wasm",
+    });
 
   const closeGame = async () => {
     await unload();
@@ -17,11 +17,19 @@ function UzayMacerasi({ closeTheGame }) {
 
   return (
     <>
+      {!isLoaded && (
+        <div style={{ color: "black" }}>
+          <p>Yükleniyor... {Math.round(loadingProgression * 100)}%</p>
+        </div>
+      )}
       <Unity
         unityProvider={unityProvider}
-        style={{ width: 420, height: 747 }}
+        style={{
+          width: 420,
+          height: 747,
+          visibility: isLoaded ? "visible" : "hidden",
+        }}
       />
-      {/* <button onClick={handleClickBack}>Back</button> */}
       <button
         style={{
           position: "absolute",
