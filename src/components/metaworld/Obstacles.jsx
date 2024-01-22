@@ -10,8 +10,8 @@ function Obstacle({ args, position, ...props }) {
   return (
     <mesh ref={ref} castShadow receiveShadow>
       {/* on/off collision boxes */}
-      {/* <boxGeometry args={[...args]} /> */}
-      <meshStandardMaterial color="red" />
+      {/* <boxGeometry args={[...args]} />
+      <meshStandardMaterial color="red" /> */}
     </mesh>
   );
 }
@@ -20,56 +20,24 @@ export default function Obstacles() {
   return (
     <>
       {/* front blocks */}
-      <Obstacle
-        position={[14, 0, 12.5]}
-        args={[1, 4, 15]}
-        material={"ground"}
-      ></Obstacle>
-      <Obstacle
-        position={[14, 0, -6.5]}
-        args={[1, 4, 15]}
-        material={"ground"}
-      ></Obstacle>
 
       {/* right blocks */}
       <Obstacle
-        position={[8.5, 0, 20]}
-        args={[1, 4, 12]}
-        rotation={[0, 1.58, 0]}
+        position={[8, 0, 10]}
+        args={[2, 4, 11]}
+        rotation={[0, 2.3, 0]}
         material={"ground"}
       ></Obstacle>
       <Obstacle
-        position={[8.5, 0, -14.5]}
-        args={[1, 4, 12]}
-        rotation={[0, 1.58, 0]}
+        position={[-8, 0, 10]}
+        args={[2, 4, 11]}
+        rotation={[0, -2.3, 0]}
         material={"ground"}
       ></Obstacle>
 
       {/* back blocks */}
-      <Obstacle
-        position={[-13.2, 0, 12.5]}
-        args={[1, 4, 15]}
-        material={"ground"}
-      ></Obstacle>
-      <Obstacle
-        position={[-13.2, 0, -6.5]}
-        args={[1, 4, 15]}
-        material={"ground"}
-      ></Obstacle>
 
       {/* left blocks */}
-      <Obstacle
-        position={[-7.8, 0, 20]}
-        args={[1, 4, 12]}
-        rotation={[0, 1.58, 0]}
-        material={"ground"}
-      ></Obstacle>
-      <Obstacle
-        position={[-7.8, 0, -14.5]}
-        args={[1, 4, 12]}
-        rotation={[0, 1.58, 0]}
-        material={"ground"}
-      ></Obstacle>
 
       {/* control room screens */}
       <Obstacle

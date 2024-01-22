@@ -81,7 +81,7 @@ const MainPage = () => {
     <div>
       {showMetaverse ? (
         <>
-          <div className="metaverse">
+          <div className="metaverse" style={{ background: "rgb(32, 32, 32)" }}>
             <button
               className="button i-button"
               onClick={() => {
@@ -98,6 +98,7 @@ const MainPage = () => {
               X
             </button>
             <Metaverse cinsiyet={cinsiyet} />
+            {/* <SolarSystem /> */}
           </div>
         </>
       ) : (

@@ -90,7 +90,8 @@ export default function PlayerCollider(props) {
 
       if (keyboard["KeyW"]) {
         inputVelocity.z = -10 * delta;
-        console.log("delta: ", delta);
+        // console.log("delta: ", delta);
+        console.log("group.current.position: ", group.current.position);
       }
       if (keyboard["KeyS"]) {
         inputVelocity.z = 10 * delta;
