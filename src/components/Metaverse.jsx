@@ -27,6 +27,7 @@ import {
   useProgress,
   Html,
   Text,
+  OrbitControls,
 } from "@react-three/drei";
 
 import Lights from "./metaverse/Lights";
@@ -316,14 +317,25 @@ function Metaverse(props) {
           </div>
           {
             <Canvas
-            // shadows
-            // camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 4, 4.5] }}
+              // shadows
+              camera={{ fov: 55, near: 0.1, far: 1000, position: [0, 0, 0] }}
             >
               <Suspense fallback={<Loader />}>
                 {testing ? <Stats /> : null}
                 {testing ? <axesHelper args={[2]} /> : null}
                 {testing ? <gridHelper args={[10, 10]} /> : null}
                 <Environment background={true} files={"/env/CasualDay2K.hdr"} />
+
+                {/*for large view <OrbitControls
+                  enableZoom={true}
+                  makeDefault
+                  rotateSpeed={0.6}
+                  maxPolarAngle={1.4}
+                  minPolarAngle={0.2}
+                  minDistance={80}
+                  maxDistance={250}
+                  target={[0, 15, 0]}
+                /> */}
 
                 {/* <Lights /> */}
                 <ambientLight intensity={0.4} />
@@ -365,7 +377,7 @@ function Metaverse(props) {
                 <Text
                   scale={[0.25, 0.25, 0.25]}
                   position={[0.5, 3.8, -7]}
-                  color="black" // default
+                  color="white" // default
                   anchorX="center" // default
                   anchorY="middle" // default
                 >
