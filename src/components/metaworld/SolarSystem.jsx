@@ -2627,7 +2627,7 @@ const SolarSystem = () => {
 
           <OrbitControls
             enableZoom={true}
-            enablePan={true}
+            enablePan={false}
             makeDefault
             rotateSpeed={0.6}
             maxPolarAngle={1.4}
