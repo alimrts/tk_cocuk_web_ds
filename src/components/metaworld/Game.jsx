@@ -10,6 +10,7 @@ import { Dome } from "./Dome";
 import { useControls } from "leva";
 import { GezegenlerBinasi } from "./GezegenlerBinasi";
 import SolarSystem from "./SolarSystem";
+import { TuikBinasi } from "./TuikBinasi";
 
 function ToggleDebug({ children }) {
   const debugRendererVisible = useControls("Debug Renderer", {
@@ -89,6 +90,7 @@ export default function Game(props) {
       />
 
       <Dome scale={[0.885, 0.885, 0.885]} />
+      <TuikBinasi scale={[0.885, 0.885, 0.885]} />
 
       <GezegenlerBinasi scale={[0.7, 0.7, 0.7]} position={[0.5, -0.75, 23]} />
 
