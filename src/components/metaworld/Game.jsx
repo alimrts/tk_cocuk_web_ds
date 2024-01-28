@@ -1,5 +1,5 @@
 import { Debug, useContactMaterial, useBox } from "@react-three/cannon";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import useZustandStore from "../../zustandStore";
 import Floor from "./Floor";
 import Obstacles from "./Obstacles";
@@ -50,6 +50,28 @@ function ObstacleTriggerGunes({ args, onCollide, position, ...props }) {
   );
 }
 
+function ObstacleTriggerTuik({ args, onCollide, position, ...props }) {
+  const [ref] = useBox(
+    () => ({
+      args,
+      type: "Static",
+      isTrigger: false,
+      onCollide,
+      mass: 10,
+      position: position,
+      ...props,
+    }),
+    useRef()
+  );
+  return (
+    <mesh ref={ref} castShadow receiveShadow>
+      {/* on/off collision boxes */}
+      {/* <boxGeometry args={[...args]} />
+      <meshStandardMaterial wireframe color="red" /> */}
+    </mesh>
+  );
+}
+
 export default function Game(props) {
   const cinsiyet = props.cinsiyet;
 
@@ -72,7 +94,35 @@ export default function Game(props) {
     console.log("gunes gate: " + isGunesGateTriggered);
   };
 
-  const isGeriClicked = useZustandStore((state) => state.isGeriClicked);
+  const isTuikGateTriggered = useZustandStore(
+    (state) => state.isTuikGateTriggered
+  );
+  const setIsTuikGateTriggered = useZustandStore(
+    (state) => state.setIsTuikGateTriggered
+  );
+  const handleTuikGateTrigger = () => {
+    setIsTuikGateTriggered(true);
+    console.log("tuiks gate: " + isTuikGateTriggered);
+  };
+
+  const isGeriClickedInSolarSystem = useZustandStore(
+    (state) => state.isGeriClickedInSolarSystem
+  );
+  const isGeriClickedInTuik = useZustandStore(
+    (state) => state.isGeriClickedInTuik
+  );
+
+  const setIsGeriClickedInTuik = useZustandStore(
+    (state) => state.setIsGeriClickedInTuik
+  );
+  const setIsGeriClickedInSolarSystem = useZustandStore(
+    (state) => state.setIsGeriClickedInSolarSystem
+  );
+
+  useEffect(() => {
+    setIsGeriClickedInTuik(false), setIsGeriClickedInSolarSystem(false);
+    //
+  }, []);
 
   return (
     <>
@@ -105,8 +155,25 @@ export default function Game(props) {
         }}
       />
 
+      <ObstacleTriggerTuik
+        position={[-59, 0, 30]}
+        args={[8, 5, 22]}
+        rotation={[0, 0, 0]}
+        material={"ground"}
+        onCollide={(e) => {
+          console.log("Collision event on BoxTrigger", e);
+          handleTuikGateTrigger();
+        }}
+      />
+
       <Player
-        position={isGeriClicked ? [0.5, 0, 60.5] : [0, 1, 0]}
+        position={
+          isGeriClickedInSolarSystem
+            ? [0.5, 0, 60.5]
+            : isGeriClickedInTuik
+            ? [-50.5, 0, 28.7]
+            : [0, 1, 0]
+        }
         linearDamping={0.95}
         material={"slippery"}
         cinsiyet={cinsiyet}

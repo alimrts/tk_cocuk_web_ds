@@ -61,13 +61,36 @@ const zustandStore = (set) => ({
     set({ isGunesGateTriggered: false });
   },
 
-  isGeriClicked: false,
-  setIsGeriClicked: (value) => set({ isGeriClicked: value }),
-  toggleGeriClicked: () =>
-    set((state) => ({ isGeriClicked: !state.isGeriClicked })),
+  isTuikGateTriggered: false,
+  setIsTuikGateTriggered: (value) => set({ isTuikGateTriggered: value }),
+  toggleTuikGateTrigger: () =>
+    set((state) => ({ isTuikGateTriggered: !state.isTuikGateTriggered })),
   onCleanup: () => {
     // Reset the state to its initial value when the component is unmounted
-    set({ isGeriClicked: false });
+    set({ isTuikGateTriggered: false });
+  },
+
+  isGeriClickedInSolarSystem: false,
+  setIsGeriClickedInSolarSystem: (value) =>
+    set({ isGeriClickedInSolarSystem: value }),
+  toggleGeriClickedInSolarSystem: () =>
+    set((state) => ({
+      isGeriClickedInSolarSystem: !state.isGeriClickedInSolarSystem,
+    })),
+  onCleanup: () => {
+    // Reset the state to its initial value when the component is unmounted
+    set({ isGeriClickedInSolarSystem: false });
+  },
+
+  isGeriClickedInTuik: false,
+  setIsGeriClickedInTuik: (value) => set({ isGeriClickedInTuik: value }),
+  toggleGeriClickedInTuik: () =>
+    set((state) => ({
+      isGeriClickedInTuik: !state.isGeriClickedInTuik,
+    })),
+  onCleanup: () => {
+    // Reset the state to its initial value when the component is unmounted
+    set({ isGeriClickedInTuik: false });
   },
 });
 

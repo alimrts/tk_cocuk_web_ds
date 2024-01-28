@@ -16,6 +16,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 import Metaverse from "./Metaverse";
 import useZustandStore from "../zustandStore";
+import TuikIc from "./metaworld/TuikIc";
 
 const MainPage = () => {
   const history = useHistory();
@@ -99,6 +100,7 @@ const MainPage = () => {
             </button>
             <Metaverse cinsiyet={cinsiyet} />
             {/* <SolarSystem /> */}
+            {/* <TuikIc /> */}
           </div>
         </>
       ) : (

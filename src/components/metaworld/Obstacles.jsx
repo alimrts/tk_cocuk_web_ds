@@ -8,7 +8,7 @@ function Obstacle({ args, position, ...props }) {
   );
 
   return (
-    <mesh ref={ref} castShadow receiveShadow>
+    <mesh ref={ref}>
       {/* on/off collision boxes */}
       {/* <boxGeometry args={[...args]} />
       <meshStandardMaterial color="red" /> */}

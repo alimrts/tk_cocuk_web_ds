@@ -41,13 +41,22 @@ import UzayMacerasi from "./metaverse/UzayMacerasi";
 import UlkelerBayrak from "./metaverse/UlkelerBayrak";
 import ArabaYarisi from "./metaverse/ArabaYarisi";
 import SolarSystem from "./metaworld/SolarSystem";
+import TuikIc from "./metaworld/TuikIc";
 
 function Loader() {
   const { progress } = useProgress();
   return (
     <Html center>
       {" "}
-      <div style={{ fontSize: 30, color: "white" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: 30,
+          color: "white",
+        }}
+      >
         {Math.round(progress)} % yükleniyor
       </div>
     </Html>
@@ -133,12 +142,18 @@ function Metaverse(props) {
     (state) => state.isGunesGateTriggered
   );
 
+  const isTuikGateTriggered = useZustandStore(
+    (state) => state.isTuikGateTriggered
+  );
+
   useEffect(() => {
     // ComponentDidMount - Set up any subscriptions or initializations here
-
+    useZustandStore.setState({ isGunesGateTriggered: false });
+    useZustandStore.setState({ isTuikGateTriggered: false });
     // ComponentWillUnmount - Cleanup and reset isGunesGateTriggered to false
     return () => {
       useZustandStore.setState({ isGunesGateTriggered: false });
+      useZustandStore.setState({ isTuikGateTriggered: false });
       useZustandStore.setState({ isGeriClicked: false });
     };
   }, []);
@@ -294,6 +309,8 @@ function Metaverse(props) {
         // Render content when isGunesGateTriggered is true
 
         <SolarSystem />
+      ) : isTuikGateTriggered ? (
+        <TuikIc />
       ) : (
         <div className="canvas-container">
           <div
@@ -318,7 +335,8 @@ function Metaverse(props) {
           {
             <Canvas
               // shadows
-              camera={{ fov: 55, near: 0.1, far: 1000, position: [0, 0, 0] }}
+              // camera={{ fov: 55, near: 0.1, far: 1000, position: [0, 0, 0] }}
+              camera={{ fov: 55 }}
             >
               <Suspense fallback={<Loader />}>
                 {testing ? <Stats /> : null}
@@ -326,7 +344,7 @@ function Metaverse(props) {
                 {testing ? <gridHelper args={[10, 10]} /> : null}
                 <Environment background={true} files={"/env/CasualDay2K.hdr"} />
 
-                {/*for large view <OrbitControls
+                {/* <OrbitControls for large view
                   enableZoom={true}
                   makeDefault
                   rotateSpeed={0.6}

@@ -2424,11 +2424,18 @@ const SolarSystem = () => {
   const setIsGunesGateTriggered = useZustandStore(
     (state) => state.setIsGunesGateTriggered
   );
-  const setIsGeriClicked = useZustandStore((state) => state.setIsGeriClicked);
+  const setIsGeriClickedInSolarSystem = useZustandStore(
+    (state) => state.setIsGeriClickedInSolarSystem
+  );
+
+  const setIsGeriClickedInTuik = useZustandStore(
+    (state) => state.setIsGeriClickedInTuik
+  );
 
   const handleGunesGateTrigger = () => {
     setIsGunesGateTriggered(false);
-    setIsGeriClicked(true);
+    setIsGeriClickedInSolarSystem(true);
+    setIsGeriClickedInTuik(false);
   };
 
   return (
