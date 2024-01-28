@@ -121,7 +121,6 @@ export default function Game(props) {
 
   useEffect(() => {
     setIsGeriClickedInTuik(false), setIsGeriClickedInSolarSystem(false);
-    //
   }, []);
 
   return (
