@@ -9,10 +9,10 @@ import { Physics, useBox } from "@react-three/cannon";
 
 import Game from "../components/metaworld/Game";
 
-import textureImage3 from "../img/game_icon_ulkeler.png";
-import textureImage2 from "../img/game_icon_uzay_macerasi.png";
+import textureUlkeler from "../img/game_icon_ulkeler.png";
+import textureUzayMacerasi from "../img/game_icon_uzay_macerasi.png";
 import textureImage from "../img/g5.png";
-import textureImage4 from "../img/game_icon_super_araba.png";
+import textureSuperAraba from "../img/game_icon_super_araba.png";
 
 import * as THREE from "three";
 
@@ -32,8 +32,6 @@ import {
 
 import Lights from "./metaverse/Lights";
 
-import { DemoScene } from "./metaverse/DemoScene";
-import { CityScene1 } from "./metaverse/CityScene1";
 import Interacty from "./metaverse/Interacty";
 import Player from "./metaverse/Player";
 
@@ -134,9 +132,9 @@ function Metaverse(props) {
 
   const textureLoader = new THREE.TextureLoader();
   const texture = textureLoader.load(textureImage);
-  const texture2 = textureLoader.load(textureImage2);
-  const texture3 = textureLoader.load(textureImage3);
-  const texture4 = textureLoader.load(textureImage4);
+  const texture2 = textureLoader.load(textureUzayMacerasi);
+  const texture3 = textureLoader.load(textureUlkeler);
+  const texture4 = textureLoader.load(textureSuperAraba);
 
   const isGunesGateTriggered = useZustandStore(
     (state) => state.isGunesGateTriggered
@@ -157,19 +155,6 @@ function Metaverse(props) {
       useZustandStore.setState({ isGeriClicked: false });
     };
   }, []);
-
-  const handlePointerClick = () => {
-    // Toggle the click state when the camera element is clicked
-    // setIsClicked((prevIsClicked) => !prevIsClicked);
-    // // const newPosition = new THREE.Vector3(0, 10, orbitRadius * 1.25);
-    // const newPosition = new THREE.Vector3(
-    //   planetRef.current.position.x,
-    //   planetRef.current.position.y + 10,
-    //   40
-    // );
-    // camera.position.copy(newPosition);
-    // camera.lookAt(planetRef.current.position);
-  };
 
   function closeYaris() {
     setClickedToFirst(false);
@@ -336,7 +321,7 @@ function Metaverse(props) {
             <Canvas
               // shadows
               // camera={{ fov: 55, near: 0.1, far: 1000, position: [0, 0, 0] }}
-              camera={{ fov: 55 }}
+              camera={{ fov: 60 }}
             >
               <Suspense fallback={<Loader />}>
                 {testing ? <Stats /> : null}
@@ -394,7 +379,7 @@ function Metaverse(props) {
 
                 <Text
                   scale={[0.25, 0.25, 0.25]}
-                  position={[0.5, 3.8, -7]}
+                  position={[0.55, 3.8, -7]}
                   color="white" // default
                   anchorX="center" // default
                   anchorY="middle" // default
@@ -402,11 +387,6 @@ function Metaverse(props) {
                   Oyunlar
                 </Text>
 
-                <DemoScene
-                  position={[0.5, 0.15, 3]}
-                  rotation={[0, 3.1, 0]}
-                  scale={[1.2, 1.2, 1.2]}
-                />
                 {/* <CityScene1
                         position={[0.5, -0.1, 3]}
                         // rotation={[0, 3.1, 0]}
@@ -414,10 +394,11 @@ function Metaverse(props) {
                       /> */}
 
                 <mesh
-                  position={[-0.6, 3.1, -7]}
+                  position={[-7.1, 2.4, -7.8]}
+                  rotation={[0, 0.55, 0]}
                   {...props}
                   visible={true}
-                  scale={hoveredFirst ? 1.2 : 1}
+                  scale={hoveredFirst ? 2.1 : 2}
                   onClick={(event) => setClickedToFirst(!clickedTofirst)}
                   onPointerOver={(event) => {
                     setHoverFirst(true);
@@ -441,11 +422,11 @@ function Metaverse(props) {
                 </mesh>
                 {/* /// */}
                 <mesh
-                  position={[0.5, 2, -7]}
+                  position={[1.75, 2.8, -7]}
                   {...props}
                   visible={true}
                   // scale={clickedTosecond ? 1.5 : 1}
-                  scale={hoveredSecond ? 1.2 : 1}
+                  scale={hoveredSecond ? 2.1 : 2}
                   onClick={(event) => setClickedToSecond(!clickedTosecond)}
                   onPointerOver={(event) => {
                     setHoverSecond(true);
@@ -468,10 +449,10 @@ function Metaverse(props) {
                 </mesh>
 
                 <mesh
-                  position={[0.5, 3.1, -7]}
+                  position={[-0.7, 2.8, -7]}
                   {...props}
                   visible={true}
-                  scale={hoveredThird ? 1.2 : 1}
+                  scale={hoveredThird ? 2.1 : 2}
                   onClick={(event) => setClickedToThird(!clickedToThird)}
                   onPointerOver={(event) => {
                     setHoverThird(true);
@@ -494,10 +475,11 @@ function Metaverse(props) {
                 </mesh>
 
                 <mesh
-                  position={[1.6, 3.1, -7]}
+                  position={[8.1, 2.4, -7.3]}
+                  rotation={[0, -0.55, 0]}
                   {...props}
                   visible={true}
-                  scale={hoveredFourth ? 1.2 : 1}
+                  scale={hoveredFourth ? 2.1 : 2}
                   onClick={(event) => setClickedToFourth(!clickedToFourth)}
                   onPointerOver={(event) => {
                     setHoverFourth(true);

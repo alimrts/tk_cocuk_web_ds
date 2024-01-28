@@ -2466,7 +2466,7 @@ const SolarSystem = () => {
       <div
         style={{
           position: "absolute",
-          marginTop: "75vh",
+          marginTop: "78vh",
           marginLeft: "5vh",
           fontSize: "20px",
           color: "lightblue",
@@ -2476,9 +2476,6 @@ const SolarSystem = () => {
         }}
       >
         Fare sol tuşu ile döndürebilirsiniz.
-        <br />
-        <br />
-        Fare sağ tuşu ile hareket edebilirsiniz.
         <br />
         <br />
         Fare orta tuşu ile yakınlaşabilirsiniz.

@@ -8,9 +8,10 @@ import { CityScene1 } from "./CityScene1";
 import { Dome } from "./Dome";
 
 import { useControls } from "leva";
-import { GezegenlerBinasi } from "./GezegenlerBinasi";
-import SolarSystem from "./SolarSystem";
+
 import { TuikBinasi } from "./TuikBinasi";
+import { GezegenlerBinasi } from "./GezegenlerBinasi";
+import { DemoScene, KontrolOdasi } from "./KontrolOdasi";
 
 function ToggleDebug({ children }) {
   const debugRendererVisible = useControls("Debug Renderer", {
@@ -42,7 +43,7 @@ function ObstacleTriggerGunes({ args, onCollide, position, ...props }) {
     useRef()
   );
   return (
-    <mesh ref={ref} castShadow receiveShadow>
+    <mesh ref={ref}>
       {/* on/off collision boxes */}
       {/* <boxGeometry args={[...args]} />
       <meshStandardMaterial wireframe color="red" /> */}
@@ -64,7 +65,7 @@ function ObstacleTriggerTuik({ args, onCollide, position, ...props }) {
     useRef()
   );
   return (
-    <mesh ref={ref} castShadow receiveShadow>
+    <mesh ref={ref}>
       {/* on/off collision boxes */}
       {/* <boxGeometry args={[...args]} />
       <meshStandardMaterial wireframe color="red" /> */}
@@ -138,10 +139,13 @@ export default function Game(props) {
         // rotation={[0, 3.1, 0]}
         scale={[1, 1, 1]}
       />
-
+      <KontrolOdasi
+        position={[0.5, 0.15, 3]}
+        rotation={[0, 3.1, 0]}
+        scale={[1.2, 1.2, 1.2]}
+      />
       <Dome scale={[0.885, 0.885, 0.885]} />
       <TuikBinasi scale={[0.885, 0.885, 0.885]} />
-
       <GezegenlerBinasi scale={[0.7, 0.7, 0.7]} position={[0.5, -0.75, 23]} />
 
       <ObstacleTriggerGunes
