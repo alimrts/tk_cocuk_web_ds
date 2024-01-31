@@ -88,18 +88,18 @@ export default function PlayerCollider(props) {
     if (!document.pointerLockElement) {
       inputVelocity.set(0, 0, 0);
 
-      if (keyboard["KeyW"]) {
+      if (keyboard["KeyW"] || keyboard["ArrowUp"]) {
         inputVelocity.z = -10 * delta;
         // console.log("delta: ", delta);
-        console.log("group.current.position: ", group.current.position);
+        //console.log("group.current.position: ", group.current.position);
       }
-      if (keyboard["KeyS"]) {
+      if (keyboard["KeyS"] || keyboard["ArrowDown"]) {
         inputVelocity.z = 10 * delta;
       }
-      if (keyboard["KeyA"]) {
+      if (keyboard["KeyA"] || keyboard["ArrowLeft"]) {
         inputVelocity.x = -10 * delta;
       }
-      if (keyboard["KeyD"]) {
+      if (keyboard["KeyD"] || keyboard["ArrowRight"]) {
         inputVelocity.x = 10 * delta;
       }
 
@@ -127,6 +127,33 @@ export default function PlayerCollider(props) {
         inputVelocity.x = (10 * delta) / 1.5;
       }
       /////
+
+      //////////////////
+      /////
+      if (keyboard["ArrowUp"] && keyboard["ArrowLeft"]) {
+        inputVelocity.z = (-10 * delta) / 1.5;
+        inputVelocity.x = (-10 * delta) / 1.5;
+      }
+      /////
+      /////
+      if (keyboard["ArrowUp"] && keyboard["ArrowRight"]) {
+        inputVelocity.z = (-10 * delta) / 1.5;
+        inputVelocity.x = (10 * delta) / 1.5;
+      }
+      /////
+      /////
+      if (keyboard["ArrowDown"] && keyboard["ArrowLeft"]) {
+        inputVelocity.z = (10 * delta) / 1.5;
+        inputVelocity.x = (-10 * delta) / 1.5;
+      }
+      /////
+      /////
+      if (keyboard["ArrowDown"] && keyboard["ArrowRight"]) {
+        inputVelocity.z = (10 * delta) / 1.5;
+        inputVelocity.x = (10 * delta) / 1.5;
+      }
+      /////
+      //////////////////
 
       if (keyboard["Space"]) {
         if (canJump.current) {

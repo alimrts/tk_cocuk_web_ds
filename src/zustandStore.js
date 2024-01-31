@@ -50,7 +50,35 @@ const zustandStore = (set) => ({
     set({ userInfo: userData });
   },
 
-  /////
+  /////gates
+
+  isBilgiIcTriggered: false,
+  setIsBilgiIcTriggered: (value) => set({ isBilgiIcTriggered: value }),
+  toggleBilgiIcTrigger: () => {
+    set((state) => {
+      const toggledState = !state.isBilgiIcTriggered;
+      console.log(`Toggling isBilgiIcTriggered to: ${toggledState}`);
+      return { isBilgiIcTriggered: toggledState };
+    });
+  },
+  onCleanup: () => {
+    // Reset the state to its initial value when the component is unmounted
+    set({ isBilgiIcTriggered: false });
+  },
+
+  isBilgiGateTriggered: false,
+  setIsBilgiGateTriggered: (value) => set({ isBilgiGateTriggered: value }),
+  toggleBilgiGateTrigger: () => {
+    set((state) => {
+      const toggledState = !state.isBilgiGateTriggered;
+      console.log(`Toggling isBilgiGateTriggered to: ${toggledState}`);
+      return { isBilgiGateTriggered: toggledState };
+    });
+  },
+  onCleanup: () => {
+    // Reset the state to its initial value when the component is unmounted
+    set({ isBilgiGateTriggered: false });
+  },
 
   isGunesGateTriggered: false,
   setIsGunesGateTriggered: (value) => set({ isGunesGateTriggered: value }),
@@ -92,6 +120,9 @@ const zustandStore = (set) => ({
     // Reset the state to its initial value when the component is unmounted
     set({ isGeriClickedInTuik: false });
   },
+
+  playerPosition: [0, 0, 0],
+  setPlayerPosition: (position) => set({ playerPosition: position }),
 });
 
 const useZustandStore = create(

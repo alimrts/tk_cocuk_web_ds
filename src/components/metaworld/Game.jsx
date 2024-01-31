@@ -29,6 +29,50 @@ function ToggleDebug({ children }) {
   );
 }
 
+function ObstacleTriggerBilgiIc({ args, onCollide, position, ...props }) {
+  const [ref] = useBox(
+    () => ({
+      args,
+      type: "Static",
+      isTrigger: true,
+      onCollide,
+      mass: 10,
+      position: position,
+      ...props,
+    }),
+    useRef()
+  );
+  return (
+    <mesh ref={ref}>
+      {/* on/off collision boxes */}
+      {/* <boxGeometry args={[...args]} />
+      <meshStandardMaterial wireframe color="red" /> */}
+    </mesh>
+  );
+}
+
+function ObstacleTriggerBilgi({ args, onCollide, position, ...props }) {
+  const [ref] = useBox(
+    () => ({
+      args,
+      type: "Static",
+      isTrigger: true,
+      onCollide,
+      mass: 10,
+      position: position,
+      ...props,
+    }),
+    useRef()
+  );
+  return (
+    <mesh ref={ref}>
+      {/* on/off collision boxes */}
+      {/* <boxGeometry args={[...args]} />
+      <meshStandardMaterial wireframe color="red" /> */}
+    </mesh>
+  );
+}
+
 function ObstacleTriggerGunes({ args, onCollide, position, ...props }) {
   const [ref] = useBox(
     () => ({
@@ -75,6 +119,7 @@ function ObstacleTriggerTuik({ args, onCollide, position, ...props }) {
 
 export default function Game(props) {
   const cinsiyet = props.cinsiyet;
+  console.log("cinsiyet in game: " + cinsiyet);
 
   useContactMaterial("ground", "slippery", {
     friction: 0,
@@ -82,6 +127,46 @@ export default function Game(props) {
     contactEquationStiffness: 1e8,
     contactEquationRelaxation: 3,
   });
+
+  ///
+
+  const playerPosition = useZustandStore((state) => state.playerPosition);
+  const setPlayerPosition = useZustandStore((state) => state.setPlayerPosition);
+
+  const isBilgiIcTriggered = useZustandStore(
+    (state) => state.isBilgiIcTriggered
+  );
+  const setIsBilgiIcTriggered = useZustandStore(
+    (state) => state.setIsBilgiIcTriggered
+  );
+
+  const toggleBilgiIcTrigger = useZustandStore(
+    (state) => state.toggleBilgiIcTrigger
+  );
+
+  const handleBilgiIcTrigger = () => {
+    setIsBilgiIcTriggered(true);
+    setIsBilgiGateTriggered(false);
+    console.log("bilgi ic: " + isBilgiIcTriggered);
+  };
+
+  const isBilgiGateTriggered = useZustandStore(
+    (state) => state.isBilgiGateTriggered
+  );
+  const setIsBilgiGateTriggered = useZustandStore(
+    (state) => state.setIsBilgiGateTriggered
+  );
+
+  const toggleBilgiGateTrigger = useZustandStore(
+    (state) => state.toggleBilgiGateTrigger
+  );
+
+  const handleBilgiGateTrigger = () => {
+    setIsBilgiGateTriggered(true);
+    setIsBilgiIcTriggered(false);
+    console.log("bilgi gate: " + isBilgiGateTriggered);
+  };
+  ///
 
   const isGunesGateTriggered = useZustandStore(
     (state) => state.isGunesGateTriggered
@@ -123,6 +208,7 @@ export default function Game(props) {
   useEffect(() => {
     setIsGeriClickedInTuik(false);
     setIsGeriClickedInSolarSystem(false);
+    // setPlayerPosition([0, 0, 0]);
   }, []);
 
   return (
@@ -146,7 +232,30 @@ export default function Game(props) {
       />
       <Dome scale={[0.885, 0.885, 0.885]} />
       <TuikBinasi scale={[0.885, 0.885, 0.885]} />
+
       <GezegenlerBinasi scale={[0.7, 0.7, 0.7]} position={[0.5, -0.75, 23]} />
+
+      <ObstacleTriggerBilgiIc
+        position={[0, 0, 6]}
+        args={[12.5, 4, 8]}
+        rotation={[0, 1.6, 0]}
+        material={"ground"}
+        onCollide={(e) => {
+          console.log("Collision event on BoxTrigger Bilgi Ic", e);
+          handleBilgiIcTrigger();
+        }}
+      />
+
+      <ObstacleTriggerBilgi
+        position={[0, 0, 13.2]}
+        args={[0.5, 4, 8]}
+        rotation={[0, 1.6, 0]}
+        material={"ground"}
+        onCollide={(e) => {
+          console.log("Collision event on BoxTrigger Bilgi", e);
+          handleBilgiGateTrigger();
+        }}
+      />
 
       <ObstacleTriggerGunes
         position={[0.5, 0, 65.8]}
@@ -154,7 +263,7 @@ export default function Game(props) {
         rotation={[0, 1.6, 0]}
         material={"ground"}
         onCollide={(e) => {
-          console.log("Collision event on BoxTrigger", e);
+          console.log("Collision event on BoxTrigger gunes", e);
           handleGunesGateTrigger();
         }}
       />
@@ -165,7 +274,7 @@ export default function Game(props) {
         rotation={[0, 0, 0]}
         material={"ground"}
         onCollide={(e) => {
-          console.log("Collision event on BoxTrigger", e);
+          console.log("Collision event on BoxTrigger tuik", e);
           handleTuikGateTrigger();
         }}
       />
@@ -176,7 +285,7 @@ export default function Game(props) {
             ? [0.5, 0, 60.5]
             : isGeriClickedInTuik
             ? [-50.5, 0, 28.7]
-            : [0, 1, 0]
+            : playerPosition
         }
         linearDamping={0.95}
         material={"slippery"}

@@ -40,6 +40,7 @@ import UlkelerBayrak from "./metaverse/UlkelerBayrak";
 import ArabaYarisi from "./metaverse/ArabaYarisi";
 import SolarSystem from "./metaworld/SolarSystem";
 import TuikIc from "./metaworld/TuikIc";
+import InformationButton from "./metaworld/InformationButton";
 
 function Loader() {
   const { progress } = useProgress();
@@ -136,6 +137,20 @@ function Metaverse(props) {
   const texture3 = textureLoader.load(textureUlkeler);
   const texture4 = textureLoader.load(textureSuperAraba);
 
+  const textForBilgi =
+    "Oynamak istediğiniz oyunu ekranlardaki simgelere tıklayarak seçebilirsiniz.";
+
+  const textForBinalar =
+    "Güneş Sistemi veya TÜİK binasına giderek çeşitli bilgilere ulaşabilirsin.";
+
+  const isBilgiIcTriggered = useZustandStore(
+    (state) => state.isBilgiIcTriggered
+  );
+
+  const isBilgiGateTriggered = useZustandStore(
+    (state) => state.isBilgiGateTriggered
+  );
+
   const isGunesGateTriggered = useZustandStore(
     (state) => state.isGunesGateTriggered
   );
@@ -146,8 +161,8 @@ function Metaverse(props) {
 
   useEffect(() => {
     // ComponentDidMount - Set up any subscriptions or initializations here
-    useZustandStore.setState({ isGunesGateTriggered: false });
-    useZustandStore.setState({ isTuikGateTriggered: false });
+    //useZustandStore.setState({ isGunesGateTriggered: false });
+    //useZustandStore.setState({ isTuikGateTriggered: false });
     // ComponentWillUnmount - Cleanup and reset isGunesGateTriggered to false
     return () => {
       useZustandStore.setState({ isGunesGateTriggered: false });
@@ -315,8 +330,26 @@ function Metaverse(props) {
             veya Ok tuşları <br />
             ile hareket ettirebilirsiniz.
             <br />
+            Fare ile dönebilirsiniz.
+            <br />
             ESC ile çıkış yapabilirsiniz.
           </div>
+          {isBilgiIcTriggered ? (
+            <InformationButton text={textForBilgi} left={"20px"} top={"50%"} />
+          ) : (
+            <></>
+          )}
+
+          {isBilgiGateTriggered ? (
+            <InformationButton
+              text={textForBinalar}
+              left={"48%"}
+              top={"40px"}
+            />
+          ) : (
+            <></>
+          )}
+
           {
             <Canvas
               // shadows
@@ -377,7 +410,7 @@ function Metaverse(props) {
                         /> */}
                 </Physics>
 
-                <Text
+                {/* <Text
                   scale={[0.25, 0.25, 0.25]}
                   position={[0.55, 3.8, -7]}
                   color="white" // default
@@ -385,7 +418,7 @@ function Metaverse(props) {
                   anchorY="middle" // default
                 >
                   Oyunlar
-                </Text>
+                </Text> */}
 
                 {/* <CityScene1
                         position={[0.5, -0.1, 3]}

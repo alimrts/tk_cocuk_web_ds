@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import React, { useRef, useEffect, useState } from "react";
+import { useGLTF, Html } from "@react-three/drei";
 import * as THREE from "three";
 import { Color } from "three";
+import useZustandStore from "../../zustandStore";
 
 import textureImage from "../../img/gunes_sistemi.png";
 
@@ -11,6 +12,24 @@ export function GezegenlerBinasi(props) {
   const textureLoader = new THREE.TextureLoader();
   const texture = textureLoader.load(textureImage);
   const defaultColor = new Color("#FFffff");
+
+  const isBilgiGateTriggered = useZustandStore(
+    (state) => state.isBilgiGateTriggered
+  );
+
+  const setIsGunesGateTriggered = useZustandStore(
+    (state) => state.setIsGunesGateTriggered
+  );
+
+  const handleGoToGunes = () => {
+    setIsGunesGateTriggered(true);
+  };
+
+  // useEffect(() => {
+  //   // ComponentDidMount - Set up any subscriptions or initializations here
+  //   // ComponentWillUnmount - Cleanup and reset isGunesGateTriggered to false
+  // }, [isBilgiGateTriggered]);
+
   return (
     <group {...props} dispose={null}>
       <group name="Scene">
@@ -126,6 +145,30 @@ export function GezegenlerBinasi(props) {
           scale={[0.01, 0.011, 0.003]}
         />
         <group name="g_bina" position={[-0.27, 5.361, 77.036]} scale={0.011}>
+          {isBilgiGateTriggered ? (
+            <Html>
+              <div
+                className="glassFrame"
+                style={{
+                  position: "relative",
+                  backgroundColor: "#323632a4",
+                  width: "220px",
+                  textAlign: "center",
+                  top: -200,
+                  left: -125,
+                  fontSize: "14pt",
+                  cursor: "pointer",
+                  color: "lightblue",
+                  padding: "4px",
+                }}
+                onClick={handleGoToGunes}
+              >
+                GÜNEŞ SİSTEMİ
+              </div>
+            </Html>
+          ) : (
+            <></>
+          )}
           <mesh
             name="Mesh055"
             castShadow
