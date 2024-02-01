@@ -1,8 +1,69 @@
 let correct;
 let amtCorrect = 0;
-let seconds = 30;
 let amtIncorrect = 0;
+let questionNumber = 0;
+let seconds = 50; // Assuming 5 seconds per question
+let totalQuestions = 10;
+let scoreIndex = 2;
+
+function updateLevel() {
+  const levelSelect = document.getElementById("level");
+  const level = levelSelect.value;
+
+  // Update totalQuestions and scoreIndex based on the selected level
+  switch (level) {
+    case "easy":
+      totalQuestions = 10;
+      scoreIndex = 10;
+
+      break;
+    case "medium":
+      totalQuestions = 20;
+      scoreIndex = 5;
+
+      break;
+    case "hard":
+      totalQuestions = 25;
+      scoreIndex = 4;
+
+      break;
+    default:
+      totalQuestions = 10;
+      scoreIndex = 10;
+
+      break;
+  }
+}
+
+updateLevel();
+
+// Initialize visibility on first load
+
+document.getElementById("container").style.display = "none";
+
+document.getElementById("selection").style.display = "block";
+document.querySelector(".infobar").style.display = "none"; // Initially hide the infobar
+
+function startGame() {
+  // Show the infobar and hide the level selector container
+
+  document.getElementById("container").style.display = "flex";
+
+  document.getElementById("selection").style.display = "none";
+  document.querySelector(".infobar").style.display = "flex";
+
+  // ... (your existing code)
+}
+
 function main() {
+  if (questionNumber >= totalQuestions) {
+    // If 10 questions are answered, finish the game
+    finish();
+    return;
+  }
+
+  questionNumber++;
+
   let options = [];
   const maxOptions = 4;
 
@@ -19,6 +80,20 @@ function main() {
     get(`option${i + 1}input`).checked = false;
   }
 
+  for (let i = 0; i < options.length; i++) {
+    const optionLabel = get(`option${i + 1}label`);
+    optionLabel.innerHTML = options[i].name;
+    optionLabel.classList.remove("wrong", "correct"); // Remove existing classes
+    get(`option${i + 1}input`).value = options[i].name;
+    get(`option${i + 1}input`).checked = false;
+
+    if (options[i].name === correct.name) {
+      optionLabel.classList.add("correct"); // Add 'correct' class to the correct option
+    } else {
+      optionLabel.classList.add("wrong"); // Add 'wrong' class to wrong options
+    }
+  }
+
   get("flag").src = correct.flag;
 }
 
@@ -31,51 +106,96 @@ function get(id) {
 }
 
 function check() {
+  get("questionNumber").innerHTML = questionNumber;
+  get("totalQuestions").innerHTML = totalQuestions;
+
   let input;
   try {
-    input = document.querySelector('input[name = "option"]:checked').value;
+    input = document.querySelector('input[name="option"]:checked');
   } catch {
     return;
   }
-  if (input === correct.name) {
+
+  let selectedOption = input.value;
+  let correctOption;
+  disableOptions();
+
+  for (let i = 1; i <= 4; i++) {
+    let option = get(`option${i}input`).value;
+    if (option === correct.name) {
+      correctOption = i;
+      break;
+    }
+  }
+
+  if (selectedOption === correct.name) {
     amtCorrect++;
-    get("score").innerHTML = amtCorrect;
-    get("cevap").innerHTML = "<span style='color: green;'>Doğru cevap!</span>";
+    get("score").innerHTML = amtCorrect * scoreIndex;
+    get("cevap").innerHTML =
+      "<span style='color: green; font-size:2.5rem;'>Doğru cevap!</span>";
+    get(`option${correctOption}label`).style.backgroundColor = "#2ecc71";
+    resetOptionsBackground();
+    enableOptions();
   } else {
     amtIncorrect++;
     get("cevap").innerHTML =
-      "<span style='color: red;'>Yanlış!</span><br/>Doğru cevap: " +
+      "<span style='color: red; font-size:2.5rem;'>Yanlış!</span><br/>Doğru cevap: " +
       correct.name;
+    get(`option${correctOption}label`).style.backgroundColor = "#2ecc71";
+    get(
+      `option${selectedOption.charAt(selectedOption.length - 1)}label`
+    ).style.backgroundColor = "red";
+    return;
   }
+  // Disable all radio buttons
 
   setTimeout(() => {
-    get("cevap").innerHTML = "-"; // Clear the text after 2 seconds
-  }, 1000);
-  // Introduce a delay of 2 seconds (adjust the value as needed)
+    resetOptionsBackground();
+    get("cevap").innerHTML = "";
+  }, 2000);
 
+  main();
+}
+
+function resetOptionsBackground() {
+  for (let i = 1; i <= 4; i++) {
+    get(`option${i}label`).style.backgroundColor = ""; // Reset background color
+  }
+}
+
+function disableOptions() {
+  for (let i = 1; i <= 4; i++) {
+    get(`option${i}input`).disabled = true;
+  }
+}
+
+function enableOptions() {
+  for (let i = 1; i <= 4; i++) {
+    get(`option${i}input`).disabled = false;
+  }
+}
+
+function nextQuestion() {
+  resetOptionsBackground();
+  get("cevap").innerHTML = "";
+  enableOptions();
   main();
 }
 
 function finish() {
   clearInterval(checkInterval);
+  get("alertGameOver").style.display = "block";
   get("alert").style.display = "block";
-  get("card").style.display = "none";
+  get("container").style.display = "none";
   get("alertscore").innerHTML = amtCorrect;
-  get("cevap").innerHTML = "-";
-  let percentage = Math.round((amtCorrect / (amtCorrect + amtIncorrect)) * 100);
-  if (isNaN(percentage)) percentage = 100;
-  get("alertaccuracy").innerHTML = `${percentage}%`;
-}
+  get("alertscoreLast").innerHTML = amtCorrect * scoreIndex;
+  get("wrongscore").innerHTML = amtIncorrect;
+  get("totalQuestions").innerHTML = totalQuestions;
 
-function timer() {
-  setTimeout(finish, seconds * 1000);
-  get("time").innerHTML = "Süre: " + seconds;
-  let countdown = setInterval(function () {
-    seconds--;
-    get("time").textContent = "Süre: " + seconds;
-    if (seconds <= 0) clearInterval(countdown);
-    if (seconds === 5) get("time").style.color = "#ff0000";
-  }, 1000);
+  get("cevap").innerHTML = "";
+  let percentage = Math.round((amtCorrect / (amtCorrect + amtIncorrect)) * 100);
+  if (isNaN(percentage)) percentage = 10;
+  get("alertaccuracy").innerHTML = `${percentage}%`;
 }
 
 function refresh() {
@@ -84,4 +204,3 @@ function refresh() {
 
 let checkInterval = setInterval(check, 50);
 main();
-timer();

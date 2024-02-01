@@ -1,5 +1,85 @@
 const countries = [
   {
+    flag: "flags/hr.svg",
+    name: "Hırvatistan",
+  },
+  {
+    flag: "flags/cu.svg",
+    name: "Küba",
+  },
+  {
+    flag: "flags/cw.svg",
+    name: "Curaçao",
+  },
+  {
+    flag: "flags/cy.svg",
+    name: "Kuzay Kıbrıs Türk Cumhuriyeti",
+  },
+  {
+    flag: "flags/cz.svg",
+    name: "Çek Cumhuriyeti",
+  },
+  {
+    flag: "flags/dk.svg",
+    name: "Danimarka",
+  },
+  {
+    flag: "flags/tn.svg",
+    name: "Tunus",
+  },
+  {
+    flag: "flags/tr.svg",
+    name: "Türkiye",
+  },
+  {
+    flag: "flags/tm.svg",
+    name: "Türkmenistan",
+  },
+  {
+    flag: "flags/nl.svg",
+    name: "Hollanda",
+  },
+  {
+    flag: "flags/uz.svg",
+    name: "Özbekistan",
+  },
+  {
+    flag: "flags/us.svg",
+    name: "Amerika Birleşik Devletleri",
+  },
+  {
+    flag: "flags/uy.svg",
+    name: "Uruguay",
+  },
+  {
+    flag: "flags/jp.svg",
+    name: "Japonya",
+  },
+  {
+    flag: "flags/it.svg",
+    name: "İtalya",
+  },
+  {
+    flag: "flags/de.svg",
+    name: "Almanya",
+  },
+  {
+    flag: "flags/fi.svg",
+    name: "Finlandiya",
+  },
+  {
+    flag: "flags/fr.svg",
+    name: "Fransa",
+  },
+  {
+    flag: "flags/cl.svg",
+    name: "Şili",
+  },
+  {
+    flag: "flags/cn.svg",
+    name: "Çin",
+  },
+  {
     flag: "flags/af.svg",
     name: "Afganistan",
   },
@@ -243,7 +323,7 @@ const countries = [
   },
   {
     flag: "flags/cy.svg",
-    name: "Kuzey Kıbrıs Türk Cumhuriyeti",
+    name: "Kuzay Kıbrıs Türk Cumhuriyeti",
   },
   {
     flag: "flags/cz.svg",
@@ -558,7 +638,10 @@ const countries = [
     flag: "flags/mh.svg",
     name: "Marshall Adaları",
   },
-
+  {
+    flag: "flags/mq.svg",
+    name: "Martinik",
+  },
   {
     flag: "flags/mr.svg",
     name: "Moritanya",
@@ -951,7 +1034,7 @@ const countries = [
   },
   {
     flag: "flags/gb.svg",
-    name: "İngiltere",
+    name: "Büyük Britanya ve Kuzey İrlanda Birleşik Krallığı",
   },
   {
     flag: "flags/us.svg",
@@ -976,6 +1059,10 @@ const countries = [
   {
     flag: "flags/vn.svg",
     name: "Vietnam",
+  },
+  {
+    flag: "flags/wf.svg",
+    name: "Wallis ve Futuna",
   },
   {
     flag: "flags/eh.svg",

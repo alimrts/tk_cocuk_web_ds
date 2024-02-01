@@ -18,23 +18,24 @@
 
         <section id="selection" class="popupSelection">
             <section  class="level-selection" >
-                <label for="level">Zorluk seviyesi seç:</label>
-                <select id="level" onchange="updateLevel()" style="margin-top: 1rem;">
-                    <option value="easy">Kolay</option>
-                    <option value="medium">Normal</option>
-                    <option value="hard">Zor</option>
-                </select>
+                <label for="level" >Seçilen zorluk seviyesi</label>
+                <label >NORMAL</label>
+                <div style="display: flex; flex-direction:row; margin-top:2rem"> <label for="level" >Soru sayısı seç:</label>
+                    <select id="level" onchange="updateLevel()" >
+                        <option value="easy">10</option>
+                        <option value="medium">20</option>
+                        <option value="hard">25</option>
+                    </select></div>
+            
                 <button id="startButton" class="buttonStart" onclick="startGame()">Başla</button>
             </section>
          </section>
 
         <section class="infobar" >
-
-            <div class="questionNumber">Soru - <span id="questionNumber">0</span>/<span id="totalQuestions">-</span></div>
+            <div class="questionNumber">Soru - <span id="questionNumber">0</span>/<span id="totalQuestions"></span></div>
+            <div class="cevap"><span id="cevap"></span></div>
             <div class="score">Puan: <span id="score">0</span></div>
-            <div class="cevap"><span id="cevap">-</span></div>
-
-
+            
         </section>
         <div class="container" id="container">
             <section class="section">
@@ -72,17 +73,23 @@
         </div>
     </section>
 
+    <section id="alertGameOver" class="popupGameOver">
+        <div class="popup-content">
+            <div class="alerttext" style="font-size: 3rem;">Oyun Bitti</div>
+        </div>
+    </section>
+
 
     <section id="alert" class="popup">
         <div class="popup-content">
             <div class="alerttext">Doğru cevap: <span id="alertscore"></span></div>
             <div class="alerttext">Puan: <span id="alertscoreLast"></span></div>
 
-            <button onclick="refresh()" class="button" style="margin-top: 20px">Tekrar</button>
+            <button onclick="refresh()" class="button" style="width: 160px; margin-top: 20px; font-size: 2.2rem; border-radius: 1rem;">Tekrar Oyna</button>
         </div>
     </section>
 
-    <script işd="customScript" src='countries_easy.js'></script>
+    <script işd="customScript" src='countries_medium.js'></script>
     <script src='main.js'></script>
 
 </body>
