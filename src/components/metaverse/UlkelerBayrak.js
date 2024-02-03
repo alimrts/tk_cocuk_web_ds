@@ -27,7 +27,7 @@ const UlkelerBayrak = () => {
     if (event.target.value === "easy") {
       setBackgroundColorForLevels("lightGreen");
     } else if (event.target.value === "medium") {
-      setBackgroundColorForLevels("rgb(168, 252, 255)");
+      setBackgroundColorForLevels("rgb(168, 242, 240)");
     } else {
       setBackgroundColorForLevels("rgb(255, 66, 52)");
     }
@@ -57,8 +57,8 @@ const UlkelerBayrak = () => {
             justifyContent: "center",
             aliginItems: "center",
             background: "lightGrey",
-            width: "300px",
-            height: "300px",
+            width: "480px",
+            height: "800px",
             borderRadius: 8,
           }}
         >
@@ -79,8 +79,8 @@ const UlkelerBayrak = () => {
             justifyContent: "center",
             aliginItems: "center",
             background: "lightGrey",
-            width: "640px",
-            height: "800px",
+            width: "480px",
+            height: "820px",
             borderRadius: 8,
           }}
         >
@@ -143,8 +143,8 @@ const UlkelerBayrak = () => {
               style={{
                 border: "none",
                 backgroundColor: backgroundColorForLevels,
-                width: "640px",
-                height: "800px",
+                width: "480px",
+                height: "820px",
               }}
               src={`js-flags-quiz-master/${getLevelHTML()}`}
               onLoad={() => setLoading(false)}

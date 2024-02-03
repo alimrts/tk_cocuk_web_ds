@@ -186,7 +186,6 @@ function Metaverse(props) {
             left: "50%",
             transform: "translate(-50%, -50%)",
             fontSize: "24px",
-            color: "lightblue",
             zIndex: 2,
             padding: "20px",
             borderRadius: "5px",
@@ -224,6 +223,7 @@ function Metaverse(props) {
                 color: "red",
                 zIndex: "1",
                 cursor: "pointer",
+                userSelect: "none",
               }}
               onClick={(event) => setClickedToSecond(false)}
             >

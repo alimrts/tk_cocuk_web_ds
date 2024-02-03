@@ -14,10 +14,9 @@
 
 
     <section class="card" id="card">
-        <img class="headerImg" src="ulkeler_header.png"/>
-
         <section id="selection" class="popupSelection">
             <section  class="level-selection" >
+                <img class="headerImg" src="ulkeler_header.png"/>
                 <label for="level" >Seçilen zorluk seviyesi</label>
                 <label >KOLAY</label>
                 <div style="display: flex; flex-direction:row; margin-top:2rem"> <label for="level" >Soru sayısı seç:</label>
@@ -26,6 +25,10 @@
                         <option value="medium">20</option>
                         <option value="hard">25</option>
                     </select></div>
+                    <div style="display: flex; flex-direction:row">
+                        <label>Her soru: </label><label id="soruPuan"></label><label> puan</label>
+                    </div>
+                    
             
                 <button id="startButton" class="buttonStart" onclick="startGame()">Başla</button>
             </section>
@@ -41,9 +44,9 @@
             <section class="section">
                 <img src="" alt="flag" class="flag" id="flag">
             </section>
-            <div class="border"></div>
+      
             <section class="section" id="optionhalf">
-                <div class="score" style="color: white;">Yandaki bayrak hangi ülkenin bayrağıdır?</div>
+                <div class="score" style="color: white;">Yukarıdaki bayrak hangi ülkenin bayrağıdır?</div>
 
                 <div class="options">
                     <div class="option">

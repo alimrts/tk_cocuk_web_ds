@@ -4,7 +4,7 @@ let amtIncorrect = 0;
 let questionNumber = 0;
 let seconds = 50; // Assuming 5 seconds per question
 let totalQuestions = 10;
-let scoreIndex = 2;
+let scoreIndex = 0;
 
 function updateLevel() {
   const levelSelect = document.getElementById("level");
@@ -15,22 +15,23 @@ function updateLevel() {
     case "easy":
       totalQuestions = 10;
       scoreIndex = 10;
+      get("soruPuan").innerHTML = scoreIndex;
 
       break;
     case "medium":
       totalQuestions = 20;
       scoreIndex = 5;
-
+      get("soruPuan").innerHTML = scoreIndex;
       break;
     case "hard":
       totalQuestions = 25;
       scoreIndex = 4;
-
+      get("soruPuan").innerHTML = scoreIndex;
       break;
     default:
       totalQuestions = 10;
       scoreIndex = 10;
-
+      get("soruPuan").innerHTML = scoreIndex;
       break;
   }
 }

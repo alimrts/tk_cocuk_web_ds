@@ -18,7 +18,12 @@ function UzayMacerasi({ closeTheGame }) {
   return (
     <>
       {!isLoaded && (
-        <div style={{ color: "black" }}>
+        <div
+          style={{
+            color: "black",
+            background: "lightGrey",
+          }}
+        >
           <p>Yükleniyor... {Math.round(loadingProgression * 100)}%</p>
         </div>
       )}
