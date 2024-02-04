@@ -11,7 +11,7 @@ import Game from "../components/metaworld/Game";
 
 import textureUlkeler from "../img/game_icon_ulkeler.png";
 import textureUzayMacerasi from "../img/game_icon_uzay_macerasi.png";
-import textureImage from "../img/g5.png";
+import textureImage from "../img/game_icon_hafiza_oyunu.png";
 import textureSuperAraba from "../img/game_icon_super_araba.png";
 
 import * as THREE from "three";
@@ -41,6 +41,7 @@ import ArabaYarisi from "./metaverse/ArabaYarisi";
 import SolarSystem from "./metaworld/SolarSystem";
 import TuikIc from "./metaworld/TuikIc";
 import InformationButton from "./metaworld/InformationButton";
+import MemoryGame from "./metaverse/MemoryGame";
 
 function Loader() {
   const { progress } = useProgress();
@@ -213,8 +214,8 @@ function Metaverse(props) {
           }}
         >
           <>
-            <Interacty />
-
+            {/* <Interacty /> */}
+            <MemoryGame />
             <button
               style={{
                 position: "absolute",
@@ -229,7 +230,7 @@ function Metaverse(props) {
             >
               X
             </button>
-            <button
+            {/* <button
               style={{
                 position: "absolute",
                 bottom: "2vh",
@@ -241,7 +242,7 @@ function Metaverse(props) {
               }}
             >
               Kartları çevirerek aynı olan kartları bul.
-            </button>
+            </button> */}
           </>
         </div>
       )}

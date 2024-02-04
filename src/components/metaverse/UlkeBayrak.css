@@ -3,7 +3,7 @@
     width: 10rem;
     cursor: pointer;
     background: lightgreen;
-    user-select: "none";
+    user-select: none;
     padding: 1rem;
     border-radius: 2rem;
     text-align: center;
@@ -19,7 +19,7 @@
     width: 10rem;
     cursor: pointer;
     background-color: rgb(168, 252, 255);
-    user-select: "none";
+    user-select: none;
     padding: 1rem;
     border-radius: 2rem;
     text-align: center;
@@ -34,8 +34,8 @@
   .labelHard{
     width: 10rem;
     cursor: pointer;
-    background-color: rgb(255, 66, 52);
-    user-select: "none";
+    background-color: rgb(253, 108, 98);
+    user-select: none;
     padding: 1rem;
     border-radius: 2rem;
     text-align: center;

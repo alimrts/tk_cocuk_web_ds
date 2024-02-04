@@ -1,0 +1,406 @@
+import { useEffect, useState, useRef, useCallback } from "react";
+
+import Card from "./MemoryCard";
+import "./MemoryGame.css";
+
+import { uniqueElementsArray25 } from "./CardData";
+import { uniqueElementsArray15 } from "./CardData";
+import { uniqueElementsArray5 } from "./CardData";
+
+import memoryGameLogo from "./imagesMemoryGame/memory_game_logo.png";
+
+function shuffleCards(array) {
+  const length = array.length;
+  for (let i = length; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * i);
+    const currentIndex = i - 1;
+    const temp = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temp;
+  }
+  return array;
+}
+
+/////////////////////////////////////////
+export default function MemoryGame() {
+  const [gridColumns, setGridColumns] = useState(5);
+  const [gridRows, setGridRows] = useState(2);
+  const [uniqueElementsArray, setUniqueElementsArray] =
+    useState(uniqueElementsArray5);
+
+  const [isGridChanging, setIsGridChanging] = useState(false);
+
+  const [seviye, setSeviye] = useState("");
+
+  const [bgColor, setBgColor] = useState("#DEDEDE");
+
+  const handleGridChange = (columns, rows, uniqueElementsArray) => {
+    setIsGridChanging(true);
+    setUniqueElementsArray(uniqueElementsArray);
+    setGridColumns(columns);
+    setGridRows(rows);
+    setCards(generateShuffledCards());
+  };
+
+  // const generateShuffledCards = () => {
+  //   const combinedArray = uniqueElementsArray.concat(uniqueElementsArray);
+  //   return shuffleCards(combinedArray);
+  // };
+
+  const generateShuffledCards = useCallback(() => {
+    const combinedArray = uniqueElementsArray.concat(uniqueElementsArray);
+    return shuffleCards(combinedArray);
+  }, [uniqueElementsArray]);
+
+  useEffect(() => {
+    setCards(generateShuffledCards());
+    if (gridRows === 2) {
+      setSeviye("Kolay");
+      setBgColor("rgba(150, 250, 150, 0.1)");
+    } else if (gridRows === 6) {
+      setSeviye("Normal");
+      setBgColor("rgba(168, 252, 255, 0.1)");
+    } else {
+      setSeviye("Zor");
+      setBgColor("rgba(253, 108, 98, 0.1)");
+    }
+  }, [uniqueElementsArray, gridColumns, gridRows, generateShuffledCards]);
+
+  const [cards, setCards] = useState(
+    shuffleCards.bind(null, uniqueElementsArray.concat(uniqueElementsArray))
+  );
+  const [openCards, setOpenCards] = useState([]);
+  const [clearedCards, setClearedCards] = useState({});
+  const [shouldDisableAllCards, setShouldDisableAllCards] = useState(false);
+  const [moves, setMoves] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const [bestScore, setBestScore] = useState(
+    JSON.parse(localStorage.getItem("bestScore")) || Number.POSITIVE_INFINITY
+  );
+  const timeout = useRef(null);
+
+  const disable = () => {
+    setShouldDisableAllCards(true);
+  };
+  const enable = () => {
+    setShouldDisableAllCards(false);
+  };
+
+  const checkCompletion = () => {
+    if (Object.keys(clearedCards).length === uniqueElementsArray.length) {
+      setShowModal(true);
+      const highScore = Math.min(moves, bestScore);
+      setBestScore(highScore);
+      localStorage.setItem("bestScore", highScore);
+    }
+  };
+
+  const evaluate = () => {
+    const [first, second] = openCards;
+    enable();
+    if (cards[first].type === cards[second].type) {
+      setClearedCards((prev) => ({ ...prev, [cards[first].type]: true }));
+      setOpenCards([]);
+      return;
+    }
+    // This is to flip the cards back after 500ms duration
+    timeout.current = setTimeout(() => {
+      setOpenCards([]);
+    }, 500);
+  };
+
+  const handleCardClick = (index) => {
+    if (openCards.length === 1) {
+      setOpenCards((prev) => [...prev, index]);
+      setMoves((moves) => moves + 1);
+      disable();
+    } else {
+      clearTimeout(timeout.current);
+      setOpenCards([index]);
+    }
+  };
+
+  useEffect(() => {
+    let timeout = null;
+    if (openCards.length === 2) {
+      timeout = setTimeout(evaluate, 300);
+    }
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [openCards]);
+
+  useEffect(() => {
+    checkCompletion();
+  }, [clearedCards]);
+  const checkIsFlipped = (index) => {
+    return openCards.includes(index);
+  };
+
+  const checkIsInactive = (card) => {
+    return Boolean(clearedCards[card.type]);
+  };
+
+  const handleRestart = () => {
+    setClearedCards({});
+    setOpenCards([]);
+    setShowModal(false);
+    setMoves(0);
+    setShouldDisableAllCards(false);
+    // set a shuffled deck of cards
+    setCards(shuffleCards(uniqueElementsArray.concat(uniqueElementsArray)));
+
+    setIsGridChanging(false);
+  };
+
+  return (
+    <div
+      style={{
+        color: "black",
+        display: "flex",
+        justifyContent: "center",
+        aliginItems: "center",
+        background: "lightGrey",
+        width: "480px",
+        height: "860px",
+        borderRadius: 8,
+      }}
+    >
+      <div className="memoryGameContent">
+        {isGridChanging ? (
+          <>
+            {!showModal ? (
+              <>
+                <div className="ustBar">
+                  <div>Seviye: {seviye}</div>
+                  <div className="score">
+                    <div className="moves">
+                      <span>Hamle sayısı:</span> {moves}
+                    </div>
+                    {localStorage.getItem("bestScore") && (
+                      <div className="high-score">
+                        <span className="bold">En iyi:</span> {bestScore}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div
+                  style={{
+                    color: "black",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    aliginItems: "center",
+                    background: "lightGrey",
+                    width: "480px",
+                    height: "820px",
+                    borderRadius: 8,
+                  }}
+                >
+                  <div
+                    className="cardContainer"
+                    style={{
+                      background: bgColor,
+                      gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
+                      gridTemplateRows: `repeat(${gridRows}, 1fr)`,
+                    }}
+                  >
+                    {cards.map((card, index) => {
+                      return (
+                        <Card
+                          key={index}
+                          card={card}
+                          index={index}
+                          isDisabled={shouldDisableAllCards}
+                          isInactive={checkIsInactive(card)}
+                          isFlipped={checkIsFlipped(index)}
+                          onClick={handleCardClick}
+                        />
+                      );
+                    })}
+                  </div>
+                  {/* <div className="restart">
+                <button
+                  className="mGamebuttonYenile"
+                  onClick={handleRestart}
+                  color="primary"
+                  variant="contained"
+                >
+                  Yenile
+                </button>
+              </div> */}
+                </div>{" "}
+                <div className="restart">
+                  <button
+                    className="mGamebuttonYenile"
+                    onClick={handleRestart}
+                    color="primary"
+                    variant="contained"
+                  >
+                    Yenile
+                  </button>
+                </div>
+              </>
+            ) : (
+              ""
+            )}
+          </>
+        ) : (
+          <>
+            <div
+              style={{
+                textAlign: "center",
+                marginTop: "1rem",
+                userSelect: "none",
+              }}
+            >
+              <img src={memoryGameLogo}></img>
+            </div>
+
+            <div className="controls">
+              <h4> Kartları çevirerek aynı olan kartları bul.</h4>
+              <div>Zorluk seviyesi seç.</div>{" "}
+              <button
+                className="mGamebuttonKolay"
+                onClick={() => handleGridChange(5, 2, uniqueElementsArray5)}
+              >
+                Kolay: 5x2
+              </button>
+              <button
+                className="mGamebuttonNormal"
+                onClick={() => handleGridChange(5, 6, uniqueElementsArray15)}
+              >
+                Normal: 5x6
+              </button>
+              <button
+                className="mGamebuttonZor"
+                onClick={() => handleGridChange(5, 10, uniqueElementsArray25)}
+              >
+                Zor: 5x10
+              </button>
+            </div>
+          </>
+        )}
+
+        {showModal ? (
+          <div
+            style={{
+              position: "absolute",
+              top: "25%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              gap: "1rem",
+              borderRadius: "1rem",
+              alignItems: "center",
+              textAlign: "center",
+              backgroundColor: "white",
+              padding: "1rem",
+              boxShadow: "0 3px 6px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+              }}
+            >
+              Tebrikler!
+              <br /> Tüm kartları buldun.
+            </div>
+            <div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  textAlign: "center",
+                }}
+              >
+                Oyunu {moves} hamlede tamamladın. <br /> En iyi hamle sayın{" "}
+                {bestScore}
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+              }}
+            >
+              <button
+                className="mGamebuttonYenile"
+                onClick={handleRestart}
+                color="primary"
+              >
+                Tekrar Oyna
+              </button>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+
+        {/* <Dialog
+          open={showModal}
+          disableBackdropClick
+          disableEscapeKeyDown
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle
+            id="alert-dialog-title"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              textAlign: "center",
+            }}
+          >
+            Tebrikler!
+            <br /> Tüm kartları buldun.
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText
+              id="alert-dialog-description"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+              }}
+            >
+              Oyunu {moves} hamlede tamamladın. <br /> En iyi hamle sayın{" "}
+              {bestScore}
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              textAlign: "center",
+            }}
+          >
+            <button
+              className="mGamebuttonYenile"
+              onClick={handleRestart}
+              color="primary"
+            >
+              Tekrar Oyna
+            </button>
+          </DialogActions>
+        </Dialog> */}
+      </div>
+    </div>
+  );
+}
