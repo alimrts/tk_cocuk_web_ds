@@ -288,9 +288,10 @@ function Metaverse(props) {
             left: "50%",
             transform: "translate(-50%, -50%)",
             fontSize: "24px",
-            color: "lightblue",
+            width: 480,
+            height: 854,
             zIndex: 2,
-            padding: "20px",
+            padding: "8px",
             borderRadius: "5px",
             boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
           }}
