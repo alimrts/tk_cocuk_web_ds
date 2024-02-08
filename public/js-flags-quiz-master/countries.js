@@ -3,10 +3,7 @@ const countries = [
     flag: "flags/af.svg",
     name: "Afganistan",
   },
-  {
-    flag: "flags/ax.svg",
-    name: "Åland Adaları",
-  },
+
   {
     flag: "flags/al.svg",
     name: "Arnavutluk",
@@ -15,10 +12,7 @@ const countries = [
     flag: "flags/dz.svg",
     name: "Cezayir",
   },
-  {
-    flag: "flags/as.svg",
-    name: "Amerikan Samoası",
-  },
+
   {
     flag: "flags/ad.svg",
     name: "Andorra",
@@ -27,18 +21,12 @@ const countries = [
     flag: "flags/ao.svg",
     name: "Angola",
   },
-  {
-    flag: "flags/ai.svg",
-    name: "Anguilla",
-  },
+
   {
     flag: "flags/aq.svg",
     name: "Antarktika",
   },
-  {
-    flag: "flags/ag.svg",
-    name: "Antigua ve Barbuda",
-  },
+
   {
     flag: "flags/ar.svg",
     name: "Arjantin",
@@ -47,10 +35,7 @@ const countries = [
     flag: "flags/am.svg",
     name: "Ermenistan",
   },
-  {
-    flag: "flags/aw.svg",
-    name: "Aruba",
-  },
+
   {
     flag: "flags/au.svg",
     name: "Avustralya",
@@ -102,16 +87,13 @@ const countries = [
 
   {
     flag: "flags/bt.svg",
-    name: "Bhutan",
+    name: "Butan",
   },
   {
     flag: "flags/bo.svg",
-    name: "Bolivya (Çokuluslu Devleti)",
+    name: "Bolivya",
   },
-  {
-    flag: "flags/bq.svg",
-    name: "Bonaire, Sint Eustatius ve Saba",
-  },
+
   {
     flag: "flags/ba.svg",
     name: "Bosna-Hersek",
@@ -120,34 +102,12 @@ const countries = [
     flag: "flags/bw.svg",
     name: "Botsvana",
   },
-  {
-    flag: "flags/bv.svg",
-    name: "Bouvet Adası",
-  },
+
   {
     flag: "flags/br.svg",
     name: "Brezilya",
   },
-  {
-    flag: "flags/io.svg",
-    name: "Britanya Hint Okyanusu Toprakları",
-  },
-  {
-    flag: "flags/um.svg",
-    name: "Amerika Birleşik Devletleri Küçük Dış Adaları",
-  },
-  {
-    flag: "flags/vg.svg",
-    name: "Virgin Adaları (Britanya)",
-  },
-  {
-    flag: "flags/vi.svg",
-    name: "Virgin Adaları (ABD)",
-  },
-  {
-    flag: "flags/bn.svg",
-    name: "Brunei Darussalam",
-  },
+
   {
     flag: "flags/bg.svg",
     name: "Bulgaristan",
@@ -172,21 +132,14 @@ const countries = [
     flag: "flags/ca.svg",
     name: "Kanada",
   },
-  {
-    flag: "flags/cv.svg",
-    name: "Cape Verde",
-  },
-  {
-    flag: "flags/ky.svg",
-    name: "Cayman Adaları",
-  },
+
   {
     flag: "flags/cf.svg",
     name: "Orta Afrika Cumhuriyeti",
   },
   {
     flag: "flags/td.svg",
-    name: "Çad",
+    name: "Çad Cumhuriyeti",
   },
   {
     flag: "flags/cl.svg",
@@ -194,37 +147,23 @@ const countries = [
   },
   {
     flag: "flags/cn.svg",
-    name: "Çin",
-  },
-  {
-    flag: "flags/cx.svg",
-    name: "Christmas Adası",
+    name: "Çin Halk Cumhuriyeti",
   },
 
-  {
-    flag: "flags/cc.svg",
-    name: "Cocos (Keeling) Adaları",
-  },
   {
     flag: "flags/co.svg",
     name: "Kolombiya",
   },
-  {
-    flag: "flags/km.svg",
-    name: "Komorlar",
-  },
+
   {
     flag: "flags/cg.svg",
-    name: "Kongo",
+    name: "Kongo Cumhuriyeti",
   },
   {
     flag: "flags/cd.svg",
     name: "Kongo Demokratik Cumhuriyeti",
   },
-  {
-    flag: "flags/ck.svg",
-    name: "Cook Adaları",
-  },
+
   {
     flag: "flags/cr.svg",
     name: "Kosta Rika",
@@ -237,10 +176,7 @@ const countries = [
     flag: "flags/cu.svg",
     name: "Küba",
   },
-  {
-    flag: "flags/cw.svg",
-    name: "Curaçao",
-  },
+
   {
     flag: "flags/cy.svg",
     name: "Kuzey Kıbrıs Türk Cumhuriyeti",
@@ -267,7 +203,7 @@ const countries = [
   },
   {
     flag: "flags/ec.svg",
-    name: "Ekvador",
+    name: "Ekvator Cumhuriyeti",
   },
   {
     flag: "flags/eg.svg",
@@ -294,16 +230,8 @@ const countries = [
     name: "Etiyopya",
   },
   {
-    flag: "flags/fk.svg",
-    name: "Falkland Adaları (Malvinas)",
-  },
-  {
-    flag: "flags/fo.svg",
-    name: "Faroe Adaları",
-  },
-  {
     flag: "flags/fj.svg",
-    name: "Fiji",
+    name: "Fiji Cumhuriyeti",
   },
   {
     flag: "flags/fi.svg",
@@ -313,19 +241,7 @@ const countries = [
     flag: "flags/fr.svg",
     name: "Fransa",
   },
-  {
-    flag: "flags/gf.svg",
-    name: "Fransız Guyanası",
-  },
 
-  {
-    flag: "flags/pf.svg",
-    name: "Fransız Polinezyası",
-  },
-  {
-    flag: "flags/tf.svg",
-    name: "Fransız Güney Toprakları",
-  },
   {
     flag: "flags/ga.svg",
     name: "Gabon",
@@ -362,30 +278,17 @@ const countries = [
     flag: "flags/gd.svg",
     name: "Grenada",
   },
-  {
-    flag: "flags/gp.svg",
-    name: "Guadeloupe",
-  },
-  {
-    flag: "flags/gu.svg",
-    name: "Guam",
-  },
+
   {
     flag: "flags/gt.svg",
     name: "Guatemala",
   },
-  {
-    flag: "flags/gg.svg",
-    name: "Guernsey",
-  },
+
   {
     flag: "flags/gn.svg",
     name: "Gine",
   },
-  {
-    flag: "flags/gw.svg",
-    name: "Gine-Bissau",
-  },
+
   {
     flag: "flags/gy.svg",
     name: "Guyana",
@@ -394,10 +297,7 @@ const countries = [
     flag: "flags/ht.svg",
     name: "Haiti",
   },
-  {
-    flag: "flags/hm.svg",
-    name: "Heard Adası ve McDonald Adaları",
-  },
+
   {
     flag: "flags/va.svg",
     name: "Vatikan",
@@ -432,7 +332,7 @@ const countries = [
   },
   {
     flag: "flags/ir.svg",
-    name: "İran (İslam Cumhuriyeti)",
+    name: "İran",
   },
   {
     flag: "flags/iq.svg",
@@ -442,10 +342,7 @@ const countries = [
     flag: "flags/ie.svg",
     name: "İrlanda",
   },
-  {
-    flag: "flags/im.svg",
-    name: "Man Adası",
-  },
+
   {
     flag: "flags/it.svg",
     name: "İtalya",
@@ -458,10 +355,7 @@ const countries = [
     flag: "flags/jp.svg",
     name: "Japonya",
   },
-  {
-    flag: "flags/je.svg",
-    name: "Jersey",
-  },
+
   {
     flag: "flags/jo.svg",
     name: "Ürdün",
@@ -474,10 +368,7 @@ const countries = [
     flag: "flags/ke.svg",
     name: "Kenya",
   },
-  {
-    flag: "flags/ki.svg",
-    name: "Kiribati",
-  },
+
   {
     flag: "flags/kw.svg",
     name: "Kuveyt",
@@ -488,7 +379,7 @@ const countries = [
   },
   {
     flag: "flags/la.svg",
-    name: "Laos Demokratik Halk Cumhuriyeti",
+    name: "Laos",
   },
   {
     flag: "flags/lv.svg",
@@ -528,7 +419,7 @@ const countries = [
   },
   {
     flag: "flags/mk.svg",
-    name: "Makedonya (Eski Yugoslav Cumhuriyeti)",
+    name: "Kuzey Makedonya",
   },
   {
     flag: "flags/mg.svg",
@@ -554,34 +445,20 @@ const countries = [
     flag: "flags/mt.svg",
     name: "Malta",
   },
-  {
-    flag: "flags/mh.svg",
-    name: "Marshall Adaları",
-  },
 
   {
     flag: "flags/mr.svg",
     name: "Moritanya",
   },
-  {
-    flag: "flags/mu.svg",
-    name: "Mauritius",
-  },
-  {
-    flag: "flags/yt.svg",
-    name: "Mayotte",
-  },
+
   {
     flag: "flags/mx.svg",
     name: "Meksika",
   },
-  {
-    flag: "flags/fm.svg",
-    name: "Mikronezya Federatif Devletleri",
-  },
+
   {
     flag: "flags/md.svg",
-    name: "Moldova Cumhuriyeti",
+    name: "Moldova",
   },
   {
     flag: "flags/mc.svg",
@@ -596,10 +473,7 @@ const countries = [
     flag: "flags/me.svg",
     name: "Karadağ",
   },
-  {
-    flag: "flags/ms.svg",
-    name: "Montserrat",
-  },
+
   {
     flag: "flags/ma.svg",
     name: "Fas",
@@ -616,10 +490,7 @@ const countries = [
     flag: "flags/na.svg",
     name: "Namibya",
   },
-  {
-    flag: "flags/nr.svg",
-    name: "Nauru",
-  },
+
   {
     flag: "flags/np.svg",
     name: "Nepal",
@@ -627,10 +498,6 @@ const countries = [
   {
     flag: "flags/nl.svg",
     name: "Hollanda",
-  },
-  {
-    flag: "flags/nc.svg",
-    name: "Yeni Kaledonya",
   },
   {
     flag: "flags/nz.svg",
@@ -646,24 +513,14 @@ const countries = [
   },
   {
     flag: "flags/ng.svg",
-    name: "Nijerya",
+    name: "Nijerya Federal Cumhuriyeti",
   },
-  {
-    flag: "flags/nu.svg",
-    name: "Niue",
-  },
-  {
-    flag: "flags/nf.svg",
-    name: "Norfolk Adası",
-  },
+
   {
     flag: "flags/kp.svg",
-    name: "Kore Demokratik Halk Cumhuriyeti",
+    name: "Kuzey Kore",
   },
-  {
-    flag: "flags/mp.svg",
-    name: "Kuzey Mariana Adaları",
-  },
+
   {
     flag: "flags/no.svg",
     name: "Norveç",
@@ -676,13 +533,10 @@ const countries = [
     flag: "flags/pk.svg",
     name: "Pakistan",
   },
-  {
-    flag: "flags/pw.svg",
-    name: "Palau",
-  },
+
   {
     flag: "flags/ps.svg",
-    name: "Filistin Devleti",
+    name: "Filistin",
   },
   {
     flag: "flags/pa.svg",
@@ -704,10 +558,7 @@ const countries = [
     flag: "flags/ph.svg",
     name: "Filipinler",
   },
-  {
-    flag: "flags/pn.svg",
-    name: "Pitcairn",
-  },
+
   {
     flag: "flags/pl.svg",
     name: "Polonya",
@@ -726,12 +577,9 @@ const countries = [
   },
   {
     flag: "flags/xk.svg",
-    name: "Kosova Cumhuriyeti",
+    name: "Kosova",
   },
-  {
-    flag: "flags/re.svg",
-    name: "Réunion",
-  },
+
   {
     flag: "flags/ro.svg",
     name: "Romanya",
@@ -744,46 +592,12 @@ const countries = [
     flag: "flags/rw.svg",
     name: "Ruanda",
   },
-  {
-    flag: "flags/bl.svg",
-    name: "Saint Barthélemy",
-  },
-  {
-    flag: "flags/sh.svg",
-    name: "Saint Helena, Ascension ve Tristan da Cunha",
-  },
-  {
-    flag: "flags/kn.svg",
-    name: "Saint Kitts ve Nevis",
-  },
-  {
-    flag: "flags/lc.svg",
-    name: "Saint Lucia",
-  },
-  {
-    flag: "flags/mf.svg",
-    name: "Saint Martin (Fransız Bölümü)",
-  },
-  {
-    flag: "flags/pm.svg",
-    name: "Saint Pierre ve Miquelon",
-  },
-  {
-    flag: "flags/vc.svg",
-    name: "Saint Vincent ve Grenadinler",
-  },
-  {
-    flag: "flags/ws.svg",
-    name: "Samoa",
-  },
+
   {
     flag: "flags/sm.svg",
     name: "San Marino",
   },
-  {
-    flag: "flags/st.svg",
-    name: "São Tomé ve Príncipe",
-  },
+
   {
     flag: "flags/sa.svg",
     name: "Suudi Arabistan",
@@ -797,10 +611,7 @@ const countries = [
     flag: "flags/rs.svg",
     name: "Sırbistan",
   },
-  {
-    flag: "flags/sc.svg",
-    name: "Seyşeller",
-  },
+
   {
     flag: "flags/sl.svg",
     name: "Sierra Leone",
@@ -809,10 +620,7 @@ const countries = [
     flag: "flags/sg.svg",
     name: "Singapur",
   },
-  {
-    flag: "flags/sx.svg",
-    name: "Sint Maarten (Hollanda bölümü)",
-  },
+
   {
     flag: "flags/sk.svg",
     name: "Slovakya",
@@ -821,10 +629,7 @@ const countries = [
     flag: "flags/si.svg",
     name: "Slovenya",
   },
-  {
-    flag: "flags/sb.svg",
-    name: "Solomon Adaları",
-  },
+
   {
     flag: "flags/so.svg",
     name: "Somali",
@@ -833,13 +638,10 @@ const countries = [
     flag: "flags/za.svg",
     name: "Güney Afrika",
   },
-  {
-    flag: "flags/gs.svg",
-    name: "Güney Georgia ve Güney Sandwich Adaları",
-  },
+
   {
     flag: "flags/kr.svg",
-    name: "Kore",
+    name: "Güney Kore",
   },
   {
     flag: "flags/ss.svg",
@@ -861,13 +663,10 @@ const countries = [
     flag: "flags/sr.svg",
     name: "Surinam",
   },
-  {
-    flag: "flags/sj.svg",
-    name: "Svalbard ve Jan Mayen",
-  },
+
   {
     flag: "flags/sz.svg",
-    name: "Esvatini",
+    name: "Esvatini Krallığı",
   },
   {
     flag: "flags/se.svg",
@@ -879,7 +678,7 @@ const countries = [
   },
   {
     flag: "flags/sy.svg",
-    name: "Suriye Arap Cumhuriyeti",
+    name: "Suriye",
   },
   {
     flag: "flags/tw.svg",
@@ -891,27 +690,21 @@ const countries = [
   },
   {
     flag: "flags/tz.svg",
-    name: "Tanzanya, Birleşik Cumhuriyeti",
+    name: "Tanzanya",
   },
   {
     flag: "flags/th.svg",
     name: "Tayland",
   },
-  {
-    flag: "flags/tl.svg",
-    name: "Timor-Leste",
-  },
+
   {
     flag: "flags/tg.svg",
     name: "Togo",
   },
-  {
-    flag: "flags/tk.svg",
-    name: "Tokelau",
-  },
+
   {
     flag: "flags/to.svg",
-    name: "Tonga",
+    name: "Tonga Krallığı",
   },
   {
     flag: "flags/tt.svg",
@@ -929,14 +722,7 @@ const countries = [
     flag: "flags/tm.svg",
     name: "Türkmenistan",
   },
-  {
-    flag: "flags/tc.svg",
-    name: "Turks ve Caicos Adaları",
-  },
-  {
-    flag: "flags/tv.svg",
-    name: "Tuvalu",
-  },
+
   {
     flag: "flags/ug.svg",
     name: "Uganda",
@@ -951,7 +737,7 @@ const countries = [
   },
   {
     flag: "flags/gb.svg",
-    name: "İngiltere",
+    name: "Birleşik Krallık",
   },
   {
     flag: "flags/us.svg",
@@ -965,13 +751,10 @@ const countries = [
     flag: "flags/uz.svg",
     name: "Özbekistan",
   },
-  {
-    flag: "flags/vu.svg",
-    name: "Vanuatu",
-  },
+
   {
     flag: "flags/ve.svg",
-    name: "Venezuela (Bolivarcı Cumhuriyeti)",
+    name: "Venezuela",
   },
   {
     flag: "flags/vn.svg",
@@ -979,7 +762,7 @@ const countries = [
   },
   {
     flag: "flags/eh.svg",
-    name: "Batı Sahara",
+    name: "Batı Sahra",
   },
   {
     flag: "flags/ye.svg",

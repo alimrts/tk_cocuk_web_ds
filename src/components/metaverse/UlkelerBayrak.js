@@ -117,7 +117,7 @@ const UlkelerBayrak = () => {
                 />
                 Kolay
               </label>
-              <label className="labelMedium">
+              {/* <label className="labelMedium">
                 <input
                   type="radio"
                   name="level"
@@ -126,7 +126,7 @@ const UlkelerBayrak = () => {
                   onChange={updateLevel}
                 />
                 Normal
-              </label>
+              </label> */}
               <label className="labelHard">
                 <input
                   type="radio"
