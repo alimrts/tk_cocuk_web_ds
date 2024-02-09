@@ -4,10 +4,14 @@ import Card from "./MemoryCard";
 import "./MemoryGame.css";
 
 import { uniqueElementsArray25 } from "./CardData";
-import { uniqueElementsArray15 } from "./CardData";
-import { uniqueElementsArray5 } from "./CardData";
+// import { uniqueElementsArray15 } from "./CardData";
+// import { uniqueElementsArray5 } from "./CardData";
 
 import memoryGameLogo from "./imagesMemoryGame/memory_game_logo.png";
+
+/////
+
+/////
 
 function shuffleCards(array) {
   const length = array.length;
@@ -25,8 +29,9 @@ function shuffleCards(array) {
 export default function MemoryGame() {
   const [gridColumns, setGridColumns] = useState(5);
   const [gridRows, setGridRows] = useState(2);
-  const [uniqueElementsArray, setUniqueElementsArray] =
-    useState(uniqueElementsArray5);
+  const [uniqueElementsArray, setUniqueElementsArray] = useState(
+    uniqueElementsArray25
+  );
 
   const [isGridChanging, setIsGridChanging] = useState(false);
 
@@ -42,12 +47,36 @@ export default function MemoryGame() {
     setCards(generateShuffledCards());
   };
 
-  // const generateShuffledCards = () => {
-  //   const combinedArray = uniqueElementsArray.concat(uniqueElementsArray);
-  //   return shuffleCards(combinedArray);
-  // };
+  ///
+
+  const [unique15, setUnique15] = useState([]);
+  const [unique5, setUnique5] = useState([]);
+
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  const shuffleTheArrays = () => {
+    // Shuffle the original array
+    const shuffledArray = shuffleArray([...uniqueElementsArray25]);
+
+    // Select 15 random elements for unique15
+    const newUnique15 = shuffledArray.slice(0, 15);
+
+    // Select 5 random elements for unique5
+    const newUnique5 = shuffledArray.slice(15, 20);
+
+    // Update state with shuffled arrays
+    setUnique15(newUnique15);
+    setUnique5(newUnique5);
+  };
 
   const generateShuffledCards = useCallback(() => {
+    shuffleTheArrays();
     const combinedArray = uniqueElementsArray.concat(uniqueElementsArray);
     return shuffleCards(combinedArray);
   }, [uniqueElementsArray]);
@@ -142,6 +171,7 @@ export default function MemoryGame() {
   };
 
   const handleRestart = () => {
+    shuffleTheArrays();
     setClearedCards({});
     setOpenCards([]);
     setShowModal(false);
@@ -262,13 +292,13 @@ export default function MemoryGame() {
               <div>Zorluk seviyesi seç.</div>{" "}
               <button
                 className="mGamebuttonKolay"
-                onClick={() => handleGridChange(5, 2, uniqueElementsArray5)}
+                onClick={() => handleGridChange(5, 2, unique5)}
               >
                 Kolay: 5x2
               </button>
               <button
                 className="mGamebuttonNormal"
-                onClick={() => handleGridChange(5, 6, uniqueElementsArray15)}
+                onClick={() => handleGridChange(5, 6, unique15)}
               >
                 Normal: 5x6
               </button>
