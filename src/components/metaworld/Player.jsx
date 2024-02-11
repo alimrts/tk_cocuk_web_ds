@@ -37,7 +37,7 @@ export default function PlayerCollider(props) {
         { args: [0.5], position: [0, 1.5, 0], type: "Sphere" },
       ],
       onCollide: (e) => {
-        if (e.contact.bi.id === e.body.id) {
+        if (e.contact.bi === e.body) {
           e.contact.ni.negate(contactNormal);
         } else {
           contactNormal.set(...e.contact.ni);

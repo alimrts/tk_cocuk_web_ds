@@ -2432,10 +2432,21 @@ const SolarSystem = () => {
     (state) => state.setIsGeriClickedInTuik
   );
 
+  const setIsBilgiIcTriggered = useZustandStore(
+    (state) => state.setIsBilgiIcTriggered
+  );
+
+  const setIsBilgiGateTriggered = useZustandStore(
+    (state) => state.setIsBilgiGateTriggered
+  );
+
   const handleGunesGateTrigger = () => {
     setIsGunesGateTriggered(false);
     setIsGeriClickedInSolarSystem(true);
     setIsGeriClickedInTuik(false);
+
+    setIsBilgiIcTriggered(false);
+    setIsBilgiGateTriggered(true);
   };
 
   return (

@@ -5,7 +5,7 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { Suspense } from "react";
 import { useRef, useState, useEffect } from "react";
 import useZustandStore from "../zustandStore";
-import { Physics, useBox } from "@react-three/cannon";
+import { Physics } from "@react-three/cannon";
 
 import Game from "../components/metaworld/Game";
 
@@ -62,54 +62,6 @@ function Loader() {
     </Html>
   );
 }
-
-// function ObstacleTriggerGunes({ args, position, ...props }) {
-//   const [ref] = useBox(
-//     () => ({ args, type: "Static", mass: 10, position: position, ...props }),
-//     useRef()
-//   );
-
-//   return (
-//     <mesh ref={ref} castShadow receiveShadow>
-//       {/* on/off collision boxes */}
-//       <boxGeometry args={[...args]} />
-//       <meshStandardMaterial color="red" />
-//     </mesh>
-//   );
-// }
-
-function ObstacleTriggerGunes({ args, onCollide, position, ...props }) {
-  const [ref] = useBox(
-    () => ({
-      args,
-      type: "Static",
-      isTrigger: true,
-      onCollide,
-      mass: 10,
-      position: position,
-      ...props,
-    }),
-    useRef()
-  );
-
-  return (
-    <mesh ref={ref} castShadow receiveShadow>
-      {/* on/off collision boxes */}
-      <boxGeometry args={[...args]} />
-      <meshStandardMaterial wireframe color="red" />
-    </mesh>
-  );
-}
-
-// function BoxTrigger({ args, onCollide, position }) {
-//   const [ref] = useBox(() => ({ args, isTrigger: true, onCollide, position }), useRef());
-//   return (
-//     <mesh position={position} ref={ref}>
-//       <boxGeometry args={args} />
-//       <meshStandardMaterial wireframe color="green" />
-//     </mesh>
-//   );
-// }
 
 function Metaverse(props) {
   const [cursorStyle, setCursorStyle] = useState("auto");
@@ -392,41 +344,8 @@ function Metaverse(props) {
                 />
 
                 <Physics>
-                  {/* <Sky
-                          distance={450000}
-                          sunPosition={[5, 1, 8]}
-                          inclination={0}
-                          azimuth={0.25}
-                          {...props}
-                        /> */}
                   <Game cinsiyet={cinsiyet} />
-                  {/* <ObstacleTriggerGunes
-                          position={[0.5, 0, 65.8]}
-                          args={[4.6, 4, 4.6]}
-                          rotation={[0, 1.6, 0]}
-                          material={"ground"}
-                          onCollide={(e) => {
-                            console.log("Collision event on BoxTrigger", e);
-                            // setbg('#fe4365');
-                          }}
-                        /> */}
                 </Physics>
-
-                {/* <Text
-                  scale={[0.25, 0.25, 0.25]}
-                  position={[0.55, 3.8, -7]}
-                  color="white" // default
-                  anchorX="center" // default
-                  anchorY="middle" // default
-                >
-                  Oyunlar
-                </Text> */}
-
-                {/* <CityScene1
-                        position={[0.5, -0.1, 3]}
-                        // rotation={[0, 3.1, 0]}
-                        scale={[1.2, 1.2, 1.2]}
-                      /> */}
 
                 <mesh
                   position={[-7.1, 2.4, -7.8]}

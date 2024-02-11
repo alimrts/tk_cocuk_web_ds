@@ -745,10 +745,20 @@ const TuikIc = () => {
     (state) => state.setIsGeriClickedInSolarSystem
   );
 
+  const setIsBilgiIcTriggered = useZustandStore(
+    (state) => state.setIsBilgiIcTriggered
+  );
+
+  const setIsBilgiGateTriggered = useZustandStore(
+    (state) => state.setIsBilgiGateTriggered
+  );
+
   const handleTuikGateTrigger = () => {
     setIsTuikGateTriggered(false);
     setIsGeriClickedInTuik(true);
     setIsGeriClickedInSolarSystem(false);
+    setIsBilgiIcTriggered(false);
+    setIsBilgiGateTriggered(true);
   };
 
   return (

@@ -52,7 +52,7 @@ const zustandStore = (set) => ({
 
   /////gates
 
-  isBilgiIcTriggered: false,
+  isBilgiIcTriggered: true,
   setIsBilgiIcTriggered: (value) => set({ isBilgiIcTriggered: value }),
   toggleBilgiIcTrigger: () => {
     set((state) => {

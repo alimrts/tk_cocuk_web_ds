@@ -5,6 +5,7 @@ import Floor from "./Floor";
 import Obstacles from "./Obstacles";
 import Player from "./Player";
 import { CityScene1 } from "./CityScene1";
+import { Car1 } from "./Car1";
 import { Dome } from "./Dome";
 
 import { useControls } from "leva";
@@ -208,7 +209,12 @@ export default function Game(props) {
   useEffect(() => {
     setIsGeriClickedInTuik(false);
     setIsGeriClickedInSolarSystem(false);
-    // setPlayerPosition([0, 0, 0]);
+
+    return () => {
+      // Function to run when component unmounts
+      handleBilgiIcTrigger();
+      // Place your cleanup code here
+    };
   }, []);
 
   return (
@@ -225,6 +231,17 @@ export default function Game(props) {
         // rotation={[0, 3.1, 0]}
         scale={[1, 1, 1]}
       />
+      <Car1
+        position={[0.5, -0.05, 3]}
+        scale={[1, 1, 1]}
+        // rotation={[0, 1.57, 0]}
+      />
+
+      {/* <Car1
+        // position={[0.5, -0.05, 3]}
+        scale={[1, 1, 1]}
+        // rotation={[0, 1.57, 0]}
+      /> */}
       <KontrolOdasi
         position={[0.5, 0.15, 3]}
         rotation={[0, 3.1, 0]}
@@ -236,8 +253,8 @@ export default function Game(props) {
       <GezegenlerBinasi scale={[0.7, 0.7, 0.7]} position={[0.5, -0.75, 23]} />
 
       <ObstacleTriggerBilgiIc
-        position={[0, 0, 6]}
-        args={[12.5, 4, 8]}
+        position={[0, 0, 11]}
+        args={[0.1, 4, 9]}
         rotation={[0, 1.6, 0]}
         material={"ground"}
         onCollide={(e) => {
@@ -248,7 +265,7 @@ export default function Game(props) {
 
       <ObstacleTriggerBilgi
         position={[0, 0, 13.2]}
-        args={[0.5, 4, 8]}
+        args={[0.1, 4, 8]}
         rotation={[0, 1.6, 0]}
         material={"ground"}
         onCollide={(e) => {
