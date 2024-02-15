@@ -49,20 +49,25 @@
   font-size: 1rem;
 }
 
-.swiper-button-prev,
-.swiper-button-next {
+.swiper-button-prev-istatistik {
+  display: flex;
   position: absolute;
-  top: 50%;
-}
-
-.swiper-button-prev {
-  
+  left: 0; 
+  top: 50%; 
   margin-left: -4rem;
+  transform: translateY(-50%) scaleX(-1); 
+  cursor: pointer;
+  z-index: 999;
 }
-
-.swiper-button-next {
-  
+.swiper-button-next-istatistik {
+  display: flex;
+  position: absolute;
+  right: 0; 
+  top: 50%; 
   margin-right: -4rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 999;
 }
 
 @media screen and (max-width: 480px) {

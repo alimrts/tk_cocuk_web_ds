@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import ulkelerLogo from "../../img/ulkeler_header.png";
 import "./UlkeBayrak.css";
 
+import useZustandStore from "../../zustandStore";
+
 const UlkelerBayrak = () => {
   const [loading, setLoading] = useState(true);
 
@@ -45,6 +47,16 @@ const UlkelerBayrak = () => {
         return "";
     }
   };
+
+  const setIsAnyGameOpened = useZustandStore(
+    (state) => state.setIsAnyGameOpened
+  );
+
+  useEffect(() => {
+    setIsAnyGameOpened(true);
+
+    return () => setIsAnyGameOpened(false);
+  }, []);
 
   return (
     <>

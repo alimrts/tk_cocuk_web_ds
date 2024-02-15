@@ -3,27 +3,15 @@ import { NavLink } from "react-router-dom";
 
 import "./Intro.css";
 
-import istatistik from "../../img/g_istatistik.png";
-import cocukhaklari from "../../img/g1.png";
-import oyun from "../../img/g2.png";
-import tuiktani from "../../img/g3.png";
-import sdg from "../../img/g5.png";
-import FloatinDiv from "../FloatingDiv/FloatingDiv";
-
 import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Html, useProgress } from "@react-three/drei";
-import Model from "./Model";
-
-import { Suspense } from "react";
 import IntroLeft from "./IntroLeft";
-import leftBg from "../../img/intro_left_bg.png";
+
 import leftFrameBg from "../../img/left_frame_bg.png";
 import AnimatedModal from "./AnimatedModal";
-import Metaverse from "../Metaverse";
+
 import axios from "axios";
 
 import tkc_basla from "../../img/tkc_basla.png";
@@ -34,7 +22,7 @@ import tkc_tuiki_taniyalim from "../../img/tkc_tuiki_taniyalim.png";
 import tkc_sdg_amaclari from "../../img/tkc_sdg_amaclari.png";
 import tkc_video_izleyelim from "../../img/tkc_video_izleyelim.png";
 import tkc_geleneksel_oyunlar from "../../img/tkc_geleneksel_oyunlar.png";
-import tkc_balon from "../../img/tkc_balon.png";
+
 import kus1 from "../../img/kus1.png";
 import kus2 from "../../img/kus2.png";
 import kus3 from "../../img/kus3.png";
@@ -49,23 +37,6 @@ function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
   return str;
-}
-
-function Loader() {
-  const { progress } = useProgress();
-  return (
-    <Html center>
-      {" "}
-      <div
-        style={{
-          fontSize: 24,
-          color: "black",
-        }}
-      >
-        {Math.round(progress)} % yükleniyor
-      </div>
-    </Html>
-  );
 }
 
 const Loading = () => (
@@ -129,15 +100,9 @@ const Loading = () => (
 );
 
 const Intro = (props) => {
-  // for motion
-
   // Transition
   const transition = { duration: 2, type: "spring" };
-  const transitionOfBalloon = {
-    duration: 3,
-    ease: "easeInOut",
-    loop: Infinity,
-  };
+
   const transitionOfKus1 = {
     duration: 3.5,
     ease: "easeInOut",
@@ -191,17 +156,7 @@ const Intro = (props) => {
   const [state, setState] = useState({
     infoText: "",
     loading: false,
-    // adi: "",
-    // yilYas: "",
-    // ayYas: "",
-    // gunYas: "",
-    // il: "",
-    // ayniIsimdeIlSayi: "",
-    // ayniIsimdeTurkiyeSayi: "",
-    // ayniTarihDoganIlSayi: "",
-    // ayniTarihDoganTurkiyeSayi: "",
-    // boyOrtancaDeger: "",
-    // kiloOrtancaDeger: "",
+
     adi: "Adi",
     yilYas: 5,
     ayYas: 11,
@@ -501,20 +456,7 @@ const Intro = (props) => {
             <FloatinDivForIntroRight img={tkc_geleneksel_oyunlar} />
           </NavLink>
         </motion.div>
-        {/* <motion.img
-          style={{
-            marginLeft: "18rem",
-            marginTop: "14rem",
-            width: "160px",
-            height: "234px",
-          }}
-          // initial={{ left: "-20%" }}
-          // whileInView={{ left: "-14%" }}
-          animate={{ top: ["-2%", "2%", "-2%"] }}
-          transition={transitionOfBalloon}
-          src={tkc_balon}
-          alt=""
-        /> */}
+
         <motion.img
           style={{
             marginLeft: "-8rem",

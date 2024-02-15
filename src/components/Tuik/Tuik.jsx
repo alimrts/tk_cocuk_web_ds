@@ -7,6 +7,7 @@ import { Pagination } from "swiper";
 import "swiper/css/pagination";
 
 import tkc_tuik_timeline from "../../img/tkc_tuik_timeline.png";
+import arrowSlider from "../../img/arrow_slider.png";
 import tkc_kuslar1 from "../../img/tkc_kuslar1.png";
 
 import tuik1i from "../../img/tuik_cards/tuik1.png";
@@ -18,8 +19,8 @@ import tuik4i from "../../img/tuik_cards/tuik4.png";
 SwiperCore.use([Navigation]);
 const swiperProps = {
   navigation: {
-    prevEl: ".swiper-button-prev",
-    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev-tuik",
+    nextEl: ".swiper-button-next-tuik",
   },
 };
 
@@ -79,25 +80,11 @@ const Tuik = () => {
             })}
           </Swiper>
         </div>
-        <div className="swiper-button-prev">
-          <svg
-            id="right-arrow"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ transform: "rotate(-180deg)", zIndex: 8 }}
-          >
-            <path d="M6 18L18 12L6 6V18Z" fill="#0099ff" />
-          </svg>
+        <div className="swiper-button-prev-tuik">
+          <img src={arrowSlider} />
         </div>
-        <div className="swiper-button-next">
-          <svg
-            id="right-arrow"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ zIndex: 8 }}
-          >
-            <path d="M6 18L18 12L6 6V18Z" fill="#0099ff" />
-          </svg>
+        <div className="swiper-button-next-tuik">
+          <img src={arrowSlider} />
         </div>
         <div
           style={{

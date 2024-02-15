@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
+
+import useZustandStore from "../../zustandStore";
 
 function ArabaYarisi({ closeTheGame }) {
   const { unityProvider, unload, loadingProgression, isLoaded } =
@@ -14,6 +16,16 @@ function ArabaYarisi({ closeTheGame }) {
     await unload();
     closeTheGame(); // Notify the parent component about the closure
   };
+
+  const setIsAnyGameOpened = useZustandStore(
+    (state) => state.setIsAnyGameOpened
+  );
+
+  useEffect(() => {
+    setIsAnyGameOpened(true);
+
+    return () => setIsAnyGameOpened(false);
+  }, []);
 
   return (
     <>

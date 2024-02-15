@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 
+import useZustandStore from "../../zustandStore";
+
 import Card from "./MemoryCard";
 import "./MemoryGame.css";
 
@@ -182,6 +184,16 @@ export default function MemoryGame() {
 
     setIsGridChanging(false);
   };
+
+  const setIsAnyGameOpened = useZustandStore(
+    (state) => state.setIsAnyGameOpened
+  );
+
+  useEffect(() => {
+    setIsAnyGameOpened(true);
+
+    return () => setIsAnyGameOpened(false);
+  }, []);
 
   return (
     <div

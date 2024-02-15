@@ -28,7 +28,7 @@ export function Car1(props) {
 
   useEffect(() => {
     actions.car1anim.play();
-    actions.car1anim.setDuration(50);
+    actions.car1anim.setDuration(100);
   }, [actions]); // Empty dependency array to run the effect only once
 
   useFrame(() => {
@@ -85,7 +85,7 @@ export function Car1(props) {
   };
 
   const handleStop = () => {
-    actions.car1anim.setDuration(50);
+    actions.car1anim.setDuration(100);
     setSpeed(0.1);
   };
 
@@ -164,7 +164,7 @@ export function Car1(props) {
       />
 
       <Trigger
-        args={[0.1, 4.1, 12]}
+        args={[0.2, 4.1, 12]}
         rotation={[0, 1.57, 0]}
         position={[
           obstaclePosition[0],
@@ -179,7 +179,7 @@ export function Car1(props) {
       />
 
       <Trigger
-        args={[0.1, 4.1, 12]}
+        args={[0.2, 4.1, 12]}
         rotation={[0, 1.57, 0]}
         position={[
           obstaclePosition[0],
@@ -195,7 +195,7 @@ export function Car1(props) {
       />
 
       <Trigger
-        args={[0.1, 4.1, 8.1]}
+        args={[0.2, 4.1, 8.1]}
         rotation={[0, 3.14, 0]}
         position={[
           obstaclePosition[0] - 7,
@@ -210,7 +210,7 @@ export function Car1(props) {
       />
 
       <Trigger
-        args={[0.1, 4.1, 8.1]}
+        args={[0.2, 4.1, 8.1]}
         rotation={[0, 3.14, 0]}
         position={[
           obstaclePosition[0] + 7,

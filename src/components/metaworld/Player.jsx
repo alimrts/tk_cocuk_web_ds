@@ -7,8 +7,11 @@ import useKeyboard from "./useKeyboard";
 import { useFrame } from "@react-three/fiber";
 import { Vec3 } from "cannon-es";
 import useFollowCam from "./useFollowCam";
+import useZustandStore from "../../zustandStore";
 
 export default function PlayerCollider(props) {
+  const isAnyGameOpened = useZustandStore((state) => state.isAnyGameOpened);
+
   const cinsiyet = props.cinsiyet;
   console.log("gelen cinsiyet Player metaworld: ", props.cinsiyet);
 
@@ -73,19 +76,24 @@ export default function PlayerCollider(props) {
     }
 
     const rotationMatrix = new Matrix4();
+
     rotationMatrix.lookAt(
       worldPosition,
       group.current.position,
       group.current.up
     );
+
     targetQuaternion.setFromRotationMatrix(rotationMatrix);
+
     if (!group.current.quaternion.equals(targetQuaternion)) {
       targetQuaternion.z = 0;
       targetQuaternion.x = 0;
       targetQuaternion.normalize();
       group.current.quaternion.rotateTowards(targetQuaternion, delta * 10);
     }
-    if (!document.pointerLockElement) {
+
+    // if (!document.pointerLockElement)
+    if (!isAnyGameOpened) {
       inputVelocity.set(0, 0, 0);
 
       if (keyboard["KeyW"] || keyboard["ArrowUp"]) {

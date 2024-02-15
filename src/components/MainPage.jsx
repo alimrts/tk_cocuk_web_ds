@@ -1,18 +1,14 @@
-import { useLocation, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Intro from "../components/Intro/Intro";
 import Istatistik from "../components/Istatistik/Istatistik";
-
 import VideoIzle from "./VideoIzle/VideoIzle";
-
 import Tuik from "../components/Tuik/Tuik";
-
 import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
-import { useContext } from "react";
-import { themeContext } from "../Context";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+
+import { BrowserRouter } from "react-router-dom";
 
 import Metaverse from "./Metaverse";
 import useZustandStore from "../zustandStore";
@@ -42,9 +38,6 @@ const MainPage = () => {
 
   const { userInfo } = useZustandStore();
 
-  const location = useLocation();
-  // const userInfo = location.state.userInfo;
-
   useEffect(() => {
     // Check if user information is available
     if (userInfo === null) {
@@ -54,18 +47,7 @@ const MainPage = () => {
   }, [userInfo, history]);
 
   console.log("gelen userinfo: ", userInfo);
-
   ///
-  // const ad = userInfo?.firstName;
-  // const soyad = userInfo?.lastName;
-  // const dogumGunu = userInfo?.birthDay;
-  // const dogumAyi = userInfo?.birthMonth;
-  // const dogumYili = userInfo?.birthYear;
-  // const boy = userInfo?.height;
-  // const kilo = userInfo?.weight;
-  // const sehir = userInfo?.city;
-  // const cinsiyet = userInfo?.gender;
-
   // Destructure user information
   const {
     firstName: ad,

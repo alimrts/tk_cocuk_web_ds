@@ -123,6 +123,9 @@ const zustandStore = (set) => ({
 
   playerPosition: [0, 0, 0],
   setPlayerPosition: (position) => set({ playerPosition: position }),
+
+  isAnyGameOpened: false,
+  setIsAnyGameOpened: (value) => set({ isAnyGameOpened: value }),
 });
 
 const useZustandStore = create(
