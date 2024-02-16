@@ -13,6 +13,7 @@ import { useControls } from "leva";
 import { TuikBinasi } from "./TuikBinasi";
 import { GezegenlerBinasi } from "./GezegenlerBinasi";
 import { DemoScene, KontrolOdasi } from "./KontrolOdasi";
+import BirdsGroups from "./BirdsGroups";
 
 function ToggleDebug({ children }) {
   const debugRendererVisible = useControls("Debug Renderer", {
@@ -236,6 +237,8 @@ export default function Game(props) {
         scale={[1, 1, 1]}
         // rotation={[0, 1.57, 0]}
       />
+
+      <BirdsGroups />
 
       {/* <Car1
         // position={[0.5, -0.05, 3]}

@@ -19,6 +19,8 @@ import tkc_kuslar2_edit from "../img/tkc_kuslar2_edit.png";
 import FooterBg from "../img/tkc_footer_bg.png";
 import zIndex from "@material-ui/core/styles/zIndex";
 
+import Footer from "../components/Footer/Footer";
+
 import useZustandStore from "../zustandStore";
 
 import * as THREE from "three";
@@ -415,18 +417,15 @@ const RegisterPage = () => {
           <div
             style={{
               position: "fixed",
-              bottom: -20,
+              bottom: 0,
               left: 0,
               right: 0,
-              width: "100%",
+              // width: "100%",
               zIndex: -1,
+              marginBottom: "-0.8rem",
             }}
           >
-            <img
-              src={FooterBg}
-              alt=""
-              style={{ width: "100%", marginBottom: "0rem" }}
-            />
+            <img src={FooterBg} alt="" style={{ width: "100%" }} />
           </div>
         </>
       )}

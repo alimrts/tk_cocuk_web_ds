@@ -17,8 +17,9 @@
   color: white;
 }
 .f-icons {
-  display: flex;
-  gap: 2rem;
+  margin-bottom: -17rem;
+  font-size: 0.8rem;
+  color: white;
 }
 
 @media screen and (max-width: 480px){

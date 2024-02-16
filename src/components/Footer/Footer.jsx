@@ -13,11 +13,7 @@ const Footer = () => {
       <img src={FooterBg} alt="" style={{ width: "100%" }} />
       <div className="f-content">
         {/* <span>TÜİK Çocuk 2023 - Tüm Hakları Saklıdır</span> */}
-        <div className="f-icons">
-          {/* <Insta color="white" size={"3rem"} />
-          <Facebook color="white" size={"3rem"} />
-          <Gitub color="white" size={"3rem"} /> */}
-        </div>
+        <div className="f-icons">{/* © 2024, Tüm hakları saklıdır. */}</div>
       </div>
     </div>
   );

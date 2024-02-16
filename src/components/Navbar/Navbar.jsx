@@ -107,7 +107,7 @@ const Navbar = () => {
       >
         <div className="n-right">
           <div className="n-list">
-            <ul style={{ listStyleType: "none" }} className="n-list">
+            {/* <ul style={{ listStyleType: "none" }} className="n-list">
               <li className="n-list">
                 <Link
                   to="Intro"
@@ -160,7 +160,7 @@ const Navbar = () => {
                   <FloatinDivForNavbarMenu img={tkc_tuik} />
                 </Link>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </div>
         <div style={{ padding: "1rem" }}>

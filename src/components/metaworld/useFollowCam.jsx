@@ -15,14 +15,31 @@ export default function useFollowCam() {
     return o;
   }, []);
 
+  const MAX_VERTICAL_ANGLE = 0.4; // Maximum vertical angle in radians
+  const MIN_VERTICAL_ANGLE = -0.6; // Minimum vertical angle in radians
+
+  // const onDocumentMouseMove = (e) => {
+  //   if (e.buttons === 1 && !document.pointerLockElement) {
+  //     pivot.rotation.y -= e.movementX * 0.0025;
+  //     const v = followCam.rotation.x - e.movementY * 0.0015;
+  //     if (v >= -1.0 && v <= 0.8) {
+  //       followCam.rotation.x = v;
+  //       followCam.position.y = -v * followCam.position.z + 1;
+  //     }
+  //   }
+  //   return false;
+  // };
+
   const onDocumentMouseMove = (e) => {
     if (e.buttons === 1 && !document.pointerLockElement) {
       pivot.rotation.y -= e.movementX * 0.0025;
-      const v = followCam.rotation.x - e.movementY * 0.0015;
-      if (v >= -1.0 && v <= 0.8) {
-        followCam.rotation.x = v;
-        followCam.position.y = -v * followCam.position.z + 1;
-      }
+      let newVerticalRotation = followCam.rotation.x - e.movementY * 0.0015;
+      newVerticalRotation = Math.min(
+        MAX_VERTICAL_ANGLE,
+        Math.max(MIN_VERTICAL_ANGLE, newVerticalRotation)
+      ); // Clamp the vertical rotation
+      followCam.rotation.x = newVerticalRotation;
+      followCam.position.y = -newVerticalRotation * followCam.position.z + 1;
     }
     return false;
   };

@@ -4,6 +4,7 @@ import Grid from "./Grid";
 // import NavbarRegister from "../../components/Navbar/NavbarRegister";
 
 import NavbarRegister from "../../components/Navbar/NavbarCocukSdg";
+import arrowSlider from "../../img/arrow_slider.png";
 
 /// for first texts
 import "../../components/Tuik/Tuik.css";
@@ -22,8 +23,8 @@ SwiperCore.use([Navigation]);
 
 const swiperProps = {
   navigation: {
-    prevEl: ".swiper-button-prev",
-    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev-cocuk",
+    nextEl: ".swiper-button-next-cocuk",
   },
 };
 
@@ -127,25 +128,17 @@ const Cocukhaklari = () => {
             })}
           </Swiper>
 
-          <div className="swiper-button-prev" style={{ marginLeft: "8rem" }}>
-            <svg
-              id="right-arrow"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ transform: "rotate(-180deg)", zIndex: 8 }}
-            >
-              <path d="M6 18L18 12L6 6V18Z" fill="#0099ff" />
-            </svg>
+          <div
+            className="swiper-button-prev-cocuk"
+            style={{ marginLeft: "8rem" }}
+          >
+            <img src={arrowSlider} />
           </div>
-          <div className="swiper-button-next" style={{ marginRight: "8rem" }}>
-            <svg
-              id="right-arrow"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ zIndex: 8 }}
-            >
-              <path d="M6 18L18 12L6 6V18Z" fill="#0099ff" />
-            </svg>
+          <div
+            className="swiper-button-next-cocuk"
+            style={{ marginRight: "8rem" }}
+          >
+            <img src={arrowSlider} />
           </div>
         </div>
         <Grid />

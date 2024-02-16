@@ -153,6 +153,12 @@
   z-index: 999;
 }
 
+.swiper-button-prev-tuik:hover,
+.swiper-button-next-tuik:hover {
+  filter: brightness(1.1); /* Example of a hover effect, you can adjust as needed */
+  transition: transform 0.3s ease; /* Adding transition for smooth animation */
+}
+
 
 
 

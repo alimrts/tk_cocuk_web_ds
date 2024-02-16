@@ -70,6 +70,13 @@
   z-index: 999;
 }
 
+
+.swiper-button-prev-istatistik:hover,
+.swiper-button-next-istatistik:hover {
+  filter: brightness(1.1); /* Example of a hover effect, you can adjust as needed */
+  transition: transform 0.3s ease; /* Adding transition for smooth animation */
+}
+
 @media screen and (max-width: 480px) {
   .left-column {
     margin-top: -20rem;
