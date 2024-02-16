@@ -4,14 +4,8 @@ import * as THREE from "three";
 import { Color } from "three";
 import useZustandStore from "../../zustandStore";
 
-import textureImage from "../../img/bilgi_merkezi.png";
-
 export function TuikBinasi(props) {
   const { nodes, materials } = useGLTF("/models/tuik_binasi.glb");
-
-  const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load(textureImage);
-  const defaultColor = new Color("#CCffff");
 
   const isBilgiGateTriggered = useZustandStore(
     (state) => state.isBilgiGateTriggered

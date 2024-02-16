@@ -168,10 +168,8 @@ const useStyles = makeStyles((theme) => ({
       "&.Mui-focused fieldset": {
         borderColor: "#FF1493",
       },
-
       color: "grey",
     },
-
     width: "150px",
   },
   selectCity: {
@@ -287,7 +285,9 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
   const classes = useStyles();
   const [formData, setFormData] = useState({
     firstName: "",
-
+    // lastName: "",
+    // email: "",
+    // password: "",
     birthDay: "",
     birthMonth: "",
     birthYear: "",
@@ -359,6 +359,71 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
 
     onSubmit(formData);
   };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+
+  //   // Check for empty fields
+  //   const errors = {};
+  //   Object.keys(formData).forEach((key) => {
+  //     if (!formData[key]) {
+  //       errors[key] = true;
+  //     }
+  //   });
+  //   setFormErrors(errors);
+  //   const formFields = Object.values(formData);
+  //   const hasEmptyFields = formFields.some((field) => field === ""); // check for empty fields
+  //   if (hasEmptyFields) {
+  //     alert("Lütfen gerekli bilgileri doldurunuz."); // show an alert to the user
+  //     return;
+  //   }
+
+  //   // Get auth token
+  //   axios
+  //     .post(
+  //       "https://tuikcocukapi.prod.tuik.gov.tr/api/tuikcocukAuthService/Auth/GetToken",
+  //       {
+  //         Email: "tuikcocukuser",
+  //         Password: "tuikcocuk.2023",
+  //       }
+  //     )
+  //     .then((authResponse) => {
+  //       const authToken = authResponse.data.token;
+
+  //       // Use auth token to make dashboard API request
+  //       axios
+  //         .get(
+  //           "https://tuikcocukapi.prod.tuik.gov.tr/api/TuikCocuk/GetDashboard",
+  //           {
+  //             headers: {
+  //               Authorization: `Authorization ${authToken}`,
+  //             },
+  //             params: {
+  //               Ad: formData.firstName,
+  //               gun: formData.birthDay,
+  //               ay: formData.birthMonth,
+  //               dogumyil: formData.birthYear,
+  //               boy: formData.height,
+  //               kilo: formData.weight,
+  //               ilKodu: formData.city,
+  //               cinsiyet: formData.gender,
+  //             },
+  //           }
+  //         )
+  //         .then((dashboardResponse) => {
+  //           console.log("Dashboard data:", dashboardResponse.data);
+
+  //           // Call onSubmit with the form data
+  //           onSubmit(formData);
+  //         })
+  //         .catch((error) => {
+  //           console.error("Error getting dashboard data:", error);
+  //         });
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error getting auth token:", error);
+  //     });
+  // };
 
   return (
     <>

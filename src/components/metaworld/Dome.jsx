@@ -3,61 +3,50 @@ import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { Color } from "three";
 
-import textureImage from "../../img/bilgi_merkezi.png";
-
 export function Dome(props) {
   const { nodes, materials } = useGLTF("/models/dome.glb");
 
-  const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load(textureImage);
-  const defaultColor = new Color("#CCffff");
   return (
     <group {...props} dispose={null}>
-      <group position={[0, 7.665, -0.405]} scale={0.01}>
+      <group name="Icosphere002" position={[0, 7.665, -0.405]} scale={0.01}>
         <mesh
+          name="Mesh003"
           castShadow
           receiveShadow
-          geometry={nodes.Mesh001.geometry}
+          geometry={nodes.Mesh003.geometry}
           material={materials["Light Mirror"]}
         />
         <mesh
+          name="Mesh003_1"
           castShadow
           receiveShadow
-          geometry={nodes.Mesh001_1.geometry}
+          geometry={nodes.Mesh003_1.geometry}
           material={materials["Material.001"]}
         />
         <mesh
+          name="Mesh003_2"
           castShadow
           receiveShadow
-          geometry={nodes.Mesh001_2.geometry}
-          material={materials["MultiMat_0 Slot #5"]}
+          geometry={nodes.Mesh003_2.geometry}
+          material={materials["MultiMat_0 Slot #5.001"]}
         />
       </group>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.bilgi_m_t.geometry}
-        material={materials["Light Mirror"]}
-        position={[-0.15, 3.841, 14.846]}
-        scale={0.01}
-      />
-      <mesh
-        position={[-0.15, 3.5, 14.95]}
-        rotation={[0.0, 0, 0.07]}
-        {...props}
-        visible={true}
-        scale={12}
-      >
-        <planeGeometry args={[0.35, 0.08]} />
-
-        <meshBasicMaterial
-          map={texture}
-          color={defaultColor}
-          transparent
-          alphaTest={0.5} // Adjust as needed
-          side={THREE.DoubleSide}
+      <group name="bilgi_m_t" position={[-0.15, 3.841, 14.846]} scale={0.01}>
+        <mesh
+          name="Mesh004"
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh004.geometry}
+          material={materials["Poles.001"]}
         />
-      </mesh>
+        <mesh
+          name="Mesh004_1"
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh004_1.geometry}
+          material={materials["oyun_merkezi.001"]}
+        />
+      </group>
     </group>
   );
 }
