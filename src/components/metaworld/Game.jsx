@@ -11,6 +11,8 @@ import { Dome } from "./Dome";
 import { useControls } from "leva";
 
 import { TuikBinasi } from "./TuikBinasi";
+import { BayrakTr } from "./BayrakTr";
+import { BayrakTuik } from "./BayrakTuik";
 import { GezegenlerBinasi } from "./GezegenlerBinasi";
 import { DemoScene, KontrolOdasi } from "./KontrolOdasi";
 import BirdsGroups from "./BirdsGroups";
@@ -252,6 +254,8 @@ export default function Game(props) {
       />
       <Dome scale={[0.885, 0.885, 0.885]} />
       <TuikBinasi scale={[0.885, 0.885, 0.885]} />
+      <BayrakTr scale={[1, 1, 1]} />
+      <BayrakTuik scale={[1, 1, 1]} />
 
       <GezegenlerBinasi scale={[0.7, 0.7, 0.7]} position={[0.5, -0.75, 23]} />
 

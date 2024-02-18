@@ -59,25 +59,25 @@ export function TuikBinasi(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Mesh.geometry}
+          geometry={nodes.Mesh003.geometry}
           material={materials.tuikb_camlar}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Mesh_1.geometry}
-          material={materials["tuikb_1.002"]}
+          geometry={nodes.Mesh003_1.geometry}
+          material={materials["tuikb_1.001"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Mesh_2.geometry}
+          geometry={nodes.Mesh003_2.geometry}
           material={materials["tuikb_3.002"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Mesh_3.geometry}
+          geometry={nodes.Mesh003_3.geometry}
           material={materials["tuikb_yazilar.002"]}
         />
       </group>

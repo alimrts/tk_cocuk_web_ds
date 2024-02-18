@@ -13,7 +13,7 @@ const VideoPopup = ({ videoSrc, onClose }) => {
           height="85%"
         />
         <button className="close-button" onClick={onClose}>
-          Kapat
+          X
         </button>
       </div>
     </div>

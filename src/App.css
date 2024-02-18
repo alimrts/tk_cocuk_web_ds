@@ -126,3 +126,37 @@
 }
 
 
+
+
+/* for popups on metaverse */
+.popup-containerM {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Adjust the alpha value as needed */
+  display: block;
+  z-index: 4;
+}
+
+.popup-contentM {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(117, 117, 117, 0.1); /* Adjust as needed */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.close-buttonM {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
+  z-index: 1;
+  cursor: pointer;
+  user-select: none;
+}

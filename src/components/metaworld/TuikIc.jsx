@@ -202,11 +202,8 @@ const TuikIcBina = (props) => {
                   material={materials["screen.001"]}
                   position={[0, -0.115, -0.145]}
                   scale={1.057}
-                  onPointerOver={() => set(true)}
-                  onPointerOut={() => set(false)}
                 />
               </group>
-
               <group
                 name="stage"
                 position={[0, 122.556, -99.564]}
@@ -414,27 +411,6 @@ const TuikIcBina = (props) => {
           rotation={[Math.PI / 2, 0, 3.132]}
           scale={1.569}
         />
-        <group
-          name="tr_map001"
-          position={[0.17, 14.466, -8.834]}
-          rotation={[0.863, -0.031, 0.004]}
-          scale={0.023}
-        >
-          <mesh
-            name="Mesh002"
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh002.geometry}
-            material={materials["tr_map.002"]}
-          />
-          <mesh
-            name="Mesh002_1"
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh002_1.geometry}
-            material={materials["tr_ay.002"]}
-          />
-        </group>
         <mesh
           name="Object_10001"
           castShadow

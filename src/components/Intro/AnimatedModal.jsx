@@ -355,6 +355,20 @@ export default function AnimatedModal(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
+            <button
+              style={{
+                position: "absolute",
+                marginLeft: "34.8rem",
+                marginTop: "-0.5rem",
+                textAlign: "center",
+                fontSize: "13pt",
+                color: "red",
+                cursor: "pointer",
+              }}
+              onClick={handleClose}
+            >
+              X
+            </button>
             <h2
               style={{ textAlign: "center", fontSize: "12pt", color: "orange" }}
             >
@@ -364,6 +378,7 @@ export default function AnimatedModal(props) {
               <button
                 onClick={() => handleImageClick(sertifika1)}
                 style={{
+                  cursor: "pointer",
                   boxShadow: isSelected(sertifika1)
                     ? "0 0 8px rgba(0, 255, 0, 0.8) inset"
                     : "",
@@ -374,6 +389,7 @@ export default function AnimatedModal(props) {
               <button
                 onClick={() => handleImageClick(sertifika2)}
                 style={{
+                  cursor: "pointer",
                   boxShadow: isSelected(sertifika2)
                     ? "0 0 8px rgba(0, 255, 0, 0.8) inset"
                     : "",
@@ -384,6 +400,7 @@ export default function AnimatedModal(props) {
               <button
                 onClick={() => handleImageClick(sertifika3)}
                 style={{
+                  cursor: "pointer",
                   boxShadow: isSelected(sertifika3)
                     ? "0 0 8px rgba(0, 255, 0, 0.8) inset"
                     : "",
@@ -394,6 +411,7 @@ export default function AnimatedModal(props) {
               <button
                 onClick={() => handleImageClick(sertifika4)}
                 style={{
+                  cursor: "pointer",
                   boxShadow: isSelected(sertifika4)
                     ? "0 0 8px rgba(0, 255, 0, 0.8) inset"
                     : "",
@@ -404,6 +422,7 @@ export default function AnimatedModal(props) {
               <button
                 onClick={() => handleImageClick(sertifika5)}
                 style={{
+                  cursor: "pointer",
                   boxShadow: isSelected(sertifika5)
                     ? "0 0 8px rgba(0, 255, 0, 0.8) inset"
                     : "",
@@ -414,6 +433,7 @@ export default function AnimatedModal(props) {
               <button
                 onClick={() => handleImageClick(sertifika6)}
                 style={{
+                  cursor: "pointer",
                   boxShadow: isSelected(sertifika6)
                     ? "0 0 8px rgba(0, 255, 0, 0.8) inset"
                     : "",
@@ -427,6 +447,7 @@ export default function AnimatedModal(props) {
               <button
                 onClick={() => handleImageClick(sertifika7)}
                 style={{
+                  cursor: "pointer",
                   boxShadow: isSelected(sertifika7)
                     ? "0 0 8px rgba(0, 255, 0, 0.8) inset"
                     : "",
@@ -438,6 +459,7 @@ export default function AnimatedModal(props) {
               <button
                 onClick={() => handleImageClick(sertifika8)}
                 style={{
+                  cursor: "pointer",
                   boxShadow: isSelected(sertifika8)
                     ? "0 0 8px rgba(0, 255, 0, 0.8) inset"
                     : "",
@@ -449,6 +471,7 @@ export default function AnimatedModal(props) {
               <button
                 onClick={() => handleImageClick(sertifika9)}
                 style={{
+                  cursor: "pointer",
                   boxShadow: isSelected(sertifika9)
                     ? "0 0 8px rgba(0, 255, 0, 0.8) inset"
                     : "",
@@ -460,6 +483,7 @@ export default function AnimatedModal(props) {
               <button
                 onClick={() => handleImageClick(sertifika10)}
                 style={{
+                  cursor: "pointer",
                   boxShadow: isSelected(sertifika10)
                     ? "0 0 8px rgba(0, 255, 0, 0.8) inset"
                     : "",
@@ -471,6 +495,7 @@ export default function AnimatedModal(props) {
               <button
                 onClick={() => handleImageClick(sertifika11)}
                 style={{
+                  cursor: "pointer",
                   boxShadow: isSelected(sertifika11)
                     ? "0 0 8px rgba(0, 255, 0, 0.8) inset"
                     : "",

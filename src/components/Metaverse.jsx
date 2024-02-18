@@ -39,7 +39,8 @@ import UzayMacerasi from "./metaverse/UzayMacerasi";
 import UlkelerBayrak from "./metaverse/UlkelerBayrak";
 import ArabaYarisi from "./metaverse/ArabaYarisi";
 import SolarSystem from "./metaworld/SolarSystem";
-import TuikIc from "./metaworld/TuikIc";
+// import TuikIc from "./metaworld/TuikIc";
+import TuikIc from "./metaworld/TuikIcLoby";
 import InformationButton from "./metaworld/InformationButton";
 import MemoryGame from "./metaverse/MemoryGame";
 
@@ -132,127 +133,46 @@ function Metaverse(props) {
   return (
     <>
       {clickedTofirst && (
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            fontSize: "24px",
-            zIndex: 2,
-            padding: "20px",
-            borderRadius: "5px",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
-          }}
-        >
-          <>
+        <div className="popup-containerM">
+          <div className="popup-contentM">
             <UzayMacerasi closeTheGame={closeYaris} />
-          </>
+          </div>
         </div>
       )}
       {clickedTosecond && (
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            fontSize: "24px",
-            color: "lightblue",
-            zIndex: 2,
-            padding: "20px",
-            borderRadius: "5px",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
-          }}
-        >
-          <>
-            {/* <Interacty /> */}
+        <div className="popup-containerM">
+          <div className="popup-contentM">
             <MemoryGame />
             <button
-              style={{
-                position: "absolute",
-                top: "0",
-                right: "0",
-                color: "red",
-                zIndex: "1",
-                cursor: "pointer",
-                userSelect: "none",
-              }}
+              className="close-buttonM"
               onClick={(event) => setClickedToSecond(false)}
             >
               X
             </button>
-            {/* <button
-              style={{
-                position: "absolute",
-                bottom: "2vh",
-                marginLeft: "-2vh",
-                width: "100%",
-                height: "50px",
-                cursor: "pointer",
-                backgroundColor: "#ffd9b3",
-              }}
-            >
-              Kartları çevirerek aynı olan kartları bul.
-            </button> */}
-          </>
+          </div>
         </div>
       )}
       {clickedToThird && (
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            fontSize: "24px",
-            color: "lightblue",
-            zIndex: 2,
-            padding: "20px",
-            borderRadius: "5px",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
-          }}
-        >
-          <>
+        <div className="popup-containerM">
+          <div className="popup-contentM">
             <UlkelerBayrak />
-
             <button
-              style={{
-                position: "absolute",
-                top: "0",
-                right: "0",
-                color: "red",
-                zIndex: "1",
-                cursor: "pointer",
-              }}
+              className="close-buttonM"
               onClick={(event) => setClickedToThird(false)}
             >
               X
             </button>
-          </>
+          </div>
         </div>
       )}
       {clickedToFourth && (
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            fontSize: "24px",
-            width: 480,
-            height: 854,
-            zIndex: 2,
-            padding: "8px",
-            borderRadius: "5px",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
-          }}
-        >
-          <>
+        <div className="popup-containerM">
+          <div className="popup-contentM">
             <ArabaYarisi closeTheGame={closeYaris} />
-          </>
+          </div>
         </div>
       )}
+
       <style>{`
         .canvas-container {
           cursor: ${cursorStyle};

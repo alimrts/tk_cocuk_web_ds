@@ -166,18 +166,20 @@ const ImageWithText = ({
         style={{ display: canvasInitialized ? "block" : "none" }}
       />
       {canvasInitialized && (
-        <button
-          className={`button`}
-          style={{
-            position: "absolute",
-            bottom: "20px",
-            left: "50%",
-            transform: "translateX(-50%)",
-          }}
-          onClick={handleDownload}
-        >
-          İndir
-        </button>
+        <>
+          <button
+            className={`button`}
+            style={{
+              position: "absolute",
+              bottom: "20px",
+              left: "50%",
+              transform: "translateX(-50%)",
+            }}
+            onClick={handleDownload}
+          >
+            İndir
+          </button>
+        </>
       )}
     </div>
   );
