@@ -1,5 +1,6 @@
 .videolar{
-  margin-top: 0rem;
+  margin-top: 4rem;
+ 
   margin-bottom: 0rem;
 }
 
@@ -9,10 +10,24 @@
   height: 50vh;
   margin-top: 0rem;
   margin-bottom: 2rem;
-
+  margin-left: -3rem;
   /* scroll */
   align-items: center;
 }
+
+.left-column-video {
+  width: 30%;
+  margin-left: 0rem;
+}
+
+.right-column-video {
+  width: 70%;
+  padding: 0 20px;
+  margin-right: 4rem;
+  margin-bottom: 4rem;
+  transform: scale(0.9);
+}
+
 
 .video-izle-text{
   display: flex;

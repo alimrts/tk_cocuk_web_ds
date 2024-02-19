@@ -121,6 +121,38 @@ const zustandStore = (set) => ({
     set({ isGeriClickedInTuik: false });
   },
 
+  isDaire1Triggered: false,
+  setIsDaire1Triggered: (value) => set({ isDaire1Triggered: value }),
+
+  onCleanup: () => {
+    // Reset the state to its initial value when the component is unmounted
+    set({ isDaire1Triggered: false });
+  },
+
+  isDaire2Triggered: false,
+  setIsDaire2Triggered: (value) => set({ isDaire2Triggered: value }),
+
+  onCleanup: () => {
+    // Reset the state to its initial value when the component is unmounted
+    set({ isDaire2Triggered: false });
+  },
+
+  isDaire3Triggered: false,
+  setIsDaire3Triggered: (value) => set({ isDaire3Triggered: value }),
+
+  onCleanup: () => {
+    // Reset the state to its initial value when the component is unmounted
+    set({ isDaire3Triggered: false });
+  },
+
+  isDaire4Triggered: false,
+  setIsDaire4Triggered: (value) => set({ isDaire4Triggered: value }),
+
+  onCleanup: () => {
+    // Reset the state to its initial value when the component is unmounted
+    set({ isDaire4Triggered: false });
+  },
+
   playerPosition: [0, 0, 0],
   setPlayerPosition: (position) => set({ playerPosition: position }),
 

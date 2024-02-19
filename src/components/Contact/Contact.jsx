@@ -2,6 +2,9 @@ import React, { useContext, useRef, useState } from "react";
 import "./Contact.css";
 import emailjs from "@emailjs/browser";
 import { themeContext } from "../../Context";
+
+import tkc_iletisim_left from "../../img/tkc_iletisim_left.png";
+
 const Contact = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
@@ -51,10 +54,8 @@ const Contact = () => {
 
   return (
     <div className="contact-form" id="contact">
-      <div className="w-left">
-        <div>
-          {/* darkMode */}
-          <span
+      {/* darkMode */}
+      {/* <span
             className="awesome"
             style={{
               color: darkMode ? "white" : "orange",
@@ -65,14 +66,16 @@ const Contact = () => {
             }}
           >
             İletişim
-          </span>
+          </span> */}
+      <div className="left-column-contact">
+        <img src={tkc_iletisim_left} alt="" />
+      </div>
 
-          {/* <div
+      {/* <div
             className="blur s-blur1"
             style={{ background: "#ABF1FF94" }}
           ></div> */}
-        </div>
-      </div>
+
       {/* right side form */}
       <div
         className="c-right"

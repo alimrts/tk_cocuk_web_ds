@@ -40,7 +40,7 @@ import UlkelerBayrak from "./metaverse/UlkelerBayrak";
 import ArabaYarisi from "./metaverse/ArabaYarisi";
 import SolarSystem from "./metaworld/SolarSystem";
 // import TuikIc from "./metaworld/TuikIc";
-import TuikIc from "./metaworld/TuikIcLoby";
+import TuikIcLoby from "./metaworld/TuikIcLoby";
 import InformationButton from "./metaworld/InformationButton";
 import MemoryGame from "./metaverse/MemoryGame";
 
@@ -184,7 +184,7 @@ function Metaverse(props) {
 
         <SolarSystem />
       ) : isTuikGateTriggered ? (
-        <TuikIc />
+        <TuikIcLoby />
       ) : (
         <div className="canvas-container">
           <div

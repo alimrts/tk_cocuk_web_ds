@@ -6,6 +6,8 @@ import { themeContext } from "../../Context";
 
 import FloatinDivForIntroRight from "../FloatingDiv/FloatinDivForIntroRight";
 
+import tkc_video_left from "../../img/tkc_video_left.png";
+
 import tkc_video_istatistiknedir from "../../img/tkc_video_istatistiknedir.png";
 import tkc_video_ulkemizitaniyalim from "../../img/tkc_video_ulkemizitaniyalim.png";
 import tkc_video_cocukhaklari from "../../img/tkc_video_cocukhaklari.png";
@@ -13,7 +15,6 @@ import tkc_video_cocukhaklari from "../../img/tkc_video_cocukhaklari.png";
 import IstatistikNedir from "../../video/IstatistikNedir.mp4";
 import UlkemiziTaniyalim from "../../video/UlkemiziTaniyalim.mp4";
 import CocukHaklari from "../../video/CocukHaklari.mp4";
-
 
 const VideoIzle = () => {
   // context
@@ -45,60 +46,49 @@ const VideoIzle = () => {
 
   return (
     <>
-      <div>
-        <div className="videolar">
-          <span
-            className="video-izle-text"
-            style={{
-              color: darkMode ? "white" : "#99cc33",
-              display: "flex",
-            }}
-          >
-            Video izleyelim
-          </span>
-        </div>
-
+      <div className="videolar">
         <div className="videorow" id="video">
-          {/* left side */}
+          <div className="left-column-video">
+            <img src={tkc_video_left} alt="" />
+          </div>
+          <div className="right-column-video" style={{}}>
+            <div className="w-right">
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+                onClick={() => handleVideoClick(IstatistikNedir)}
+              >
+                <FloatinDivForIntroRight img={tkc_video_istatistiknedir} />
+                <span>İstatistik Nedir?</span>
+              </div>
 
-          <div className="w-right">
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-              onClick={() => handleVideoClick(IstatistikNedir)}
-            >
-              <FloatinDivForIntroRight img={tkc_video_istatistiknedir} />
-              <span>İstatistik Nedir?</span>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+                onClick={() => handleVideoClick(UlkemiziTaniyalim)}
+              >
+                <FloatinDivForIntroRight img={tkc_video_ulkemizitaniyalim} />
+                <span>Ülkemizi Tanıyalım</span>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+                onClick={() => handleVideoClick(CocukHaklari)}
+              >
+                <FloatinDivForIntroRight img={tkc_video_cocukhaklari} />
+                <span>Çocuk Hakları</span>
+              </div>
             </div>
-
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-              onClick={() => handleVideoClick(UlkemiziTaniyalim)}
-            >
-              <FloatinDivForIntroRight img={tkc_video_ulkemizitaniyalim} />
-              <span>Ülkemizi Tanıyalım</span>
-            </div>
-
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-              onClick={() => handleVideoClick(CocukHaklari)}
-            >
-              <FloatinDivForIntroRight img={tkc_video_cocukhaklari} />
-              <span>Çocuk Hakları</span>
-            </div>
-
-           
           </div>
         </div>
         {showPopup && (

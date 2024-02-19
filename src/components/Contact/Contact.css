@@ -10,12 +10,29 @@
     font-size: 2.2rem;
 }
 
+
+.left-column-contact {
+  width: 30%;
+  margin-left: -2rem;
+}
+
+.right-column-contact {
+  width: 70%;
+  padding: 0 20px;
+  margin-right: 4rem;
+  margin-bottom: 4rem;
+  /* transform: scale(0.9); */
+}
+
+
 .c-right{
-    display: flex;
-    justify-content: center;
-    position: relative;
-    flex: 1;
-    margin-left: -4rem;
+  display: flex;
+  justify-content: center;
+  margin-left: -4rem;
+  width: 70%;
+  padding: 0 20px;
+  margin-right: 4rem;
+  margin-bottom: 4rem;
 }
 
 .c-right>form
@@ -76,7 +93,7 @@ textarea{
       flex-direction: column;
       gap: 2rem;
       height: 40rem;
-      margin-top: 2rem;
+      margin-top: 4rem;
       
     }
   
@@ -101,8 +118,8 @@ textarea{
   
   @media screen and (min-width: 769px) {
     .contact-form {
-        height: 40rem;
-      margin-top: 2rem;
+        height: 45rem;
+      margin-top: 4rem;
     }
   
     .c-right {

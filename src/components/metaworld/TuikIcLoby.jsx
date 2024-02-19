@@ -17,6 +17,11 @@ import { MeshStandardMaterial } from "three";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import mySvgImage from "./cursor_360.svg";
 
+import TuikIcDaire1 from "./TuikIcDaire1";
+import TuikIcDaire2 from "./TuikIcDaire2";
+import TuikIcDaire3 from "./TuikIcDaire3";
+import TuikIcDaire4 from "./TuikIcDaire4";
+
 function LoaderBase() {
   const { progress } = useProgress();
 
@@ -36,12 +41,36 @@ const TuikIcBina = (props) => {
 
   const group = useRef();
 
-  // const setIsDaire1Triggered = useZustandStore(
-  //   (state) => state.setIsTuikGateTriggered
-  // );
+  const setIsDaire1Triggered = useZustandStore(
+    (state) => state.setIsDaire1Triggered
+  );
 
   const handleGoToDaire1 = () => {
-    // setIsDaire1Triggered(true);
+    setIsDaire1Triggered(true);
+  };
+
+  const setIsDaire2Triggered = useZustandStore(
+    (state) => state.setIsDaire2Triggered
+  );
+
+  const handleGoToDaire2 = () => {
+    setIsDaire2Triggered(true);
+  };
+
+  const setIsDaire3Triggered = useZustandStore(
+    (state) => state.setIsDaire3Triggered
+  );
+
+  const handleGoToDaire3 = () => {
+    setIsDaire3Triggered(true);
+  };
+
+  const setIsDaire4Triggered = useZustandStore(
+    (state) => state.setIsDaire4Triggered
+  );
+
+  const handleGoToDaire4 = () => {
+    setIsDaire4Triggered(true);
   };
 
   const [hovered, set] = useState();
@@ -335,14 +364,14 @@ const TuikIcBina = (props) => {
                     backgroundColor: "#323632a4",
                     width: "140px",
                     textAlign: "center",
-                    top: -220,
+                    top: -240,
                     left: -50,
                     fontSize: "14pt",
                     cursor: "pointer",
                     color: "lightblue",
                     padding: "4px",
                   }}
-                  onClick={handleGoToDaire1}
+                  onClick={handleGoToDaire2}
                 >
                   Daire-2
                 </div>
@@ -586,7 +615,7 @@ const TuikIcBina = (props) => {
                     color: "lightblue",
                     padding: "4px",
                   }}
-                  onClick={handleGoToDaire1}
+                  onClick={handleGoToDaire3}
                 >
                   Daire-3
                 </div>
@@ -715,14 +744,14 @@ const TuikIcBina = (props) => {
                     backgroundColor: "#323632a4",
                     width: "140px",
                     textAlign: "center",
-                    top: -220,
+                    top: -240,
                     left: -50,
                     fontSize: "14pt",
                     cursor: "pointer",
                     color: "lightblue",
                     padding: "4px",
                   }}
-                  onClick={handleGoToDaire1}
+                  onClick={handleGoToDaire4}
                 >
                   Daire-4
                 </div>
@@ -956,10 +985,29 @@ const TuikIcBina = (props) => {
   );
 };
 
-const TuikIc = () => {
+const TuikIcLoby = () => {
+  const isDaire1Triggered = useZustandStore((state) => state.isDaire1Triggered);
+  const isDaire2Triggered = useZustandStore((state) => state.isDaire2Triggered);
+  const isDaire3Triggered = useZustandStore((state) => state.isDaire3Triggered);
+  const isDaire4Triggered = useZustandStore((state) => state.isDaire4Triggered);
+
+  const setIsDaire1Triggered = useZustandStore(
+    (state) => state.setIsDaire1Triggered
+  );
+  const setIsDaire2Triggered = useZustandStore(
+    (state) => state.setIsDaire2Triggered
+  );
+  const setIsDaire3Triggered = useZustandStore(
+    (state) => state.setIsDaire3Triggered
+  );
+  const setIsDaire4Triggered = useZustandStore(
+    (state) => state.setIsDaire4Triggered
+  );
+
   const isTuikGateTriggered = useZustandStore(
     (state) => state.isTuikGateTriggered
   );
+
   const setIsTuikGateTriggered = useZustandStore(
     (state) => state.setIsTuikGateTriggered
   );
@@ -988,12 +1036,45 @@ const TuikIc = () => {
     setIsBilgiGateTriggered(true);
   };
 
+  const handleDairelerGeri = () => {
+    setIsDaire1Triggered(false);
+    setIsDaire2Triggered(false);
+    setIsDaire3Triggered(false);
+    setIsDaire4Triggered(false);
+  };
+
+  const handleDaire1Geri = () => {
+    setIsDaire1Triggered(false);
+  };
+  const handleDaire2Geri = () => {
+    setIsDaire2Triggered(false);
+  };
+
+  const handleDaire3Geri = () => {
+    setIsDaire3Triggered(false);
+  };
+
+  const handleDaire4Geri = () => {
+    setIsDaire4Triggered(false);
+  };
+
   return (
     <>
       <button
         className="button i-button"
         onClick={() => {
-          handleTuikGateTrigger();
+          // isDaire1Triggered ? handleDairelerGeri() : handleTuikGateTrigger();
+          if (isDaire1Triggered) {
+            handleDaire1Geri();
+          } else if (isDaire2Triggered) {
+            handleDaire2Geri();
+          } else if (isDaire3Triggered) {
+            handleDaire3Geri();
+          } else if (isDaire4Triggered) {
+            handleDaire4Geri();
+          } else {
+            handleTuikGateTrigger();
+          }
         }}
         style={{
           position: "absolute",
@@ -1029,7 +1110,18 @@ const TuikIc = () => {
 
           <ambientLight intensity={0.01} />
           <pointLight intensity={0.5} position={[0, 0, 0]} />
-          <TuikIcBina />
+          {/* {isDaire1Triggered ? <TuikIcDaire1 /> : <TuikIcBina />} */}
+          {isDaire1Triggered ? (
+            <TuikIcDaire1 />
+          ) : isDaire2Triggered ? (
+            <TuikIcDaire2 />
+          ) : isDaire3Triggered ? (
+            <TuikIcDaire3 />
+          ) : isDaire4Triggered ? (
+            <TuikIcDaire4 />
+          ) : (
+            <TuikIcBina />
+          )}
 
           <OrbitControls
             enableZoom={true}
@@ -1056,4 +1148,4 @@ const TuikIc = () => {
   );
 };
 
-export default TuikIc;
+export default TuikIcLoby;
