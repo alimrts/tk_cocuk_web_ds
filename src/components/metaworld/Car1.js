@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
+import { MeshBasicMaterial, MeshStandardMaterial, Color } from "three";
+
 import { useFrame } from "@react-three/fiber";
 
 import { useBox } from "@react-three/cannon";
@@ -63,8 +65,8 @@ export function Car1(props) {
       () => ({
         args,
         type: "Static",
-        mass: 10,
-        isTrigger: true, //true for not to stop character
+        mass: 5,
+        isTrigger: false, //true for not to stop character
         onCollide,
         ...props,
       }),
@@ -73,19 +75,21 @@ export function Car1(props) {
 
     return (
       <mesh ref={ref}>
-        {/* <boxGeometry args={[...args]} />
-        <meshStandardMaterial color="red" wireframe /> */}
+        <boxGeometry args={[...args]} />
+        <meshStandardMaterial color="red" wireframe />
       </mesh>
     );
   };
 
   const handleContinue = () => {
     actions.car1anim.setDuration(50000);
+    console.log("Collision event on car1");
     setSpeed(0);
   };
 
   const handleStop = () => {
     actions.car1anim.setDuration(100);
+    console.log("Collision trigger on car1");
     setSpeed(0.1);
   };
 
@@ -105,6 +109,7 @@ export function Car1(props) {
               receiveShadow
               geometry={nodes.car1base.geometry}
               material={materials["Material #580"]}
+              // material-color={"#1E56ff"}
               position={[0, -109.066, 0]}
               rotation={[0, 1.571, 0]}
             />
@@ -154,16 +159,15 @@ export function Car1(props) {
 
       {/* Render the obstacle */}
       <Obstacle
-        args={[5, 4, 8]}
+        args={[6, 4, 9]}
         rotation={[0, 1.57, 0]}
         position={obstaclePosition}
         onCollide={(e) => {
-          console.log("Collision event on car1", e);
-          handleContinue();
+          // handleContinue();
         }}
       />
 
-      <Trigger
+      {/* <Trigger
         args={[0.2, 4.1, 12]}
         rotation={[0, 1.57, 0]}
         position={[
@@ -176,9 +180,9 @@ export function Car1(props) {
           console.log("Collision trigger on car1", e);
           handleStop();
         }}
-      />
+      /> */}
 
-      <Trigger
+      {/* <Trigger
         args={[0.2, 4.1, 12]}
         rotation={[0, 1.57, 0]}
         position={[
@@ -187,12 +191,14 @@ export function Car1(props) {
           obstaclePosition[2] - 4,
         ]}
         // position={[positionX - 20, 0, 46.5]}
-        material={"ground"}
+
         onCollide={(e) => {
           console.log("Collision trigger on car1", e);
           handleStop();
         }}
-      />
+      /> */}
+
+      {/* 
 
       <Trigger
         args={[0.2, 4.1, 8.1]}
@@ -222,7 +228,7 @@ export function Car1(props) {
           console.log("Collision trigger on car1", e);
           handleStop();
         }}
-      />
+      /> */}
     </>
   );
 }

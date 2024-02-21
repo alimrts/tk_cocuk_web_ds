@@ -45,7 +45,7 @@
   .glassFrame:hover {
     transition: background 0.3s ease-in-out;
     background: 
-    linear-gradient(to bottom right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+    linear-gradient(to bottom right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.45));
     
     backdrop-filter: blur(4px); 
   }

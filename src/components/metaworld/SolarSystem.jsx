@@ -240,14 +240,16 @@ const Orbits = ({ props }) => {
                           width: "240px",
                         }}
                       >
-                        Çap: 1.4 milyon kilometre. <br />
+                        Güneş, güneş sisteminin merkezindeki yıldızdır. <br />
                         <br />
-                        Güneş sisteminin merkezinde bulunan devasa bir
-                        yıldızdır.
+                        Güneş'in yerçekimi güneş sistemini bir arada tutar.
                         <br />
                         <br />
-                        Büyük çoğunluğu hidrojen ve helyumdan oluşur ve nükleer
-                        fusion reaksiyonları yoluyla enerji üretir.
+                        Güneş sisteminde; Merkür, Venüs, Dünya, Mars, Jüpiter,
+                        Satürn, Uranüs ve Neptün gezegenleri; yüzlerce uyduyla
+                        birlikte cüce gezegenler Plüton, Ceres, Makemake, Haumea
+                        ve Eris; ve milyonlarca asteroit, kuyruklu yıldız ve
+                        meteoroid vardır.
                       </div>
                     </div>
                     <button
@@ -428,14 +430,11 @@ const PlanetMercury = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Güneş sisteminin en iç gezegenidir.
+                  Merkür'de bir gün, yaklaşık 59 Dünya günü sürer.
                   <br />
                   <br />
-                  Yüzeyi kayalarla kaplıdır ve oldukça yüksek sıcaklıklara
-                  sahiptir.
+                  Merkür'de bir yıl, 88 Dünya günü sürer.
                   <br />
-                  <br />
-                  Güneş etrafındaki dönüşü oldukça yavaştır.
                 </div>
                 <button
                   className="detayButton"
@@ -465,19 +464,20 @@ const PlanetMercury = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Çap: 4.880 kilometre. <br />
+                  Güneş sistemimizdeki en küçük ve Güneş’e en yakın gezegendir.{" "}
                   <br />
-                  Güneş'e uzaklık: <br />
-                  Yaklaşık 57.9 milyon kilometre. <br />
                   <br />
-                  Bir tam yılı tamamlama süresi: Yaklaşık 88 gün.
+                  Yüzeyi kayalık ve kraterlerle kaplıdır. <br />
+                  <br />
+                  Merkür'ün atmosferi ve uydusu yoktur.
                   <br />
                 </div>
                 <button
                   className="detayButton"
                   onClick={handlePointerDetayClick}
+                  style={{ marginLeft: "10.5rem" }}
                 >
-                  Detay
+                  İleri
                 </button>
                 <button
                   className="closeButton"
@@ -607,7 +607,7 @@ const PlanetVenus = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
       orbitPosition.applyMatrix4(orbitRotationMatrix);
 
       planetRef.current.position.copy(orbitPosition);
-      planetRef.current.rotation.y += rotationSpeed;
+      planetRef.current.rotation.y -= rotationSpeed;
     }
   });
 
@@ -660,15 +660,17 @@ const PlanetVenus = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Merkür'den biraz daha büyük, kayalık bir gezegendir.
+                  Dünya'nın ve diğer gezegenlerin çoğunun tersi yönde
+                  dönmektedir. Ters yönde dönmesinden dolayı Güneş batıdan doğar
+                  ve doğudan batar.
                   <br />
                   <br />
-                  Güneş sistemindeki en kalın atmosfere sahip gezegenlerden
-                  biridir.
+                  Venüs’te bir gün, yaklaşık 243 Dünya günü sürer.
                   <br />
                   <br />
-                  Yüzey sıcaklıkları çok yüksektir ve yoğun asit bulutlarına
-                  sahiptir.
+                  Venüs’te bir yıl, 225 Dünya günü sürer. Bu, Venüs'te hala aynı
+                  gün olmasına rağmen, Güneş'in Venüs'te her yıl iki kez doğduğu
+                  anlamına gelir.
                 </div>
                 <button
                   className="detayButton"
@@ -698,19 +700,22 @@ const PlanetVenus = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Çap: 12.104 kilometre. <br />
+                  Güneş’e en yakın gezegen Merkür olmasına rağmen, Venüs en
+                  sıcak gezegendir. Bunun nedeni yoğun sera gazları içeren kalın
+                  bir atmosferinin olmasıdır. Bu gazlar, Güneş’ten gelen
+                  sıcaklığı hapseder ve Venüs'ü sıcak yapar. <br />
                   <br />
-                  Güneş'e uzaklık: <br />
-                  Yaklaşık 108.2 milyon kilometre. <br />
+                  Venüs’ün yüzeyinde dağlar ve volkanlar bulunur. <br />
                   <br />
-                  Bir tam yılı tamamlama süresi: Yaklaşık 225 gün.
+                  Venüs'ün uydusu yoktur.
                   <br />
                 </div>
                 <button
                   className="detayButton"
                   onClick={handlePointerDetayClick}
+                  style={{ marginLeft: "10.5rem" }}
                 >
-                  Detay
+                  İleri
                 </button>
                 <button
                   className="closeButton"
@@ -893,16 +898,16 @@ const PlanetEarth = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Evimiz olan Dünya, sıvı su bulunduran tek gezegen olarak
-                  bilinir.
+                  Dünya'nın uydusu Ay'dır.
                   <br />
                   <br />
-                  Atmosferi, yaşam için gerekli olan oksijen ve diğer gazları
-                  içerir.
+                  Dünya’da bir gün, 24 saatten biraz daha kısa (23,9 saat)
+                  sürer.
                   <br />
                   <br />
-                  Karasal ve sıvı yüzeyleri, çeşitli iklim ve ekosistemlere ev
-                  sahipliği yapar.
+                  Dünya’da bir yıl, 365,25 gün sürer. Bu fazladan 0,25, her dört
+                  yılda bir takvimimize bir gün olarak eklenir. Buna artık gün
+                  (artık yılda) denir.
                 </div>
                 <button
                   className="detayButton"
@@ -932,20 +937,24 @@ const PlanetEarth = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Çap: 12.742 kilometre. <br />
+                  İçinde yaşadığımız gezegendir. <br />
                   <br />
-                  Güneş'e uzaklık: <br />
-                  Yaklaşık 149.6 milyon kilometre.
+                  Karasal ve kayalık bir gezegendir. Katı bir kabuk, dağlar,
+                  vadiler, kanyonlar, ovalar, volkanlar ve birçok yer şeklini
+                  içeren bir yüzeye sahiptir. %70'ini okyanuslar ve denizler
+                  oluşturur.
                   <br />
                   <br />
-                  Bir tam yılı tamamlama süresi: 365.25 gün.
+                  Atmosfer çoğunlukla nitrojenden oluşur ve nefes alabilmemiz
+                  için bol miktarda oksijen içerir.
                   <br />
                 </div>
                 <button
                   className="detayButton"
                   onClick={handlePointerDetayClick}
+                  style={{ marginLeft: "10.5rem" }}
                 >
-                  Detay
+                  İleri
                 </button>
                 <button
                   className="closeButton"
@@ -1128,15 +1137,15 @@ const PlanetMars = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Kızıl gezegen olarak da bilinen Mars, ince bir atmosfere ve
-                  soğuk bir yüzeye sahiptir.
+                  Mars, geçmişte veya gelecekte yaşam olup olmayacağını öğrenmek
+                  için etrafında dolaşılıp, fotoğraf çekmek ve ölçümler yapmak
+                  için keşif aracı gönderilen tek gezegendir.
                   <br />
                   <br />
-                  Geçmişte suyun varlığını gösteren izler bulunmuştur.
+                  Mars’ta bir gün, yaklaşık 1 Dünya günü (24,6 saat) sürer.
                   <br />
                   <br />
-                  Mars, potansiyel olarak insan kolonileri için bir hedef
-                  olabilir.
+                  Mars’ta bir yıl, 687 Dünya günü sürer.
                 </div>
                 <button
                   className="detayButton"
@@ -1166,20 +1175,23 @@ const PlanetMars = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Çap: 6.779 kilometre <br />
+                  Toprağında bulunan demirden dolayı kırmızı gözükür ve bu
+                  nedenle “Kırmızı Gezegen” de denir. <br />
                   <br />
-                  Güneş'e uzaklık: <br />
-                  Yaklaşık 227.9 milyon kilometre.
+                  Soğuk bir çöl gezegenidir. Dünya gibi Mars’ın da mevsimleri,
+                  kutup buzulları, volkanları, kanyonları ve hava olayları
+                  vardır.
                   <br />
                   <br />
-                  Bir tam yılı tamamlama süresi: Yaklaşık 687 gün.
+                  Atmosferi çok incedir.
                   <br />
                 </div>
                 <button
                   className="detayButton"
                   onClick={handlePointerDetayClick}
+                  style={{ marginLeft: "10.5rem" }}
                 >
-                  Detay
+                  İleri
                 </button>
                 <button
                   className="closeButton"
@@ -1361,14 +1373,16 @@ const PlanetJupiter = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Güneş sisteminin en büyük gezegenidir.
+                  “Büyük Kırmızı Nokta” olarak adlandırılan yerde yüzlerce
+                  yıldır devam eden fırtınalar vardır.
                   <br />
                   <br />
-                  Yoğun bir atmosfere ve devasa bir manyetik alanına sahiptir.
+                  Jüpiter’in halkaları vardır, fakat gözle görülemeyecek kadar
+                  solgundur.
                   <br />
                   <br />
-                  Büyük kısmı hidrojen ve helyumdan oluşur ve çeşitli büyük
-                  rüzgarlı sistemlere sahiptir.
+                  Jüpiter'de bir gün, 10 saat sürer. Jüpiter'de bir yıl yaklaşık
+                  11,8 Dünya yılı sürer.
                 </div>
                 <button
                   className="detayButton"
@@ -1398,21 +1412,23 @@ const PlanetJupiter = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Çap: 139.820 kilometre.
+                  Güneş Sistemimizdeki en büyük gezegendir.
                   <br />
                   <br />
-                  Güneş'e uzaklık: <br />
-                  Yaklaşık 778.3 milyon kilometre.
+                  Jüpiter bir gaz devidir, bu yüzden katı bir yüzeye sahip
+                  değildir.
                   <br />
                   <br />
-                  Bir tam yılı tamamlama süresi: Yaklaşık 11.9 yıl.
+                  Çok kalın bir atmosferi vardır. Atmosferi dönen bulut
+                  çizgileri ile kaplıdır.
                   <br />
                 </div>
                 <button
                   className="detayButton"
                   onClick={handlePointerDetayClick}
+                  style={{ marginLeft: "10.5rem" }}
                 >
-                  Detay
+                  İleri
                 </button>
                 <button
                   className="closeButton"
@@ -1599,14 +1615,13 @@ const PlanetSaturn = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Büyük ve halkalı bir gezegen olan Satürn, Jüpiter'den biraz
-                  daha küçüktür.
+                  Satürn bir gaz devidir. Kalın bir atmosferi vardır.
                   <br />
                   <br />
-                  Eşsiz halka sistemleri ile tanınır.
+                  Satürn'de bir gün, 10,7 saat sürer.
                   <br />
                   <br />
-                  Halkalar, buz ve kaya parçacıklarından oluşmuştur.
+                  Satürn'de bir yıl, 29 Dünya yılı sürer.
                 </div>
                 <button
                   className="detayButton"
@@ -1636,21 +1651,21 @@ const PlanetSaturn = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Çap: 116.460 kilometre.
+                  Güneş Sistemimizdeki en güzel halkalara sahip gezegendir.
                   <br />
                   <br />
-                  Güneş'e uzaklık: <br />
-                  Yaklaşık 1.4 milyar kilometre.
+                  Satürn aralarında boşluklar olan 7 ana halkaya sahiptir.
                   <br />
                   <br />
-                  Bir tam yılı tamamlama süresi: Yaklaşık 29.5 yıl.
+                  Bu halkalar buz ve kaya parçalarından meydana gelir.
                   <br />
                 </div>
                 <button
                   className="detayButton"
                   onClick={handlePointerDetayClick}
+                  style={{ marginLeft: "10.5rem" }}
                 >
-                  Detay
+                  İleri
                 </button>
                 <button
                   className="closeButton"
@@ -1832,14 +1847,17 @@ const PlanetUranus = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Yatayda eğik bir eksene sahiptir.
+                  Uranüs’ün atmosferi büyük miktarda metan içerdiği için
+                  mavi-yeşil renktedir.
                   <br />
                   <br />
-                  Atmosferi metan ve hidrojen içerir.
+                  Uranüs 13 halkadan oluşan bir setle çevrilidir. İç halkaları
+                  dar ve karanlıktır. Dış halkaları ise parlak renklidir ve
+                  görülmesi daha kolaydır.
                   <br />
                   <br />
-                  Güneş sistemindeki diğer gezegenlerden farklı olarak, Uranüs
-                  yan yatar bir eksende döner.
+                  Uranüs'te bir gün, 17 saatten biraz fazla sürer. Uranüs'te bir
+                  yıl, 84 Dünya yılı sürer.
                 </div>
                 <button
                   className="detayButton"
@@ -1869,21 +1887,23 @@ const PlanetUranus = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Çap: 50.724 kilometre.
+                  Uranüs yörünge düzleminden neredeyse 90 derecelik bir açıyla
+                  döner. Diğer gezegenlere oranla eksen eğikliği daha fazladır.
                   <br />
                   <br />
-                  Güneş'e uzaklık: <br />
-                  Yaklaşık 2.9 milyar kilometre.
+                  Uranüs, Venüs gibi, çoğu gezegenin tersine, doğudan batıya
+                  doğru döner.
                   <br />
                   <br />
-                  Bir tam yılı tamamlama süresi: Yaklaşık 84 yıl.
+                  Uranüs bir buz devidir, çok soğuk ve rüzgarlıdır.
                   <br />
                 </div>
                 <button
                   className="detayButton"
                   onClick={handlePointerDetayClick}
+                  style={{ marginLeft: "10.5rem" }}
                 >
-                  Detay
+                  İleri
                 </button>
                 <button
                   className="closeButton"
@@ -2065,14 +2085,13 @@ const PlanetNeptune = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Güneş sisteminin en uzak dev gezegenidir.
+                  Neptün’ün 6 halkası vardır, fakat bunları görmesi çok zordur.
                   <br />
                   <br />
-                  Büyük bir atmosfere ve hızlı rüzgarlara sahiptir.
+                  Neptün'de bir gün, 16 saat sürer.
                   <br />
                   <br />
-                  Büyük olasılıkla gaz devi bir iç çekirdek ile çevrili yoğun
-                  bir atmosfere sahiptir.
+                  Neptün'de bir yıl, 165 Dünya yılı sürer.
                 </div>
                 <button
                   className="detayButton"
@@ -2102,21 +2121,24 @@ const PlanetNeptune = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Çap: 49.244 kilometre.
+                  Güneş sistemimizdeki gezegenlerin sonuncusudur. Güneş'e
+                  Dünya'nın 30 katından daha uzaktır.
                   <br />
                   <br />
-                  Güneş'e uzaklık: <br />
-                  Yaklaşık 4.5 milyar kilometre.
+                  Karanlık, soğuk ve çok rüzgarlı bir gezegendir.
                   <br />
                   <br />
-                  Bir tam yılı tamamlama süresi: Yaklaşık 165 yıl
+                  Neptün bir buz devidir ve yapısal olarak gaz devine benzer.
+                  Kalın ve rüzgarlı bir atmosferi vardır. Neptün’e mavi rengini
+                  veren metandır.
                   <br />
                 </div>
                 <button
                   className="detayButton"
                   onClick={handlePointerDetayClick}
+                  style={{ marginLeft: "10.5rem" }}
                 >
-                  Detay
+                  İleri
                 </button>
                 <button
                   className="closeButton"
@@ -2298,15 +2320,12 @@ const PlanetPluto = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  2006 yılına kadar gezegen olarak kabul ediliyordu, ancak
-                  Uluslararası Astronomi Birliği tarafından cüce gezegen olarak
-                  sınıflandırılmıştır.
+                  Plüton esas olarak nitrojen buzu ve kayadan oluşur.
                   <br />
                   <br />
-                  Kuiper Kuşağı'nda yer alır.
+                  Yüzeyi dağlar, vadiler ve kraterlerle kaplıdır. Yüzeyi hem
+                  parlaklık hem de renk bakımından farklılık gösterir.
                   <br />
-                  <br />
-                  Atmosferi, az miktarda azot, metan ve karbon dioksit içerir.
                 </div>
                 <button
                   className="detayButton"
@@ -2336,21 +2355,21 @@ const PlanetPluto = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                     width: "240px",
                   }}
                 >
-                  Çap: 2.377 kilometre.
+                  Plüton 2006 yılına kadar gezegen olarak sınıflandırılmaktaydı.
                   <br />
                   <br />
-                  Güneş'e uzaklık: <br />
-                  Yaklaşık 5.9 milyar kilometre.
+                  Plüton artık bir gezegen olarak değil, cüce gezegenler
+                  arasında en büyüğü olmasına rağmen, boyutundan dolayı cüce
+                  gezegen olarak kabul edilmektedir.
                   <br />
-                  <br />
-                  Bir tam yılı tamamlama süresi: Yaklaşık 248 yıl.
                   <br />
                 </div>
                 <button
                   className="detayButton"
                   onClick={handlePointerDetayClick}
+                  style={{ marginLeft: "10.5rem" }}
                 >
-                  Detay
+                  İleri
                 </button>
                 <button
                   className="closeButton"
