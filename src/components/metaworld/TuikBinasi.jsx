@@ -27,9 +27,9 @@ export function TuikBinasi(props) {
   return (
     <group {...props} dispose={null} position={[-4.2, 0, 12.405]}>
       <group
-        position={[-67.377, 7.955, 43.669]}
+        position={[-67.377, 9.369, 47.367]}
         rotation={[0, -1.557, 0]}
-        scale={0.011}
+        scale={0.012}
       >
         {isBilgiGateTriggered ? (
           <Html>
@@ -55,30 +55,41 @@ export function TuikBinasi(props) {
         ) : (
           <></>
         )}
-
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Mesh003.geometry}
+          geometry={nodes.Mesh.geometry}
           material={materials.tuikb_camlar}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Mesh003_1.geometry}
+          geometry={nodes.Mesh_1.geometry}
           material={materials["tuikb_1.001"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Mesh003_2.geometry}
+          geometry={nodes.Mesh_2.geometry}
           material={materials["tuikb_3.002"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Mesh003_3.geometry}
+          geometry={nodes.Mesh_3.geometry}
           material={materials["tuikb_yazilar.002"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh_4.geometry}
+          material={materials["Material.004"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh_5.geometry}
+          material={materials["Material.003"]}
         />
       </group>
     </group>

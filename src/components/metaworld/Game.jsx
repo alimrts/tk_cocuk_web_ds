@@ -145,13 +145,10 @@ export default function Game(props) {
     (state) => state.setIsBilgiIcTriggered
   );
 
-  const toggleBilgiIcTrigger = useZustandStore(
-    (state) => state.toggleBilgiIcTrigger
-  );
-
   const handleBilgiIcTrigger = () => {
     setIsBilgiIcTriggered(true);
     setIsBilgiGateTriggered(false);
+
     console.log("bilgi ic: " + isBilgiIcTriggered);
   };
 
@@ -160,10 +157,6 @@ export default function Game(props) {
   );
   const setIsBilgiGateTriggered = useZustandStore(
     (state) => state.setIsBilgiGateTriggered
-  );
-
-  const toggleBilgiGateTrigger = useZustandStore(
-    (state) => state.toggleBilgiGateTrigger
   );
 
   const handleBilgiGateTrigger = () => {
@@ -214,9 +207,12 @@ export default function Game(props) {
     setIsGeriClickedInTuik(false);
     setIsGeriClickedInSolarSystem(false);
 
+    console.log("useEffedct in game calisti");
+
     return () => {
       // Function to run when component unmounts
       handleBilgiIcTrigger();
+
       // Place your cleanup code here
     };
   }, []);

@@ -32,6 +32,8 @@ import kus5 from "../../img/kus5.png";
 import FloatinDivForNavbarMenu from "../FloatingDiv/FloatinDivForNavbarMenu";
 import FloatinDivForIntroRight from "../FloatingDiv/FloatinDivForIntroRight";
 
+import useZustandStore from "../../zustandStore";
+
 function capitalizeFirstLetter(str) {
   if (str && typeof str === "string") {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -133,6 +135,8 @@ const Intro = (props) => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
 
+  const setPlayerPosition = useZustandStore((state) => state.setPlayerPosition);
+
   const {
     setShowMetaverse,
     ad,
@@ -147,8 +151,15 @@ const Intro = (props) => {
   } = props;
 
   const handleButtonClick = () => {
-    onButtonClick();
+    // onButtonClick();
+    setPlayerPosition([0, 0, 0]);
+
     setShowMetaverse(true);
+  };
+
+  const handleButtonClickForDunya = () => {
+    onButtonClick();
+    // setShowMetaverse(true);
   };
 
   console.log("gelen cinsiyet intro: ", cinsiyet);
@@ -341,7 +352,7 @@ const Intro = (props) => {
           <Link
             to="/metaverse"
             state={{ cinsiyetGonder: cinsiyet }}
-            onClick={handleButtonClick}
+            onClick={handleButtonClickForDunya}
           >
             <FloatinDivForNavbarMenu img={tkc_basla} />
           </Link>

@@ -1,14 +1,52 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, Html } from "@react-three/drei";
 import * as THREE from "three";
 import { Color } from "three";
+import useZustandStore from "../../zustandStore";
 
 export function Dome(props) {
   const { nodes, materials } = useGLTF("/models/dome.glb");
 
+  const isBilgiGateTriggered = useZustandStore(
+    (state) => state.isBilgiGateTriggered
+  );
+
+  const setIsBilgiGateTriggered = useZustandStore(
+    (state) => state.setIsBilgiGateTriggered
+  );
+
+  // const handleGoToOyun = () => {
+  //   props.onOyunClick();
+  //   // setIsBilgiGateTriggered(false);
+  // };
+
   return (
     <group {...props} dispose={null}>
       <group name="Icosphere002" position={[0, 7.665, -0.405]} scale={0.01}>
+        {isBilgiGateTriggered ? (
+          <Html>
+            <div
+              className="glassFrame"
+              style={{
+                position: "relative",
+                backgroundColor: "#323632a4",
+                width: "220px",
+                textAlign: "center",
+                top: -110,
+                left: -125,
+                fontSize: "14pt",
+                cursor: "pointer",
+                color: "lightblue",
+                padding: "4px",
+              }}
+              // onClick={handleGoToOyun}
+            >
+              OYUN MERKEZİ
+            </div>
+          </Html>
+        ) : (
+          <></>
+        )}
         <mesh
           name="Mesh003"
           castShadow

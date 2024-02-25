@@ -13,7 +13,8 @@ export default function PlayerCollider(props) {
   const isAnyGameOpened = useZustandStore((state) => state.isAnyGameOpened);
 
   const cinsiyet = props.cinsiyet;
-  console.log("gelen cinsiyet Player metaworld: ", props.cinsiyet);
+
+  // console.log("gelen cinsiyet Player metaworld: ", props.cinsiyet);
 
   const { pivot } = useFollowCam();
   const canJump = useRef(false);
@@ -99,7 +100,7 @@ export default function PlayerCollider(props) {
       if (keyboard["KeyW"] || keyboard["ArrowUp"]) {
         inputVelocity.z = -10 * delta;
         // console.log("delta: ", delta);
-        //console.log("group.current.position: ", group.current.position);
+        console.log("group.current.position: ", group.current.position);
       }
       if (keyboard["KeyS"] || keyboard["ArrowDown"]) {
         inputVelocity.z = 10 * delta;

@@ -57,6 +57,7 @@ export default function useFollowCam() {
   useEffect(() => {
     if (!isAnyGameOpened) {
       camera.position.set(0, 0.5, 0.6);
+
       followCam.add(camera);
       pivot.add(followCam);
       scene.add(pivot);

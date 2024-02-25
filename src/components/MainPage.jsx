@@ -19,6 +19,21 @@ const MainPage = () => {
   const history = useHistory();
   const [showMetaverse, setShowMetaverse] = useState(false);
 
+  const setPlayerPosition = useZustandStore((state) => state.setPlayerPosition);
+
+  const setIsBilgiGateTriggered = useZustandStore(
+    (state) => state.setIsBilgiGateTriggered
+  );
+
+  const setIsBilgiIcTriggered = useZustandStore(
+    (state) => state.setIsBilgiIcTriggered
+  );
+
+  const handleBilgiGateTrigger = () => {
+    setIsBilgiGateTriggered(true);
+    setIsBilgiIcTriggered(false);
+  };
+
   const handleKeyDown = (event) => {
     if (event.keyCode === 27) {
       // ESC key
@@ -33,7 +48,11 @@ const MainPage = () => {
   }, []);
 
   const handleMetaverseButtonClick = () => {
+    //
+    setPlayerPosition([-23, 0.3, 96]);
+
     setShowMetaverse(true);
+    handleBilgiGateTrigger();
   };
 
   const { userInfo } = useZustandStore();
