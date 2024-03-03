@@ -236,7 +236,8 @@ function Metaverse(props) {
                 {testing ? <gridHelper args={[10, 10]} /> : null}
                 <Environment background={true} files={"/env/CasualDay2K.hdr"} />
 
-                {/* <OrbitControls for large view
+                {/* for large view */}
+                {/* <OrbitControls
                   enableZoom={true}
                   makeDefault
                   rotateSpeed={0.6}

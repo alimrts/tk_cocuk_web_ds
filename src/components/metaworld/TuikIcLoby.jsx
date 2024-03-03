@@ -37,7 +37,7 @@ function LoaderBase() {
 }
 
 const TuikIcBina = (props) => {
-  const { nodes, materials } = useGLTF("./models/tuik_ic_loby2.glb");
+  const { nodes, materials } = useGLTF("./models/tuik_ic_loby3.glb");
 
   const group = useRef();
 
@@ -218,42 +218,6 @@ const TuikIcBina = (props) => {
           position={[-33.071, 9853.379, 515.687]}
           rotation={[0, -1.571, 0]}
           scale={100}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube001.geometry}
-          material={materials["01 - Default.001"]}
-          position={[-138.684, -983.186, -1979.831]}
-          rotation={[Math.PI, 0, Math.PI]}
-          scale={[126.814, 164.823, 164.823]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube002.geometry}
-          material={materials["02 - Default.001"]}
-          position={[-243.259, -983.186, -1979.831]}
-          rotation={[Math.PI, 0, Math.PI]}
-          scale={[126.814, 164.823, 164.823]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube003.geometry}
-          material={materials["03 - Default.001"]}
-          position={[-347.606, -983.186, -1979.831]}
-          rotation={[Math.PI, 0, Math.PI]}
-          scale={[126.814, 164.823, 164.823]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube008.geometry}
-          material={materials["defaut.001"]}
-          position={[-451.787, -983.186, -1979.831]}
-          rotation={[Math.PI, 0, Math.PI]}
-          scale={[126.814, 164.823, 164.823]}
         />
         <group
           position={[959.297, -1031.489, 1210.849]}
@@ -1405,7 +1369,6 @@ const TuikIcBina = (props) => {
             geometry={nodes.Mesh098_3.geometry}
             material={materials["Metal.006"]}
           />
-
           <Html>
             <div
               className="glassFrame"
@@ -2409,6 +2372,98 @@ const TuikIcBina = (props) => {
             receiveShadow
             geometry={nodes.Mesh189_1.geometry}
             material={materials["Ceramic.001"]}
+          />
+        </group>
+      </group>
+      <group position={[-5.411, 8.701, -8.63]} scale={0.01}>
+        <group
+          position={[-65.333, 15.889, -2030.163]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.449}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh004.geometry}
+            material={materials.afis_ataturk}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh004_1.geometry}
+            material={materials["afisk.002"]}
+          />
+        </group>
+        <group
+          position={[-451.787, -983.186, -1979.831]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[126.814, 164.823, 164.823]}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh003.geometry}
+            material={materials["defaut.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh003_1.geometry}
+            material={materials.cop_mavi}
+          />
+        </group>
+        <group
+          position={[-347.606, -983.186, -1979.831]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[126.814, 164.823, 164.823]}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh002.geometry}
+            material={materials["03 - Default.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh002_1.geometry}
+            material={materials.cop_mavi}
+          />
+        </group>
+        <group
+          position={[-243.259, -983.186, -1979.831]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[126.814, 164.823, 164.823]}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh001.geometry}
+            material={materials["02 - Default.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh001_1.geometry}
+            material={materials.cop_mavi}
+          />
+        </group>
+        <group
+          position={[-138.684, -983.186, -1979.831]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[126.814, 164.823, 164.823]}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh.geometry}
+            material={materials["01 - Default.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh_1.geometry}
+            material={materials.cop_mavi}
           />
         </group>
       </group>

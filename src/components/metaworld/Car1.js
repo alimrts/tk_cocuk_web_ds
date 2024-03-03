@@ -30,7 +30,7 @@ export function Car1(props) {
 
   useEffect(() => {
     actions.car1anim.play();
-    actions.car1anim.setDuration(100);
+    actions.car1anim.setDuration(40);
   }, [actions]); // Empty dependency array to run the effect only once
 
   useFrame(() => {
@@ -158,9 +158,18 @@ export function Car1(props) {
       </group>
 
       {/* Render the obstacle */}
-      <Obstacle
+      {/* <Obstacle
         args={[6, 4, 9]}
         rotation={[0, 1.57, 0]}
+        position={obstaclePosition}
+        onCollide={(e) => {
+          // handleContinue();
+        }}
+      /> */}
+
+      <Obstacle
+        args={[6, 4, 6]}
+        rotation={[0, 0.78, 0]}
         position={obstaclePosition}
         onCollide={(e) => {
           // handleContinue();
