@@ -2377,24 +2377,6 @@ const TuikIcBina = (props) => {
       </group>
       <group position={[-5.411, 8.701, -8.63]} scale={0.01}>
         <group
-          position={[-65.333, 15.889, -2030.163]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.449}
-        >
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh004.geometry}
-            material={materials.afis_ataturk}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh004_1.geometry}
-            material={materials["afisk.002"]}
-          />
-        </group>
-        <group
           position={[-451.787, -983.186, -1979.831]}
           rotation={[Math.PI, 0, Math.PI]}
           scale={[126.814, 164.823, 164.823]}
@@ -2464,6 +2446,26 @@ const TuikIcBina = (props) => {
             receiveShadow
             geometry={nodes.Mesh_1.geometry}
             material={materials.cop_mavi}
+          />
+        </group>
+      </group>
+      <group position={[-5.411, 8.701, -8.63]} scale={0.01}>
+        <group
+          position={[-65.333, 89.552, -2030.163]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={[0.496, 0.449, 0.496]}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh005.geometry}
+            material={materials["afis_ataturk.001"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh005_1.geometry}
+            material={materials.afisk}
           />
         </group>
       </group>

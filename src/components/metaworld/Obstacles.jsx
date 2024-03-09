@@ -197,12 +197,40 @@ export default function Obstacles() {
         rotation={[0, 1.571, 0]}
         material={"ground"}
       />
+
+      {/* arka bolum */}
       <Obstacle
-        args={[40, 50, 47]}
-        position={[140, -0.017, 145]}
+        args={[60, 50, 320]}
+        position={[15, -0.017, 135]}
         rotation={[0, 1.571, 0]}
         material={"ground"}
       />
+
+      {/* on sinir */}
+      <Obstacle
+        args={[10, 50, 320]}
+        position={[15, -0.017, -161]}
+        rotation={[0, 1.571, 0]}
+        material={"ground"}
+      />
+
+      {/* yan sinir1 */}
+      <Obstacle
+        args={[10, 50, 300]}
+        position={[-130, -0.017, -40]}
+        rotation={[0, 0, 0]}
+        material={"ground"}
+      />
+
+      {/* yan sinir2 */}
+      <Obstacle
+        args={[10, 50, 300]}
+        position={[168, -0.017, -40]}
+        rotation={[0, 0, 0]}
+        material={"ground"}
+      />
+
+      {/* ---- */}
       <Obstacle
         args={[57, 50, 22]}
         position={[57, -0.017, -80]}
@@ -1196,132 +1224,9 @@ export default function Obstacles() {
         rotation={[0, 1.571, 0]}
         material={"ground"}
       />
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-123.4, -0.017, 106.6]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-104.8, -0.017, 106.6]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[3, 4, 1.2]}
-        position={[-113.6, -0.017, 107.3]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-113.4, -0.017, 113.2]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[3, 4, 1.2]}
-        position={[-113.6, -0.017, 119.1]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-
-      {/* group trees and etc. */}
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-104.3, -0.017, 127.7]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-113.5, -0.017, 127.7]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-122.9, -0.017, 127.7]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-123.4, -0.017, 134.8]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-104.8, -0.017, 134.8]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[3, 4, 1.2]}
-        position={[-113.6, -0.017, 135.5]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-113.4, -0.017, 141.4]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[3, 4, 1.2]}
-        position={[-113.6, -0.017, 147.3]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-
-      {/* group trees and etc. */}
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-104.3, -0.017, 155.8]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-113.5, -0.017, 155.8]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-122.9, -0.017, 155.8]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-123.4, -0.017, 162.9]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-104.8, -0.017, 162.9]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
-      <Obstacle
-        args={[3, 4, 1.2]}
-        position={[-113.6, -0.017, 163.7]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
 
       {/* yan park yan lamba etc. */}
-      <Obstacle
-        args={[0.5, 4, 0.5]}
-        position={[-100.1, -0.017, 125.5]}
-        rotation={[0, 1.571, 0]}
-        material={"ground"}
-      />
+
       <Obstacle
         args={[0.5, 4, 0.5]}
         position={[-100.1, -0.017, 70.2]}
