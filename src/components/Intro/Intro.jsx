@@ -296,11 +296,58 @@ const Intro = (props) => {
       {/* left name side */}
       <div className="i-left">
         <div className="i-name">
-          {/* yahan change hy darkmode ka */}
-          <span>TÜİK Çocuk Platformu'na</span>
-          <span style={{ color: darkMode ? "white" : "" }}>
-            Hoş geldin {capitalizedStr} !
+          {/* change darkmode */}
+
+          {/* <span
+            style={{
+              color: darkMode ? "white" : "orange",
+              textAlign: "center",
+              marginLeft: "-9rem",
+              fontSize: "1.4rem",
+            }}
+          >
+            TÜİK Çocuk Platformu'na
           </span>
+          <span
+            style={{
+              color: darkMode ? "white" : "blue",
+              textAlign: "center",
+              marginLeft: "-9rem",
+              fontSize: "1.4rem",
+            }}
+          >
+            Hoş geldin {capitalizedStr} !
+          </span> */}
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              position: "absolute",
+              left: "18rem",
+            }}
+          >
+            <span
+              style={{
+                color: darkMode ? "white" : "orange",
+                textAlign: "center",
+                marginLeft: "-9rem",
+                fontSize: "1.4rem",
+              }}
+            >
+              TÜİK Çocuk Platformu'na
+            </span>
+            <span
+              style={{
+                color: darkMode ? "white" : "blue",
+                textAlign: "center",
+                marginLeft: "-9rem",
+                fontSize: "1.4rem",
+              }}
+            >
+              Hoş geldin {capitalizedStr} !
+            </span>
+          </div>
 
           <div
             style={{
@@ -312,10 +359,9 @@ const Intro = (props) => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              // padding: "0 60px ",
-
               marginLeft: "0rem",
-              marginTop: "0rem",
+              marginTop: "5rem",
+              color: "gray",
             }}
           >
             {!loading ? (
