@@ -1,6 +1,7 @@
 import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import "./SoloarSystemStyle.css";
+import informationBtn from "../../img/information_btn.png";
 import useZustandStore from "../../zustandStore";
 import {
   useGLTF,
@@ -16,6 +17,8 @@ import * as THREE from "three";
 import { MeshStandardMaterial } from "three";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import mySvgImage from "./cursor_360.svg";
+import dergiSrc from "../../img/e2.jpg";
+import kurulusSrc from "../../img/e1.jpg";
 
 import TuikIcDaire1 from "./TuikIcDaire1";
 import TuikIcDaire2 from "./TuikIcDaire2";
@@ -73,8 +76,50 @@ const TuikIcBina = (props) => {
     setIsDaire4Triggered(true);
   };
 
+  const setShowInfoAfisDergi = useZustandStore(
+    (state) => state.setShowInfoAfisDergi
+  );
+
+  const showInfoAfisDergi = useZustandStore((state) => state.showInfoAfisDergi);
+
+  const setShowInfoAfisKurulus = useZustandStore(
+    (state) => state.setShowInfoAfisKurulus
+  );
+
+  const showInfoAfisKurulus = useZustandStore(
+    (state) => state.showInfoAfisKurulus
+  );
+
   const [hovered, set] = useState();
   useCursor(hovered, "pointer", "auto", document.body);
+
+  const handleButtonClickDergi = () => {
+    setShowInfoAfisDergi(!showInfoAfisDergi);
+  };
+
+  const handleButtonClickKurulus = () => {
+    setShowInfoAfisKurulus(!showInfoAfisKurulus);
+  };
+
+  const [hoveredDergi, setHoveredDergi] = useState(false);
+
+  const handleMouseEnterDergi = () => {
+    setHoveredDergi(true);
+  };
+
+  const handleMouseLeaveDergi = () => {
+    setHoveredDergi(false);
+  };
+
+  const [hoveredKurulus, setHoveredKurulus] = useState(false);
+
+  const handleMouseEnterKurulus = () => {
+    setHoveredKurulus(true);
+  };
+
+  const handleMouseLeaveKurulus = () => {
+    setHoveredKurulus(false);
+  };
 
   //
   // <Html>
@@ -141,42 +186,6 @@ const TuikIcBina = (props) => {
             castShadow
             receiveShadow
             geometry={nodes.Mesh187_1.geometry}
-            material={materials["afisk.001"]}
-          />
-        </group>
-        <group
-          position={[-1593.644, -604.458, 454.373]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.469}
-        >
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh186.geometry}
-            material={materials["afis3.001"]}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh186_1.geometry}
-            material={materials["afisk.001"]}
-          />
-        </group>
-        <group
-          position={[1421.788, -604.458, 454.282]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.469}
-        >
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh185.geometry}
-            material={materials["afis4.001"]}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh185_1.geometry}
             material={materials["afisk.001"]}
           />
         </group>
@@ -1370,24 +1379,28 @@ const TuikIcBina = (props) => {
             material={materials["Metal.006"]}
           />
           <Html>
-            <div
-              className="glassFrame"
-              style={{
-                position: "relative",
-                backgroundColor: "#323632a4",
-                width: "140px",
-                textAlign: "center",
-                top: -220,
-                left: -50,
-                fontSize: "14pt",
-                cursor: "pointer",
-                color: "lightblue",
-                padding: "4px",
-              }}
-              onClick={handleGoToDaire1}
-            >
-              Daire-1
-            </div>
+            {!showInfoAfisDergi && !showInfoAfisKurulus ? (
+              <div
+                className="glassFrame"
+                style={{
+                  position: "relative",
+                  backgroundColor: "#323632a4",
+                  width: "140px",
+                  textAlign: "center",
+                  top: -220,
+                  left: -50,
+                  fontSize: "14pt",
+                  cursor: "pointer",
+                  color: "lightblue",
+                  padding: "4px",
+                }}
+                onClick={handleGoToDaire1}
+              >
+                Bilgi Dağıtım ve İletişim Daire Başkanlığı
+              </div>
+            ) : (
+              ""
+            )}
           </Html>
         </group>
         <group
@@ -1420,24 +1433,28 @@ const TuikIcBina = (props) => {
             material={materials["Metal.006"]}
           />
           <Html>
-            <div
-              className="glassFrame"
-              style={{
-                position: "relative",
-                backgroundColor: "#323632a4",
-                width: "140px",
-                textAlign: "center",
-                top: -240,
-                left: -50,
-                fontSize: "14pt",
-                cursor: "pointer",
-                color: "lightblue",
-                padding: "4px",
-              }}
-              onClick={handleGoToDaire2}
-            >
-              Daire-2
-            </div>
+            {!showInfoAfisDergi && !showInfoAfisKurulus ? (
+              <div
+                className="glassFrame"
+                style={{
+                  position: "relative",
+                  backgroundColor: "#323632a4",
+                  width: "140px",
+                  textAlign: "center",
+                  top: -280,
+                  left: -50,
+                  fontSize: "14pt",
+                  cursor: "pointer",
+                  color: "lightblue",
+                  padding: "4px",
+                }}
+                onClick={handleGoToDaire2}
+              >
+                Dış İlişkiler Daire Başkanlığı
+              </div>
+            ) : (
+              ""
+            )}
           </Html>
         </group>
         <group
@@ -1530,24 +1547,28 @@ const TuikIcBina = (props) => {
             material={materials["Metal.006"]}
           />
           <Html>
-            <div
-              className="glassFrame"
-              style={{
-                position: "relative",
-                backgroundColor: "#323632a4",
-                width: "140px",
-                textAlign: "center",
-                top: -240,
-                left: -50,
-                fontSize: "14pt",
-                cursor: "pointer",
-                color: "lightblue",
-                padding: "4px",
-              }}
-              onClick={handleGoToDaire4}
-            >
-              Daire-4
-            </div>
+            {!showInfoAfisDergi && !showInfoAfisKurulus ? (
+              <div
+                className="glassFrame"
+                style={{
+                  position: "relative",
+                  backgroundColor: "#323632a4",
+                  width: "140px",
+                  textAlign: "center",
+                  top: -280,
+                  left: -50,
+                  fontSize: "14pt",
+                  cursor: "pointer",
+                  color: "lightblue",
+                  padding: "4px",
+                }}
+                onClick={handleGoToDaire4}
+              >
+                Veri Toplama Daire Başkanlığı
+              </div>
+            ) : (
+              ""
+            )}
           </Html>
         </group>
         <group
@@ -1580,24 +1601,28 @@ const TuikIcBina = (props) => {
             material={materials["Metal.006"]}
           />
           <Html>
-            <div
-              className="glassFrame"
-              style={{
-                position: "relative",
-                backgroundColor: "#323632a4",
-                width: "140px",
-                textAlign: "center",
-                top: -220,
-                left: -50,
-                fontSize: "14pt",
-                cursor: "pointer",
-                color: "lightblue",
-                padding: "4px",
-              }}
-              onClick={handleGoToDaire3}
-            >
-              Daire-3
-            </div>
+            {!showInfoAfisDergi && !showInfoAfisKurulus ? (
+              <div
+                className="glassFrame"
+                style={{
+                  position: "relative",
+                  backgroundColor: "#323632a4",
+                  width: "140px",
+                  textAlign: "center",
+                  top: -220,
+                  left: -50,
+                  fontSize: "14pt",
+                  cursor: "pointer",
+                  color: "lightblue",
+                  padding: "4px",
+                }}
+                onClick={handleGoToDaire3}
+              >
+                Basın ve Halkla İlişkiler Müşavirliği
+              </div>
+            ) : (
+              ""
+            )}
           </Html>
         </group>
         <group
@@ -2451,9 +2476,9 @@ const TuikIcBina = (props) => {
       </group>
       <group position={[-5.411, 8.701, -8.63]} scale={0.01}>
         <group
-          position={[-65.333, 89.552, -2030.163]}
+          position={[-65.333, 200.552, -2030.163]}
           rotation={[Math.PI / 2, 0, 0]}
-          scale={[0.496, 0.449, 0.496]}
+          scale={[0.8, 0.8, 0.8]}
         >
           <mesh
             castShadow
@@ -2469,7 +2494,201 @@ const TuikIcBina = (props) => {
           />
         </group>
       </group>
+      <group position={[-5.411, 8.701, -8.63]} scale={0.01}>
+        <group
+          position={[714.166, -561.893, -2032.564]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.469}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh007.geometry}
+            material={materials.afis4}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh007_1.geometry}
+            material={materials["afisk.003"]}
+          />
+        </group>
+        <group
+          position={[-828.349, -561.893, -2032.429]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.469}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh008.geometry}
+            material={materials.afis3}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh008_1.geometry}
+            material={materials["afisk.003"]}
+          />
+        </group>
+      </group>
+      <group position={[-5.411, 8.701, -8.63]} scale={0.01}>
+        <group
+          position={[-1593.644, -604.458, 454.373]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.469}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh010.geometry}
+            material={materials.era}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh010_1.geometry}
+            material={materials["afisk.005"]}
+          />
+          <Html>
+            <div
+              className={`information-button ${
+                showInfoAfisKurulus ? "clicked" : ""
+              }`}
+              style={{ left: "60px", top: "-170px" }}
+              onClick={handleButtonClickKurulus}
+              onMouseEnter={handleMouseEnterKurulus}
+              onMouseLeave={handleMouseLeaveKurulus}
+            >
+              <img src={informationBtn} alt="Information" />
+            </div>
+
+            <div>
+              {hoveredKurulus ? (
+                <div
+                  style={{
+                    position: "relative",
+                    backgroundColor: "#323632a4",
+                    width: "180px",
+                    textAlign: "center",
+                    top: -150,
+                    left: 0,
+                    fontSize: "14pt",
+                    cursor: "pointer",
+                    color: "lightblue",
+                    padding: "4px",
+                  }}
+                >
+                  Gazi Mustafa Kemal ATATÜRK Tarafından İmzalanan Kurumun
+                  Kuruluş Kanunu{" "}
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+          </Html>
+        </group>
+        <group
+          position={[1421.788, -604.458, 454.282]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.469}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh009.geometry}
+            material={materials.e2a}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh009_1.geometry}
+            material={materials["afisk.004"]}
+          />
+
+          <Html>
+            <div
+              className={`information-button ${
+                showInfoAfisDergi ? "clicked" : ""
+              }`}
+              style={{ left: "-120px", top: "-170px" }}
+              onClick={handleButtonClickDergi}
+              onMouseEnter={handleMouseEnterDergi}
+              onMouseLeave={handleMouseLeaveDergi}
+            >
+              <img src={informationBtn} alt="Information" />
+            </div>
+
+            <div>
+              {hoveredDergi ? (
+                <div
+                  style={{
+                    position: "relative",
+                    backgroundColor: "#323632a4",
+                    width: "180px",
+                    textAlign: "center",
+                    top: -150,
+                    left: -180,
+                    fontSize: "14pt",
+                    cursor: "pointer",
+                    color: "lightblue",
+                    padding: "4px",
+                  }}
+                >
+                  Türkiye İstatistik Kurumu tarafından çıkarılan 1927 Nüfus
+                  Sayımı Temalı Haftalık Dergi Kapağı{" "}
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+          </Html>
+        </group>
+      </group>
     </group>
+  );
+};
+
+const TextPopup = ({ src_image, onClose }) => {
+  return (
+    <>
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.5)", // Adjust the alpha value for transparency
+          zIndex: 999, // Make sure the overlay is on top
+        }}
+        onClick={onClose} // Close the popup when clicking on the overlay
+      ></div>
+
+      <div className="imagePopup">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "-2rem",
+          }}
+        >
+          <button onClick={onClose}>X</button>
+        </div>
+
+        <img
+          src={src_image}
+          alt=""
+          style={{
+            height: "840px",
+            position: "absolute",
+            borderRadius: "24px",
+            boxShadow: "0 12px 18px rgba(0, 0, 0, 0.6)",
+          }}
+        />
+      </div>
+    </>
   );
 };
 
@@ -2544,6 +2763,28 @@ const TuikIcLoby = () => {
 
   const handleDaire4Geri = () => {
     setIsDaire4Triggered(false);
+  };
+
+  const setShowInfoAfisDergi = useZustandStore(
+    (state) => state.setShowInfoAfisDergi
+  );
+
+  const showInfoAfisDergi = useZustandStore((state) => state.showInfoAfisDergi);
+
+  const handleInfoDergiClose = () => {
+    setShowInfoAfisDergi(false);
+  };
+
+  const setShowInfoAfisKurulus = useZustandStore(
+    (state) => state.setShowInfoAfisKurulus
+  );
+
+  const showInfoAfisKurulus = useZustandStore(
+    (state) => state.showInfoAfisKurulus
+  );
+
+  const handleInfoKurulusClose = () => {
+    setShowInfoAfisKurulus(false);
   };
 
   return (
@@ -2632,6 +2873,20 @@ const TuikIcLoby = () => {
           </EffectComposer>
         </Suspense>
       </Canvas>
+      {/* {showInfoAfisDergi && (
+        <div className="information-text">
+          Türkiye İstatistik Kurumu tarafından çıkarılan 1927 Nüfus Sayımı
+          Temalı Haftalık Dergi Kapağı
+        </div>
+      )} */}
+
+      {showInfoAfisDergi && (
+        <TextPopup src_image={dergiSrc} onClose={handleInfoDergiClose} />
+      )}
+
+      {showInfoAfisKurulus && (
+        <TextPopup src_image={kurulusSrc} onClose={handleInfoKurulusClose} />
+      )}
     </>
   );
 };

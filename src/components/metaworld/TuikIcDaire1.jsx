@@ -38,24 +38,6 @@ const TuikIcDaire1 = (props) => {
           material={materials["Material.008"]}
         />
       </group>
-      <group
-        position={[-18.558, 2.27, -1.763]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={[1.705, 1.705, 1.833]}
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh001.geometry}
-          material={materials["MAT_Monitors02.002"]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh001_1.geometry}
-          material={materials["Material.009"]}
-        />
-      </group>
       <group position={[0, 0.508, 9.06]} scale={0.01}>
         <mesh
           castShadow
@@ -274,44 +256,6 @@ const TuikIcDaire1 = (props) => {
       >
         <meshBasicMaterial map={texture} side={THREE.DoubleSide} />
       </mesh>
-      <group position={[-13.124, 1.205, -1.494]} scale={0.01}>
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh030.geometry}
-          material={materials["Cube_light2.003"]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh030_1.geometry}
-          material={materials["Cube_light1.003"]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh030_2.geometry}
-          material={materials["Cube_light3.003"]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh030_3.geometry}
-          material={materials["Cube_light4.003"]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh030_4.geometry}
-          material={materials["sag_belge_screen.002"]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh030_5.geometry}
-          material={materials["sol_belge_screen.002"]}
-        />
-      </group>
       <mesh
         castShadow
         receiveShadow
@@ -321,6 +265,24 @@ const TuikIcDaire1 = (props) => {
         rotation={[-Math.PI / 2, 0, 0]}
         scale={[44.389, 44.389, 3.411]}
       />
+      <group
+        position={[-18.558, 2.27, -2.865]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={[1.705, 1.705, 1.833]}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh014.geometry}
+          material={materials["MAT_Monitors02.001"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh014_1.geometry}
+          material={materials["Material.012"]}
+        />
+      </group>
     </group>
   );
 };

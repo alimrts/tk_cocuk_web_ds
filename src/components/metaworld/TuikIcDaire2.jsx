@@ -40,24 +40,6 @@ const TuikIcDaire2 = (props) => {
           material={materials["Material.013"]}
         />
       </group>
-      <group
-        position={[-18.558, 2.27, -1.763]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={[1.705, 1.705, 1.833]}
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh033.geometry}
-          material={materials["MAT_Monitors02.001"]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh033_1.geometry}
-          material={materials["Material.014"]}
-        />
-      </group>
       <group position={[0, 0.508, 9.06]} scale={0.01}>
         <mesh
           castShadow
@@ -204,7 +186,6 @@ const TuikIcDaire2 = (props) => {
         rotation={[-Math.PI / 2, 0, 0]}
         scale={[10.319, 0.033, 4.685]}
       />
-
       <mesh
         castShadow
         receiveShadow
@@ -286,42 +267,22 @@ const TuikIcDaire2 = (props) => {
           material={materials["Cube_light4.004"]}
         />
       </group>
-      <group position={[-13.124, 1.205, -1.494]} scale={0.01}>
+      <group
+        position={[-18.558, 2.27, -2.865]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={[1.705, 1.705, 1.833]}
+      >
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Mesh052.geometry}
-          material={materials["Cube_light2.004"]}
+          geometry={nodes.Mesh.geometry}
+          material={materials["MAT_Monitors02.001"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Mesh052_1.geometry}
-          material={materials["Cube_light1.004"]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh052_2.geometry}
-          material={materials["Cube_light3.004"]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh052_3.geometry}
-          material={materials["Cube_light4.004"]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh052_4.geometry}
-          material={materials["sag_belge_screen.003"]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Mesh052_5.geometry}
-          material={materials["sol_belge_screen.003"]}
+          geometry={nodes.Mesh_1.geometry}
+          material={materials["Material.005"]}
         />
       </group>
     </group>
