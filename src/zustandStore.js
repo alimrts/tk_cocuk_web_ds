@@ -147,10 +147,15 @@ const zustandStore = (set) => ({
 
   isDaire4Triggered: false,
   setIsDaire4Triggered: (value) => set({ isDaire4Triggered: value }),
-
   onCleanup: () => {
     // Reset the state to its initial value when the component is unmounted
     set({ isDaire4Triggered: false });
+  },
+
+  isDaire5Triggered: false,
+  setIsDaire5Triggered: (value) => set({ isDaire5Triggered: value }),
+  onCleanup: () => {
+    set({ isDaire5Triggered: false });
   },
 
   playerPosition: [0, 0, 0],

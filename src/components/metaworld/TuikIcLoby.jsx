@@ -24,6 +24,7 @@ import TuikIcDaire1 from "./TuikIcDaire1";
 import TuikIcDaire2 from "./TuikIcDaire2";
 import TuikIcDaire3 from "./TuikIcDaire3";
 import TuikIcDaire4 from "./TuikIcDaire4";
+import TuikIcDaire5 from "./TuikIcDaire5";
 
 function LoaderBase() {
   const { progress } = useProgress();
@@ -74,6 +75,14 @@ const TuikIcBina = (props) => {
 
   const handleGoToDaire4 = () => {
     setIsDaire4Triggered(true);
+  };
+
+  const setIsDaire5Triggered = useZustandStore(
+    (state) => state.setIsDaire5Triggered
+  );
+
+  const handleGoToDaire5 = () => {
+    setIsDaire5Triggered(true);
   };
 
   const setShowInfoAfisDergi = useZustandStore(
@@ -1516,6 +1525,30 @@ const TuikIcBina = (props) => {
             geometry={nodes.Mesh101_3.geometry}
             material={materials["Metal.006"]}
           />
+          <Html>
+            {!showInfoAfisDergi && !showInfoAfisKurulus ? (
+              <div
+                className="glassFrame"
+                style={{
+                  position: "relative",
+                  backgroundColor: "#323632a4",
+                  width: "140px",
+                  textAlign: "center",
+                  top: -180,
+                  left: -10,
+                  fontSize: "14pt",
+                  cursor: "pointer",
+                  color: "lightblue",
+                  padding: "4px",
+                }}
+                onClick={handleGoToDaire5}
+              >
+                Yazılım Daire Başkanlığı
+              </div>
+            ) : (
+              ""
+            )}
+          </Html>
         </group>
         <group
           position={[-1042.047, -842.166, -721.233]}
@@ -2697,6 +2730,7 @@ const TuikIcLoby = () => {
   const isDaire2Triggered = useZustandStore((state) => state.isDaire2Triggered);
   const isDaire3Triggered = useZustandStore((state) => state.isDaire3Triggered);
   const isDaire4Triggered = useZustandStore((state) => state.isDaire4Triggered);
+  const isDaire5Triggered = useZustandStore((state) => state.isDaire5Triggered);
 
   const setIsDaire1Triggered = useZustandStore(
     (state) => state.setIsDaire1Triggered
@@ -2709,6 +2743,10 @@ const TuikIcLoby = () => {
   );
   const setIsDaire4Triggered = useZustandStore(
     (state) => state.setIsDaire4Triggered
+  );
+
+  const setIsDaire5Triggered = useZustandStore(
+    (state) => state.setIsDaire5Triggered
   );
 
   const isTuikGateTriggered = useZustandStore(
@@ -2743,13 +2781,6 @@ const TuikIcLoby = () => {
     setIsBilgiGateTriggered(true);
   };
 
-  const handleDairelerGeri = () => {
-    setIsDaire1Triggered(false);
-    setIsDaire2Triggered(false);
-    setIsDaire3Triggered(false);
-    setIsDaire4Triggered(false);
-  };
-
   const handleDaire1Geri = () => {
     setIsDaire1Triggered(false);
   };
@@ -2763,6 +2794,10 @@ const TuikIcLoby = () => {
 
   const handleDaire4Geri = () => {
     setIsDaire4Triggered(false);
+  };
+
+  const handleDaire5Geri = () => {
+    setIsDaire5Triggered(false);
   };
 
   const setShowInfoAfisDergi = useZustandStore(
@@ -2801,6 +2836,8 @@ const TuikIcLoby = () => {
             handleDaire3Geri();
           } else if (isDaire4Triggered) {
             handleDaire4Geri();
+          } else if (isDaire5Triggered) {
+            handleDaire5Geri();
           } else {
             handleTuikGateTrigger();
           }
@@ -2848,6 +2885,8 @@ const TuikIcLoby = () => {
             <TuikIcDaire3 />
           ) : isDaire4Triggered ? (
             <TuikIcDaire4 />
+          ) : isDaire5Triggered ? (
+            <TuikIcDaire5 />
           ) : (
             <TuikIcBina />
           )}
