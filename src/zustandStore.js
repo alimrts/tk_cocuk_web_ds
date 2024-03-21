@@ -161,7 +161,6 @@ const zustandStore = (set) => ({
 
   showInfoAfisDergi: false,
   setShowInfoAfisDergi: (value) => set({ showInfoAfisDergi: value }),
-
   onCleanup: () => {
     // Reset the state to its initial value when the component is unmounted
     set({ showInfoAfisDergi: false });
@@ -169,10 +168,16 @@ const zustandStore = (set) => ({
 
   showInfoAfisKurulus: false,
   setShowInfoAfisKurulus: (value) => set({ showInfoAfisKurulus: value }),
-
   onCleanup: () => {
     // Reset the state to its initial value when the component is unmounted
     set({ showInfoAfisKurulus: false });
+  },
+
+  showDergi: false,
+  setShowDergi: (value) => set({ showDergi: value }),
+  onCleanup: () => {
+    // Reset the state to its initial value when the component is unmounted
+    set({ showDergi: false });
   },
 });
 

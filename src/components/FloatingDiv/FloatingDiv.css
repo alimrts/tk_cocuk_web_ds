@@ -66,7 +66,6 @@
 .floatingDivForMenuAlt {
   display: flex;
   align-items: center;
-
   padding: 0px 18px 0px 0px;
   height: 4.5rem;
   cursor: pointer;
@@ -75,7 +74,7 @@
 .floatingDivForMenuAlt:hover {
   transform: scale(1.05);
 
-  filter: sepia(100%) hue-rotate(-100deg) saturate(200%) brightness(100%);
+  filter: sepia(100%) hue-rotate(60deg) saturate(250%) brightness(100%) contrast(200%);
 }
 .floatingDivForMenuAlt > img {
   transform: scale(0.8);

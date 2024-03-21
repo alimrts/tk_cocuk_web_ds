@@ -7,6 +7,7 @@ import Toggle from "../Toggle/Toggle";
 import "./Navbar.css";
 import tkc_logo from "../../img/tkc_logo.png";
 import tkc_anasayfa from "../../img/tkc_anasayfa.png";
+import tkc_dergi from "../../img/tkc_dergi.png";
 import tkc_istatistik from "../../img/tkc_istatistik.png";
 import tkc_video from "../../img/tkc_video.png";
 import tkc_tuik from "../../img/tkc_tuik.png";
@@ -18,6 +19,8 @@ import FloatinDivForNavbarMenu from "../FloatingDiv/FloatinDivForNavbarMenu";
 import tkc_kuslar1 from "../../img/tkc_kuslar1.png";
 import tkc_kuslar2 from "../../img/tkc_kuslar2.png";
 import kus1 from "../../img/kus1.png";
+
+import dergiSrc from "../../img/tkc_dergi_cok_yakinda.jpg";
 import useZustandStore from "../../zustandStore";
 
 const Navbar = () => {
@@ -56,6 +59,13 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const showDergi = useZustandStore((state) => state.showDergi);
+  const setShowDergi = useZustandStore((state) => state.setShowDergi);
+
+  const handleDergiOpen = () => {
+    setShowDergi(!showDergi);
+  };
 
   return (
     <nav className={darkMode ? "navigationBlack" : "navigation"}>
@@ -108,6 +118,9 @@ const Navbar = () => {
         <div className="n-right">
           <div className="n-list">
             <ul style={{ listStyleType: "none" }} className="n-list">
+              <li className="n-list" onClick={handleDergiOpen}>
+                <FloatinDivForNavbarMenu img={tkc_dergi} />
+              </li>
               <li className="n-list">
                 <Link
                   to="Intro"
@@ -121,19 +134,8 @@ const Navbar = () => {
                   <FloatinDivForNavbarMenu img={tkc_anasayfa} />
                 </Link>
               </li>
-              {/* <li className="n-list">
-                <Link
-                  to="istatistik"
-                  spy={true}
-                  smooth={true}
-                  offset={-180}
-                  onClick={() => {
-                    setTimeout(() => setIsNavExpanded(false), 300);
-                  }}
-                >
-                  <FloatinDivForNavbarMenu img={tkc_istatistik} />
-                </Link>
-              </li>
+
+              {/* 
               <li className="n-list">
                 <Link
                   to="video"
@@ -184,8 +186,56 @@ const Navbar = () => {
           </button>
           <Toggle />
         </div>
+        {showDergi ? (
+          <TextPopup src_image={dergiSrc} onClose={handleDergiOpen} />
+        ) : (
+          ""
+        )}
       </div>
     </nav>
+  );
+};
+
+const TextPopup = ({ src_image, onClose }) => {
+  return (
+    <>
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.5)", // Adjust the alpha value for transparency
+          zIndex: 999, // Make sure the overlay is on top
+        }}
+        onClick={onClose} // Close the popup when clicking on the overlay
+      ></div>
+
+      <div className="imagePopup">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "-2rem",
+          }}
+        >
+          <button onClick={onClose}>X</button>
+        </div>
+
+        <img
+          src={src_image}
+          alt=""
+          style={{
+            height: "840px",
+            position: "absolute",
+            borderRadius: "24px",
+            boxShadow: "0 12px 18px rgba(0, 0, 0, 0.6)",
+          }}
+        />
+      </div>
+    </>
   );
 };
 
