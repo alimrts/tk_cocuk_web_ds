@@ -60,12 +60,14 @@
 .i-button {
   width: 6rem;
   height: 3rem;
+  user-select: none;
 }
 
 .i-buttonSertifika {
   width: 9rem;
   height: 3rem;
   font-size: 14pt;
+  user-select: none;
 }
 
 .i-icons {

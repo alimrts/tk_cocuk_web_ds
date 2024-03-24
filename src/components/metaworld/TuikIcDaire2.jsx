@@ -2,23 +2,70 @@ import React, { Suspense, useRef, useState, useEffect } from "react";
 
 import "./SoloarSystemStyle.css";
 
-import { useGLTF, useCursor, Text } from "@react-three/drei";
-
+import { useGLTF, useCursor, Text, Html } from "@react-three/drei";
+import { Color } from "three";
 import * as THREE from "three";
+
+import textureForwardImport from "../../img/arrow_slider.png";
 import textureMain from "../../img/dis_iliskiler_d_main.jpg";
+import textureMain2 from "../../img/dis_iliskiler_d_main2.jpg";
+import textureMain3 from "../../img/dis_iliskiler_d_main3.jpg";
+import textureMain4 from "../../img/dis_iliskiler_d_main4.jpg";
+
+const textures = [textureMain, textureMain2, textureMain3, textureMain4];
 
 const TuikIcDaire2 = (props) => {
   const { nodes, materials } = useGLTF("./models/dis_iliskiler_daire.glb");
+
+  const [hoveredForward, setHoverForward] = useState(false);
+  const [hoveredBackward, setHoverBackward] = useState(false);
+
+  const [hoveredDis1, setHoverDis1] = useState(false);
+  const [hoveredDis2, setHoverDis2] = useState(false);
+
+  const defaultColor = new Color("#000000");
+  const hoverColor = new Color("#000afa");
 
   const group = useRef();
 
   const [hovered, set] = useState();
   useCursor(hovered, "pointer", "auto", document.body);
 
+  const [currentTextureIndex, setCurrentTextureIndex] = useState(0);
+
   const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load(textureMain);
+
+  const textureForward = textureLoader.load(textureForwardImport);
+  textureForward.flipY = false;
+
+  // Load current texture based on currentTextureIndex
+  const texture = textureLoader.load(textures[currentTextureIndex]);
   // Flip the texture vertically
   texture.flipY = false;
+
+  const handleGoDis = (url) => {
+    window.open(url, "_blank");
+  };
+
+  const handleForward = () => {
+    const nextIndex = (currentTextureIndex + 1) % textures.length;
+    setCurrentTextureIndex(nextIndex);
+  };
+
+  const handleBackward = () => {
+    const nextIndex =
+      (currentTextureIndex - 1 + textures.length) % textures.length;
+    setCurrentTextureIndex(nextIndex);
+  };
+
+  useEffect(() => {
+    document.body.style.cursor =
+      hoveredForward || hoveredBackward || hoveredDis1 || hoveredDis2
+        ? "pointer"
+        : "auto";
+
+    return () => (document.body.style.cursor = "auto");
+  }, [hoveredForward, hoveredBackward, hoveredDis1, hoveredDis2]);
 
   return (
     <group ref={group} {...props} dispose={null} scale={[3, 3, 3]}>
@@ -196,6 +243,114 @@ const TuikIcDaire2 = (props) => {
       >
         <meshBasicMaterial map={texture} side={THREE.DoubleSide} />
       </mesh>
+
+      <group name="Texts" position={[0, -0.5, 0]}>
+        <Text
+          scale={[0.75, 0.75, 0.75]}
+          position={[0.0, 11.8, -2.7]}
+          rotation={[0, 0, 0]}
+          color="orange"
+          anchorX="center"
+          anchorY="middle"
+          font="/fontsFor3d/SpecifyPersonalNormalBlackItalic-787E.ttf"
+        >
+          Dış İlişkiler Daire Başkanlığı
+        </Text>
+        <mesh
+          position={[8.7, 3.2, -2.7]}
+          rotation={[0, 0.0, 0]}
+          visible={true}
+          scale={hoveredForward ? 1.5 : 1.4}
+          onPointerOver={(event) => {
+            setHoverForward(true);
+          }}
+          onPointerOut={(event) => {
+            setHoverForward(false);
+          }}
+          onClick={handleForward}
+        >
+          <planeGeometry args={[1, 1]} />
+
+          <meshBasicMaterial
+            map={textureForward}
+            transparent
+            alphaTest={0.5}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+
+        <mesh
+          position={[-8.7, 3.2, -2.7]}
+          rotation={[0, 0.0, 3.1]}
+          visible={true}
+          scale={hoveredBackward ? 1.5 : 1.4}
+          onPointerOver={(event) => {
+            setHoverBackward(true);
+          }}
+          onPointerOut={(event) => {
+            setHoverBackward(false);
+          }}
+          onClick={handleBackward}
+        >
+          <planeGeometry args={[1, 1]} />
+
+          <meshBasicMaterial
+            map={textureForward}
+            transparent
+            alphaTest={0.5} // Adjust as needed
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+
+        <Text
+          visible={currentTextureIndex === 3 ? true : false}
+          scale={hoveredDis1 ? 0.42 : 0.418}
+          position={[-0.5, 10.06, -2.7]}
+          rotation={[0, 0, 0]}
+          color={hoveredDis1 ? "#005aff" : hoverColor}
+          anchorX="center"
+          anchorY="middle"
+          font="/fontsFor3d/SpecifyPersonalNormalBlackItalic-787E.ttf"
+          onPointerOver={(event) => {
+            setHoverDis1(true);
+          }}
+          onPointerOut={(event) => {
+            setHoverDis1(false);
+          }}
+          onClick={() =>
+            handleGoDis(
+              "https://www.tuik.gov.tr/Kurumsal/Uluslararasi_Faaliyetler_Projeler"
+            )
+          }
+        >
+          https://www.tuik.gov.tr/Kurumsal/Uluslararasi_Faaliyetler_Projeler
+        </Text>
+
+        <Text
+          visible={currentTextureIndex === 3 ? true : false}
+          scale={hoveredDis2 ? 0.42 : 0.418}
+          position={[-1.35, 5.45, -2.7]}
+          rotation={[0, 0, 0]}
+          color={hoveredDis2 ? "#005aff" : hoverColor}
+          anchorX="center"
+          anchorY="middle"
+          font="/fontsFor3d/SpecifyPersonalNormalBlackItalic-787E.ttf"
+          onPointerOver={(event) => {
+            setHoverDis2(true);
+          }}
+          onPointerOut={(event) => {
+            setHoverDis2(false);
+          }}
+          onClick={() =>
+            handleGoDis(
+              "https://www.tuik.gov.tr/Kurumsal/Veri_Gonderilen_Kurum_Kuruluslar"
+            )
+          }
+        >
+          https://www.tuik.gov.tr/Kurumsal/Veri_Gonderilen_Kurum_Kuruluslar
+        </Text>
+      </group>
+
       <group
         position={[0, 1.226, -0.996]}
         rotation={[-Math.PI / 2, 0, 0]}

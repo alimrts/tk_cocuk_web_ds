@@ -4,22 +4,66 @@ import "./SoloarSystemStyle.css";
 
 import { useGLTF, useCursor, Text } from "@react-three/drei";
 
+import { Color } from "three";
 import * as THREE from "three";
+
+import textureForwardImport from "../../img/arrow_slider.png";
 import textureMain from "../../img/yazilim_d_main.jpg";
+import textureMain2 from "../../img/yazilim_d_main2.jpg";
+import textureMain3 from "../../img/yazilim_d_main3.jpg";
+import textureMain4 from "../../img/yazilim_d_main4.jpg";
+import textureMain5 from "../../img/yazilim_d_main5.jpg";
+
+const textures = [
+  textureMain,
+  textureMain2,
+  textureMain3,
+  textureMain4,
+  textureMain5,
+];
 
 const TuikIcDaire5 = (props) => {
   const { nodes, materials } = useGLTF("./models/yazilim_daire.glb");
 
   const group = useRef();
 
+  const [hoveredForward, setHoverForward] = useState(false);
+  const [hoveredBackward, setHoverBackward] = useState(false);
+
+  const defaultColor = new Color("#000000");
+  const hoverColor = new Color("#000afa");
+
   const [hovered, set] = useState();
   useCursor(hovered, "pointer", "auto", document.body);
+  const [currentTextureIndex, setCurrentTextureIndex] = useState(0);
 
   const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load(textureMain);
 
+  const textureForward = textureLoader.load(textureForwardImport);
+  textureForward.flipY = false;
+
+  // Load current texture based on currentTextureIndex
+  const texture = textureLoader.load(textures[currentTextureIndex]);
   // Flip the texture vertically
   texture.flipY = false;
+
+  const handleForward = () => {
+    const nextIndex = (currentTextureIndex + 1) % textures.length;
+    setCurrentTextureIndex(nextIndex);
+  };
+
+  const handleBackward = () => {
+    const nextIndex =
+      (currentTextureIndex - 1 + textures.length) % textures.length;
+    setCurrentTextureIndex(nextIndex);
+  };
+
+  useEffect(() => {
+    document.body.style.cursor =
+      hoveredForward || hoveredBackward ? "pointer" : "auto";
+
+    return () => (document.body.style.cursor = "auto");
+  }, [hoveredForward, hoveredBackward]);
 
   return (
     <group ref={group} {...props} dispose={null} scale={[3, 3, 3]}>
@@ -187,14 +231,77 @@ const TuikIcDaire5 = (props) => {
         rotation={[-Math.PI / 2, 0, 0]}
         scale={[10.319, 0.033, 4.685]}
       />
+
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.main_screen.geometry}
-        material={materials["main_sc.001"]}
+        // material={materials.main_sc}
         position={[0, -0.145, 0.115]}
         scale={0.01}
-      />
+      >
+        <meshBasicMaterial map={texture} side={THREE.DoubleSide} />
+      </mesh>
+
+      <group name="Texts" position={[0, -0.5, 0]}>
+        <Text
+          scale={[0.75, 0.75, 0.75]}
+          position={[0.0, 11.8, -2.7]}
+          rotation={[0, 0, 0]}
+          color="orange"
+          anchorX="center"
+          anchorY="middle"
+          font="/fontsFor3d/SpecifyPersonalNormalBlackItalic-787E.ttf"
+        >
+          Yazılım Daire Başkanlığı
+        </Text>
+        <mesh
+          position={[8.7, 3.2, -2.7]}
+          rotation={[0, 0.0, 0]}
+          visible={true}
+          scale={hoveredForward ? 1.5 : 1.4}
+          onPointerOver={(event) => {
+            setHoverForward(true);
+          }}
+          onPointerOut={(event) => {
+            setHoverForward(false);
+          }}
+          onClick={handleForward}
+        >
+          <planeGeometry args={[1, 1]} />
+
+          <meshBasicMaterial
+            map={textureForward}
+            transparent
+            alphaTest={0.5}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+
+        <mesh
+          position={[-8.7, 3.2, -2.7]}
+          rotation={[0, 0.0, 3.1]}
+          visible={true}
+          scale={hoveredBackward ? 1.5 : 1.4}
+          onPointerOver={(event) => {
+            setHoverBackward(true);
+          }}
+          onPointerOut={(event) => {
+            setHoverBackward(false);
+          }}
+          onClick={handleBackward}
+        >
+          <planeGeometry args={[1, 1]} />
+
+          <meshBasicMaterial
+            map={textureForward}
+            transparent
+            alphaTest={0.5}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+      </group>
+
       <group
         position={[0, 1.226, -0.996]}
         rotation={[-Math.PI / 2, 0, 0]}
