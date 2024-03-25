@@ -305,7 +305,7 @@ const TuikIcDaire3 = (props) => {
           scale={hoveredBasin ? 0.42 : 0.418}
           position={[-3.18, 6.16, -2.7]}
           rotation={[0, 0, 0]}
-          color={hoveredBasin ? "#005aff" : hoverColor}
+          // color={hoveredBasin ? "#005aff" : hoverColor}
           anchorX="center"
           anchorY="middle"
           font="/fontsFor3d/SpecifyPersonalNormalBlackItalic-787E.ttf"
