@@ -1,24 +1,24 @@
-import React, { Suspense, useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
-import { useGLTF, useCursor, Text } from "@react-three/drei";
+import { useGLTF, Text } from "@react-three/drei";
 
 import { Color } from "three";
 
 import * as THREE from "three";
 
 import textureForwardImport from "../../img/arrow_slider.png";
-import textureMain from "../../img/bilgi_d_main.jpg";
-import textureMain2 from "../../img/bilgi_d_main2.jpg";
-import textureMain3 from "../../img/bilgi_d_main3.jpg";
-import textureMain4 from "../../img/bilgi_d_main4.jpg";
-import textureMain5 from "../../img/bilgi_d_main5.jpg";
-import textureMain6 from "../../img/bilgi_d_main6.jpg";
-import textureMain7 from "../../img/bilgi_d_main7.jpg";
-import textureMain8 from "../../img/bilgi_d_main8.jpg";
-import textureMain9 from "../../img/bilgi_d_main9.jpg";
-import textureMain10 from "../../img/bilgi_d_main10.jpg";
-import textureMain11 from "../../img/bilgi_d_main11.jpg";
-import textureMain12 from "../../img/bilgi_d_main12.jpg";
+import textureMain from "../../img/daireler/bilgi_d_main.jpg";
+import textureMain2 from "../../img/daireler/bilgi_d_main2.jpg";
+import textureMain3 from "../../img/daireler/bilgi_d_main3.jpg";
+import textureMain4 from "../../img/daireler/bilgi_d_main4.jpg";
+import textureMain5 from "../../img/daireler/bilgi_d_main5.jpg";
+import textureMain6 from "../../img/daireler/bilgi_d_main6.jpg";
+import textureMain7 from "../../img/daireler/bilgi_d_main7.jpg";
+import textureMain8 from "../../img/daireler/bilgi_d_main8.jpg";
+import textureMain9 from "../../img/daireler/bilgi_d_main9.jpg";
+import textureMain10 from "../../img/daireler/bilgi_d_main10.jpg";
+import textureMain11 from "../../img/daireler/bilgi_d_main11.jpg";
+import textureMain12 from "../../img/daireler/bilgi_d_main12.jpg";
 
 const textures = [
   textureMain,
@@ -46,11 +46,7 @@ const TuikIcDaire1 = (props) => {
   const [hoveredBilgi2, setHoverBilgi2] = useState(false);
   const [hoveredBilgi3, setHoverBilgi3] = useState(false);
 
-  const defaultColor = new Color("#000000");
   const hoverColor = new Color("#000afa");
-
-  const [hovered, set] = useState();
-  useCursor(hovered, "pointer", "auto", document.body);
 
   const [currentTextureIndex, setCurrentTextureIndex] = useState(0);
 

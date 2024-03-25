@@ -1,45 +1,35 @@
 import "../App.css";
 
-import { Canvas, useThree } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 
-import { Suspense } from "react";
-import { useRef, useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import useZustandStore from "../zustandStore";
 import { Physics } from "@react-three/cannon";
 
 import Game from "../components/metaworld/Game";
 
-import textureUlkeler from "../img/game_icon_ulkeler.png";
-import textureUzayMacerasi from "../img/game_icon_uzay_macerasi.png";
-import textureImage from "../img/game_icon_hafiza_oyunu.png";
-import textureSuperAraba from "../img/game_icon_super_araba.png";
+import textureUlkeler from "../img/metaverse_images/game_icon_ulkeler.png";
+import textureUzayMacerasi from "../img/metaverse_images/game_icon_uzay_macerasi.png";
+import textureImage from "../img/metaverse_images/game_icon_hafiza_oyunu.png";
+import textureSuperAraba from "../img/metaverse_images/game_icon_super_araba.png";
 
 import * as THREE from "three";
 
 import { Color } from "three";
 
 import {
-  Sky,
   Stats,
-  useGLTF,
-  useAnimations,
   Environment,
   useProgress,
   Html,
-  Text,
-  OrbitControls,
+
+  // OrbitControls,
 } from "@react-three/drei";
-
-import Lights from "./metaverse/Lights";
-
-import Interacty from "./metaverse/Interacty";
-import Player from "./metaverse/Player";
 
 import UzayMacerasi from "./metaverse/UzayMacerasi";
 import UlkelerBayrak from "./metaverse/UlkelerBayrak";
 import ArabaYarisi from "./metaverse/ArabaYarisi";
 import SolarSystem from "./metaworld/SolarSystem";
-// import TuikIc from "./metaworld/TuikIc";
 import TuikIcLoby from "./metaworld/TuikIcLoby";
 import InformationButton from "./metaworld/InformationButton";
 import MemoryGame from "./metaverse/MemoryGame";

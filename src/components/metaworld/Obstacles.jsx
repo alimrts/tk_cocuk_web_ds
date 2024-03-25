@@ -1500,6 +1500,14 @@ export default function Obstacles() {
         rotation={[0, 1.571, 0]}
         material={"ground"}
       />
+
+      <Obstacle
+        args={[0.3, 4, 0.3]}
+        position={[-7.5, -0.017, 35.5]}
+        rotation={[0, 1.571, 0]}
+        material={"ground"}
+      />
+
       <Obstacle
         args={[1.2, 4, 1.2]}
         position={[-28.3, -0.017, 12.6]}
@@ -1601,6 +1609,13 @@ export default function Obstacles() {
       <Obstacle
         args={[16, 80, 16]}
         position={[0.5, -0.017, 77]}
+        rotation={[0, 1.571, 0]}
+        material={"ground"}
+      />
+
+      <Obstacle
+        args={[0.3, 4, 0.3]}
+        position={[-27.25, -0.017, 84.55]}
         rotation={[0, 1.571, 0]}
         material={"ground"}
       />

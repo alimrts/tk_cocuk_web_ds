@@ -1,6 +1,5 @@
-import { lightGreen } from "@material-ui/core/colors";
 import React, { useState, useEffect } from "react";
-import ulkelerLogo from "../../img/ulkeler_header.png";
+import ulkelerLogo from "../../img/metaverse_images/ulkeler_header.png";
 import "./UlkeBayrak.css";
 
 import useZustandStore from "../../zustandStore";
@@ -111,6 +110,7 @@ const UlkelerBayrak = () => {
             >
               <img
                 src={ulkelerLogo}
+                alt={""}
                 style={{
                   width: "auto",
                   maxWidth: "100%",
@@ -160,6 +160,7 @@ const UlkelerBayrak = () => {
               }}
               src={`js-flags-quiz-master/${getLevelHTML()}`}
               onLoad={() => setLoading(false)}
+              title={"-"}
             ></iframe>
           )}
 

@@ -1,6 +1,6 @@
 // InformationButton.js
 
-import informationBtn from "../../img/information_btn.png";
+import informationBtn from "../../img/metaverse_images/information_btn.png";
 import React, { useState, useEffect, useRef } from "react";
 import "./InformationButton.css"; // Import the CSS file
 

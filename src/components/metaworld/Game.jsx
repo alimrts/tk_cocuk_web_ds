@@ -124,7 +124,7 @@ function ObstacleTriggerTuik({ args, onCollide, position, ...props }) {
 
 export default function Game(props) {
   const cinsiyet = props.cinsiyet;
-  console.log("cinsiyet in game: " + cinsiyet);
+  // console.log("cinsiyet in game: " + cinsiyet);
 
   useContactMaterial("ground", "slippery", {
     friction: 0,
@@ -149,7 +149,7 @@ export default function Game(props) {
     setIsBilgiIcTriggered(true);
     setIsBilgiGateTriggered(false);
 
-    console.log("bilgi ic: " + isBilgiIcTriggered);
+    // console.log("bilgi ic: " + isBilgiIcTriggered);
   };
 
   const isBilgiGateTriggered = useZustandStore(
@@ -162,7 +162,7 @@ export default function Game(props) {
   const handleBilgiGateTrigger = () => {
     setIsBilgiGateTriggered(true);
     setIsBilgiIcTriggered(false);
-    console.log("bilgi gate: " + isBilgiGateTriggered);
+    // console.log("bilgi gate: " + isBilgiGateTriggered);
   };
   ///
 
@@ -186,7 +186,7 @@ export default function Game(props) {
   );
   const handleTuikGateTrigger = () => {
     setIsTuikGateTriggered(true);
-    console.log("tuiks gate: " + isTuikGateTriggered);
+    // console.log("tuiks gate: " + isTuikGateTriggered);
   };
 
   const isGeriClickedInSolarSystem = useZustandStore(
@@ -207,7 +207,7 @@ export default function Game(props) {
     setIsGeriClickedInTuik(false);
     setIsGeriClickedInSolarSystem(false);
 
-    console.log("useEffedct in game calisti");
+    // console.log("useEffedct in game calisti");
 
     return () => {
       // Function to run when component unmounts
@@ -262,7 +262,7 @@ export default function Game(props) {
         rotation={[0, 1.6, 0]}
         material={"ground"}
         onCollide={(e) => {
-          console.log("Collision event on BoxTrigger Bilgi Ic", e);
+          // console.log("Collision event on BoxTrigger Bilgi Ic", e);
           handleBilgiIcTrigger();
         }}
       />
@@ -273,7 +273,7 @@ export default function Game(props) {
         rotation={[0, 1.6, 0]}
         material={"ground"}
         onCollide={(e) => {
-          console.log("Collision event on BoxTrigger Bilgi", e);
+          // console.log("Collision event on BoxTrigger Bilgi", e);
           handleBilgiGateTrigger();
         }}
       />
@@ -284,7 +284,7 @@ export default function Game(props) {
         rotation={[0, 1.6, 0]}
         material={"ground"}
         onCollide={(e) => {
-          console.log("Collision event on BoxTrigger gunes", e);
+          // console.log("Collision event on BoxTrigger gunes", e);
           handleGunesGateTrigger();
         }}
       />
@@ -295,7 +295,7 @@ export default function Game(props) {
         rotation={[0, 0, 0]}
         material={"ground"}
         onCollide={(e) => {
-          console.log("Collision event on BoxTrigger tuik", e);
+          // console.log("Collision event on BoxTrigger tuik", e);
           handleTuikGateTrigger();
         }}
       />

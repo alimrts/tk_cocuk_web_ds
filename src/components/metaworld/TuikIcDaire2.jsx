@@ -1,16 +1,16 @@
-import React, { Suspense, useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 import "./SoloarSystemStyle.css";
 
-import { useGLTF, useCursor, Text, Html } from "@react-three/drei";
+import { useGLTF, Text } from "@react-three/drei";
 import { Color } from "three";
 import * as THREE from "three";
 
 import textureForwardImport from "../../img/arrow_slider.png";
-import textureMain from "../../img/dis_iliskiler_d_main.jpg";
-import textureMain2 from "../../img/dis_iliskiler_d_main2.jpg";
-import textureMain3 from "../../img/dis_iliskiler_d_main3.jpg";
-import textureMain4 from "../../img/dis_iliskiler_d_main4.jpg";
+import textureMain from "../../img/daireler/dis_iliskiler_d_main.jpg";
+import textureMain2 from "../../img/daireler/dis_iliskiler_d_main2.jpg";
+import textureMain3 from "../../img/daireler/dis_iliskiler_d_main3.jpg";
+import textureMain4 from "../../img/daireler/dis_iliskiler_d_main4.jpg";
 
 const textures = [textureMain, textureMain2, textureMain3, textureMain4];
 
@@ -23,13 +23,9 @@ const TuikIcDaire2 = (props) => {
   const [hoveredDis1, setHoverDis1] = useState(false);
   const [hoveredDis2, setHoverDis2] = useState(false);
 
-  const defaultColor = new Color("#000000");
   const hoverColor = new Color("#000afa");
 
   const group = useRef();
-
-  const [hovered, set] = useState();
-  useCursor(hovered, "pointer", "auto", document.body);
 
   const [currentTextureIndex, setCurrentTextureIndex] = useState(0);
 

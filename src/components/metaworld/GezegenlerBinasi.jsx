@@ -1,10 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import { useGLTF, Html } from "@react-three/drei";
 import * as THREE from "three";
 import { Color } from "three";
 import useZustandStore from "../../zustandStore";
 
-import textureImage from "../../img/gunes_sistemi.png";
+import textureImage from "../../img/metaverse_images/gunes_sistemi.png";
 
 export function GezegenlerBinasi(props) {
   const { nodes, materials } = useGLTF("/models/gezegenler_binasi.glb");
@@ -220,23 +220,3 @@ export function GezegenlerBinasi(props) {
 }
 
 useGLTF.preload("/models/gezegenler_binasi.glb");
-
-{
-  /* <mesh
-position={[-0.15, 3.5, 14.95]}
-rotation={[0.0, 0, 0.07]}
-{...props}
-visible={true}
-scale={12}
->
-<planeGeometry args={[0.35, 0.08]} />
-
-<meshBasicMaterial
-  map={texture}
-  color={defaultColor}
-  transparent
-  alphaTest={0.5} // Adjust as needed
-  side={THREE.DoubleSide}
-/>
-</mesh> */
-}

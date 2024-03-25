@@ -1,7 +1,7 @@
-import React, { Suspense, useRef, useState, useEffect } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import React, { Suspense, useRef, useState } from "react";
+import { Canvas } from "@react-three/fiber";
 import "./SoloarSystemStyle.css";
-import informationBtn from "../../img/information_btn.png";
+import informationBtn from "../../img/metaverse_images/information_btn.png";
 import useZustandStore from "../../zustandStore";
 import {
   useGLTF,
@@ -11,14 +11,12 @@ import {
   Html,
   useProgress,
   useCursor,
-  Text,
 } from "@react-three/drei";
-import * as THREE from "three";
-import { MeshStandardMaterial } from "three";
+
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
-import mySvgImage from "./cursor_360.svg";
-import dergiSrc from "../../img/e2.jpg";
-import kurulusSrc from "../../img/e1.jpg";
+
+import dergiSrc from "../../img/daireler/e2.jpg";
+import kurulusSrc from "../../img/daireler/e1.jpg";
 
 import TuikIcDaire1 from "./TuikIcDaire1";
 import TuikIcDaire2 from "./TuikIcDaire2";
