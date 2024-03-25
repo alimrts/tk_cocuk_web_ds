@@ -45,6 +45,7 @@ const TuikIcDaire1 = (props) => {
   const [hoveredBilgi1, setHoverBilgi1] = useState(false);
   const [hoveredBilgi2, setHoverBilgi2] = useState(false);
   const [hoveredBilgi3, setHoverBilgi3] = useState(false);
+  const [hoveredBilgi4, setHoverBilgi4] = useState(false);
 
   const hoverColor = new Color("#000afa");
 
@@ -81,7 +82,8 @@ const TuikIcDaire1 = (props) => {
       hoveredBackward ||
       hoveredBilgi1 ||
       hoveredBilgi2 ||
-      hoveredBilgi3
+      hoveredBilgi3 ||
+      hoveredBilgi4
         ? "pointer"
         : "auto";
 
@@ -92,6 +94,7 @@ const TuikIcDaire1 = (props) => {
     hoveredBilgi1,
     hoveredBilgi2,
     hoveredBilgi3,
+    hoveredBilgi4,
   ]);
 
   return (
@@ -453,6 +456,26 @@ const TuikIcDaire1 = (props) => {
           }
         >
           https://resmiistatistik.gov.tr/media/pdf/rip/resmi_istatistik_programi.pdf
+        </Text>
+
+        <Text
+          visible={currentTextureIndex === 11 ? true : false}
+          scale={hoveredBilgi4 ? 0.42 : 0.418}
+          position={[-3.78, 6.93, -2.7]}
+          rotation={[0, 0, 0]}
+          color={hoveredBilgi4 ? "#005aff" : hoverColor}
+          anchorX="center"
+          anchorY="middle"
+          font="/fontsFor3d/SpecifyPersonalNormalBlackItalic-787E.ttf"
+          onPointerOver={(event) => {
+            setHoverBilgi4(true);
+          }}
+          onPointerOut={(event) => {
+            setHoverBilgi4(false);
+          }}
+          onClick={() => handleGoBilgi("https://kutuphane.tuik.gov.tr")}
+        >
+          https://kutuphane.tuik.gov.tr
         </Text>
       </group>
       <mesh
