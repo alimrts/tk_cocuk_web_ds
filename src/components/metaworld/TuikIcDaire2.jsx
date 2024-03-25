@@ -307,7 +307,7 @@ const TuikIcDaire2 = (props) => {
           scale={hoveredDis1 ? 0.42 : 0.418}
           position={[-0.5, 10.06, -2.7]}
           rotation={[0, 0, 0]}
-          // color={hoveredDis1 ? "#005aff" : hoverColor}
+          color={hoveredDis1 ? "#005aff" : hoverColor}
           anchorX="center"
           anchorY="middle"
           font="/fontsFor3d/SpecifyPersonalNormalBlackItalic-787E.ttf"
@@ -331,7 +331,7 @@ const TuikIcDaire2 = (props) => {
           scale={hoveredDis2 ? 0.42 : 0.418}
           position={[-1.35, 5.45, -2.7]}
           rotation={[0, 0, 0]}
-          // color={hoveredDis2 ? "#005aff" : hoverColor}
+          color={hoveredDis2 ? "#005aff" : hoverColor}
           anchorX="center"
           anchorY="middle"
           font="/fontsFor3d/SpecifyPersonalNormalBlackItalic-787E.ttf"

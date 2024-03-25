@@ -2,21 +2,101 @@ import React, { Suspense, useRef, useState, useEffect } from "react";
 
 import { useGLTF, useCursor, Text } from "@react-three/drei";
 
+import { Color } from "three";
+
 import * as THREE from "three";
-import textureMain from "../../img/bilgi_d_main2.jpg";
+
+import textureForwardImport from "../../img/arrow_slider.png";
+import textureMain from "../../img/bilgi_d_main.jpg";
+import textureMain2 from "../../img/bilgi_d_main2.jpg";
+import textureMain3 from "../../img/bilgi_d_main3.jpg";
+import textureMain4 from "../../img/bilgi_d_main4.jpg";
+import textureMain5 from "../../img/bilgi_d_main5.jpg";
+import textureMain6 from "../../img/bilgi_d_main6.jpg";
+import textureMain7 from "../../img/bilgi_d_main7.jpg";
+import textureMain8 from "../../img/bilgi_d_main8.jpg";
+import textureMain9 from "../../img/bilgi_d_main9.jpg";
+import textureMain10 from "../../img/bilgi_d_main10.jpg";
+import textureMain11 from "../../img/bilgi_d_main11.jpg";
+import textureMain12 from "../../img/bilgi_d_main12.jpg";
+
+const textures = [
+  textureMain,
+  textureMain2,
+  textureMain3,
+  textureMain4,
+  textureMain5,
+  textureMain6,
+  textureMain7,
+  textureMain8,
+  textureMain9,
+  textureMain10,
+  textureMain11,
+  textureMain12,
+];
 
 const TuikIcDaire1 = (props) => {
   const { nodes, materials } = useGLTF("./models/bilgi_daire.glb");
 
   const group = useRef();
+  const [hoveredForward, setHoverForward] = useState(false);
+  const [hoveredBackward, setHoverBackward] = useState(false);
+
+  const [hoveredBilgi1, setHoverBilgi1] = useState(false);
+  const [hoveredBilgi2, setHoverBilgi2] = useState(false);
+  const [hoveredBilgi3, setHoverBilgi3] = useState(false);
+
+  const defaultColor = new Color("#000000");
+  const hoverColor = new Color("#000afa");
 
   const [hovered, set] = useState();
   useCursor(hovered, "pointer", "auto", document.body);
 
+  const [currentTextureIndex, setCurrentTextureIndex] = useState(0);
+
   const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load(textureMain);
+
+  const textureForward = textureLoader.load(textureForwardImport);
+  textureForward.flipY = false;
+
+  // Load current texture based on currentTextureIndex
+  const texture = textureLoader.load(textures[currentTextureIndex]);
   // Flip the texture vertically
   texture.flipY = false;
+
+  const handleGoBilgi = (url) => {
+    window.open(url, "_blank");
+  };
+
+  const handleForward = () => {
+    const nextIndex = (currentTextureIndex + 1) % textures.length;
+    setCurrentTextureIndex(nextIndex);
+  };
+
+  const handleBackward = () => {
+    const nextIndex =
+      (currentTextureIndex - 1 + textures.length) % textures.length;
+    setCurrentTextureIndex(nextIndex);
+  };
+
+  useEffect(() => {
+    document.body.style.cursor =
+      hoveredForward ||
+      hoveredBackward ||
+      hoveredBilgi1 ||
+      hoveredBilgi2 ||
+      hoveredBilgi3
+        ? "pointer"
+        : "auto";
+
+    return () => (document.body.style.cursor = "auto");
+  }, [
+    hoveredForward,
+    hoveredBackward,
+    hoveredBilgi1,
+    hoveredBilgi2,
+    hoveredBilgi3,
+  ]);
 
   return (
     <group ref={group} {...props} dispose={null} scale={[3, 3, 3]}>
@@ -256,6 +336,129 @@ const TuikIcDaire1 = (props) => {
       >
         <meshBasicMaterial map={texture} side={THREE.DoubleSide} />
       </mesh>
+
+      <group name="Texts" position={[0, -0.5, 0]}>
+        <Text
+          scale={[0.75, 0.75, 0.75]}
+          position={[0.0, 11.8, -2.7]}
+          rotation={[0, 0, 0]}
+          color="orange"
+          anchorX="center"
+          anchorY="middle"
+          font="/fontsFor3d/SpecifyPersonalNormalBlackItalic-787E.ttf"
+        >
+          Bilgi Dağıtım ve İletişim Daire Başkanlığı
+        </Text>
+        <mesh
+          position={[9.1, 2.91, -2.7]}
+          rotation={[0, 0.0, 0]}
+          visible={true}
+          scale={hoveredForward ? 1.5 : 1.4}
+          onPointerOver={(event) => {
+            setHoverForward(true);
+          }}
+          onPointerOut={(event) => {
+            setHoverForward(false);
+          }}
+          onClick={handleForward}
+        >
+          <planeGeometry args={[0.65, 0.65]} />
+
+          <meshBasicMaterial
+            map={textureForward}
+            transparent
+            alphaTest={0.5}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+
+        <mesh
+          position={[-9.07, 2.91, -2.7]}
+          rotation={[0, 0.0, 3.1]}
+          visible={true}
+          scale={hoveredBackward ? 1.5 : 1.4}
+          onPointerOver={(event) => {
+            setHoverBackward(true);
+          }}
+          onPointerOut={(event) => {
+            setHoverBackward(false);
+          }}
+          onClick={handleBackward}
+        >
+          <planeGeometry args={[0.65, 0.65]} />
+
+          <meshBasicMaterial
+            map={textureForward}
+            transparent
+            alphaTest={0.5} // Adjust as needed
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+
+        <Text
+          visible={currentTextureIndex === 2 ? true : false}
+          scale={hoveredBilgi1 ? 0.42 : 0.418}
+          position={[-6.08, 7.85, -2.7]}
+          rotation={[0, 0, 0]}
+          color={hoveredBilgi1 ? "#005aff" : hoverColor}
+          anchorX="center"
+          anchorY="middle"
+          font="/fontsFor3d/SpecifyPersonalNormalBlackItalic-787E.ttf"
+          onPointerOver={(event) => {
+            setHoverBilgi1(true);
+          }}
+          onPointerOut={(event) => {
+            setHoverBilgi1(false);
+          }}
+          onClick={() => handleGoBilgi("https://www.tuik.gov.tr")}
+        >
+          www.tuik.gov.tr
+        </Text>
+
+        <Text
+          visible={currentTextureIndex === 2 ? true : false}
+          scale={hoveredBilgi2 ? 0.42 : 0.418}
+          position={[2.44, 5.52, -2.7]}
+          rotation={[0, 0, 0]}
+          color={hoveredBilgi2 ? "#005aff" : hoverColor}
+          anchorX="center"
+          anchorY="middle"
+          font="/fontsFor3d/SpecifyPersonalNormalBlackItalic-787E.ttf"
+          onPointerOver={(event) => {
+            setHoverBilgi2(true);
+          }}
+          onPointerOut={(event) => {
+            setHoverBilgi2(false);
+          }}
+          onClick={() => handleGoBilgi("https://ty.tuik.gov.tr")}
+        >
+          https://ty.tuik.gov.tr
+        </Text>
+
+        <Text
+          visible={currentTextureIndex === 6 ? true : false}
+          scale={hoveredBilgi3 ? 0.42 : 0.418}
+          position={[1.08, 4.06, -2.7]}
+          rotation={[0, 0, 0]}
+          color={hoveredBilgi3 ? "#005aff" : hoverColor}
+          anchorX="center"
+          anchorY="middle"
+          font="/fontsFor3d/SpecifyPersonalNormalBlackItalic-787E.ttf"
+          onPointerOver={(event) => {
+            setHoverBilgi3(true);
+          }}
+          onPointerOut={(event) => {
+            setHoverBilgi3(false);
+          }}
+          onClick={() =>
+            handleGoBilgi(
+              "https://resmiistatistik.gov.tr/media/pdf/rip/resmi_istatistik_programi.pdf "
+            )
+          }
+        >
+          https://resmiistatistik.gov.tr/media/pdf/rip/resmi_istatistik_programi.pdf
+        </Text>
+      </group>
       <mesh
         castShadow
         receiveShadow
