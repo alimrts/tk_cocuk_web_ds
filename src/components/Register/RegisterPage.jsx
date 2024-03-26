@@ -1,31 +1,32 @@
 import React, { useState, useRef, useEffect } from "react";
 import UserRegister from "./UserRegister";
-import video from "../img/bayram_kutlama.mp4";
+import video from "../../img/bayram_kutlama.mp4";
 
-import { makeStyles } from "@material-ui/core/styles";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 
-import NavbarRegister from "../components/Navbar/NavbarRegister";
+import NavbarRegister from "../../components/Navbar/NavbarRegister";
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Html, useProgress } from "@react-three/drei";
-import ModelChar from "../components/Intro/ModelChar";
-import ModelCharEge from "../components/Intro/ModelCharEge";
+import ModelChar from "../../components/Intro/ModelChar";
+import ModelCharEge from "../../components/Intro/ModelCharEge";
 import { Suspense } from "react";
 
-import tkc_kuslar1_edit from "../img/tkc_kuslar1_edit.png";
-import tkc_kuslar2_edit from "../img/tkc_kuslar2_edit.png";
-import FooterBg from "../img/tkc_footer_bg.png";
+import tkc_kuslar1_edit from "../../img/tkc_kuslar1_edit.png";
+import tkc_kuslar2_edit from "../../img/tkc_kuslar2_edit.png";
+import FooterBg from "../../img/tkc_footer_bg.png";
 import zIndex from "@material-ui/core/styles/zIndex";
 
-import Footer from "../components/Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 
-import useZustandStore from "../zustandStore";
+import useZustandStore from "../../zustandStore";
 
 import * as THREE from "three";
 
 import { Trail, Float } from "@react-three/drei";
+
+// import { isMobile } from "react-device-detect";
 
 function Loader() {
   const { progress } = useProgress();
@@ -43,54 +44,6 @@ function Loader() {
     </Html>
   );
 }
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    [theme.breakpoints.up("md")]: {
-      flexDirection: "row",
-    },
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: "1 rem",
-    height: "100vh",
-    transform: "scale(0.8)",
-  },
-  left: {
-    width: "100%",
-
-    [theme.breakpoints.up("md")]: {
-      width: "256px", // Update width to original image size
-      marginRight: "1rem",
-      marginBottom: "0",
-    },
-    cursor: "pointer",
-  },
-  right: {
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "256px", // Update width to original image size
-      marginLeft: "1rem",
-    },
-    cursor: "pointer",
-  },
-  formWrapper: {
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "30%",
-    },
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    fontSize: "12pt",
-  },
-  formTitle: {
-    marginBottom: "1rem",
-    fontSize: "14pt",
-  },
-}));
 
 function Atom(props) {
   return (
@@ -130,7 +83,6 @@ function Electron({ radius = 0.62, speed = 6, ...props }) {
 }
 
 const RegisterPage = () => {
-  const classes = useStyles();
   const history = useHistory();
   // const [userInfo, setUserInfo] = useState(null);
 
@@ -298,137 +250,150 @@ const RegisterPage = () => {
 
       {!showVideo && (
         <>
-          <div className={classes.root}>
-            <div
-              style={{
-                backgroundImage: `url(${tkc_kuslar1_edit})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                width: "32rem",
-                height: "32rem",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginLeft: "-8rem",
-                marginTop: "-4rem",
-              }}
-            >
-              <Canvas
-                camera={{ position: [0, 0, 4.25], fov: 15 }}
+          <div className="registerPage-root">
+            {!isMobile && (
+              <div
                 style={{
-                  width: "30vh",
-                  height: "60vh",
-                  minWidth: "20vw",
-                  minHeight: "30vh",
-                  marginLeft: "18rem",
-                  cursor: "pointer",
-                  border: getBorderStyle(),
+                  backgroundImage: `url(${tkc_kuslar1_edit})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                  width: "32rem",
+                  height: "32rem",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginLeft: "-8rem",
+                  marginTop: "-4rem",
                 }}
               >
-                <ambientLight intensity={1.25} />
+                <Canvas
+                  camera={{ position: [0, 0, 4.25], fov: 15 }}
+                  style={{
+                    width: "30vh",
+                    height: "60vh",
+                    minWidth: "20vw",
+                    minHeight: "30vh",
+                    marginLeft: "18rem",
+                    cursor: "pointer",
+                    border: getBorderStyle(),
+                  }}
+                >
+                  <ambientLight intensity={1.25} />
 
-                <directionalLight intensity={0.4} />
-                <Suspense fallback={<Loader />}>
-                  {gender === "1" && (
-                    <>
-                      <Float speed={4} rotationIntensity={1} floatIntensity={2}>
-                        <Atom />
-                      </Float>
-                    </>
-                  )}
-                  <ModelCharEge
-                    position={[0, -1.2, -3]}
-                    rotation={[0, -60, 0]}
+                  <directionalLight intensity={0.4} />
+                  <Suspense fallback={<Loader />}>
+                    {gender === "1" && (
+                      <>
+                        <Float
+                          speed={4}
+                          rotationIntensity={1}
+                          floatIntensity={2}
+                        >
+                          <Atom />
+                        </Float>
+                      </>
+                    )}
+                    <ModelCharEge
+                      position={[0, -1.2, -3]}
+                      rotation={[0, -60, 0]}
+                    />
+                  </Suspense>
+                  <OrbitControls
+                    enableZoom={false}
+                    enablePan={false}
+                    rotateSpeed={0.5}
+                    maxPolarAngle={1.45}
+                    minPolarAngle={1.44}
+                    maxAzimuthAngle={0.1}
+                    minAzimuthAngle={-0.1}
                   />
-                </Suspense>
-                <OrbitControls
-                  enableZoom={false}
-                  enablePan={false}
-                  rotateSpeed={0.5}
-                  maxPolarAngle={1.45}
-                  minPolarAngle={1.44}
-                  maxAzimuthAngle={0.1}
-                  minAzimuthAngle={-0.1}
-                />
-              </Canvas>
-            </div>
+                </Canvas>
+              </div>
+            )}
 
-            <div className={classes.formWrapper}>
-              <h2 className={classes.formTitle}>{strings.registerPageGiris}</h2>
-              <h1 className={classes.formTitle}>
+            <div className="formWrapper">
+              <span className="formTitle">{strings.registerPageGiris}</span>
+              <span className="formTitle2">
                 {strings.registerPageBilgileriDoldur}
-              </h1>
+              </span>
 
               <UserRegister
                 onGenderChange={handleGenderChange}
                 onSubmit={handleUserRegister}
               />
             </div>
-
-            <div
-              style={{
-                backgroundImage: `url(${tkc_kuslar2_edit})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                width: "32rem",
-                height: "32rem",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginLeft: "-2rem",
-                marginTop: "-4rem",
-              }}
-            >
-              <Canvas
-                camera={{ position: [0, 0, 4.25], fov: 15 }}
+            {!isMobile && (
+              <div
                 style={{
-                  width: "30vh",
-                  height: "60vh",
-                  minWidth: "20vw",
-                  minHeight: "30vh",
-                  cursor: "pointer",
+                  backgroundImage: `url(${tkc_kuslar2_edit})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                  width: "32rem",
+                  height: "32rem",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginLeft: "-2rem",
+                  marginTop: "-4rem",
                 }}
               >
-                <ambientLight intensity={1.25} />
-                <directionalLight intensity={0.4} />
-                <Suspense fallback={<Loader />}>
-                  <ModelChar position={[0, -1.2, -3]} rotation={[0, -60, 0]} />
-                  {gender === "2" && (
-                    <>
-                      <Float speed={4} rotationIntensity={1} floatIntensity={2}>
-                        <Atom position={[0, -1.2, -3]} />
-                      </Float>
-                    </>
-                  )}
-                </Suspense>
-                <OrbitControls
-                  enableZoom={false}
-                  enablePan={false}
-                  rotateSpeed={0.5}
-                  maxPolarAngle={1.45}
-                  minPolarAngle={1.44}
-                  maxAzimuthAngle={0.1}
-                  minAzimuthAngle={-0.1}
-                />
-              </Canvas>
-            </div>
-          </div>
-
-          <div
-            style={{
-              position: "fixed",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              // width: "100%",
-              zIndex: -1,
-              marginBottom: "-0.8rem",
-            }}
-          >
-            <img src={FooterBg} alt="" style={{ width: "100%" }} />
+                <Canvas
+                  camera={{ position: [0, 0, 4.25], fov: 15 }}
+                  style={{
+                    width: "30vh",
+                    height: "60vh",
+                    minWidth: "20vw",
+                    minHeight: "30vh",
+                    cursor: "pointer",
+                  }}
+                >
+                  <ambientLight intensity={1.25} />
+                  <directionalLight intensity={0.4} />
+                  <Suspense fallback={<Loader />}>
+                    <ModelChar
+                      position={[0, -1.2, -3]}
+                      rotation={[0, -60, 0]}
+                    />
+                    {gender === "2" && (
+                      <>
+                        <Float
+                          speed={4}
+                          rotationIntensity={1}
+                          floatIntensity={2}
+                        >
+                          <Atom position={[0, -1.2, -3]} />
+                        </Float>
+                      </>
+                    )}
+                  </Suspense>
+                  <OrbitControls
+                    enableZoom={false}
+                    enablePan={false}
+                    rotateSpeed={0.5}
+                    maxPolarAngle={1.45}
+                    minPolarAngle={1.44}
+                    maxAzimuthAngle={0.1}
+                    minAzimuthAngle={-0.1}
+                  />
+                </Canvas>
+              </div>
+            )}
           </div>
         </>
       )}
+      <div
+        style={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          // width: "100%",
+          zIndex: -1,
+          marginBottom: "-0.5rem",
+        }}
+      >
+        <img src={FooterBg} alt="" style={{ width: "100%" }} />
+      </div>
     </>
   );
 };

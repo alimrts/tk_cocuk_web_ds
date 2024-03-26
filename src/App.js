@@ -2,13 +2,11 @@ import "./App.css";
 
 import { useContext } from "react";
 import { themeContext } from "./Context";
-// import { Route, Switch, BrowserRouter  } from 'react-router-dom'
 import React, { useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import RegisterPage from "./components/RegisterPage";
+import RegisterPage from "./components/Register/RegisterPage";
 import MainPage from "./components/MainPage";
-
 import Metaverse from "./components/Metaverse";
 import Sdg from "./components/Sdg/Sdg";
 import Geleneksel from "./components/Geleneksel/Geleneksel";

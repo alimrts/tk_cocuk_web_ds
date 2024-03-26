@@ -23,6 +23,68 @@
   color: var(--black);
 }
 
+@media screen and (max-width: 480px) {
+  .App {
+    padding: 0.5rem 1rem;
+  }
+
+  .formWrapper {
+    font-size: 10pt;
+    margin-top: 1rem;
+    transform: scale(0.9);
+  }
+  .formTitle {
+    margin-top: 1rem;
+    font-size: 12pt;
+    
+  }
+  .formTitle2 {
+    font-size: 10pt;
+    
+  }
+}
+
+
+/* register page */
+.registerPage-root{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  height: 90vh;
+  transform: scale(0.8);
+}
+
+.formWrapper {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12pt;
+}
+.formTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 14pt;
+  width: 14rem;
+}
+
+.formTitle2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 12pt;
+  width: 16rem;
+}
+
+
+
+
 
 .button {
   background: linear-gradient(180deg, #fdc50f 26.71%, #fb982f 99.36%);
@@ -57,11 +119,6 @@
   cursor: default;
 }
 
-@media screen and (max-width: 480px) {
-  .App {
-    padding: 0.5rem 1rem;
-  }
-}
 
 #progress {
   position: fixed;

@@ -35,12 +35,12 @@ const Navbar = () => {
     localStorage.setItem("selectedLanguage", selectedLanguage);
   };
   return (
-    <nav className={darkMode ? "navigationBlack" : "navigation"}>
+    <nav
+      className={darkMode ? "navigationBlack-register" : "navigation-register"}
+    >
       {/* left */}
-      <div className="n-left" style={{}}>
-        <Link to="Intro" smooth={true} spy={true}>
-          <FloatinDivForNavbarLogo img={tkc_logo} />
-        </Link>
+      <div className="n-left-register" style={{}}>
+        <FloatinDivForNavbarLogo img={tkc_logo} />
         <div
           className="navkuslar2"
           style={{
@@ -59,15 +59,11 @@ const Navbar = () => {
       </div>
       {/* right */}
       <div
-        className="n-right"
+        className="n-right-register"
         style={{ display: "flex", flexDirection: "row" }}
       >
-        {/* <span style={{ marginRight: "2rem", marginTop: "" }}>
-          Hoş geldin!{" "}
-        </span> */}
-
-        <div className="n-list" style={{ marginRight: "2rem", color: "grey" }}>
-          <div style={{ marginLeft: "auto" }}>
+        <div className="n-list-register">
+          <div>
             <select
               value={selectedLanguage}
               onChange={(e) => handleLanguageChange(e.target.value)}

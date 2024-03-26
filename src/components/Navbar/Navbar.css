@@ -42,10 +42,61 @@
   box-shadow: 0 2px 8px 2px rgba(255, 255, 255, 0.5);
 }
 
+.navigation-register {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* z-index: 999; */
+  height: 8rem;
+
+  /* background: linear-gradient(to top, rgba(154, 239, 239, 1)); */
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1),
+    rgba(154, 239, 239, 1)
+  );
+
+  box-shadow: 0 2px 8px 2px rgba(255, 255, 255, 0.5);
+}
+
+
+.navigationBlack-register{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  height: 8rem;
+
+  /* background: linear-gradient(to top, rgba(154, 239, 239, 1)); */
+  background: linear-gradient(
+    to top,
+    rgb(12, 3, 48),
+    rgb(0, 0, 0)
+  );
+
+  box-shadow: 0 2px 8px 2px rgba(255, 255, 255, 0.5);
+}
 
 
 
 .n-left {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 10rem;
+  margin-top: -5rem;
+}
+
+.n-left-register {
   display: flex;
   align-items: flex-start;
   margin-left: 10rem;
@@ -60,12 +111,30 @@
   
 }
 
+.n-right-register {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 0rem;
+  
+}
+
 .n-list ul {
   margin: 0;
   padding: 0;
 }
 
 .n-list li {
+  display: inline-block;
+}
+
+
+.n-list-register ul {
+  margin: 0;
+  padding: 0;
+}
+
+.n-list-register li {
   display: inline-block;
 }
 
@@ -186,6 +255,31 @@
   .navkuslar1 {
     display: none;
   }
+  .navigation{
+    height: 7rem;
+  }
+  .navigationBlack{
+    height: 7rem;
+  }
+
+  .navigation-register{
+    height: 5rem;
+    justify-content: center;
+   
+  }
+  .navigationBlack-register{
+    height: 5rem;
+    justify-content: center;
+  }
+
+  .n-right-register {
+    margin-top: -2rem;
+  }
+
+  .n-left-register {
+    margin-top: -3rem;
+   
+  }
 }
 
 
@@ -194,7 +288,6 @@
     display: none;
   }
   
- 
   .n-left {
     display: flex;
     align-items: flex-start;
@@ -204,7 +297,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    
     justify-content: center;
     position: relative;
     cursor: pointer;

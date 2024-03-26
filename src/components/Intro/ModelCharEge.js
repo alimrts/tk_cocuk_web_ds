@@ -19,14 +19,14 @@
 //   })
 //   return (
 //     <group ref={group} {...props} dispose={null} >
-      
+
 //       <group name="Scene" onPointerOver={() => {
 //           setHover(true);
 //         }}
 //         onPointerOut={() => {
 //           setHover(false);
 //         }}>
-        
+
 //         <group name="Armature" rotation={[-Math.PI, 0, -Math.PI]}>
 //           <primitive object={nodes.mixamorigHips} />
 //           <primitive object={nodes.Ctrl_Master} />
@@ -82,13 +82,12 @@
 
 // useGLTF.preload('/ege.glb')
 
-
-import React, { useRef, useEffect,useState } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
-import {  useFrame } from "@react-three/fiber";
+import React, { useRef, useEffect, useState } from "react";
+import { useGLTF, useAnimations } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 export default function ModelCharEge({ ...props }) {
-  const group = useRef()
+  const group = useRef();
   const [active, setActive] = useState(false);
   const [hover, setHover] = useState(false);
   useFrame(() => {
@@ -97,25 +96,29 @@ export default function ModelCharEge({ ...props }) {
     }
   });
   // const { nodes, materials, animations } = useGLTF('/ege.glb')
-  const { nodes, materials, animations } = useGLTF('./models/ege.glb')
-  const { actions } = useAnimations(animations, group)
+  const { nodes, materials, animations } = useGLTF("./models/ege.glb");
+  const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
-     actions['idle'].play()
-  })
+    actions["idle"].play();
+  });
   return (
-    <group ref={group} {...props} dispose={null} >
-      
-      <group name="Scene" onPointerOver={() => {
+    <group ref={group} {...props} dispose={null}>
+      <group
+        name="Scene"
+        onPointerOver={() => {
           setHover(true);
         }}
         onPointerOut={() => {
           setHover(false);
-        }}>
-        
-        <group name="Armature" rotation={[Math.PI / 2, 0, -Math.PI/0.8]} scale={0.01}>
-          
-        <primitive object={nodes.mixamorigHips} />
+        }}
+      >
+        <group
+          name="Armature"
+          rotation={[Math.PI / 2, 0, -Math.PI / 0.8]}
+          scale={0.01}
+        >
+          <primitive object={nodes.mixamorigHips} />
           <skinnedMesh
             geometry={nodes.ege_bacak.geometry}
             material={materials.ege_pnt}
@@ -151,11 +154,10 @@ export default function ModelCharEge({ ...props }) {
             material={materials.ege_sac}
             skeleton={nodes.ege_sac.skeleton}
           />
-   
         </group>
       </group>
     </group>
-  )
+  );
 }
 
-useGLTF.preload('./models/ege.glb')
+useGLTF.preload("./models/ege.glb");
