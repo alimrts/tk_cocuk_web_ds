@@ -33,6 +33,7 @@ const Navbar = () => {
   const handleExitButtonClick = () => {
     // Reset user information
     setUserInfo(null);
+    setShowDergi(false);
     // Redirect to RegisterPage
     history.push("/");
   };
@@ -50,6 +51,7 @@ const Navbar = () => {
     const handleClickOutside = (event) => {
       if (ulRef.current && !ulRef.current.contains(event.target)) {
         setIsNavExpanded(false);
+        setShowDergi(false);
       }
     };
 
@@ -206,13 +208,13 @@ const TextPopup = ({ src_image, onClose }) => {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)", // Adjust the alpha value for transparency
-          zIndex: 999, // Make sure the overlay is on top
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          zIndex: 999,
         }}
         onClick={onClose} // Close the popup when clicking on the overlay
       ></div>
 
-      <div className="imagePopup">
+      <div className="dergi-popup">
         <div
           style={{
             display: "flex",

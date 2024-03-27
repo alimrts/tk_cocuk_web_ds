@@ -7,13 +7,9 @@ import VideoIzle from "./VideoIzle/VideoIzle";
 import Tuik from "../components/Tuik/Tuik";
 import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
-
 import { BrowserRouter } from "react-router-dom";
-
 import Metaverse from "./Metaverse";
 import useZustandStore from "../zustandStore";
-import TuikIc from "./metaworld/TuikIc";
-import MemoryGame from "./metaverse/MemoryGame";
 
 const MainPage = () => {
   const history = useHistory();
@@ -58,7 +54,6 @@ const MainPage = () => {
   const { userInfo } = useZustandStore();
 
   useEffect(() => {
-    // Check if user information is available
     if (userInfo === null) {
       // Redirect to RegisterPage if user information is not available
       history.push("/");
@@ -66,7 +61,6 @@ const MainPage = () => {
   }, [userInfo, history]);
 
   console.log("gelen userinfo: ", userInfo);
-  ///
   // Destructure user information
   const {
     firstName: ad,

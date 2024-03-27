@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Toggle from "../Toggle/Toggle";
 import { useContext } from "react";
 import { themeContext } from "../../Context";
-import "./Navbar.css";
+import "./NavbarRegister.css";
 import { Link } from "react-scroll";
 import tkc_kuslar1 from "../../img/tkc_kuslar1.png";
 import tkc_kuslar2 from "../../img/tkc_kuslar2.png";

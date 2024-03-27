@@ -116,7 +116,8 @@ const IntroLeft = (props) => {
             marginTop: "4rem",
             paddingLeft: "2rem",
             paddingRight: "20rem",
-            minWidth: "65%",
+            minWidth: "75%",
+            textAlign: "left",
           }}
         >
           {" "}
@@ -156,7 +157,7 @@ const IntroLeft = (props) => {
           left: "540px",
         }}
       >
-        <div style={{}}>
+        <div style={{ marginLeft: "-2rem", width: "5rem" }}>
           <span>
             {" "}
             <span
@@ -169,7 +170,13 @@ const IntroLeft = (props) => {
             </span>
           </span>
         </div>
-        <div style={{ marginTop: "12rem", marginLeft: "-8rem" }}>
+        <div
+          style={{
+            marginTop: "12rem",
+            marginLeft: "-8rem",
+            marginRight: "8rem",
+          }}
+        >
           <span
             style={{
               color: "green",

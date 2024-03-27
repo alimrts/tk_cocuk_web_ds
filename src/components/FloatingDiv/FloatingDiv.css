@@ -83,16 +83,13 @@
 
 
 
-
-
 .floatingDivForIntroRight {
   display: flex;
   align-items: center;
-
   padding: 0px 18px 0px 0px;
   height: 4.5rem;
   cursor: pointer;
-  transition: transform 0.3s; /* Animation */
+  transition: transform 0.3s;
 }
 .floatingDivForIntroRight:hover {
   transform: scale(1.05);
@@ -109,8 +106,6 @@
     transform: scale(0.6);
   }
 
- 
-
   .floatingDiv {
     transform: scale(0.6);
   }
@@ -121,12 +116,12 @@
 
   .floatingDivForLogo {
     justify-content: left;
-    margin-top: 2rem;
-    margin-left: -15rem;
+    margin-top: 4rem;
+    margin-left: -17rem;
     display: flex;
     align-items: center;
     text-align: center;
-    transform: scale(0.6);
+    transform: scale(0.8);
     height: 2.5rem;
     cursor: pointer;
     transition: transform 0.3s; /* Animation */

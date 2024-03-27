@@ -9,8 +9,6 @@
   right: 0;
   z-index: 999;
   height: 8rem;
-
-  /* background: linear-gradient(to top, rgba(154, 239, 239, 1)); */
   background: linear-gradient(
     to top,
     rgba(255, 255, 255, 1),
@@ -31,8 +29,6 @@
   right: 0;
   z-index: 999;
   height: 8rem;
-
-  /* background: linear-gradient(to top, rgba(154, 239, 239, 1)); */
   background: linear-gradient(
     to top,
     rgb(12, 3, 48),
@@ -41,67 +37,17 @@
 
   box-shadow: 0 2px 8px 2px rgba(255, 255, 255, 0.5);
 }
-
-.navigation-register {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  /* z-index: 999; */
-  height: 8rem;
-
-  /* background: linear-gradient(to top, rgba(154, 239, 239, 1)); */
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 1),
-    rgba(154, 239, 239, 1)
-  );
-
-  box-shadow: 0 2px 8px 2px rgba(255, 255, 255, 0.5);
-}
-
-
-.navigationBlack-register{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  height: 8rem;
-
-  /* background: linear-gradient(to top, rgba(154, 239, 239, 1)); */
-  background: linear-gradient(
-    to top,
-    rgb(12, 3, 48),
-    rgb(0, 0, 0)
-  );
-
-  box-shadow: 0 2px 8px 2px rgba(255, 255, 255, 0.5);
-}
-
 
 
 .n-left {
   display: flex;
   align-items: flex-start;
   margin-left: 10rem;
-  margin-top: -5rem;
+  margin-top: -4rem;
+ 
 }
 
-.n-left-register {
-  display: flex;
-  align-items: flex-start;
-  margin-left: 10rem;
-  margin-top: -5rem;
-}
+
 
 .n-right {
   display: flex;
@@ -111,13 +57,6 @@
   
 }
 
-.n-right-register {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 0rem;
-  
-}
 
 .n-list ul {
   margin: 0;
@@ -129,14 +68,6 @@
 }
 
 
-.n-list-register ul {
-  margin: 0;
-  padding: 0;
-}
-
-.n-list-register li {
-  display: inline-block;
-}
 
 .n-name {
   font-size: 1rem;
@@ -158,7 +89,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -4rem;
+  margin-top: -1.5rem;
+  margin-right: -1.5rem;
   background-color: var(--orange);
   transition: background-color 0.2s ease-in-out;
   border: none;
@@ -178,39 +110,47 @@
 }
 
 
-
-
-
-
 .navigation-menu.expanded {
   display: flex;
-  flex-direction: row;
-  margin-top: -4rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -3rem;
   position: absolute;
   margin-left: 6rem;
-  width:10rem;
-  top: 12vh;
-  left: 2rem;
+  width:9rem;
+  top: 10vh;
+  left: 3.5rem;
   background: linear-gradient(
     to top,
     rgba(255, 255, 255, 1),
     rgba(154, 239, 239, 1)
   );
   box-shadow: 0 2px 8px 2px rgba(255, 165, 0, 0.5);
+  border-radius: 3rem;
   z-index: 998;
-  padding: 1rem;
+  padding: 0.2rem;
   cursor: pointer;
-  transform: scale(0.8);
+  transform: scale(0.7);
 }
 
 .navigation-menu.expanded ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  
 }
 
 .navigation-menu.expanded li {
-  margin: -0.2rem 0;
+  margin: 0.5rem;
+  margin-left: 2rem;
+  
+}
+
+.navigation-menu.expanded li:nth-child(1) {
+  margin-left: 1.6rem;
+}
+
+.navigation-menu.expanded li:nth-child(2) {
+  margin-left: 2.8rem;
 }
 
 .navigation-menu.expanded a {
@@ -248,7 +188,41 @@
   margin-top: 4rem;
 }
 
-@media (max-width: 767px) {
+
+
+.dergi-popup{
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -8rem;
+  border-radius: 5px;
+  z-index: 9999;
+
+  @media (max-width: 1600px) {
+    top: 35%;
+    left: 40%;
+    transform: scale(0.9);
+  }
+
+  @media (max-width: 1200px) {
+    top: 35%;
+    left: 30%;
+    transform: scale(0.75);
+  }
+
+ 
+}
+
+
+
+/* Media Queries */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {  
   .navkuslar2 {
     display: none;
   }
@@ -256,34 +230,47 @@
     display: none;
   }
   .navigation{
+    height: 5rem;
+  }
+  .navigationBlack{
+    height: 7rem;
+  }
+
+  .dergi-popup{
+    top: 65%;
+    left: 0%;
+    margin-left: -2.5rem;
+    transform: scale(0.7);
+  }
+
+  .n-left {
+   
+    transform: scale(0.8);
+    
+  }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  
+  .navigation{
     height: 7rem;
   }
   .navigationBlack{
     height: 7rem;
   }
 
-  .navigation-register{
-    height: 5rem;
-    justify-content: center;
-   
-  }
-  .navigationBlack-register{
-    height: 5rem;
-    justify-content: center;
+  .n-left {
+  
+    transform: scale(0.8);
+    margin-left: 5rem;
   }
 
-  .n-right-register {
-    margin-top: -2rem;
-  }
-
-  .n-left-register {
-    margin-top: -3rem;
-   
-  }
 }
 
-
-@media screen and (min-width: 767px) {
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
   .hamburger {
     display: none;
   }
@@ -322,4 +309,76 @@
   .navigation-menu a:hover {
     color: var(--orange);
   }
+
+  .n-left {
+    display: flex;
+    align-items: flex-start;
+    transform: scale(0.8);
+    margin-left: 5rem;
+  }
 }
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .hamburger {
+    display: none;
+  }
+  
+  .n-left {
+    display: flex;
+    align-items: flex-start;
+    transform: scale(0.8);
+    margin-left: 8rem;
+  }
+
+  .navigation-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .navigation-menu ul {
+    display: flex;
+    
+  }
+
+  .navigation-menu li {
+    margin: 0 auto;
+   
+  }
+
+  .navigation-menu a {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .navigation-menu a:hover {
+    color: var(--orange);
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+  .n-left {
+    transform: scale(0.9);
+  }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1918px and up) */
+@media only screen and (min-width: 1918px) {
+  .n-left {
+    transform: scale(1);
+  }
+ 
+}
+
+
+
+

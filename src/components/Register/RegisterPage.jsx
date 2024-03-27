@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import "./RegisterPage.css";
 import UserRegister from "./UserRegister";
 import video from "../../img/bayram_kutlama.mp4";
 
@@ -253,30 +254,16 @@ const RegisterPage = () => {
           <div className="registerPage-root">
             {!isMobile && (
               <div
+                className="registerPage-left"
                 style={{
                   backgroundImage: `url(${tkc_kuslar1_edit})`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
-                  width: "32rem",
-                  height: "32rem",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginLeft: "-8rem",
-                  marginTop: "-4rem",
                 }}
               >
                 <Canvas
                   camera={{ position: [0, 0, 4.25], fov: 15 }}
-                  style={{
-                    width: "30vh",
-                    height: "60vh",
-                    minWidth: "20vw",
-                    minHeight: "30vh",
-                    marginLeft: "18rem",
-                    cursor: "pointer",
-                    border: getBorderStyle(),
-                  }}
+                  className={"canvas-left"}
                 >
                   <ambientLight intensity={1.25} />
 
@@ -295,6 +282,7 @@ const RegisterPage = () => {
                     )}
                     <ModelCharEge
                       position={[0, -1.2, -3]}
+                      scale={0.9}
                       rotation={[0, -60, 0]}
                     />
                   </Suspense>
@@ -324,28 +312,16 @@ const RegisterPage = () => {
             </div>
             {!isMobile && (
               <div
+                className="registerPage-right"
                 style={{
                   backgroundImage: `url(${tkc_kuslar2_edit})`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
-                  width: "32rem",
-                  height: "32rem",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginLeft: "-2rem",
-                  marginTop: "-4rem",
                 }}
               >
                 <Canvas
                   camera={{ position: [0, 0, 4.25], fov: 15 }}
-                  style={{
-                    width: "30vh",
-                    height: "60vh",
-                    minWidth: "20vw",
-                    minHeight: "30vh",
-                    cursor: "pointer",
-                  }}
+                  className={"canvas-right"}
                 >
                   <ambientLight intensity={1.25} />
                   <directionalLight intensity={0.4} />
@@ -353,6 +329,7 @@ const RegisterPage = () => {
                     <ModelChar
                       position={[0, -1.2, -3]}
                       rotation={[0, -60, 0]}
+                      scale={0.9}
                     />
                     {gender === "2" && (
                       <>
@@ -382,6 +359,7 @@ const RegisterPage = () => {
         </>
       )}
       <div
+        className="footer-image"
         style={{
           position: "fixed",
           bottom: 0,

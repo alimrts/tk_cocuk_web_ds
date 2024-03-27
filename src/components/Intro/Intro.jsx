@@ -151,9 +151,7 @@ const Intro = (props) => {
   } = props;
 
   const handleButtonClick = () => {
-    // onButtonClick();
     setPlayerPosition([0, 0, 0]);
-
     setShowMetaverse(true);
   };
 
@@ -167,7 +165,6 @@ const Intro = (props) => {
   const [state, setState] = useState({
     infoText: "",
     loading: false,
-
     adi: "Adi",
     yilYas: 5,
     ayYas: 11,
@@ -297,34 +294,13 @@ const Intro = (props) => {
       <div className="i-left">
         <div className="i-name">
           {/* change darkmode */}
-
-          {/* <span
-            style={{
-              color: darkMode ? "white" : "orange",
-              textAlign: "center",
-              marginLeft: "-9rem",
-              fontSize: "1.4rem",
-            }}
-          >
-            TÜİK Çocuk Platformu'na
-          </span>
-          <span
-            style={{
-              color: darkMode ? "white" : "blue",
-              textAlign: "center",
-              marginLeft: "-9rem",
-              fontSize: "1.4rem",
-            }}
-          >
-            Hoş geldin {capitalizedStr} !
-          </span> */}
-
           <div
             style={{
               display: "flex",
               flexDirection: "column",
               position: "absolute",
-              left: "18rem",
+              width: "30rem",
+              left: "5rem",
             }}
           >
             <span
@@ -423,8 +399,16 @@ const Intro = (props) => {
       <div className="i-right">
         {/* animation */}
         <motion.div
-          initial={{ left: "-34%", top: "-7.5rem" }}
-          whileInView={{ left: "-6%", top: "-7.5rem" }}
+          // initial={{ left: "-34%", top: "-25%" }}
+          // whileInView={{ left: "-6%", top: "-30%" }}
+          initial={{
+            left: "var(--istatistik-initial-left-mobile)",
+            top: "var(--istatistik-initial-top-mobile)",
+          }}
+          whileInView={{
+            left: "var(--istatistik-whileInView-left-mobile)",
+            top: "var(--istatistik-whileInView-top-mobile)",
+          }}
           style={{ left: "calc(100vw * -0.32)", top: "2%" }}
           transition={transition}
           className="floating-div"
@@ -435,8 +419,16 @@ const Intro = (props) => {
         </motion.div>
 
         <motion.div
-          initial={{ left: "30%", top: "-7rem" }}
-          whileInView={{ left: "36%", top: "-7rem" }}
+          // initial={{ left: "30%", top: "-7rem" }}
+          // whileInView={{ left: "36%", top: "-7rem" }}
+          initial={{
+            left: "var(--tuik-initial-left-mobile)",
+            top: "var(--tuik-initial-top-mobile)",
+          }}
+          whileInView={{
+            left: "var(--tuik-whileInView-left-mobile)",
+            top: "var(--tuik-whileInView-top-mobile)",
+          }}
           style={{ left: "calc(100vw * -0.06)", top: "30%" }}
           transition={transition}
           className="floating-div"
@@ -448,8 +440,16 @@ const Intro = (props) => {
 
         {/* animation */}
         <motion.div
-          initial={{ left: "14%", top: "38%" }}
-          whileInView={{ left: "11%", top: "0rem" }}
+          // initial={{ left: "14%", top: "38%" }}
+          // whileInView={{ left: "11%", top: "0rem" }}
+          initial={{
+            left: "var(--cocukhaklari-initial-left-mobile)",
+            top: "var(--cocukhaklari-initial-top-mobile)",
+          }}
+          whileInView={{
+            left: "var(--cocukhaklari-whileInView-left-mobile)",
+            top: "var(--cocukhaklari-whileInView-top-mobile)",
+          }}
           style={{ left: "calc(100vw * -0.01)", top: "38%" }}
           transition={transition}
           className="floating-div"
@@ -460,8 +460,16 @@ const Intro = (props) => {
         </motion.div>
 
         <motion.div
-          initial={{ left: "-6%", top: "38%" }}
-          whileInView={{ left: "-18%", top: "2.5rem" }}
+          // initial={{ left: "-6%", top: "38%" }}
+          // whileInView={{ left: "-18%", top: "2.5rem" }}
+          initial={{
+            left: "var(--oyunoynayalim-initial-left-mobile)",
+            top: "var(--oyunoynayalim-initial-top-mobile)",
+          }}
+          whileInView={{
+            left: "var(--oyunoynayalim-whileInView-left-mobile)",
+            top: "var(--oyunoynayalim-whileInView-top-mobile)",
+          }}
           style={{ left: "calc(100vw * -0.18)", top: "38%" }}
           transition={transition}
           className="floating-div"
@@ -477,8 +485,16 @@ const Intro = (props) => {
         </motion.div>
 
         <motion.div
-          initial={{ left: "48%", top: "2%" }}
-          whileInView={{ left: "40%", top: "6rem" }}
+          // initial={{ left: "48%", top: "2%" }}
+          // whileInView={{ left: "40%", top: "6rem" }}
+          initial={{
+            left: "var(--sdg-initial-left-mobile)",
+            top: "var(--sdg-initial-top-mobile)",
+          }}
+          whileInView={{
+            left: "var(--sdg-whileInView-left-mobile)",
+            top: "var(--sdg-whileInView-top-mobile)",
+          }}
           style={{ left: "calc(100vw * 0.04)", top: "2%" }}
           transition={transition}
           className="floating-div"
@@ -490,9 +506,17 @@ const Intro = (props) => {
         </motion.div>
 
         <motion.div
-          initial={{ left: "38%", top: "6%" }}
-          whileInView={{ left: "22%", top: "14.5rem" }}
-          style={{ left: "calc(100vw * -0.32)", top: "2%" }}
+          // initial={{ left: "38%", top: "6%" }}
+          // whileInView={{ left: "22%", top: "14.5rem" }}
+          initial={{
+            left: "var(--video-initial-left-mobile)",
+            top: "var(--video-initial-top-mobile)",
+          }}
+          whileInView={{
+            left: "var(--video-whileInView-left-mobile)",
+            top: "var(--video-whileInView-top-mobile)",
+          }}
+          style={{ left: "calc(100vw * -0.32)", top: "4%" }}
           transition={transition}
           className="floating-div"
         >
@@ -502,8 +526,16 @@ const Intro = (props) => {
         </motion.div>
 
         <motion.div
-          initial={{ left: "-34%", top: "10 rem" }}
-          whileInView={{ left: "-10.5%", top: "12.5rem" }}
+          // initial={{ left: "-34%", top: "10 rem" }}
+          // whileInView={{ left: "-10.5%", top: "12.5rem" }}
+          initial={{
+            left: "var(--geleneksel-initial-left-mobile)",
+            top: "var(--geleneksel-initial-top-mobile)",
+          }}
+          whileInView={{
+            left: "var(--geleneksel-whileInView-left-mobile)",
+            top: "var(--geleneksel-whileInView-top-mobile)",
+          }}
           style={{ left: "calc(100vw * 0.04)", top: "2%" }}
           transition={transition}
           className="floating-div"
