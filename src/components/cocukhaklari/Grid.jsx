@@ -14,36 +14,52 @@ const Grid = styled.div`
   padding-left: 0;
   margin-left: -2vh;
 
-  @media only screen and (min-width: 768px) {
-    grid-template-columns: repeat(8, 1fr);
-    grid-auto-rows: 1fr;
-    grid-gap: 1vh;
-  }
-  @media only screen and (max-width: 1750px) {
-    grid-template-columns: repeat(7, 1fr);
-    grid-auto-rows: auto;
-    grid-gap: 1vh;
-  }
-  @media only screen and (max-width: 1600px) {
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: auto;
-    grid-gap: 1vh;
-  }
-  @media only screen and (max-width: 1400px) {
-    grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: auto;
-    grid-gap: 1vh;
+  @media only screen and (max-width: 319px) {
+    grid-template-columns: repeat(2, 1fr);
+    transform: scale(0.75);
+    margin-left: 2rem;
   }
 
-  @media only screen and (max-width: 1200px) {
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: auto;
-    grid-gap: 1vh;
+  @media only screen and (min-width: 320px) and (max-width: 374px) {
+    grid-template-columns: repeat(2, 1fr);
+    transform: scale(0.75);
+    margin-left: 2rem;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (min-width: 375px) and (max-width: 424px) {
     grid-template-columns: repeat(2, 1fr);
     transform: scale(0.85);
+    margin-left: 2.4rem;
+  }
+
+  @media only screen and (min-width: 425px) and (max-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
+    transform: scale(1);
+    margin-left: 2.4rem;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1199px) {
+    grid-template-columns: repeat(4, 1fr);
+    transform: scale(0.9);
+    margin-left: 2.4rem;
+  }
+
+  @media only screen and (min-width: 1200px) and (max-width: 1439px) {
+    grid-template-columns: repeat(4, 1fr);
+    transform: scale(1);
+    margin-left: 2.4rem;
+  }
+
+  @media only screen and (min-width: 1440px) and (max-width: 1919px) {
+    grid-template-columns: repeat(6, 1fr);
+    transform: scale(1);
+    margin-left: 2.4rem;
+  }
+
+  @media only screen and (min-width: 1920px) {
+    grid-template-columns: repeat(8, 1fr);
+    transform: scale(1);
+    margin-left: 0rem;
   }
 `;
 const CardsGrid = () => {

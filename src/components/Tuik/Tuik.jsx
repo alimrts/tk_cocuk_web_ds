@@ -24,10 +24,10 @@ const swiperProps = {
   },
 };
 
-const tuik1 = <img src={tuik1i} width="640px" alt="" />;
-const tuik2 = <img src={tuik2i} width="640px" alt="" />;
-const tuik3 = <img src={tuik3i} width="640px" alt="" />;
-const tuik4 = <img src={tuik4i} width="640px" alt="" />;
+const tuik1 = <img src={tuik1i} className="tuik-images" alt="" />;
+const tuik2 = <img src={tuik2i} className="tuik-images" alt="" />;
+const tuik3 = <img src={tuik3i} className="tuik-images" alt="" />;
+const tuik4 = <img src={tuik4i} className="tuik-images" alt="" />;
 
 const Tuik = () => {
   const icerikler = [
@@ -46,14 +46,11 @@ const Tuik = () => {
   ];
 
   return (
-    <div className="container-istatistik" id="tuik">
-      <div className="left-column">
+    <div className="container-tuik" id="tuik">
+      <div className="left-column-tuik">
         <img src={tkc_tuik_timeline} alt="" />
       </div>
-      <div
-        className="right-column"
-        style={{ width: "700px", marginRight: "20rem" }}
-      >
+      <div className="right-column-tuik">
         <div>
           <Swiper
             {...swiperProps}

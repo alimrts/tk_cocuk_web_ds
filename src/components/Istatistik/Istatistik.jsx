@@ -37,18 +37,42 @@ const swiperProps = {
   },
 };
 
-const istatistik1 = <img src={istatistik1i} width="640px" alt="" />;
-const istatistik2 = <img src={istatistik2i} width="640px" alt="" />;
-const istatistik3 = <img src={istatistik3i} width="640px" alt="" />;
-const istatistik4 = <img src={istatistik4i} width="640px" alt="" />;
-const istatistik5 = <img src={istatistik5i} width="640px" alt="" />;
-const istatistik6 = <img src={istatistik6i} width="640px" alt="" />;
-const istatistik7 = <img src={istatistik7i} width="640px" alt="" />;
-const istatistik8 = <img src={istatistik8i} width="640px" alt="" />;
-const istatistik9 = <img src={istatistik9i} width="640px" alt="" />;
-const istatistik10 = <img src={istatistik10i} width="640px" alt="" />;
-const istatistik11 = <img src={istatistik11i} width="640px" alt="" />;
-const istatistik12 = <img src={istatistik12i} width="640px" alt="" />;
+const istatistik1 = (
+  <img src={istatistik1i} alt="" className="istatistik-images" />
+);
+const istatistik2 = (
+  <img src={istatistik2i} alt="" className="istatistik-images" />
+);
+const istatistik3 = (
+  <img src={istatistik3i} alt="" className="istatistik-images" />
+);
+const istatistik4 = (
+  <img src={istatistik4i} alt="" className="istatistik-images" />
+);
+const istatistik5 = (
+  <img src={istatistik5i} alt="" className="istatistik-images" />
+);
+const istatistik6 = (
+  <img src={istatistik6i} alt="" className="istatistik-images" />
+);
+const istatistik7 = (
+  <img src={istatistik7i} alt="" className="istatistik-images" />
+);
+const istatistik8 = (
+  <img src={istatistik8i} alt="" className="istatistik-images" />
+);
+const istatistik9 = (
+  <img src={istatistik9i} alt="" className="istatistik-images" />
+);
+const istatistik10 = (
+  <img src={istatistik10i} alt="" className="istatistik-images" />
+);
+const istatistik11 = (
+  <img src={istatistik11i} alt="" className="istatistik-images" />
+);
+const istatistik12 = (
+  <img src={istatistik12i} alt="" className="istatistik-images" />
+);
 
 let bullet;
 bullet = "\u007F" + "\u007F" + "\u2022";
@@ -99,10 +123,7 @@ const Istatistik = () => {
       <div className="left-column">
         <img src={tkc_istatistik_timeline} alt="" />
       </div>
-      <div
-        className="right-column"
-        style={{ width: "700px", marginRight: "20rem" }}
-      >
+      <div className="right-column">
         <Swiper
           {...swiperProps}
           modules={[Pagination]}

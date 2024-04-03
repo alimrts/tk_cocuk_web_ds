@@ -13,7 +13,7 @@ const TextPopup = ({ src_image, onClose }) => {
           backgroundColor: "rgba(0, 0, 0, 0.5)", // Adjust the alpha value for transparency
           zIndex: 999, // Make sure the overlay is on top
         }}
-        onClick={onClose} // Close the popup when clicking on the overlay
+        onClick={onClose}
       ></div>
 
       <div className="imagePopup">

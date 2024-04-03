@@ -54,31 +54,11 @@ const Contact = () => {
 
   return (
     <div className="contact-form" id="contact">
-      {/* darkMode */}
-      {/* <span
-            className="awesome"
-            style={{
-              color: darkMode ? "white" : "orange",
-              display: "flex",
-              justifyContent: "right",
-              marginLeft: "8rem",
-              zIndex: "10",
-            }}
-          >
-            İletişim
-          </span> */}
       <div className="left-column-contact">
         <img src={tkc_iletisim_left} alt="" />
       </div>
-
-      {/* <div
-            className="blur s-blur1"
-            style={{ background: "#ABF1FF94" }}
-          ></div> */}
-
-      {/* right side form */}
       <div
-        className="c-right"
+        className="right-column-contact"
         style={{
           zIndex: "10",
         }}

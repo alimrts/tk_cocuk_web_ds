@@ -11,10 +11,10 @@ const WrapperComponentForOne = ({ data }) => {
 
   return (
     <>
-      <div className="sdgGrid-container">
+      <div className="gelenekselGrid-container">
         {data.map((item, index) => (
           <ImageWithOne
-            key={index} // Use a unique key for each item
+            key={index}
             title={item.title}
             src_cover={item.src_cover}
             src_image={item.src_image}

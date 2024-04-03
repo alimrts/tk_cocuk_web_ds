@@ -52,9 +52,9 @@ const swiperProps = {
 //   </span>
 // );
 
-const cocukhak1 = <img src={cocukhak1i} width="640px" alt="" />;
-const cocukhak2 = <img src={cocukhak2i} width="640px" alt="" />;
-const cocukhak3 = <img src={cocukhak3i} width="640px" alt="" />;
+const cocukhak1 = <img src={cocukhak1i} className="cocuk-images" alt="" />;
+const cocukhak2 = <img src={cocukhak2i} className="cocuk-images" alt="" />;
+const cocukhak3 = <img src={cocukhak3i} className="cocuk-images" alt="" />;
 
 const Cocukhaklari = () => {
   const infos = [
@@ -73,36 +73,16 @@ const Cocukhaklari = () => {
     <>
       {" "}
       <NavbarRegister />
-      <div className="t-heading">
-        {/* <span>
-          Haklarımızı Öğrenelim... <br />{" "}
-        </span> */}
-        <span>Çocuk Hakları </span>
-        <span>Nedir?</span>
-        <span style={{ fontSize: "14pt" }}>
-          <br />
-          Açıklamalar için kartlara tıklayınız.
-        </span>
-      </div>
-      <div style={{ marginTop: "1 rem" }}>
-        {/* <div
-          style={{
-            backgroundImage: `url(${tkc_kuslar2_edit})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            width: "22rem",
-            height: "22rem",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginLeft: "58rem",
-            marginTop: "-26rem",
-          }}
-        /> */}
-        <div
-          className="right-column"
-          style={{ marginLeft: "7rem", marginTop: "1rem" }}
-        >
+      <div className="cocuk-content">
+        <div className="t-heading-cocuk">
+          <span>Çocuk Hakları </span>
+          <span>Nedir?</span>
+          <span style={{ fontSize: "14pt" }}>
+            <br />
+            Açıklamalar için kartlara tıklayınız.
+          </span>
+        </div>
+        <div className="right-column-cocuk">
           <Swiper
             {...swiperProps}
             modules={[Pagination]}
@@ -127,7 +107,6 @@ const Cocukhaklari = () => {
               );
             })}
           </Swiper>
-
           <div
             className="swiper-button-prev-cocuk"
             style={{ marginLeft: "8rem" }}
@@ -141,7 +120,9 @@ const Cocukhaklari = () => {
             <img src={arrowSlider} />
           </div>
         </div>
-        <Grid />
+        <div className="cocuk-grid">
+          <Grid />
+        </div>
       </div>
     </>
   );
