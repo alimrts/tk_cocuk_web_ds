@@ -295,6 +295,4 @@ export const FilterTabs = [
       "Devletler, çocuklar ve yetişkinleri Sözleşme hakkında bilgilendirmelidir.",
     icon: c42,
   },
-
-  // add more objects here as needed
 ];
