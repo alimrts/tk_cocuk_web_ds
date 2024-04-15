@@ -80,8 +80,7 @@ const ImageWithOne = ({ title, src_cover, src_image, onClick, isOpen }) => {
                 height: "400px",
                 position: "absolute",
                 filter: !hovered ? "none" : "brightness(110%)",
-
-                zIndex: !hovered ? -1 : 1,
+                zIndex: !hovered ? 0 : 1,
                 borderRadius: "5px",
                 boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
               }}
@@ -95,6 +94,7 @@ const ImageWithOne = ({ title, src_cover, src_image, onClick, isOpen }) => {
                 fontSize: "18pt",
                 paddingRight: "8px",
                 paddingLeft: "8px",
+                zIndex: 1,
                 boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
               }}
             >

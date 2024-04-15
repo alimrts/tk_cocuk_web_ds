@@ -16,6 +16,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import useZustandStore from "../../zustandStore";
 
 import citiesImport from "./cities.json";
+import blacklist from "./blacklist.json";
 
 const cities = citiesImport[0];
 const lowerLimit = 1900;
@@ -236,14 +237,66 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
     handleGenderChange(event);
   };
 
+  const handleChangeName = (event) => {
+    // const { name, value } = event.target;
+    // setFormData((prevFormData) => ({
+    //   ...prevFormData,
+    //   [name]: value,
+    // }));
+
+    const { name, value } = event.target;
+
+    // Check if the value contains any blacklisted words
+    // const isBlacklisted = blacklist.words.some((word) =>
+    //   new RegExp(`\\b${word}\\b`, "i").test(value)
+    // );
+
+    // const isBlacklisted = blacklist.words.some((word) =>
+    //   new RegExp(`\\b${word.replace(/[\W_]/g, "\\$&")}\\b`, "iu").test(value)
+    // );
+
+    // // Convert both the input value and the words in the blacklist to lowercase
+    // const lowercaseValue = value.toLowerCase();
+    // const lowercaseBlacklist = blacklist.words.map((word) =>
+    //   word.toLowerCase()
+    // );
+
+    // // Check if the lowercase input value contains any words from the lowercase blacklist
+    // const isBlacklisted = lowercaseBlacklist.some((word) =>
+    //   lowercaseValue.includes(word)
+    // );
+
+    // Uppercase the input value
+    const uppercaseValue = value.toUpperCase();
+
+    // Convert both the uppercase input value and the words in the blacklist to uppercase
+    const uppercaseBlacklist = blacklist.words.map((word) =>
+      word.toUpperCase()
+    );
+
+    // Check if the uppercase input value contains any words from the uppercase blacklist
+    const isBlacklisted = uppercaseBlacklist.some((word) =>
+      uppercaseValue.includes(word)
+    );
+
+    if (isBlacklisted) {
+      // If the value contains blacklisted words, don't update the state
+      return;
+    }
+
+    // Otherwise, update the state
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
-    // const cityKey = Object.keys(cities).find((key) => cities[key] === value);
-    // console.log("selected city key: ", cityKey);
   };
 
   const [gender, setGender] = useState("");
@@ -297,7 +350,7 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
           onChange={(event) => {
             const value = event.target.value;
             const sanitizedValue = value.replace(/\d+/g, "").slice(0, 25);
-            handleChange({
+            handleChangeName({
               target: { name: "firstName", value: sanitizedValue },
             });
           }}

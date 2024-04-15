@@ -40,7 +40,13 @@ const TextPopup = ({ rowTitle, row1, onClose }) => {
           <br /> <br />
         </div>
 
-        <span>{row1}</span>
+        <span
+          style={{
+            color: "gray",
+          }}
+        >
+          {row1}
+        </span>
       </div>
     </>
   );
@@ -84,7 +90,7 @@ const ImageWithTwoRows = ({ src1, src2, row1, rowTitle, onClick, isOpen }) => {
                 position: "absolute",
                 filter: !hovered ? "blur(18px) brightness(90%)" : "none",
 
-                zIndex: !hovered ? -1 : 1,
+                zIndex: !hovered ? 0 : 2,
                 borderRadius: "5px",
                 boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
               }}
@@ -99,6 +105,7 @@ const ImageWithTwoRows = ({ src1, src2, row1, rowTitle, onClick, isOpen }) => {
                 height: "150px",
                 borderRadius: "5px",
                 boxShadow: "0 12px 18px rgba(0, 0, 0, 0.6)",
+                zIndex: 1,
               }}
             />
           </div>

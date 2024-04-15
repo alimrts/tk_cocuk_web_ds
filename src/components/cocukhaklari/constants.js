@@ -51,7 +51,7 @@ export const FilterTabs = [
   {
     nameFront: "c2",
     nameBack:
-      "Sözleşme; etnik kökeni, toplumsal cinsiyeti, dini, sakatlık durumu, düşünce veya söylemleri, ailevi durumları her ne olursa olsun tüm çocuklar için geçerlidir.",
+      "Sözleşme; etnik kökeni, toplumsal cinsiyeti, dini, engellilik durumu, düşünce veya söylemleri, ailevi durumları her ne olursa olsun tüm çocuklar için geçerlidir.",
     icon: c2,
   },
   {
