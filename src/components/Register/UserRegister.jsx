@@ -15,6 +15,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 import useZustandStore from "../../zustandStore";
 
+import AlertPopup from "../AlertPopup";
 import citiesImport from "./cities.json";
 import blacklist from "./blacklist.json";
 
@@ -138,6 +139,13 @@ const useStyles = makeStyles((theme) => ({
 const UserRegister = ({ onSubmit, onGenderChange }) => {
   const { language, setLanguage, languageData } = useZustandStore();
   const strings = languageData[language];
+
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleImageClick = () => {
+    setShowAlert(showAlert ? false : true);
+  };
+
   //////////////to clear
   const handleClearForm = () => {
     setFormData({
@@ -238,53 +246,19 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
   };
 
   const handleChangeName = (event) => {
-    // const { name, value } = event.target;
-    // setFormData((prevFormData) => ({
-    //   ...prevFormData,
-    //   [name]: value,
-    // }));
-
     const { name, value } = event.target;
-
-    // Check if the value contains any blacklisted words
-    // const isBlacklisted = blacklist.words.some((word) =>
-    //   new RegExp(`\\b${word}\\b`, "i").test(value)
-    // );
-
-    // const isBlacklisted = blacklist.words.some((word) =>
-    //   new RegExp(`\\b${word.replace(/[\W_]/g, "\\$&")}\\b`, "iu").test(value)
-    // );
-
-    // // Convert both the input value and the words in the blacklist to lowercase
-    // const lowercaseValue = value.toLowerCase();
-    // const lowercaseBlacklist = blacklist.words.map((word) =>
-    //   word.toLowerCase()
-    // );
-
-    // // Check if the lowercase input value contains any words from the lowercase blacklist
-    // const isBlacklisted = lowercaseBlacklist.some((word) =>
-    //   lowercaseValue.includes(word)
-    // );
-
-    // Uppercase the input value
     const uppercaseValue = value.toUpperCase();
-
-    // Convert both the uppercase input value and the words in the blacklist to uppercase
     const uppercaseBlacklist = blacklist.words.map((word) =>
       word.toUpperCase()
     );
-
-    // Check if the uppercase input value contains any words from the uppercase blacklist
     const isBlacklisted = uppercaseBlacklist.some((word) =>
       uppercaseValue.includes(word)
     );
 
     if (isBlacklisted) {
-      // If the value contains blacklisted words, don't update the state
       return;
     }
 
-    // Otherwise, update the state
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
@@ -320,7 +294,8 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
     const formFields = Object.values(formData);
     const hasEmptyFields = formFields.some((field) => field === ""); // check for empty fields
     if (hasEmptyFields) {
-      alert(strings.registerPageLutfenGerekliBilgiler); // show an alert to the user
+      // alert(strings.registerPageLutfenGerekliBilgiler);
+      setShowAlert(true); // Show the alert
       return;
     }
 
@@ -336,6 +311,14 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
   return (
     <>
       {" "}
+      {showAlert && (
+        <AlertPopup
+          rowTitle={"Uyarı!"}
+          row1={strings.registerPageLutfenGerekliBilgiler}
+          onClick={() => handleImageClick()}
+          isOpen={showAlert}
+        />
+      )}{" "}
       <form className={classes.form} onSubmit={handleSubmit}>
         <TextField
           label={
@@ -346,7 +329,6 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
           type="text"
           name="firstName"
           value={formData.firstName}
-          // onChange={handleChange}
           onChange={(event) => {
             const value = event.target.value;
             const sanitizedValue = value.replace(/\d+/g, "").slice(0, 25);

@@ -176,13 +176,13 @@ const Navbar = () => {
             style={{
               background: "none",
               border: "none",
-              color: "orange", // Choose the color you want
+              color: "orange",
               cursor: "pointer",
               marginBottom: "1rem",
-              transition: "color 0.3s", // Add transition for a smooth color change
+              transition: "color 0.3s",
             }}
-            onMouseEnter={(e) => (e.target.style.color = "red")} // Change color on hover
-            onMouseLeave={(e) => (e.target.style.color = "orange")} // Reset color when not hovered
+            onMouseEnter={(e) => (e.target.style.color = "red")}
+            onMouseLeave={(e) => (e.target.style.color = "orange")}
           >
             Çıkış
           </button>
