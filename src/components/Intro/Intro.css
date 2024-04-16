@@ -145,6 +145,17 @@
   transform: scale(1);
 }
 
+.certCloseBtn {
+  position: absolute;
+  margin-left: 34.8rem;
+  margin-top: -0.5rem;
+  text-align: center;
+  font-size: 13pt;
+  color: red;
+  cursor: pointer;
+}
+
+
 
 :root {
   --istatistik-initial-left-mobile: -34%;
@@ -281,10 +292,20 @@
   .i-right .blur {
     display: none;
   }
+
   .imageWithTex{
     margin-top: -8rem;
     margin-left: -6rem;
-    transform: scale(0.65);
+    transform: scale(0.4);
+  }
+  .certCloseBtn {
+    position: absolute;
+    margin-left: 10rem;
+    margin-top: -0.5rem;
+    text-align: center;
+    font-size: 13pt;
+    color: red;
+    cursor: pointer;
   }
   
 }
@@ -372,10 +393,20 @@
   .i-right .blur {
     display: none;
   }
+
   .imageWithTex{
-    margin-top: -8rem;
-    margin-left: -6rem;
-    transform: scale(0.65);
+    margin-top: -1rem;
+    margin-left: -7rem;
+    transform: scale(0.44);
+  }
+  .certCloseBtn {
+    position: absolute;
+    margin-left: 12.5rem;
+    margin-top: -0.5rem;
+    text-align: center;
+    font-size: 13pt;
+    color: red;
+    cursor: pointer;
   }
   
 }
@@ -462,10 +493,21 @@
   .i-right .blur {
     display: none;
   }
+
   .imageWithTex{
-    margin-top: -8rem;
-    margin-left: -6rem;
-    transform: scale(0.65);
+    margin-bottom: 2rem;
+    margin-left: -6.2rem;
+    transform: scale(0.5);
+  }
+
+  .certCloseBtn {
+    position: absolute;
+    margin-left: 15rem;
+    margin-top: -0.5rem;
+    text-align: center;
+    font-size: 13pt;
+    color: red;
+    cursor: pointer;
   }
    
 }
@@ -553,9 +595,19 @@
     display: none;
   }
   .imageWithTex{
-    margin-top: -8rem;
-    margin-left: -6rem;
-    transform: scale(0.65);
+    margin-bottom: 2rem;
+    margin-left: -6.1rem;
+    transform: scale(0.58);
+  }
+
+  .certCloseBtn {
+    position: absolute;
+    margin-left: 17.5rem;
+    margin-top: -0.5rem;
+    text-align: center;
+    font-size: 13pt;
+    color: red;
+    cursor: pointer;
   }
 }
 
@@ -641,10 +693,22 @@
   .i-right .blur {
     display: none;
   }
+  
+
   .imageWithTex{
-    margin-top: -8rem;
-    margin-left: -6rem;
+    margin-bottom: 2rem;
+    margin-left: -6.1rem;
     transform: scale(0.65);
+  }
+
+  .certCloseBtn {
+    position: absolute;
+    margin-left: 17.5rem;
+    margin-top: -0.5rem;
+    text-align: center;
+    font-size: 13pt;
+    color: red;
+    cursor: pointer;
   }
 }
 
@@ -731,9 +795,19 @@
     display: none;
   }
   .imageWithTex{
-    margin-top: -8rem;
-    margin-left: -6rem;
+    margin-bottom: 2rem;
+    margin-left: -6.1rem;
     transform: scale(0.65);
+  }
+
+  .certCloseBtn {
+    position: absolute;
+    margin-left: 17.5rem;
+    margin-top: -0.5rem;
+    text-align: center;
+    font-size: 13pt;
+    color: red;
+    cursor: pointer;
   }
 }
 
@@ -820,11 +894,24 @@
     display: none;
   }
   .imageWithTex{
-    margin-top: -8rem;
-    margin-left: -6rem;
+    margin-bottom: 2rem;
+    margin-left: -6.1rem;
     transform: scale(0.65);
   }
+
+  .certCloseBtn {
+    position: absolute;
+    margin-left: 19rem;
+    margin-top: -0.5rem;
+    text-align: center;
+    font-size: 13pt;
+    color: red;
+    cursor: pointer;
+  }
 }
+
+
+
 
 /* Large Screens (Desktops, Laptops) */
 @media only screen and (min-width: 1200px) and (max-width: 1439px) {
@@ -908,10 +995,21 @@
   .i-right .blur {
     display: none;
   }
+
   .imageWithTex{
-    margin-top: -8rem;
-    margin-left: -6rem;
+    margin-bottom: 2rem;
+    margin-left: -6.1rem;
     transform: scale(0.65);
+  }
+
+  .certCloseBtn {
+    position: absolute;
+    margin-left: 34rem;
+    margin-top: -0.5rem;
+    text-align: center;
+    font-size: 13pt;
+    color: red;
+    cursor: pointer;
   }
 }
 
@@ -997,9 +1095,19 @@
     display: none;
   }
   .imageWithTex{
-    margin-top: -8rem;
-    margin-left: -6rem;
-    transform: scale(0.65);
+    margin-bottom: 2rem;
+    margin-left: 0rem;
+    transform: scale(0.85);
+  }
+
+  .certCloseBtn {
+    position: absolute;
+    margin-left: 34rem;
+    margin-top: -0.5rem;
+    text-align: center;
+    font-size: 13pt;
+    color: red;
+    cursor: pointer;
   }
 }
 
@@ -1041,6 +1149,22 @@
     --geleneksel-initial-top-mobile: 10%;
     --geleneksel-whileInView-left-mobile: -10.5%;
     --geleneksel-whileInView-top-mobile: 48%;
+  }
+
+  .imageWithTex{
+    margin-bottom: 2rem;
+    margin-left: 0rem;
+    transform: scale(0.85);
+  }
+
+  .certCloseBtn {
+    position: absolute;
+    margin-left: 34rem;
+    margin-top: -0.5rem;
+    text-align: center;
+    font-size: 13pt;
+    color: red;
+    cursor: pointer;
   }
 
 }

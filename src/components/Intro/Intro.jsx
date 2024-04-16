@@ -250,7 +250,7 @@ const Intro = (props) => {
             ayniIsimdeTurkiyeSayi: response_data.data.AyniIsimdeTurkiyeSayi,
             ayniTarihDoganIlSayi: response_data.data.AyniTarihDoganIlSayi,
             ayniTarihDoganTurkiyeSayi:
-              response_data.data.ayniTarihDoganTurkiyeSayi,
+              response_data.data.AyniTarihDoganTurkiyeSayi,
             boyOrtancaDeger: response_data.data.BoyOrtancaDeger,
             kiloOrtancaDeger: response_data.data.KiloOrtancaDeger,
             loading: true,

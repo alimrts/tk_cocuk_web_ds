@@ -37,14 +37,15 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    width: "100%",
-    height: "100%",
-    padding: theme.spacing(2),
-    margin: theme.spacing(2),
+    width: "90vw",
+    height: "90vh",
+    padding: theme.spacing(1),
+    margin: theme.spacing(1),
+    // overflowY: "auto",
     [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(2),
+      padding: theme.spacing(1),
       margin: theme.spacing(1),
-      width: "85%",
+      width: "94vw",
     },
   },
   paper: {
@@ -52,9 +53,11 @@ const useStyles = makeStyles((theme) => ({
     border: "2px solid lightblue",
     borderRadius: "6px",
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    padding: theme.spacing(2, 2, 2),
+    overflowY: "auto", // Add overflow-y property
+    maxHeight: "calc(100% - 88px)",
     [theme.breakpoints.down("sm")]: {
-      width: "85%",
+      width: "95%",
       maxWidth: "400px",
     },
   },
@@ -327,20 +330,7 @@ export default function AnimatedModal(props) {
 
   return (
     <div>
-      {/* <button className="button i-buttonSertifika" onClick={handleOpen}>
-        Sertifikanı Oluştur
-      </button> */}
       <FloatinDivForNavbarMenu img={tkc_sertifika} onClick={handleOpen} />
-      {/* <Button
-        variant="contained"
-        radius="10px"
-        textTransform="none"
-        color="primary"
-        onClick={handleOpen}
-      >
-        Sertifikanı Oluştur
-      </Button> */}
-
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -355,18 +345,7 @@ export default function AnimatedModal(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <button
-              style={{
-                position: "absolute",
-                marginLeft: "34.8rem",
-                marginTop: "-0.5rem",
-                textAlign: "center",
-                fontSize: "13pt",
-                color: "red",
-                cursor: "pointer",
-              }}
-              onClick={handleClose}
-            >
+            <button className="certCloseBtn" onClick={handleClose}>
               X
             </button>
             <h2

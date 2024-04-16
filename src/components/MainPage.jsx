@@ -60,6 +60,13 @@ const MainPage = () => {
     }
   }, [userInfo, history]);
 
+  useEffect(() => {
+    // Reset scroll position when component unmounts
+    return () => {
+      window.scrollTo(0, 0);
+    };
+  }, []);
+
   console.log("gelen userinfo: ", userInfo);
   // Destructure user information
   const {

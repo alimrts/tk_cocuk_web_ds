@@ -11,6 +11,11 @@
   --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
 @font-face {
   font-family: 'Noteworthy-Bold';
   src: url('./fonts/Noteworthy-Bold.ttf') format('truetype');

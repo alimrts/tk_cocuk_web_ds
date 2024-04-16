@@ -12,7 +12,7 @@ const VideoPopup = ({ videoSrc, onClose }) => {
           width="85%"
           height="85%"
         />
-        <button className="close-button" onClick={onClose}>
+        <button className="close-button-video" onClick={onClose}>
           X
         </button>
       </div>

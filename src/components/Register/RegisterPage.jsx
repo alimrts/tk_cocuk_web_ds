@@ -106,6 +106,13 @@ const RegisterPage = () => {
     }
   }, []);
 
+  useEffect(() => {
+    // Reset scroll position when component unmounts
+    return () => {
+      window.scrollTo(0, 0);
+    };
+  }, []);
+
   const handleLanguageChange = (selectedLanguage) => {
     setLanguage(selectedLanguage);
 

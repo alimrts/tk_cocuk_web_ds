@@ -168,7 +168,7 @@ const ImageWithText = ({
       {canvasInitialized && (
         <>
           <button
-            className={`button`}
+            className="button"
             style={{
               position: "absolute",
               bottom: "20px",

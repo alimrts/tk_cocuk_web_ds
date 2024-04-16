@@ -22,7 +22,7 @@
     max-height: 100%;
   }
   
-  .close-button {
+  .close-button-video {
     position: absolute;
     width: 40px;
     top: 5px;
@@ -33,30 +33,194 @@
     z-index: 2;
   }
   
-  .close-button:hover {
+  .close-button-video:hover {
     /* background-color: rgba(255, 0, 0, 0.5); */
     transform: scale(1.05);
   }
   
-  /* Responsive Modifications */
-  
-  @media only screen and (max-width: 768px) {
-    /* Adjust the styles for screens with a maximum width of 768px */
-    .video-popup {
-      align-items: center;
-    }
-    
-    .video-container {
-      width: 90%;
-      max-height: 90%;
-    }
-    
-    .close-button {
-      top: 5px;
-      right: 5px;
-      font-size: 1rem;
-    }
+ 
+/* ///////// for media queries ///////// */ 
+
+/* Extra Small Devices (Portrait and Landscape) */
+@media only screen and (max-width: 319px) {
+  .video-popup {
+    align-items: center;
   }
   
-  /* Add more media queries as needed for different screen sizes */
+  .video-container {
+    width: 99%;
+    max-height: 99%;
+  }
+  
+  .close-button-video {
+    right: 1px;
+    margin-top: -0.4rem;
+    margin-right: 1rem;
+    transform: scale(0.75);
+  }
+}
+
+/* Mobile Phones (Portrait and Landscape) */
+@media only screen and (min-width: 320px) and (max-width: 374px) {
+  .video-popup {
+    align-items: center;
+  }
+  
+  .video-container {
+    width: 99%;
+    max-height: 99%;
+  }
+  
+  .close-button-video {
+    right: 1px;
+    margin-top: -0.4rem;
+    margin-right: 1rem;
+    transform: scale(0.75);
+  }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 424px) {
+  .video-popup {
+    align-items: center;
+  }
+  
+  .video-container {
+    width: 99%;
+    max-height: 99%;
+  }
+  
+  .close-button-video {
+    right: 1px;
+    margin-top: -0.4rem;
+    margin-right: 1.1rem;
+    transform: scale(0.75);
+  }
+}
+
+@media only screen and (min-width: 425px) and (max-width: 767px) {
+  .video-popup {
+    align-items: center;
+  }
+  
+  .video-container {
+    width: 99%;
+    max-height: 99%;
+  }
+  
+  .close-button-video {
+    right: 1px;
+    margin-top: -0.5rem;
+    margin-right: 1.3rem;
+    transform: scale(0.75);
+  }
+}
+
+
+/* Tablets Portrait */
+@media only screen and (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  .video-popup {
+    align-items: center;
+  }
+  
+  .video-container {
+    width: 99%;
+    max-height: 99%;
+  }
+  
+  .close-button-video {
+    right: 1px;
+    margin-top: -0.5rem;
+    margin-right: 1.3rem;
+    transform: scale(0.75);
+  }
+}
+
+/* Tablets Landscape */
+@media only screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  .video-popup {
+    align-items: center;
+  }
+  
+  .video-container {
+    width: 99%;
+    max-height: 99%;
+  }
+  
+  .close-button-video {
+    right: 1px;
+    margin-top: -0.5rem;
+    margin-right: 1.3rem;
+    transform: scale(0.75);
+  }
+}
+
+/* Tablets and Small Desktops */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .video-popup {
+    align-items: center;
+  }
+  
+  .video-container {
+    width: 99%;
+    max-height: 99%;
+  }
+  
+  .close-button-video {
+    right: 1px;
+    margin-top: -0.3rem;
+    margin-right: 2.7rem;
+    transform: scale(0.85);
+  }
+}
+
+/* Large Screens (Desktops, Laptops) */
+@media only screen and (min-width: 1200px) and (max-width: 1439px) {
+  .video-popup {
+    align-items: center;
+  }
+  
+  .video-container {
+    width: 99%;
+    max-height: 99%;
+  }
+  
+  .close-button-video {
+    right: 1px;
+    margin-top: -0.3rem;
+    margin-right: 2.7rem;
+    transform: scale(0.85);
+  }
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+  .video-popup {
+    align-items: center;
+  }
+  
+  .video-container {
+    width: 99%;
+    max-height: 99%;
+  }
+  
+  .close-button-video {
+    right: 1px;
+    margin-top: -0.3rem;
+    margin-right: 5.2rem;
+    transform: scale(0.95);
+  }
+}
+
+/* Extra Large Screens (Desktops, TVs) */
+@media only screen and (min-width: 1920px) {
+  .video-popup {
+    align-items: center;
+  }
+  
+  .video-container {
+    width: 99%;
+    max-height: 99%;
+  }
+  
+  
+}
   
