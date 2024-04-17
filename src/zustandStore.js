@@ -62,7 +62,6 @@ const zustandStore = (set) => ({
     });
   },
   onCleanup: () => {
-    // Reset the state to its initial value when the component is unmounted
     set({ isBilgiIcTriggered: false });
   },
 
@@ -76,7 +75,6 @@ const zustandStore = (set) => ({
     });
   },
   onCleanup: () => {
-    // Reset the state to its initial value when the component is unmounted
     set({ isBilgiGateTriggered: false });
   },
 
@@ -85,7 +83,6 @@ const zustandStore = (set) => ({
   toggleGunesGateTrigger: () =>
     set((state) => ({ isGunesGateTriggered: !state.isGunesGateTriggered })),
   onCleanup: () => {
-    // Reset the state to its initial value when the component is unmounted
     set({ isGunesGateTriggered: false });
   },
 
@@ -94,7 +91,6 @@ const zustandStore = (set) => ({
   toggleTuikGateTrigger: () =>
     set((state) => ({ isTuikGateTriggered: !state.isTuikGateTriggered })),
   onCleanup: () => {
-    // Reset the state to its initial value when the component is unmounted
     set({ isTuikGateTriggered: false });
   },
 
@@ -106,7 +102,6 @@ const zustandStore = (set) => ({
       isGeriClickedInSolarSystem: !state.isGeriClickedInSolarSystem,
     })),
   onCleanup: () => {
-    // Reset the state to its initial value when the component is unmounted
     set({ isGeriClickedInSolarSystem: false });
   },
 
@@ -117,7 +112,6 @@ const zustandStore = (set) => ({
       isGeriClickedInTuik: !state.isGeriClickedInTuik,
     })),
   onCleanup: () => {
-    // Reset the state to its initial value when the component is unmounted
     set({ isGeriClickedInTuik: false });
   },
 
@@ -125,7 +119,6 @@ const zustandStore = (set) => ({
   setIsDaire1Triggered: (value) => set({ isDaire1Triggered: value }),
 
   onCleanup: () => {
-    // Reset the state to its initial value when the component is unmounted
     set({ isDaire1Triggered: false });
   },
 
@@ -133,7 +126,6 @@ const zustandStore = (set) => ({
   setIsDaire2Triggered: (value) => set({ isDaire2Triggered: value }),
 
   onCleanup: () => {
-    // Reset the state to its initial value when the component is unmounted
     set({ isDaire2Triggered: false });
   },
 
@@ -141,14 +133,12 @@ const zustandStore = (set) => ({
   setIsDaire3Triggered: (value) => set({ isDaire3Triggered: value }),
 
   onCleanup: () => {
-    // Reset the state to its initial value when the component is unmounted
     set({ isDaire3Triggered: false });
   },
 
   isDaire4Triggered: false,
   setIsDaire4Triggered: (value) => set({ isDaire4Triggered: value }),
   onCleanup: () => {
-    // Reset the state to its initial value when the component is unmounted
     set({ isDaire4Triggered: false });
   },
 
@@ -167,21 +157,18 @@ const zustandStore = (set) => ({
   showInfoAfisDergi: false,
   setShowInfoAfisDergi: (value) => set({ showInfoAfisDergi: value }),
   onCleanup: () => {
-    // Reset the state to its initial value when the component is unmounted
     set({ showInfoAfisDergi: false });
   },
 
   showInfoAfisKurulus: false,
   setShowInfoAfisKurulus: (value) => set({ showInfoAfisKurulus: value }),
   onCleanup: () => {
-    // Reset the state to its initial value when the component is unmounted
     set({ showInfoAfisKurulus: false });
   },
 
   showDergi: false,
   setShowDergi: (value) => set({ showDergi: value }),
   onCleanup: () => {
-    // Reset the state to its initial value when the component is unmounted
     set({ showDergi: false });
   },
 

@@ -71,8 +71,9 @@ function Metaverse(props) {
   const [hoveredThird, setHoverThird] = useState(false);
   const [hoveredFourth, setHoverFourth] = useState(false);
 
-  const [isMobile, setIsMobile] = useState(false);
+  const isAnyGameOpened = useZustandStore((state) => state.isAnyGameOpened);
 
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const userAgent = navigator.userAgent.toLowerCase();
     setIsMobile(
@@ -185,7 +186,7 @@ function Metaverse(props) {
       ) : (
         <div className="canvas-container">
           {isMobile ? (
-            <JoystickButtons />
+            !isAnyGameOpened && <JoystickButtons />
           ) : (
             <div
               style={{
@@ -230,7 +231,7 @@ function Metaverse(props) {
             <Canvas
               // shadows
               // camera={{ fov: 55, near: 0.1, far: 1000, position: [0, 0, 0] }}
-              camera={{ fov: 60 }}
+              camera={{ fov: isMobile ? 90 : 60 }}
             >
               <Suspense fallback={<Loader />}>
                 {testing ? <Stats /> : null}

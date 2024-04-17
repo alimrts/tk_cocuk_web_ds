@@ -205,14 +205,8 @@ export default function Game(props) {
   useEffect(() => {
     setIsGeriClickedInTuik(false);
     setIsGeriClickedInSolarSystem(false);
-
-    // console.log("useEffedct in game calisti");
-
     return () => {
-      // Function to run when component unmounts
       handleBilgiIcTrigger();
-
-      // Place your cleanup code here
     };
   }, []);
 

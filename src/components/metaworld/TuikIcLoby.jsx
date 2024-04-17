@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useState } from "react";
+import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import "./SoloarSystemStyle.css";
 import informationBtn from "../../img/metaverse_images/information_btn.png";
@@ -127,29 +127,6 @@ const TuikIcBina = (props) => {
   const handleMouseLeaveKurulus = () => {
     setHoveredKurulus(false);
   };
-
-  //
-  // <Html>
-  //               <div
-  //                 className="glassFrame"
-  //                 style={{
-  //                   position: "relative",
-  //                   backgroundColor: "#323632a4",
-  //                   width: "140px",
-  //                   textAlign: "center",
-  //                   top: -220,
-  //                   left: -50,
-  //                   fontSize: "14pt",
-  //                   cursor: "pointer",
-  //                   color: "lightblue",
-  //                   padding: "4px",
-  //                 }}
-  //                 onClick={handleGoToDaire1}
-  //               >
-  //                 Daire-1
-  //               </div>
-  //             </Html>
-  //
 
   return (
     <group
@@ -2820,6 +2797,16 @@ const TuikIcLoby = () => {
     setShowInfoAfisKurulus(false);
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    setIsMobile(
+      !!userAgent.match(
+        /android|webos|iphone|ipad|ipod|blackberry|windows phone/i
+      )
+    );
+  }, []);
+
   return (
     <>
       <button
@@ -2903,7 +2890,12 @@ const TuikIcLoby = () => {
             target={[0, 14, 0]}
           />
 
-          <PerspectiveCamera makeDefault position={[0, 12, 60]} fov={65} />
+          <PerspectiveCamera
+            makeDefault
+            position={[0, 12, 60]}
+            fov={isMobile ? 90 : 65}
+            far={10000}
+          />
 
           <EffectComposer disableNormalPass>
             <Bloom mipmapBlur intensity={0.38} luminanceThreshold={0.8} />

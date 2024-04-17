@@ -9,10 +9,6 @@ import upButtonImage from "./joystick_ui/up_arrow.png";
 import downButtonImage from "./joystick_ui/down_arrow.png";
 
 const JoystickButtons = () => {
-  // Add state variables to track button states
-  const isLeftButtonPressed = useZustandStore(
-    (state) => state.isLeftButtonPressed
-  );
   const setIsLeftButtonPressed = useZustandStore(
     (state) => state.setIsLeftButtonPressed
   );
@@ -72,9 +68,7 @@ const JoystickButtons = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
-      >
-        {/* <img src={leftButtonImage} alt="Left" /> */}
-      </button>
+      ></button>
       <button
         className="rightButtonNav"
         // onMouseDown={handleRightButtonClick}
@@ -86,9 +80,7 @@ const JoystickButtons = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
-      >
-        {/* <img src={rightButtonImage} alt="Right" /> */}
-      </button>
+      ></button>
 
       <button
         className="upButtonNav"
@@ -101,9 +93,7 @@ const JoystickButtons = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
-      >
-        {/* <img src={upButtonImage} alt="Up" /> */}
-      </button>
+      ></button>
 
       <button
         className="downButtonNav"
@@ -116,9 +106,7 @@ const JoystickButtons = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
-      >
-        {/* <img src={downButtonImage} alt="Up" /> */}
-      </button>
+      ></button>
     </div>
   );
 };
