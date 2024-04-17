@@ -184,6 +184,31 @@ const zustandStore = (set) => ({
     // Reset the state to its initial value when the component is unmounted
     set({ showDergi: false });
   },
+
+  // for mobile nav buttons
+  isLeftButtonPressed: false,
+  setIsLeftButtonPressed: (value) => set({ isLeftButtonPressed: value }),
+  onCleanup: () => {
+    set({ isLeftButtonPressed: false });
+  },
+
+  isRightButtonPressed: false,
+  setIsRightButtonPressed: (value) => set({ isRightButtonPressed: value }),
+  onCleanup: () => {
+    set({ isRightButtonPressed: false });
+  },
+
+  isUpButtonPressed: false,
+  setIsUpButtonPressed: (value) => set({ isUpButtonPressed: value }),
+  onCleanup: () => {
+    set({ isUpButtonPressed: false });
+  },
+
+  isDownButtonPressed: false,
+  setIsDownButtonPressed: (value) => set({ isDownButtonPressed: value }),
+  onCleanup: () => {
+    set({ isDownButtonPressed: false });
+  },
 });
 
 const useZustandStore = create(

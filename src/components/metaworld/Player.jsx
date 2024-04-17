@@ -1,4 +1,4 @@
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useState, useEffect } from "react";
 import { Vector3, Euler, Quaternion, Matrix4, AnimationMixer } from "three";
 import Ece from "./Ece";
 import Ege from "./Ege";
@@ -9,12 +9,18 @@ import { Vec3 } from "cannon-es";
 import useFollowCam from "./useFollowCam";
 import useZustandStore from "../../zustandStore";
 
+///
+
+import { Html } from "@react-three/drei";
+import "./JoystickButtons.css";
+import leftButtonImage from "./joystick_ui/left_arrow.png";
+import rightButtonImage from "./joystick_ui/right_arrow.png";
+///
+
 export default function PlayerCollider(props) {
   const isAnyGameOpened = useZustandStore((state) => state.isAnyGameOpened);
 
   const cinsiyet = props.cinsiyet;
-
-  // console.log("gelen cinsiyet Player metaworld: ", props.cinsiyet);
 
   const { pivot } = useFollowCam();
   const canJump = useRef(false);
@@ -32,6 +38,42 @@ export default function PlayerCollider(props) {
   const actions = {};
 
   const keyboard = useKeyboard();
+
+  // // Add state variables to track button states
+  // const [leftButtonPressed, setLeftButtonPressed] = useState(false);
+  // const [rightButtonPressed, setRightButtonPressed] = useState(false);
+
+  // const handleLeftButtonClick = () => {
+  //   setLeftButtonPressed(true);
+  // };
+
+  // const handleRightButtonClick = () => {
+  //   setRightButtonPressed(true);
+  // };
+
+  // const handleLeftButtonRelease = () => {
+  //   setLeftButtonPressed(false);
+  // };
+
+  // const handleRightButtonRelease = () => {
+  //   setRightButtonPressed(false);
+  // };
+
+  // /////
+
+  const isLeftButtonPressed = useZustandStore(
+    (state) => state.isLeftButtonPressed
+  );
+
+  const isRightButtonPressed = useZustandStore(
+    (state) => state.isRightButtonPressed
+  );
+
+  const isUpButtonPressed = useZustandStore((state) => state.isUpButtonPressed);
+
+  const isDownButtonPressed = useZustandStore(
+    (state) => state.isDownButtonPressed
+  );
 
   const [ref, body] = useCompoundBody(
     () => ({
@@ -69,7 +111,6 @@ export default function PlayerCollider(props) {
 
     if (canJump.current) {
       // walking
-
       mixer.update(delta * distance * 3);
     } else {
       // in the air
@@ -97,18 +138,18 @@ export default function PlayerCollider(props) {
     if (!isAnyGameOpened) {
       inputVelocity.set(0, 0, 0);
 
-      if (keyboard["KeyW"] || keyboard["ArrowUp"]) {
+      if (keyboard["KeyW"] || keyboard["ArrowUp"] || isUpButtonPressed) {
         inputVelocity.z = -10 * delta;
         // console.log("delta: ", delta);
-        console.log("group.current.position: ", group.current.position);
+        // console.log("group.current.position: ", group.current.position);
       }
-      if (keyboard["KeyS"] || keyboard["ArrowDown"]) {
+      if (keyboard["KeyS"] || keyboard["ArrowDown"] || isDownButtonPressed) {
         inputVelocity.z = 10 * delta;
       }
-      if (keyboard["KeyA"] || keyboard["ArrowLeft"]) {
+      if (keyboard["KeyA"] || keyboard["ArrowLeft"] || isLeftButtonPressed) {
         inputVelocity.x = -10 * delta;
       }
-      if (keyboard["KeyD"] || keyboard["ArrowRight"]) {
+      if (keyboard["KeyD"] || keyboard["ArrowRight"] || isRightButtonPressed) {
         inputVelocity.x = 10 * delta;
       }
 
@@ -136,7 +177,6 @@ export default function PlayerCollider(props) {
         inputVelocity.x = (10 * delta) / 1.5;
       }
       /////
-
       //////////////////
       /////
       if (keyboard["ArrowUp"] && keyboard["ArrowLeft"]) {
@@ -190,14 +230,51 @@ export default function PlayerCollider(props) {
   return (
     <>
       <group ref={group}>
-        {/* <Ece mixer={mixer} actions={actions} /> */}
-
         {cinsiyet === "1" ? (
-          <Ege mixer={mixer} actions={actions} /> // render this if cinsiyet is 1
+          <Ege mixer={mixer} actions={actions} />
         ) : (
-          <Ece mixer={mixer} actions={actions} /> // render this if cinsiyet is not 1
+          <Ece mixer={mixer} actions={actions} />
         )}
       </group>
+
+      {/* <Html>
+        <div className="joystick-buttons">
+          <button
+            id="leftButton"
+            style={{
+              position: "absolute",
+              left: "10px",
+              bottom: "10px",
+              width: "50px",
+              height: "50px",
+              cursor: "pointer",
+            }}
+            onMouseDown={handleLeftButtonClick}
+            onMouseUp={handleLeftButtonRelease}
+            onTouchStart={handleLeftButtonClick}
+            onTouchEnd={handleLeftButtonRelease}
+          >
+            <img src={leftButtonImage} alt="Left" />
+          </button>
+          <button
+            id="rightButton"
+            style={{
+              position: "absolute",
+              left: "70px",
+              bottom: "10px",
+              width: "50px",
+              height: "50px",
+              cursor: "pointer",
+            }}
+            onMouseDown={handleRightButtonClick}
+            onMouseUp={handleRightButtonRelease}
+            onTouchStart={handleRightButtonClick}
+            onTouchEnd={handleRightButtonRelease}
+          >
+            <img src={rightButtonImage} alt="Right" />
+          </button>
+        </div>
+      </Html> */}
     </>
   );
 }

@@ -1,13 +1,11 @@
 import "../App.css";
 
 import { Canvas } from "@react-three/fiber";
-
-import { Suspense, useState, useEffect } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import useZustandStore from "../zustandStore";
 import { Physics } from "@react-three/cannon";
 
 import Game from "../components/metaworld/Game";
-
 import textureUlkeler from "../img/metaverse_images/game_icon_ulkeler.png";
 import textureUzayMacerasi from "../img/metaverse_images/game_icon_uzay_macerasi.png";
 import textureImage from "../img/metaverse_images/game_icon_hafiza_oyunu.png";
@@ -22,7 +20,6 @@ import {
   Environment,
   useProgress,
   Html,
-
   // OrbitControls,
 } from "@react-three/drei";
 
@@ -33,6 +30,7 @@ import SolarSystem from "./metaworld/SolarSystem";
 import TuikIcLoby from "./metaworld/TuikIcLoby";
 import InformationButton from "./metaworld/InformationButton";
 import MemoryGame from "./metaverse/MemoryGame";
+import JoystickButtons from "./metaworld/JoystickButtons";
 
 function Loader() {
   const { progress } = useProgress();
@@ -72,6 +70,17 @@ function Metaverse(props) {
   const [hoveredSecond, setHoverSecond] = useState(false);
   const [hoveredThird, setHoverThird] = useState(false);
   const [hoveredFourth, setHoverFourth] = useState(false);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    setIsMobile(
+      !!userAgent.match(
+        /android|webos|iphone|ipad|ipod|blackberry|windows phone/i
+      )
+    );
+  }, []);
 
   const testing = false;
 
@@ -170,34 +179,37 @@ function Metaverse(props) {
       `}</style>
 
       {isGunesGateTriggered ? (
-        // Render content when isGunesGateTriggered is true
-
         <SolarSystem />
       ) : isTuikGateTriggered ? (
         <TuikIcLoby />
       ) : (
         <div className="canvas-container">
-          <div
-            style={{
-              position: "absolute",
-              marginTop: "70vh",
-              marginLeft: "10vh",
-              fontSize: "24px",
-              color: "lightblue",
-              zIndex: 1,
-              textAlign: "center",
-              userSelect: "none",
-            }}
-          >
-            W<br />A - S - D
-            <br />
-            veya Ok tuşları <br />
-            ile hareket ettirebilirsiniz.
-            <br />
-            Fare ile dönebilirsiniz.
-            <br />
-            ESC ile çıkış yapabilirsiniz.
-          </div>
+          {isMobile ? (
+            <JoystickButtons />
+          ) : (
+            <div
+              style={{
+                position: "absolute",
+                marginTop: "70vh",
+                marginLeft: "10vh",
+                fontSize: "24px",
+                color: "lightblue",
+                zIndex: 1,
+                textAlign: "center",
+                userSelect: "none",
+              }}
+            >
+              W<br />A - S - D
+              <br />
+              veya Ok tuşları <br />
+              ile hareket ettirebilirsiniz.
+              <br />
+              Fare ile dönebilirsiniz.
+              <br />
+              ESC ile çıkış yapabilirsiniz.
+            </div>
+          )}
+
           {isBilgiIcTriggered ? (
             <InformationButton text={textForBilgi} left={"20px"} top={"50%"} />
           ) : (
@@ -277,11 +289,10 @@ function Metaverse(props) {
                   <planeGeometry args={[1, 1]} />
 
                   <meshBasicMaterial
-                    // color={hoveredFirst ? "#B4DAD9" : "#CCEBEA"}
                     color={hoveredFirst ? hoverColor : defaultColor}
-                    map={texture2} // Replace with the path to your PNG image
+                    map={texture2}
                     transparent
-                    alphaTest={0.5} // Adjust as needed
+                    alphaTest={0.5}
                     side={THREE.DoubleSide}
                   />
                 </mesh>
@@ -308,7 +319,7 @@ function Metaverse(props) {
                     map={texture}
                     color={hoveredSecond ? hoverColor : defaultColor}
                     transparent
-                    alphaTest={0.5} // Adjust as needed
+                    alphaTest={0.5}
                     side={THREE.DoubleSide}
                   />
                 </mesh>
@@ -334,7 +345,7 @@ function Metaverse(props) {
                     map={texture3}
                     color={hoveredThird ? hoverColor : defaultColor}
                     transparent
-                    alphaTest={0.5} // Adjust as needed
+                    alphaTest={0.5}
                     side={THREE.DoubleSide}
                   />
                 </mesh>
@@ -365,8 +376,6 @@ function Metaverse(props) {
                     side={THREE.DoubleSide}
                   />
                 </mesh>
-
-                {/* <Player cinsiyet={cinsiyet} /> */}
               </Suspense>
             </Canvas>
           }

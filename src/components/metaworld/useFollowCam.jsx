@@ -18,17 +18,37 @@ export default function useFollowCam() {
   const MAX_VERTICAL_ANGLE = 0.4; // Maximum vertical angle in radians
   const MIN_VERTICAL_ANGLE = -0.6; // Minimum vertical angle in radians
 
-  // const onDocumentMouseMove = (e) => {
-  //   if (e.buttons === 1 && !document.pointerLockElement) {
-  //     pivot.rotation.y -= e.movementX * 0.0025;
-  //     const v = followCam.rotation.x - e.movementY * 0.0015;
-  //     if (v >= -1.0 && v <= 0.8) {
-  //       followCam.rotation.x = v;
-  //       followCam.position.y = -v * followCam.position.z + 1;
-  //     }
-  //   }
-  //   return false;
-  // };
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  const onTouchMove = (e) => {
+    if (e.touches.length === 1 && !document.pointerLockElement) {
+      const touch = e.touches[0];
+      const deltaX = touch.clientX - touchStartX;
+      const deltaY = touch.clientY - touchStartY;
+      pivot.rotation.y -= deltaX * 0.0025;
+      let newVerticalRotation = followCam.rotation.x - deltaY * 0.0015;
+      newVerticalRotation = Math.min(
+        MAX_VERTICAL_ANGLE,
+        Math.max(MIN_VERTICAL_ANGLE, newVerticalRotation)
+      ); // Clamp the vertical rotation
+      followCam.rotation.x = newVerticalRotation;
+      followCam.position.y = -newVerticalRotation * followCam.position.z + 1;
+      touchStartX = touch.clientX;
+      touchStartY = touch.clientY;
+    }
+    return false;
+  };
+
+  const onTouchStart = (e) => {
+    const touch = e.touches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  };
+
+  const onTouchEnd = () => {
+    // Reset rotation or perform any cleanup if needed
+  };
 
   const onDocumentMouseMove = (e) => {
     if (e.buttons === 1 && !document.pointerLockElement) {
@@ -61,14 +81,32 @@ export default function useFollowCam() {
       followCam.add(camera);
       pivot.add(followCam);
       scene.add(pivot);
-      //console.log('attach followCam listeners')
+
       document.addEventListener("mousemove", onDocumentMouseMove);
       document.addEventListener("mousewheel", onDocumentMouseWheel);
     }
     return () => {
-      //console.log('remove followCam listeners')
       document.removeEventListener("mousemove", onDocumentMouseMove);
       document.removeEventListener("mousewheel", onDocumentMouseWheel);
+    };
+  });
+
+  useEffect(() => {
+    if (!isAnyGameOpened) {
+      camera.position.set(0, 0.5, 0.6);
+
+      followCam.add(camera);
+      pivot.add(followCam);
+      scene.add(pivot);
+
+      document.addEventListener("touchstart", onTouchStart);
+      document.addEventListener("touchmove", onTouchMove, { passive: false });
+      document.addEventListener("touchend", onTouchEnd);
+    }
+    return () => {
+      document.removeEventListener("touchstart", onTouchStart);
+      document.removeEventListener("touchmove", onTouchMove);
+      document.removeEventListener("touchend", onTouchEnd);
     };
   });
 
