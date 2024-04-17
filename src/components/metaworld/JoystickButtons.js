@@ -76,8 +76,13 @@ const JoystickButtons = () => {
         onMouseUp={handleRightButtonRelease}
         onTouchStart={handleRightButtonClick}
         onTouchEnd={handleRightButtonRelease}
+        style={{
+          backgroundImage: `url(${rightButtonImage})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
       >
-        <img src={rightButtonImage} alt="Right" />
+        {/* <img src={rightButtonImage} alt="Right" /> */}
       </button>
 
       <button

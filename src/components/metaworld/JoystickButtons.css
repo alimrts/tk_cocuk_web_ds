@@ -1,14 +1,15 @@
 .joystick-buttons {
-  position: fixed; /* Change to fixed to keep it at the bottom of the viewport */
+  position: fixed; 
   bottom: 0;
   left: 0;
   right: 0;
   display: flex;
-  justify-content: center; /* Center the buttons horizontally */
+  justify-content: center; 
   width: 100%;
-  padding: 20px; /* Adjust padding as needed */
+  padding: 20px; 
   box-sizing: border-box;
-  z-index: 999; /* Ensure it's above other elements if needed */
+  z-index: 999; 
+  user-select: none;
 }
 
 .joystick-buttons button {
@@ -26,7 +27,7 @@
 
 .leftButtonNav{
   position: absolute;
-  left: calc(50% - 85px); /* Adjust as needed */
+  left: calc(50% - 85px);
   bottom: 10px;
   width: 50px;
   height: 50px;
@@ -35,7 +36,7 @@
 
 .rightButtonNav{
   position: absolute;
-  left: calc(50% + 35px); /* Adjust as needed */
+  left: calc(50% + 35px); 
   bottom: 10px;
   width: 50px;
   height: 50px;
@@ -44,7 +45,7 @@
 
 .upButtonNav{
   position: absolute;
-  left: calc(50% - 25px); /* Adjust as needed */
+  left: calc(50% - 25px); 
   bottom: 70px;
   width: 50px;
   height: 50px;
@@ -53,7 +54,7 @@
 
 .downButtonNav{
   position: absolute;
-  left: calc(50% - 25px); /* Adjust as needed */
+  left: calc(50% - 25px); 
   bottom: 10px;
   width: 50px;
   height: 50px;

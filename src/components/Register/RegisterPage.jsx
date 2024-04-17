@@ -177,6 +177,7 @@ const RegisterPage = () => {
       };
     }
   }, []);
+
   const getBorderStyle = () => {
     if (gender === "erkek") {
       return "1px solid blue";
