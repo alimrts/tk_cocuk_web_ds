@@ -58,7 +58,7 @@ function Metaverse(props) {
   const defaultColor = new Color("#CCffff");
   const hoverColor = new Color("#ffffff");
 
-  console.log("state is:", props.cinsiyet);
+  // console.log("state is:", props.cinsiyet);
   const cinsiyet = props.cinsiyet;
   // console.log("gelen cinsiyet metaverse: ", cinsiyet);
   const [clickedTofirst, setClickedToFirst] = useState(false);
@@ -372,7 +372,7 @@ function Metaverse(props) {
                     map={texture4}
                     color={hoveredFourth ? hoverColor : defaultColor}
                     transparent
-                    alphaTest={0.5} // Adjust as needed
+                    alphaTest={0.5}
                     side={THREE.DoubleSide}
                   />
                 </mesh>

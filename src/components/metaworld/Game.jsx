@@ -136,7 +136,6 @@ export default function Game(props) {
   ///
 
   const playerPosition = useZustandStore((state) => state.playerPosition);
-  const setPlayerPosition = useZustandStore((state) => state.setPlayerPosition);
 
   const isBilgiIcTriggered = useZustandStore(
     (state) => state.isBilgiIcTriggered

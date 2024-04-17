@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState, useEffect } from "react";
+import { useMemo, useRef } from "react";
 import { Vector3, Euler, Quaternion, Matrix4, AnimationMixer } from "three";
 import Ece from "./Ece";
 import Ege from "./Ege";
@@ -8,14 +8,6 @@ import { useFrame } from "@react-three/fiber";
 import { Vec3 } from "cannon-es";
 import useFollowCam from "./useFollowCam";
 import useZustandStore from "../../zustandStore";
-
-///
-
-import { Html } from "@react-three/drei";
-import "./JoystickButtons.css";
-import leftButtonImage from "./joystick_ui/left_arrow.png";
-import rightButtonImage from "./joystick_ui/right_arrow.png";
-///
 
 export default function PlayerCollider(props) {
   const isAnyGameOpened = useZustandStore((state) => state.isAnyGameOpened);
@@ -38,28 +30,6 @@ export default function PlayerCollider(props) {
   const actions = {};
 
   const keyboard = useKeyboard();
-
-  // // Add state variables to track button states
-  // const [leftButtonPressed, setLeftButtonPressed] = useState(false);
-  // const [rightButtonPressed, setRightButtonPressed] = useState(false);
-
-  // const handleLeftButtonClick = () => {
-  //   setLeftButtonPressed(true);
-  // };
-
-  // const handleRightButtonClick = () => {
-  //   setRightButtonPressed(true);
-  // };
-
-  // const handleLeftButtonRelease = () => {
-  //   setLeftButtonPressed(false);
-  // };
-
-  // const handleRightButtonRelease = () => {
-  //   setRightButtonPressed(false);
-  // };
-
-  // /////
 
   const isLeftButtonPressed = useZustandStore(
     (state) => state.isLeftButtonPressed
@@ -93,7 +63,6 @@ export default function PlayerCollider(props) {
             actions["jump"].fadeOut(0.1);
             actions["idle"].stop();
             actions["walk"].reset().fadeIn(0.1).play();
-
             canJump.current = true;
           }
         }
@@ -236,45 +205,6 @@ export default function PlayerCollider(props) {
           <Ece mixer={mixer} actions={actions} />
         )}
       </group>
-
-      {/* <Html>
-        <div className="joystick-buttons">
-          <button
-            id="leftButton"
-            style={{
-              position: "absolute",
-              left: "10px",
-              bottom: "10px",
-              width: "50px",
-              height: "50px",
-              cursor: "pointer",
-            }}
-            onMouseDown={handleLeftButtonClick}
-            onMouseUp={handleLeftButtonRelease}
-            onTouchStart={handleLeftButtonClick}
-            onTouchEnd={handleLeftButtonRelease}
-          >
-            <img src={leftButtonImage} alt="Left" />
-          </button>
-          <button
-            id="rightButton"
-            style={{
-              position: "absolute",
-              left: "70px",
-              bottom: "10px",
-              width: "50px",
-              height: "50px",
-              cursor: "pointer",
-            }}
-            onMouseDown={handleRightButtonClick}
-            onMouseUp={handleRightButtonRelease}
-            onTouchStart={handleRightButtonClick}
-            onTouchEnd={handleRightButtonRelease}
-          >
-            <img src={rightButtonImage} alt="Right" />
-          </button>
-        </div>
-      </Html> */}
     </>
   );
 }

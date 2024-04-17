@@ -44,9 +44,7 @@ const MainPage = () => {
   }, []);
 
   const handleMetaverseButtonClick = () => {
-    //
-    setPlayerPosition([-23, 0.3, 96]);
-
+    setPlayerPosition([-23, 0.0, 96]);
     setShowMetaverse(true);
     handleBilgiGateTrigger();
   };
@@ -67,7 +65,7 @@ const MainPage = () => {
     };
   }, []);
 
-  console.log("gelen userinfo: ", userInfo);
+  // console.log("gelen userinfo: ", userInfo);
   // Destructure user information
   const {
     firstName: ad,
