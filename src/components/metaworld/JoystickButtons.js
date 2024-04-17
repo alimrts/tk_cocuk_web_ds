@@ -63,8 +63,8 @@ const JoystickButtons = () => {
     <div className="joystick-buttons">
       <button
         className="leftButtonNav"
-        onMouseDown={handleLeftButtonClick}
-        onMouseUp={handleLeftButtonRelease}
+        // onMouseDown={handleLeftButtonClick}
+        // onMouseUp={handleLeftButtonRelease}
         onTouchStart={handleLeftButtonClick}
         onTouchEnd={handleLeftButtonRelease}
         style={{
@@ -77,8 +77,8 @@ const JoystickButtons = () => {
       </button>
       <button
         className="rightButtonNav"
-        onMouseDown={handleRightButtonClick}
-        onMouseUp={handleRightButtonRelease}
+        // onMouseDown={handleRightButtonClick}
+        // onMouseUp={handleRightButtonRelease}
         onTouchStart={handleRightButtonClick}
         onTouchEnd={handleRightButtonRelease}
         style={{
@@ -92,8 +92,8 @@ const JoystickButtons = () => {
 
       <button
         className="upButtonNav"
-        onMouseDown={handleUpButtonClick}
-        onMouseUp={handleUpButtonRelease}
+        // onMouseDown={handleUpButtonClick}
+        // onMouseUp={handleUpButtonRelease}
         onTouchStart={handleUpButtonClick}
         onTouchEnd={handleUpButtonRelease}
         style={{
@@ -107,8 +107,8 @@ const JoystickButtons = () => {
 
       <button
         className="downButtonNav"
-        onMouseDown={handleDownButtonClick}
-        onMouseUp={handleDownButtonRelease}
+        // onMouseDown={handleDownButtonClick}
+        // onMouseUp={handleDownButtonRelease}
         onTouchStart={handleDownButtonClick}
         onTouchEnd={handleDownButtonRelease}
         style={{
