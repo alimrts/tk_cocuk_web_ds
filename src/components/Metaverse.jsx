@@ -184,7 +184,7 @@ function Metaverse(props) {
         <TuikIcLoby />
       ) : (
         <div className="canvas-container">
-          {!isMobile ? (
+          {isMobile ? (
             <JoystickButtons />
           ) : (
             <div

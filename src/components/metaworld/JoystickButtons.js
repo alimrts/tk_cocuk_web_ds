@@ -67,8 +67,13 @@ const JoystickButtons = () => {
         onMouseUp={handleLeftButtonRelease}
         onTouchStart={handleLeftButtonClick}
         onTouchEnd={handleLeftButtonRelease}
+        style={{
+          backgroundImage: `url(${leftButtonImage})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
       >
-        <img src={leftButtonImage} alt="Left" />
+        {/* <img src={leftButtonImage} alt="Left" /> */}
       </button>
       <button
         className="rightButtonNav"
@@ -91,8 +96,13 @@ const JoystickButtons = () => {
         onMouseUp={handleUpButtonRelease}
         onTouchStart={handleUpButtonClick}
         onTouchEnd={handleUpButtonRelease}
+        style={{
+          backgroundImage: `url(${upButtonImage})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
       >
-        <img src={upButtonImage} alt="Up" />
+        {/* <img src={upButtonImage} alt="Up" /> */}
       </button>
 
       <button
@@ -101,8 +111,13 @@ const JoystickButtons = () => {
         onMouseUp={handleDownButtonRelease}
         onTouchStart={handleDownButtonClick}
         onTouchEnd={handleDownButtonRelease}
+        style={{
+          backgroundImage: `url(${downButtonImage})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
       >
-        <img src={downButtonImage} alt="Up" />
+        {/* <img src={downButtonImage} alt="Up" /> */}
       </button>
     </div>
   );
