@@ -286,13 +286,12 @@
 
   .n-left-register {
     margin-top: -3.5rem;
-    margin-left: -13rem;
-    transform: scale(0.55);
+    margin-left: -5rem;
+    transform: scale(0.7);
   }
 
   .n-right-register {
     margin-top: -2rem;
-    margin-left: -10rem;
   }
 }
 

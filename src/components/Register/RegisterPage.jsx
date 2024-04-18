@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import "./RegisterPage.css";
 import UserRegister from "./UserRegister";
 import video from "../../img/bayram_kutlama.mp4";
@@ -17,6 +17,9 @@ import { Suspense } from "react";
 import tkc_kuslar1_edit from "../../img/tkc_kuslar1_edit.png";
 import tkc_kuslar2_edit from "../../img/tkc_kuslar2_edit.png";
 import FooterBg from "../../img/tkc_footer_bg.png";
+import FooterDarkBg from "../../img/tkc_footer_dark_bg.png";
+import modChar from "../../img/mod_char.png";
+
 import zIndex from "@material-ui/core/styles/zIndex";
 
 import Footer from "../../components/Footer/Footer";
@@ -27,6 +30,7 @@ import * as THREE from "three";
 
 import { Trail, Float } from "@react-three/drei";
 
+import { themeContext } from "../../Context";
 // import { isMobile } from "react-device-detect";
 
 function Loader() {
@@ -98,6 +102,9 @@ const RegisterPage = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("");
 
   const strings = languageData[language];
+
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
 
   useEffect(() => {
     const storedLanguage = localStorage.getItem("selectedLanguage");
@@ -204,8 +211,32 @@ const RegisterPage = () => {
     });
   };
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "scroll";
+    };
+  }, []);
+
   return (
     <>
+      {" "}
+      <div
+        className="footer-image"
+        style={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          marginBottom: "-0.5rem",
+        }}
+      >
+        <img
+          src={darkMode ? FooterDarkBg : FooterBg}
+          alt=""
+          style={{ width: "100%" }}
+        />
+      </div>
       <NavbarRegister />
       {showVideo && (
         <>
@@ -256,11 +287,10 @@ const RegisterPage = () => {
           ) : null}
         </>
       )}
-
       {!showVideo && (
         <>
           <div className="registerPage-root">
-            {!isMobile && (
+            {/* {!isMobile && (
               <div
                 className="registerPage-left"
                 style={{
@@ -305,20 +335,29 @@ const RegisterPage = () => {
                   />
                 </Canvas>
               </div>
-            )}
+            )} */}
+
+            <div
+              className="registerPage-left"
+              style={{
+                backgroundImage: `url(${modChar})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                zIndex: 2,
+              }}
+            ></div>
 
             <div className="formWrapper">
               <span className="formTitle">{strings.registerPageGiris}</span>
               <span className="formTitle2">
                 {strings.registerPageBilgileriDoldur}
               </span>
-
               <UserRegister
                 onGenderChange={handleGenderChange}
                 onSubmit={handleUserRegister}
               />
             </div>
-            {!isMobile && (
+            {/* {!isMobile && (
               <div
                 className="registerPage-right"
                 style={{
@@ -362,11 +401,11 @@ const RegisterPage = () => {
                   />
                 </Canvas>
               </div>
-            )}
+            )} */}
           </div>
         </>
       )}
-      <div
+      {/* <div
         className="footer-image"
         style={{
           position: "fixed",
@@ -374,12 +413,24 @@ const RegisterPage = () => {
           left: 0,
           right: 0,
           // width: "100%",
-          zIndex: -1,
+          zIndex: darkMode ? 1 : -1,
           marginBottom: "-0.5rem",
         }}
       >
-        <img src={FooterBg} alt="" style={{ width: "100%" }} />
-      </div>
+        <img
+          src={darkMode ? FooterDarkBg : FooterBg}
+          alt=""
+          style={{ width: "100%" }}
+        />
+      </div> */}
+      {/* <div
+        className="footer-register"
+        style={{
+          zIndex: darkMode ? 1 : -1,
+        }}
+      >
+        <Footer />
+      </div> */}
     </>
   );
 };

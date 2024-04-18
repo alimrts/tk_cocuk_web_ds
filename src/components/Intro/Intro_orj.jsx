@@ -208,184 +208,88 @@ const Intro = (props) => {
     kiloOrtancaDeger,
   } = state;
 
-  // const getInfo = async () => {
-  //   try {
-  //     const data = {
-  //       ad: ad,
-  //       gun: dogumGunu,
-  //       ay: dogumAyi,
-  //       dogumyil: dogumYili,
-  //       boy: boy,
-  //       kilo: kilo,
-  //       ilKodu: sehir,
-  //       cinsiyet: cinsiyet,
-  //     };
-  //     setState({
-  //       ...state,
-  //       loading: false,
-  //     });
-  //     const response_data = await axios.get(
-  //       `${process.env.REACT_APP_API_BASE_URL}GetDashboard`,
-  //       {
-  //         params: data,
-  //       }
-  //     );
-
-  //     if (response_data.data) {
-  //       console.log("data: " + response_data.data);
-  //       console.log("data Ad: " + response_data.data.Ad);
-  //       if (response_data.data.Ad === undefined) {
-  //         setState({
-  //           ...state,
-
-  //           loading: true,
-
-  //           adi: "---",
-  //           yilYas: 0,
-  //           ayYas: 0,
-  //           gunYas: 0,
-  //           il: "---",
-  //           ayniIsimdeIlSayi: 0,
-  //           ayniIsimdeTurkiyeSayi: 0,
-  //           ayniTarihDoganIlSayi: 0,
-  //           ayniTarihDoganTurkiyeSayi: 0,
-  //           boyOrtancaDeger: 0,
-  //           kiloOrtancaDeger: 0,
-  //         });
-  //       } else {
-  //         setState({
-  //           ...state,
-  //           adi: response_data.data.Ad,
-  //           yilYas: response_data.data.Yil,
-  //           ayYas: response_data.data.Ay,
-  //           gunYas: response_data.data.Gun,
-  //           il: response_data.data.Il,
-  //           ayniIsimdeIlSayi: response_data.data.AyniIsimdeIlSayi,
-  //           ayniIsimdeTurkiyeSayi: response_data.data.AyniIsimdeTurkiyeSayi,
-  //           ayniTarihDoganIlSayi: response_data.data.AyniTarihDoganIlSayi,
-  //           ayniTarihDoganTurkiyeSayi:
-  //             response_data.data.AyniTarihDoganTurkiyeSayi,
-  //           boyOrtancaDeger: response_data.data.BoyOrtancaDeger,
-  //           kiloOrtancaDeger: response_data.data.KiloOrtancaDeger,
-  //           loading: true,
-  //         });
-  //       }
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     // test if network error
-  //     setState({
-  //       ...state,
-  //       adi: "Adi",
-  //       yilYas: 5,
-  //       ayYas: 11,
-  //       gunYas: 13,
-  //       il: "Bilecik",
-  //       ayniIsimdeIlSayi: 0,
-  //       ayniIsimdeTurkiyeSayi: 140,
-  //       ayniTarihDoganIlSayi: 3,
-  //       ayniTarihDoganTurkiyeSayi: 1214,
-  //       boyOrtancaDeger: 13,
-  //       kiloOrtancaDeger: -3,
-  //       loading: true,
-  //     });
-  //   }
-  // };
-
-  const email = "tuikcocukuser";
-  const password = "tuikcocuk.2023";
-  // const url = `https://tuikcocukapi.prod.tuik.gov.tr/api/tuikcocukAuthService/Auth/GetToken?Email=${email}&Password=${password}`;
-  // const API_URL_OF_TOKEN = `https://tuikcocukapi.prod.tuik.gov.tr/api/tuikcocukAuthService/Auth/GetToken?Email=${email}&Password=${password}`;
-
-  const API_URL_OF_TOKEN = `${process.env.REACT_APP_API_BASE_URL}tuikcocukAuthService/Auth/GetToken?Email=${email}&Password=${password}`;
-
-  // const API_URL_OF_DASHBOARD =
-  //   "https://tuikcocukapi.prod.tuik.gov.tr/api/TuikCocuk/GetDashboard";
-
-  // const API_URL_OF_DASHBOARD =
-  //   "https://tuikcocukapi.tuik.gov.tr/api/TuikCocuk/GetDashboard";
-  // const API_URL_OF_DASHBOARD =
-  //   "https://tuikcocukapi.test.tuik.gov.tr/api/TuikCocuk/GetDashboard";
-
-  const API_URL_OF_DASHBOARD =
-    `${process.env.REACT_APP_API_BASE_URL}TuikCocuk/GetDashboard?Ad=` +
-    ad +
-    "&gun=" +
-    dogumGunu +
-    "&ay=" +
-    dogumAyi +
-    "&dogumyil=" +
-    dogumYili +
-    "&boy=" +
-    boy +
-    "&kilo=" +
-    kilo +
-    "&ilKodu=" +
-    sehir +
-    "&cinsiyet=" +
-    cinsiyet;
-
-  const getInfo = () => {
-    axios
-      .get(API_URL_OF_TOKEN, {})
-      .then((authResponse) => {
-        const authToken = authResponse.data.Token;
-
-        const headers = {
-          Authorization: `Bearer ${authToken}`,
-        };
-        axios
-          .get(API_URL_OF_DASHBOARD, {
-            headers: headers,
-            // params: data,
-          })
-          .then((dashboardResponse) => {
-            console.log("Dashboard data:", dashboardResponse.data);
-            console.log(
-              "Dashboard data test AyniIsimdeIlSayi:",
-              dashboardResponse.data.AyniIsimdeIlSayi
-            );
-            // setInfoText(dashboardResponse.data);
-
-            setAdi(dashboardResponse.data.Ad);
-            setYil(dashboardResponse.data.Yil);
-            setAy(dashboardResponse.data.Ay);
-            setGun(dashboardResponse.data.Gun);
-            setIl(dashboardResponse.data.Il);
-            setAyniIsimdeIlSayi(dashboardResponse.data.AyniIsimdeIlSayi);
-            setAyniIsimdeTurkiyeSayi(
-              dashboardResponse.data.AyniIsimdeTurkiyeSayi
-            );
-            setAyniTarihDoganIlSayi(
-              dashboardResponse.data.AyniTarihDoganIlSayi
-            );
-            setBoyOrtancaDeger(dashboardResponse.data.BoyOrtancaDeger);
-            setKiloOrtancaDeger(dashboardResponse.data.KiloOrtancaDeger);
-          })
-          .catch((error) => {
-            console.error("Error getting dashboard data:", error);
-          });
-      })
-      .catch((error) => {
-        console.error("Error getting auth token:", error);
-
-        // test if network error
-        setState({
-          ...state,
-          adi: "Adi",
-          yilYas: 5,
-          ayYas: 11,
-          gunYas: 13,
-          il: "Bilecik",
-          ayniIsimdeIlSayi: 0,
-          ayniIsimdeTurkiyeSayi: 140,
-          ayniTarihDoganIlSayi: 3,
-          ayniTarihDoganTurkiyeSayi: 1214,
-          boyOrtancaDeger: 13,
-          kiloOrtancaDeger: -3,
-          loading: true,
-        });
+  const getInfo = async () => {
+    try {
+      const data = {
+        ad: ad,
+        gun: dogumGunu,
+        ay: dogumAyi,
+        dogumyil: dogumYili,
+        boy: boy,
+        kilo: kilo,
+        ilKodu: sehir,
+        cinsiyet: cinsiyet,
+      };
+      setState({
+        ...state,
+        loading: false,
       });
+      const response_data = await axios.get(
+        `${process.env.REACT_APP_API_BASE_URL}GetDashboard`,
+        {
+          params: data,
+        }
+      );
+
+      if (response_data.data) {
+        console.log("data: " + response_data.data);
+        console.log("data Ad: " + response_data.data.Ad);
+        if (response_data.data.Ad === undefined) {
+          setState({
+            ...state,
+
+            loading: true,
+
+            adi: "---",
+            yilYas: 0,
+            ayYas: 0,
+            gunYas: 0,
+            il: "---",
+            ayniIsimdeIlSayi: 0,
+            ayniIsimdeTurkiyeSayi: 0,
+            ayniTarihDoganIlSayi: 0,
+            ayniTarihDoganTurkiyeSayi: 0,
+            boyOrtancaDeger: 0,
+            kiloOrtancaDeger: 0,
+          });
+        } else {
+          setState({
+            ...state,
+            adi: response_data.data.Ad,
+            yilYas: response_data.data.Yil,
+            ayYas: response_data.data.Ay,
+            gunYas: response_data.data.Gun,
+            il: response_data.data.Il,
+            ayniIsimdeIlSayi: response_data.data.AyniIsimdeIlSayi,
+            ayniIsimdeTurkiyeSayi: response_data.data.AyniIsimdeTurkiyeSayi,
+            ayniTarihDoganIlSayi: response_data.data.AyniTarihDoganIlSayi,
+            ayniTarihDoganTurkiyeSayi:
+              response_data.data.AyniTarihDoganTurkiyeSayi,
+            boyOrtancaDeger: response_data.data.BoyOrtancaDeger,
+            kiloOrtancaDeger: response_data.data.KiloOrtancaDeger,
+            loading: true,
+          });
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      // test if network error
+      setState({
+        ...state,
+        adi: "Adi",
+        yilYas: 5,
+        ayYas: 11,
+        gunYas: 13,
+        il: "Bilecik",
+        ayniIsimdeIlSayi: 0,
+        ayniIsimdeTurkiyeSayi: 140,
+        ayniTarihDoganIlSayi: 3,
+        ayniTarihDoganTurkiyeSayi: 1214,
+        boyOrtancaDeger: 13,
+        kiloOrtancaDeger: -3,
+        loading: true,
+      });
+    }
   };
 
   useEffect(() => {
