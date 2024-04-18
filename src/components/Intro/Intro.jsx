@@ -401,18 +401,20 @@ const Intro = (props) => {
             } else {
               setState({
                 ...state,
-                adi: response_data.data.Ad,
-                yilYas: response_data.data.Yil,
-                ayYas: response_data.data.Ay,
-                gunYas: response_data.data.Gun,
-                il: response_data.data.Il,
-                ayniIsimdeIlSayi: response_data.data.AyniIsimdeIlSayi,
-                ayniIsimdeTurkiyeSayi: response_data.data.AyniIsimdeTurkiyeSayi,
-                ayniTarihDoganIlSayi: response_data.data.AyniTarihDoganIlSayi,
+                adi: dashboardResponse.data.Ad,
+                yilYas: dashboardResponse.data.Yil,
+                ayYas: dashboardResponse.data.Ay,
+                gunYas: dashboardResponse.data.Gun,
+                il: dashboardResponse.data.Il,
+                ayniIsimdeIlSayi: dashboardResponse.data.AyniIsimdeIlSayi,
+                ayniIsimdeTurkiyeSayi:
+                  dashboardResponse.data.AyniIsimdeTurkiyeSayi,
+                ayniTarihDoganIlSayi:
+                  dashboardResponse.data.AyniTarihDoganIlSayi,
                 ayniTarihDoganTurkiyeSayi:
-                  response_data.data.AyniTarihDoganTurkiyeSayi,
-                boyOrtancaDeger: response_data.data.BoyOrtancaDeger,
-                kiloOrtancaDeger: response_data.data.KiloOrtancaDeger,
+                  dashboardResponse.data.AyniTarihDoganTurkiyeSayi,
+                boyOrtancaDeger: dashboardResponse.data.BoyOrtancaDeger,
+                kiloOrtancaDeger: dashboardResponse.data.KiloOrtancaDeger,
                 loading: true,
               });
             }
