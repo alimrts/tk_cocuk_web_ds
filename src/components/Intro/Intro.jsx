@@ -192,6 +192,24 @@ const Intro = (props) => {
     kiloOrtancaDeger: -3,
   });
 
+  // const [infoText, setInfoText] = useState("");
+
+  // const [adi, setAdi] = useState("");
+  // const [yilYas, setYil] = useState("");
+  // const [ayYas, setAy] = useState("");
+  // const [gunYas, setGun] = useState("");
+  // const [il, setIl] = useState("");
+
+  // const [ayniIsimdeIlSayi, setAyniIsimdeIlSayi] = useState("");
+  // const [ayniIsimdeTurkiyeSayi, setAyniIsimdeTurkiyeSayi] = useState("");
+
+  // const [ayniTarihDoganIlSayi, setAyniTarihDoganIlSayi] = useState("");
+  // const [ayniTarihDoganTurkiyeSayi, setAyniTarihDoganTurkiyeSayi] =
+  //   useState("");
+
+  // const [boyOrtancaDeger, setBoyOrtancaDeger] = useState("");
+  // const [kiloOrtancaDeger, setKiloOrtancaDeger] = useState("");
+
   const {
     infoText,
     loading,
@@ -347,20 +365,57 @@ const Intro = (props) => {
             );
             // setInfoText(dashboardResponse.data);
 
-            setAdi(dashboardResponse.data.Ad);
-            setYil(dashboardResponse.data.Yil);
-            setAy(dashboardResponse.data.Ay);
-            setGun(dashboardResponse.data.Gun);
-            setIl(dashboardResponse.data.Il);
-            setAyniIsimdeIlSayi(dashboardResponse.data.AyniIsimdeIlSayi);
-            setAyniIsimdeTurkiyeSayi(
-              dashboardResponse.data.AyniIsimdeTurkiyeSayi
-            );
-            setAyniTarihDoganIlSayi(
-              dashboardResponse.data.AyniTarihDoganIlSayi
-            );
-            setBoyOrtancaDeger(dashboardResponse.data.BoyOrtancaDeger);
-            setKiloOrtancaDeger(dashboardResponse.data.KiloOrtancaDeger);
+            // setAdi(dashboardResponse.data.Ad);
+            // setYil(dashboardResponse.data.Yil);
+            // setAy(dashboardResponse.data.Ay);
+            // setGun(dashboardResponse.data.Gun);
+            // setIl(dashboardResponse.data.Il);
+            // setAyniIsimdeIlSayi(dashboardResponse.data.AyniIsimdeIlSayi);
+            // setAyniIsimdeTurkiyeSayi(
+            //   dashboardResponse.data.AyniIsimdeTurkiyeSayi
+            // );
+            // setAyniTarihDoganIlSayi(
+            //   dashboardResponse.data.AyniTarihDoganIlSayi
+            // );
+            // setBoyOrtancaDeger(dashboardResponse.data.BoyOrtancaDeger);
+            // setKiloOrtancaDeger(dashboardResponse.data.KiloOrtancaDeger);
+
+            if (dashboardResponse.data.Ad === undefined) {
+              setState({
+                ...state,
+
+                loading: true,
+
+                adi: "---",
+                yilYas: 0,
+                ayYas: 0,
+                gunYas: 0,
+                il: "---",
+                ayniIsimdeIlSayi: 0,
+                ayniIsimdeTurkiyeSayi: 0,
+                ayniTarihDoganIlSayi: 0,
+                ayniTarihDoganTurkiyeSayi: 0,
+                boyOrtancaDeger: 0,
+                kiloOrtancaDeger: 0,
+              });
+            } else {
+              setState({
+                ...state,
+                adi: response_data.data.Ad,
+                yilYas: response_data.data.Yil,
+                ayYas: response_data.data.Ay,
+                gunYas: response_data.data.Gun,
+                il: response_data.data.Il,
+                ayniIsimdeIlSayi: response_data.data.AyniIsimdeIlSayi,
+                ayniIsimdeTurkiyeSayi: response_data.data.AyniIsimdeTurkiyeSayi,
+                ayniTarihDoganIlSayi: response_data.data.AyniTarihDoganIlSayi,
+                ayniTarihDoganTurkiyeSayi:
+                  response_data.data.AyniTarihDoganTurkiyeSayi,
+                boyOrtancaDeger: response_data.data.BoyOrtancaDeger,
+                kiloOrtancaDeger: response_data.data.KiloOrtancaDeger,
+                loading: true,
+              });
+            }
           })
           .catch((error) => {
             console.error("Error getting dashboard data:", error);
