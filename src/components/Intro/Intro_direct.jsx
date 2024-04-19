@@ -315,8 +315,7 @@ const Intro = (props) => {
   // const url = `https://tuikcocukapi.prod.tuik.gov.tr/api/tuikcocukAuthService/Auth/GetToken?Email=${email}&Password=${password}`;
   // const API_URL_OF_TOKEN = `https://tuikcocukapi.prod.tuik.gov.tr/api/tuikcocukAuthService/Auth/GetToken?Email=${email}&Password=${password}`;
 
-  // const API_URL_OF_TOKEN = `${process.env.REACT_APP_API_BASE_URL}tuikcocukAuthService/Auth/GetToken?Email=${email}&Password=${password}`;
-  const API_URL_OF_TOKEN = `/api/tuikcocukAuthService/Auth/GetToken?Email=${email}&Password=${password}`;
+  const API_URL_OF_TOKEN = `${process.env.REACT_APP_API_BASE_URL}tuikcocukAuthService/Auth/GetToken?Email=${email}&Password=${password}`;
 
   // const API_URL_OF_DASHBOARD =
   //   "https://tuikcocukapi.prod.tuik.gov.tr/api/TuikCocuk/GetDashboard";
@@ -326,25 +325,23 @@ const Intro = (props) => {
   // const API_URL_OF_DASHBOARD =
   //   "https://tuikcocukapi.test.tuik.gov.tr/api/TuikCocuk/GetDashboard";
 
-  // const API_URL_OF_DASHBOARD =
-  //   `${process.env.REACT_APP_API_BASE_URL}TuikCocuk/GetDashboard?Ad=` +
-  //   ad +
-  //   "&gun=" +
-  //   dogumGunu +
-  //   "&ay=" +
-  //   dogumAyi +
-  //   "&dogumyil=" +
-  //   dogumYili +
-  //   "&boy=" +
-  //   boy +
-  //   "&kilo=" +
-  //   kilo +
-  //   "&ilKodu=" +
-  //   sehir +
-  //   "&cinsiyet=" +
-  //   cinsiyet;
-
-  const API_URL_OF_DASHBOARD = `/api/TuikCocuk/GetDashboard?Ad=${ad}&gun=${dogumGunu}&ay=${dogumAyi}&dogumyil=${dogumYili}&boy=${boy}&kilo=${kilo}&ilKodu=${sehir}&cinsiyet=${cinsiyet}`;
+  const API_URL_OF_DASHBOARD =
+    `${process.env.REACT_APP_API_BASE_URL}TuikCocuk/GetDashboard?Ad=` +
+    ad +
+    "&gun=" +
+    dogumGunu +
+    "&ay=" +
+    dogumAyi +
+    "&dogumyil=" +
+    dogumYili +
+    "&boy=" +
+    boy +
+    "&kilo=" +
+    kilo +
+    "&ilKodu=" +
+    sehir +
+    "&cinsiyet=" +
+    cinsiyet;
 
   const getInfo = () => {
     axios

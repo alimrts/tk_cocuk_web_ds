@@ -483,3 +483,44 @@
   }
 }
 
+
+/* Extra Large Screens (Desktops, TVs) */
+@media only screen and (min-width: 1921px) and (max-width: 2561px) {
+  .registerPage-root{
+    transform: scale(1);
+    margin-left: 2.5rem;
+    margin-top: 1rem;
+   
+  }
+
+  .registerPage-left{
+    width: 38rem;
+    height: 54rem;
+    margin-left: -9rem;
+    margin-top: 15rem;
+  }
+
+  .formWrapper {
+    font-size: 10pt;
+    margin-top: -5rem;
+    transform: scale(0.85);
+    margin-right: 2rem;
+  }
+
+  .formTitle {
+    margin-top: 1rem;
+    font-size: 16pt;
+    
+  }
+  .formTitle2 {
+    font-size: 12pt;
+  }
+
+  .canvas-left {
+    margin-left: 22rem;
+  }
+
+  .canvas-right {
+    margin-right: 4rem;
+  }
+}
