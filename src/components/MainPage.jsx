@@ -34,7 +34,7 @@ const MainPage = () => {
     if (event.keyCode === 27) {
       // ESC key
       setShowMetaverse(false);
-      exitFullScreen();
+      //exitFullScreen();
     }
   };
   useEffect(() => {
@@ -70,7 +70,7 @@ const MainPage = () => {
     if (userInfo === null) {
       // Redirect to RegisterPage if user information is not available
       history.push("/");
-      exitFullScreen();
+      //exitFullScreen();
     }
   }, [userInfo, history]);
 
@@ -116,7 +116,7 @@ const MainPage = () => {
               className="button i-button"
               onClick={() => {
                 setShowMetaverse(false);
-                exitFullScreen();
+                //exitFullScreen();
               }}
               style={{
                 position: "absolute",

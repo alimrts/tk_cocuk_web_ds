@@ -5,6 +5,9 @@ import { themeContext } from "../../Context";
 
 import tkc_iletisim_left from "../../img/tkc_iletisim_left.png";
 
+import useZustandStore from "../../zustandStore";
+import AlertPopup from "../AlertPopup";
+
 const Contact = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
@@ -15,6 +18,15 @@ const Contact = () => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const { language, setLanguage, languageData } = useZustandStore();
+  const strings = languageData[language];
+
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleImageClick = () => {
+    setShowAlert(showAlert ? false : true);
+  };
 
   const isEmailValid = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -28,7 +40,8 @@ const Contact = () => {
       !isEmailValid(userEmail.trim()) ||
       message.trim() === ""
     ) {
-      alert("Lütfen Gerekli Alanları Doldurunuz.");
+      //alert("Lütfen Gerekli Alanları Doldurunuz.");
+      setShowAlert(true);
       return;
     }
     setIsLoading(true);
