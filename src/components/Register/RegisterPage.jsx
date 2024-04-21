@@ -107,6 +107,16 @@ const RegisterPage = () => {
   }, []);
 
   useEffect(() => {
+    const isFirstRun = localStorage.getItem("isFirstRun");
+    // If it's the first run, clear the localStorage
+    if (!isFirstRun) {
+      localStorage.clear();
+      // Set a flag in localStorage to indicate that the app has been run before
+      localStorage.setItem("isFirstRun", "true");
+    }
+  }, []);
+
+  useEffect(() => {
     // Reset scroll position when component unmounts
     return () => {
       window.scrollTo(0, 0);
