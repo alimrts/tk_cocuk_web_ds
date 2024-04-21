@@ -10,7 +10,8 @@ const TextPopup = ({ rowTitle, row1, onClose }) => {
           left: 0,
           width: "100%",
           height: "100%",
-          // backgroundColor: "rgba(0, 0, 0, 0.5)",
+          backgroundColor: "rgba(0, 0, 0, 0.1)",
+          borderRadius: "4rem",
           zIndex: 999,
         }}
         onClick={onClose} // Close the popup when clicking on the overlay
@@ -19,9 +20,10 @@ const TextPopup = ({ rowTitle, row1, onClose }) => {
         <div
           style={{
             display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: "-3rem",
+            justifyContent: "right",
+            alignItems: "right",
+            marginTop: "-1rem",
+            marginRight: "-0.8rem",
           }}
         >
           <button onClick={onClose}>X</button>
