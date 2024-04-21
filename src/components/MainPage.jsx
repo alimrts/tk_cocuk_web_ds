@@ -34,6 +34,7 @@ const MainPage = () => {
     if (event.keyCode === 27) {
       // ESC key
       setShowMetaverse(false);
+      exitFullScreen();
     }
   };
   useEffect(() => {
@@ -69,6 +70,7 @@ const MainPage = () => {
     if (userInfo === null) {
       // Redirect to RegisterPage if user information is not available
       history.push("/");
+      exitFullScreen();
     }
   }, [userInfo, history]);
 
@@ -78,6 +80,18 @@ const MainPage = () => {
       window.scrollTo(0, 0);
     };
   }, []);
+
+  const exitFullScreen = () => {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  };
 
   // console.log("gelen userinfo: ", userInfo);
   // Destructure user information
@@ -102,6 +116,7 @@ const MainPage = () => {
               className="button i-button"
               onClick={() => {
                 setShowMetaverse(false);
+                exitFullScreen();
               }}
               style={{
                 position: "absolute",

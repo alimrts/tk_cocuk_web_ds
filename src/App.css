@@ -166,3 +166,137 @@
   cursor: pointer;
   user-select: none;
 }
+
+
+
+
+/* ///////// for media queries ///////// */ 
+
+/* Extra Small Devices (Portrait and Landscape) */
+@media only screen and (max-width: 319px) {
+  .popup-contentM {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    margin-left: -5rem;
+    transform: scale(0.6);
+  }
+}
+
+/* Mobile Phones (Portrait and Landscape) */
+@media only screen and (min-width: 320px) and (max-width: 374px) {
+ 
+  .popup-contentM {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    margin-left: -5rem;
+    transform: scale(0.6);
+  }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 424px) {
+  .popup-contentM {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    margin-left: -4rem;
+    transform: scale(0.7);
+  }
+}
+
+@media only screen and (min-width: 425px) and (max-width: 767px) {
+  .popup-contentM {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    margin-left: -2.5rem;
+    transform: scale(0.8);
+  }
+ 
+}
+
+/* Tablets Portrait */
+@media only screen and (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+ 
+  .popup-contentM {
+    position: absolute;
+    top: -4%;
+    left: 1%;
+    margin-left: 5.5rem;
+    transform: scale(0.85);
+  }
+}
+
+/* Tablets Landscape */
+@media only screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+
+  .popup-contentM {
+    position: absolute;
+    top: -4%;
+    left: 1%;
+    margin-left: 5.5rem;
+    transform: scale(0.85);
+  }
+}
+
+/* Tablets and Small Desktops */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .popup-contentM {
+    position: absolute;
+    top: -4%;
+    left: 1%;
+    margin-left: 7.5rem;
+    
+    transform: scale(0.85);
+  }
+ 
+}
+
+/* Large Screens (Desktops, Laptops) */
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+ 
+  .popup-contentM {
+    position: absolute;
+    top: -4%;
+    left: 1%;
+    margin-left: 15rem;
+    transform: scale(0.85);
+  }
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+  .popup-contentM {
+    position: absolute;
+    top: -3%;
+    left: 10%;
+    margin-left: 15rem;
+    transform: scale(0.9);
+  }
+}
+
+/* Extra Large Screens (Desktops, TVs) */
+@media only screen and (min-width: 1920px) {
+  .popup-contentM {
+    position: absolute;
+    top: 10%;
+    left: 28%;
+    margin-left: 8rem;
+    transform: scale(1);
+  }
+}
+
+
+/* Extra Large Screens (Desktops, TVs) */
+@media only screen and (min-width: 1921px) and (max-width: 2561px) {
+  .popup-contentM {
+    position: absolute;
+    top: 10%;
+    left: 28%;
+    margin-left: 8rem;
+    transform: scale(1);
+  }
+}
+
+
+

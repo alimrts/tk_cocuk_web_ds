@@ -16,7 +16,9 @@
     "registerPageBaslayalim":"Başlayalım",
     "registerPageFormuTemizle":"Form Temizle",
     "registerPageLutfenGerekliBilgiler":"Lütfen gerekli bilgileri doldurunuz.",
-    "registerPageBuAlanZorunludur":"Bu alan zorunludur."
+    "registerPageBuAlanZorunludur":"Bu alan zorunludur.",
+    "apiHatasi":"Hata!",
+    "apiHatasiAciklama":"Gerekli bilgiler oluşturulamadı."
 
 
 

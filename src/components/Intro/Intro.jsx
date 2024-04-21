@@ -1,8 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-
 import "./Intro.css";
-
 import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
@@ -32,7 +30,10 @@ import kus5 from "../../img/kus5.png";
 import FloatinDivForNavbarMenu from "../FloatingDiv/FloatinDivForNavbarMenu";
 import FloatinDivForIntroRight from "../FloatingDiv/FloatinDivForIntroRight";
 
+import LoadingIntro from "./LoadingIntro";
+
 import useZustandStore from "../../zustandStore";
+import LoadingIntroApiError from "./LoadingIntroApiError";
 
 function capitalizeFirstLetter(str) {
   if (str && typeof str === "string") {
@@ -40,66 +41,6 @@ function capitalizeFirstLetter(str) {
   }
   return str;
 }
-
-const Loading = () => (
-  <svg
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    x="0px"
-    y="0px"
-    style={{ width: "100%", height: "200px" }}
-    viewBox="0 0 100 100"
-    enableBackground="new 0 0 100 100"
-    xmlSpace="preserve"
-  >
-    <path
-      fill="#fdc50f"
-      d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
-  c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z"
-    >
-      <animateTransform
-        attributeName="transform"
-        attributeType="XML"
-        type="rotate"
-        dur="2s"
-        from="0 50 50"
-        to="360 50 50"
-        repeatCount="indefinite"
-      />
-    </path>
-    <path
-      fill="#fdc50f"
-      d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
-  c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z"
-    >
-      <animateTransform
-        attributeName="transform"
-        attributeType="XML"
-        type="rotate"
-        dur="1s"
-        from="0 50 50"
-        to="-360 50 50"
-        repeatCount="indefinite"
-      />
-    </path>
-    <path
-      fill="#fff"
-      d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
-  L82,35.7z"
-    >
-      <animateTransform
-        attributeName="transform"
-        attributeType="XML"
-        type="rotate"
-        dur="2s"
-        from="0 50 50"
-        to="360 50 50"
-        repeatCount="indefinite"
-      />
-    </path>
-  </svg>
-);
 
 const Intro = (props) => {
   // Transition
@@ -136,6 +77,10 @@ const Intro = (props) => {
   const darkMode = theme.state.darkMode;
 
   const setPlayerPosition = useZustandStore((state) => state.setPlayerPosition);
+
+  const isApiLoaded = useZustandStore((state) => state.isApiLoaded);
+
+  const setIsApiLoaded = useZustandStore((state) => state.setIsApiLoaded);
 
   const {
     setShowMetaverse,
@@ -174,44 +119,25 @@ const Intro = (props) => {
     // setShowMetaverse(true);
   };
 
-  console.log("gelen cinsiyet intro: ", cinsiyet);
+  // console.log("gelen cinsiyet intro: ", cinsiyet);
 
   const [state, setState] = useState({
-    infoText: "",
     loading: false,
-    adi: "Adi",
-    yilYas: 5,
-    ayYas: 11,
-    gunYas: 13,
-    il: "Bilecik",
+    adi: "",
+    yilYas: 0,
+    ayYas: 0,
+    gunYas: 0,
+    il: "",
     ayniIsimdeIlSayi: 0,
-    ayniIsimdeTurkiyeSayi: 140,
-    ayniTarihDoganIlSayi: 3,
-    ayniTarihDoganTurkiyeSayi: 1214,
-    boyOrtancaDeger: 13,
-    kiloOrtancaDeger: -3,
+    ayniIsimdeTurkiyeSayi: 0,
+    ayniTarihDoganIlSayi: 0,
+    ayniTarihDoganTurkiyeSayi: 0,
+    boyOrtancaDeger: 0,
+    kiloOrtancaDeger: 0,
+    apiError: false,
   });
 
-  // const [infoText, setInfoText] = useState("");
-
-  // const [adi, setAdi] = useState("");
-  // const [yilYas, setYil] = useState("");
-  // const [ayYas, setAy] = useState("");
-  // const [gunYas, setGun] = useState("");
-  // const [il, setIl] = useState("");
-
-  // const [ayniIsimdeIlSayi, setAyniIsimdeIlSayi] = useState("");
-  // const [ayniIsimdeTurkiyeSayi, setAyniIsimdeTurkiyeSayi] = useState("");
-
-  // const [ayniTarihDoganIlSayi, setAyniTarihDoganIlSayi] = useState("");
-  // const [ayniTarihDoganTurkiyeSayi, setAyniTarihDoganTurkiyeSayi] =
-  //   useState("");
-
-  // const [boyOrtancaDeger, setBoyOrtancaDeger] = useState("");
-  // const [kiloOrtancaDeger, setKiloOrtancaDeger] = useState("");
-
   const {
-    infoText,
     loading,
     adi,
     yilYas,
@@ -224,171 +150,8 @@ const Intro = (props) => {
     ayniTarihDoganTurkiyeSayi,
     boyOrtancaDeger,
     kiloOrtancaDeger,
+    apiError,
   } = state;
-
-  // const getInfo = async () => {
-  //   try {
-  //     const data = {
-  //       ad: ad,
-  //       gun: dogumGunu,
-  //       ay: dogumAyi,
-  //       dogumyil: dogumYili,
-  //       boy: boy,
-  //       kilo: kilo,
-  //       ilKodu: sehir,
-  //       cinsiyet: cinsiyet,
-  //     };
-  //     setState({
-  //       ...state,
-  //       loading: false,
-  //     });
-  //     const response_data = await axios.get(
-  //       `${process.env.REACT_APP_API_BASE_URL}GetDashboard`,
-  //       {
-  //         params: data,
-  //       }
-  //     );
-
-  //     if (response_data.data) {
-  //       console.log("data: " + response_data.data);
-  //       console.log("data Ad: " + response_data.data.Ad);
-  //       if (response_data.data.Ad === undefined) {
-  //         setState({
-  //           ...state,
-
-  //           loading: true,
-
-  //           adi: "---",
-  //           yilYas: 0,
-  //           ayYas: 0,
-  //           gunYas: 0,
-  //           il: "---",
-  //           ayniIsimdeIlSayi: 0,
-  //           ayniIsimdeTurkiyeSayi: 0,
-  //           ayniTarihDoganIlSayi: 0,
-  //           ayniTarihDoganTurkiyeSayi: 0,
-  //           boyOrtancaDeger: 0,
-  //           kiloOrtancaDeger: 0,
-  //         });
-  //       } else {
-  //         setState({
-  //           ...state,
-  //           adi: response_data.data.Ad,
-  //           yilYas: response_data.data.Yil,
-  //           ayYas: response_data.data.Ay,
-  //           gunYas: response_data.data.Gun,
-  //           il: response_data.data.Il,
-  //           ayniIsimdeIlSayi: response_data.data.AyniIsimdeIlSayi,
-  //           ayniIsimdeTurkiyeSayi: response_data.data.AyniIsimdeTurkiyeSayi,
-  //           ayniTarihDoganIlSayi: response_data.data.AyniTarihDoganIlSayi,
-  //           ayniTarihDoganTurkiyeSayi:
-  //             response_data.data.AyniTarihDoganTurkiyeSayi,
-  //           boyOrtancaDeger: response_data.data.BoyOrtancaDeger,
-  //           kiloOrtancaDeger: response_data.data.KiloOrtancaDeger,
-  //           loading: true,
-  //         });
-  //       }
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     // test if network error
-  //     setState({
-  //       ...state,
-  //       adi: "Adi",
-  //       yilYas: 5,
-  //       ayYas: 11,
-  //       gunYas: 13,
-  //       il: "Bilecik",
-  //       ayniIsimdeIlSayi: 0,
-  //       ayniIsimdeTurkiyeSayi: 140,
-  //       ayniTarihDoganIlSayi: 3,
-  //       ayniTarihDoganTurkiyeSayi: 1214,
-  //       boyOrtancaDeger: 13,
-  //       kiloOrtancaDeger: -3,
-  //       loading: true,
-  //     });
-  //   }
-  // };
-
-  // to proxy on same server
-  // const getInfo = () => {
-  //   axios
-  //     .get("/dashboard", {
-  //       params: {
-  //         Ad: ad,
-  //         gun: dogumGunu,
-  //         ay: dogumAyi,
-  //         dogumyil: dogumYili,
-  //         boy: boy,
-  //         kilo: kilo,
-  //         ilKodu: sehir,
-  //         cinsiyet: cinsiyet,
-  //       },
-  //     })
-  //     .then((dashboardResponse) => {
-  //       console.log("Dashboard data:", dashboardResponse.data);
-  //       console.log(
-  //         "Dashboard data test AyniIsimdeIlSayi:",
-  //         dashboardResponse.data.AyniIsimdeIlSayi
-  //       );
-
-  //       if (dashboardResponse.data.Ad === undefined) {
-  //         setState({
-  //           ...state,
-
-  //           loading: true,
-
-  //           adi: "---",
-  //           yilYas: 0,
-  //           ayYas: 0,
-  //           gunYas: 0,
-  //           il: "---",
-  //           ayniIsimdeIlSayi: 0,
-  //           ayniIsimdeTurkiyeSayi: 0,
-  //           ayniTarihDoganIlSayi: 0,
-  //           ayniTarihDoganTurkiyeSayi: 0,
-  //           boyOrtancaDeger: 0,
-  //           kiloOrtancaDeger: 0,
-  //         });
-  //       } else {
-  //         setState({
-  //           ...state,
-  //           adi: dashboardResponse.data.Ad,
-  //           yilYas: dashboardResponse.data.Yil,
-  //           ayYas: dashboardResponse.data.Ay,
-  //           gunYas: dashboardResponse.data.Gun,
-  //           il: dashboardResponse.data.Il,
-  //           ayniIsimdeIlSayi: dashboardResponse.data.AyniIsimdeIlSayi,
-  //           ayniIsimdeTurkiyeSayi: dashboardResponse.data.AyniIsimdeTurkiyeSayi,
-  //           ayniTarihDoganIlSayi: dashboardResponse.data.AyniTarihDoganIlSayi,
-  //           ayniTarihDoganTurkiyeSayi:
-  //             dashboardResponse.data.AyniTarihDoganTurkiyeSayi,
-  //           boyOrtancaDeger: dashboardResponse.data.BoyOrtancaDeger,
-  //           kiloOrtancaDeger: dashboardResponse.data.KiloOrtancaDeger,
-  //           loading: true,
-  //         });
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error getting dashboard data:", error);
-  //       // test if network error
-  //       setState({
-  //         ...state,
-  //         adi: "Adi",
-  //         yilYas: 5,
-  //         ayYas: 11,
-  //         gunYas: 13,
-  //         il: "Bilecik",
-  //         ayniIsimdeIlSayi: 0,
-  //         ayniIsimdeTurkiyeSayi: 140,
-  //         ayniTarihDoganIlSayi: 3,
-  //         ayniTarihDoganTurkiyeSayi: 1214,
-  //         boyOrtancaDeger: 13,
-  //         kiloOrtancaDeger: -3,
-  //         loading: true,
-  //       });
-  //     });
-  // };
 
   const getInfo = () => {
     axios
@@ -416,7 +179,6 @@ const Intro = (props) => {
             ...state,
 
             loading: true,
-
             adi: "---",
             yilYas: 0,
             ayYas: 0,
@@ -446,117 +208,24 @@ const Intro = (props) => {
             kiloOrtancaDeger: dashboardResponse.data.KiloOrtancaDeger,
             loading: true,
           });
+          setIsApiLoaded(true);
         }
       })
       .catch((error) => {
         console.error("Error getting dashboard data:", error);
-        // test if network error
         setState({
           ...state,
-          adi: "Adi",
-          yilYas: 5,
-          ayYas: 11,
-          gunYas: 13,
-          il: "Bilecik",
-          ayniIsimdeIlSayi: 0,
-          ayniIsimdeTurkiyeSayi: 140,
-          ayniTarihDoganIlSayi: 3,
-          ayniTarihDoganTurkiyeSayi: 1214,
-          boyOrtancaDeger: 13,
-          kiloOrtancaDeger: -3,
+          apiError: true,
           loading: true,
         });
       });
   };
 
-  // const getInfo = () => {
-  //   axios
-  //     .get(API_URL_OF_TOKEN, {})
-  //     .then((authResponse) => {
-  //       const authToken = authResponse.data.Token;
-
-  //       const headers = {
-  //         Authorization: `Bearer ${authToken}`,
-  //       };
-  //       axios
-  //         .get(API_URL_OF_DASHBOARD, {
-  //           headers: headers,
-  //           // params: data,
-  //         })
-  //         .then((dashboardResponse) => {
-  //           console.log("Dashboard data:", dashboardResponse.data);
-  //           console.log(
-  //             "Dashboard data test AyniIsimdeIlSayi:",
-  //             dashboardResponse.data.AyniIsimdeIlSayi
-  //           );
-
-  //           if (dashboardResponse.data.Ad === undefined) {
-  //             setState({
-  //               ...state,
-
-  //               loading: true,
-
-  //               adi: "---",
-  //               yilYas: 0,
-  //               ayYas: 0,
-  //               gunYas: 0,
-  //               il: "---",
-  //               ayniIsimdeIlSayi: 0,
-  //               ayniIsimdeTurkiyeSayi: 0,
-  //               ayniTarihDoganIlSayi: 0,
-  //               ayniTarihDoganTurkiyeSayi: 0,
-  //               boyOrtancaDeger: 0,
-  //               kiloOrtancaDeger: 0,
-  //             });
-  //           } else {
-  //             setState({
-  //               ...state,
-  //               adi: dashboardResponse.data.Ad,
-  //               yilYas: dashboardResponse.data.Yil,
-  //               ayYas: dashboardResponse.data.Ay,
-  //               gunYas: dashboardResponse.data.Gun,
-  //               il: dashboardResponse.data.Il,
-  //               ayniIsimdeIlSayi: dashboardResponse.data.AyniIsimdeIlSayi,
-  //               ayniIsimdeTurkiyeSayi:
-  //                 dashboardResponse.data.AyniIsimdeTurkiyeSayi,
-  //               ayniTarihDoganIlSayi:
-  //                 dashboardResponse.data.AyniTarihDoganIlSayi,
-  //               ayniTarihDoganTurkiyeSayi:
-  //                 dashboardResponse.data.AyniTarihDoganTurkiyeSayi,
-  //               boyOrtancaDeger: dashboardResponse.data.BoyOrtancaDeger,
-  //               kiloOrtancaDeger: dashboardResponse.data.KiloOrtancaDeger,
-  //               loading: true,
-  //             });
-  //           }
-  //         })
-  //         .catch((error) => {
-  //           console.error("Error getting dashboard data:", error);
-  //         });
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error getting auth token:", error);
-
-  //       // test if network error
-  //       setState({
-  //         ...state,
-  //         adi: "Adi",
-  //         yilYas: 5,
-  //         ayYas: 11,
-  //         gunYas: 13,
-  //         il: "Bilecik",
-  //         ayniIsimdeIlSayi: 0,
-  //         ayniIsimdeTurkiyeSayi: 140,
-  //         ayniTarihDoganIlSayi: 3,
-  //         ayniTarihDoganTurkiyeSayi: 1214,
-  //         boyOrtancaDeger: 13,
-  //         kiloOrtancaDeger: -3,
-  //         loading: true,
-  //       });
-  //     });
-  // };
-
   useEffect(() => {
-    getInfo();
+    // getInfo();
+    if (!isApiLoaded) {
+      getInfo();
+    }
   }, []);
 
   let str = props.ad || "";
@@ -617,8 +286,10 @@ const Intro = (props) => {
               color: "gray",
             }}
           >
-            {!loading ? (
-              <Loading />
+            {apiError ? (
+              <LoadingIntroApiError />
+            ) : !loading ? (
+              <LoadingIntro />
             ) : (
               <IntroLeft
                 sehir={sehir}
@@ -696,8 +367,6 @@ const Intro = (props) => {
         </motion.div>
 
         <motion.div
-          // initial={{ left: "30%", top: "-7rem" }}
-          // whileInView={{ left: "36%", top: "-7rem" }}
           initial={{
             left: "var(--tuik-initial-left-mobile)",
             top: "var(--tuik-initial-top-mobile)",
@@ -717,8 +386,6 @@ const Intro = (props) => {
 
         {/* animation */}
         <motion.div
-          // initial={{ left: "14%", top: "38%" }}
-          // whileInView={{ left: "11%", top: "0rem" }}
           initial={{
             left: "var(--cocukhaklari-initial-left-mobile)",
             top: "var(--cocukhaklari-initial-top-mobile)",
@@ -737,8 +404,6 @@ const Intro = (props) => {
         </motion.div>
 
         <motion.div
-          // initial={{ left: "-6%", top: "38%" }}
-          // whileInView={{ left: "-18%", top: "2.5rem" }}
           initial={{
             left: "var(--oyunoynayalim-initial-left-mobile)",
             top: "var(--oyunoynayalim-initial-top-mobile)",
@@ -762,8 +427,6 @@ const Intro = (props) => {
         </motion.div>
 
         <motion.div
-          // initial={{ left: "48%", top: "2%" }}
-          // whileInView={{ left: "40%", top: "6rem" }}
           initial={{
             left: "var(--sdg-initial-left-mobile)",
             top: "var(--sdg-initial-top-mobile)",
@@ -783,8 +446,6 @@ const Intro = (props) => {
         </motion.div>
 
         <motion.div
-          // initial={{ left: "38%", top: "6%" }}
-          // whileInView={{ left: "22%", top: "14.5rem" }}
           initial={{
             left: "var(--video-initial-left-mobile)",
             top: "var(--video-initial-top-mobile)",
@@ -803,8 +464,6 @@ const Intro = (props) => {
         </motion.div>
 
         <motion.div
-          // initial={{ left: "-34%", top: "10 rem" }}
-          // whileInView={{ left: "-10.5%", top: "12.5rem" }}
           initial={{
             left: "var(--geleneksel-initial-left-mobile)",
             top: "var(--geleneksel-initial-top-mobile)",

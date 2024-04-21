@@ -16,7 +16,9 @@
     "registerPageBaslayalim": "Let's Get Started",
     "registerPageFormuTemizle": "Clear Form",
     "registerPageLutfenGerekliBilgiler": "Please fill in the required information.",
-    "registerPageBuAlanZorunludur": "This field is mandatory."
+    "registerPageBuAlanZorunludur": "This field is mandatory.",
+    "apiHatasi":"Error!",
+    "apiHatasiAciklama":"Required information could not be created."
 
 
     

@@ -2428,6 +2428,16 @@ const SolarSystem = () => {
 
   const [zIndexC, setZIndexC] = useState(99);
 
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    setIsMobile(
+      !!userAgent.match(
+        /android|webos|iphone|ipad|ipod|blackberry|windows phone/i
+      )
+    );
+  }, []);
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsVisible(false);
@@ -2493,26 +2503,30 @@ const SolarSystem = () => {
         Geri
       </button>
 
-      <div
-        style={{
-          position: "absolute",
-          marginTop: "78vh",
-          marginLeft: "5vh",
-          fontSize: "20px",
-          color: "lightblue",
-          zIndex: 1,
-          textAlign: "left",
-          userSelect: "none",
-        }}
-      >
-        Fare sol tuşu ile döndürebilirsiniz.
-        <br />
-        <br />
-        Fare orta tuşu ile yakınlaşabilirsiniz.
-        <br />
-        <br />
-        ESC ile çıkış yapabilirsiniz.
-      </div>
+      {isMobile ? (
+        <div></div>
+      ) : (
+        <div
+          style={{
+            position: "absolute",
+            marginTop: "78vh",
+            marginLeft: "5vh",
+            fontSize: "20px",
+            color: "lightblue",
+            zIndex: 1,
+            textAlign: "left",
+            userSelect: "none",
+          }}
+        >
+          Fare sol tuşu ile döndürebilirsiniz.
+          <br />
+          <br />
+          Fare orta tuşu ile yakınlaşabilirsiniz.
+          <br />
+          <br />
+          ESC ile çıkış yapabilirsiniz.
+        </div>
+      )}
 
       <Canvas>
         <Suspense fallback={<LoaderBase />}>

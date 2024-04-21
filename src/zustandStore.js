@@ -196,6 +196,12 @@ const zustandStore = (set) => ({
   onCleanup: () => {
     set({ isDownButtonPressed: false });
   },
+
+  isApiLoaded: false,
+  setIsApiLoaded: (value) => set({ isApiLoaded: value }),
+  onCleanup: () => {
+    set({ isApiLoaded: false });
+  },
 });
 
 const useZustandStore = create(

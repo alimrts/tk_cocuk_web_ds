@@ -1,4 +1,4 @@
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useEffect } from "react";
 import { Vector3, Euler, Quaternion, Matrix4, AnimationMixer } from "three";
 import Ece from "./Ece";
 import Ege from "./Ege";
