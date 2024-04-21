@@ -27,6 +27,9 @@
   width: 640px;
 }
 
+.swiper-pagination .swiper-pagination-bullet {
+  background-color: rgb(255, 136, 0)/* Change this color to your desired color */
+}
 
 /* .istatistik-card {
   display: flex;

@@ -310,16 +310,89 @@ const Intro = (props) => {
   //   }
   // };
 
-  const email = "tuikcocukuser";
-  const password = "tuikcocuk.2023";
+  // to proxy on same server
+  // const getInfo = () => {
+  //   axios
+  //     .get("/dashboard", {
+  //       params: {
+  //         Ad: ad,
+  //         gun: dogumGunu,
+  //         ay: dogumAyi,
+  //         dogumyil: dogumYili,
+  //         boy: boy,
+  //         kilo: kilo,
+  //         ilKodu: sehir,
+  //         cinsiyet: cinsiyet,
+  //       },
+  //     })
+  //     .then((dashboardResponse) => {
+  //       console.log("Dashboard data:", dashboardResponse.data);
+  //       console.log(
+  //         "Dashboard data test AyniIsimdeIlSayi:",
+  //         dashboardResponse.data.AyniIsimdeIlSayi
+  //       );
 
-  const API_URL_OF_TOKEN = `/api/tuikcocukAuthService/Auth/GetToken?Email=${email}&Password=${password}`;
+  //       if (dashboardResponse.data.Ad === undefined) {
+  //         setState({
+  //           ...state,
 
-  const API_URL_OF_DASHBOARD = `/api/TuikCocuk/GetDashboard?Ad=${ad}&gun=${dogumGunu}&ay=${dogumAyi}&dogumyil=${dogumYili}&boy=${boy}&kilo=${kilo}&ilKodu=${sehir}&cinsiyet=${cinsiyet}`;
+  //           loading: true,
+
+  //           adi: "---",
+  //           yilYas: 0,
+  //           ayYas: 0,
+  //           gunYas: 0,
+  //           il: "---",
+  //           ayniIsimdeIlSayi: 0,
+  //           ayniIsimdeTurkiyeSayi: 0,
+  //           ayniTarihDoganIlSayi: 0,
+  //           ayniTarihDoganTurkiyeSayi: 0,
+  //           boyOrtancaDeger: 0,
+  //           kiloOrtancaDeger: 0,
+  //         });
+  //       } else {
+  //         setState({
+  //           ...state,
+  //           adi: dashboardResponse.data.Ad,
+  //           yilYas: dashboardResponse.data.Yil,
+  //           ayYas: dashboardResponse.data.Ay,
+  //           gunYas: dashboardResponse.data.Gun,
+  //           il: dashboardResponse.data.Il,
+  //           ayniIsimdeIlSayi: dashboardResponse.data.AyniIsimdeIlSayi,
+  //           ayniIsimdeTurkiyeSayi: dashboardResponse.data.AyniIsimdeTurkiyeSayi,
+  //           ayniTarihDoganIlSayi: dashboardResponse.data.AyniTarihDoganIlSayi,
+  //           ayniTarihDoganTurkiyeSayi:
+  //             dashboardResponse.data.AyniTarihDoganTurkiyeSayi,
+  //           boyOrtancaDeger: dashboardResponse.data.BoyOrtancaDeger,
+  //           kiloOrtancaDeger: dashboardResponse.data.KiloOrtancaDeger,
+  //           loading: true,
+  //         });
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error getting dashboard data:", error);
+  //       // test if network error
+  //       setState({
+  //         ...state,
+  //         adi: "Adi",
+  //         yilYas: 5,
+  //         ayYas: 11,
+  //         gunYas: 13,
+  //         il: "Bilecik",
+  //         ayniIsimdeIlSayi: 0,
+  //         ayniIsimdeTurkiyeSayi: 140,
+  //         ayniTarihDoganIlSayi: 3,
+  //         ayniTarihDoganTurkiyeSayi: 1214,
+  //         boyOrtancaDeger: 13,
+  //         kiloOrtancaDeger: -3,
+  //         loading: true,
+  //       });
+  //     });
+  // };
 
   const getInfo = () => {
     axios
-      .get("/dashboard", {
+      .get(process.env.REACT_APP_PROXY_URL + "/dashboard", {
         params: {
           Ad: ad,
           gun: dogumGunu,
