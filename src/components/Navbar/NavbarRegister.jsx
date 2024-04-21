@@ -27,12 +27,20 @@ const Navbar = () => {
     }
   }, []);
 
+  const englishhURL = process.env.REACT_APP_ENGLISH_URL;
   const handleLanguageChange = (selectedLanguage) => {
-    setLanguage(selectedLanguage);
+    // setLanguage(selectedLanguage);
 
-    //to remember which select value
-    setSelectedLanguage(selectedLanguage);
-    localStorage.setItem("selectedLanguage", selectedLanguage);
+    // //to remember which select value
+    // setSelectedLanguage(selectedLanguage);
+    // localStorage.setItem("selectedLanguage", selectedLanguage);
+    if (selectedLanguage === "eng") {
+      window.location.href = englishhURL;
+    } else {
+      setLanguage(selectedLanguage);
+      setSelectedLanguage(selectedLanguage);
+      localStorage.setItem("selectedLanguage", selectedLanguage);
+    }
   };
   return (
     <nav
