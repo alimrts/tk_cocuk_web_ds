@@ -18,7 +18,8 @@
     "registerPageLutfenGerekliBilgiler":"Lütfen gerekli bilgileri doldurunuz.",
     "registerPageBuAlanZorunludur":"Bu alan zorunludur.",
     "apiHatasi":"Hata!",
-    "apiHatasiAciklama":"Gerekli bilgiler oluşturulamadı."
+    "apiHatasiAciklama":"Gerekli bilgiler oluşturulamadı.",
+    "registerPageRestrictedText":"Adın için kısıtlı kelimeleri kullanamazsın."
 
 
 

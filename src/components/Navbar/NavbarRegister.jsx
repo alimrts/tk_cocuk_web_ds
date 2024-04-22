@@ -21,10 +21,10 @@ const Navbar = () => {
   const strings = languageData[language];
 
   useEffect(() => {
-    const storedLanguage = localStorage.getItem("selectedLanguage");
-    if (storedLanguage) {
-      setSelectedLanguage(storedLanguage);
-    }
+    // const storedLanguage = localStorage.getItem("selectedLanguage");
+    // if (storedLanguage) {
+    setSelectedLanguage("default");
+    // }
   }, []);
 
   const englishhURL = process.env.REACT_APP_ENGLISH_URL;
@@ -39,7 +39,7 @@ const Navbar = () => {
     } else {
       setLanguage(selectedLanguage);
       setSelectedLanguage(selectedLanguage);
-      localStorage.setItem("selectedLanguage", selectedLanguage);
+      // localStorage.setItem("selectedLanguage", selectedLanguage);
     }
   };
   return (

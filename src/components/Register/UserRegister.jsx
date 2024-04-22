@@ -55,6 +55,15 @@ const useStyles = makeStyles((theme) => ({
       color: "grey",
     },
   },
+
+  textFieldError: {
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "red",
+      },
+    },
+  },
+
   button: {
     backgroundColor: "#00EBF6",
     borderRadius: "25px",
@@ -141,9 +150,15 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
   const strings = languageData[language];
 
   const [showAlert, setShowAlert] = useState(false);
+  const [showAlertRestricted, setShowAlertRestricted] = useState(false);
+  const [containsRestrictedText, setContainsRestrictedText] = useState(false);
 
   const handleImageClick = () => {
     setShowAlert(showAlert ? false : true);
+  };
+
+  const handleImageClickRestricted = () => {
+    setShowAlertRestricted(showAlertRestricted ? false : true);
   };
 
   //////////////to clear
@@ -245,19 +260,36 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
     handleGenderChange(event);
   };
 
+  // const handleChangeName = (event) => {
+  //   const { name, value } = event.target;
+  //   const uppercaseValue = value.toUpperCase();
+  //   const uppercaseBlacklist = blacklist.words.map((word) =>
+  //     word.toUpperCase()
+  //   );
+  //   const isBlacklisted = uppercaseBlacklist.some((word) =>
+  //     uppercaseValue.includes(word)
+  //   );
+
+  //   if (isBlacklisted) {
+  //     return;
+  //   }
+
+  //   setFormData((prevFormData) => ({
+  //     ...prevFormData,
+  //     [name]: value,
+  //   }));
+  // };
+
   const handleChangeName = (event) => {
     const { name, value } = event.target;
+
     const uppercaseValue = value.toUpperCase();
     const uppercaseBlacklist = blacklist.words.map((word) =>
       word.toUpperCase()
     );
-    const isBlacklisted = uppercaseBlacklist.some((word) =>
-      uppercaseValue.includes(word)
-    );
+    const isBlacklisted = uppercaseBlacklist.includes(uppercaseValue);
 
-    if (isBlacklisted) {
-      return;
-    }
+    setContainsRestrictedText(isBlacklisted);
 
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -280,10 +312,37 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
     onGenderChange(event.target.value);
   };
 
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+
+  //   // Check for empty fields
+  //   const errors = {};
+  //   Object.keys(formData).forEach((key) => {
+  //     if (!formData[key]) {
+  //       errors[key] = true;
+  //     }
+  //   });
+  //   setFormErrors(errors);
+  //   const formFields = Object.values(formData);
+  //   const hasEmptyFields = formFields.some((field) => field === ""); // check for empty fields
+  //   if (hasEmptyFields) {
+  //     // alert(strings.registerPageLutfenGerekliBilgiler);
+  //     setShowAlert(true); // Show the alert
+  //     return;
+  //   }
+
+  //   // Submit form if there are no errors
+  //   if (Object.keys(errors).length === 0) {
+  //     // Submit form
+  //     console.log("Form submitted:", formData);
+  //   }
+
+  //   onSubmit(formData);
+  // };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Check for empty fields
     const errors = {};
     Object.keys(formData).forEach((key) => {
       if (!formData[key]) {
@@ -292,20 +351,33 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
     });
     setFormErrors(errors);
     const formFields = Object.values(formData);
-    const hasEmptyFields = formFields.some((field) => field === ""); // check for empty fields
+    const hasEmptyFields = formFields.some((field) => field === "");
     if (hasEmptyFields) {
-      // alert(strings.registerPageLutfenGerekliBilgiler);
-      setShowAlert(true); // Show the alert
+      setShowAlert(true);
       return;
     }
 
-    // Submit form if there are no errors
-    if (Object.keys(errors).length === 0) {
-      // Submit form
-      console.log("Form submitted:", formData);
+    // Check for blacklisted words
+    const uppercaseBlacklist = blacklist.words.map((word) =>
+      word.toUpperCase()
+    );
+    const containsBlacklistedWord = Object.values(formData).some((value) => {
+      if (typeof value === "string") {
+        const uppercaseValue = value.toUpperCase();
+        return uppercaseBlacklist.includes(uppercaseValue);
+      }
+      return false;
+    });
+    if (containsBlacklistedWord) {
+      setShowAlertRestricted(true);
+      return;
     }
 
-    onSubmit(formData);
+    // Submit form if there are no errors or blacklisted words
+    if (Object.keys(errors).length === 0) {
+      console.log("Form submitted:", formData);
+      onSubmit(formData);
+    }
   };
 
   return (
@@ -317,6 +389,14 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
           row1={strings.registerPageLutfenGerekliBilgiler}
           onClick={() => handleImageClick()}
           isOpen={showAlert}
+        />
+      )}{" "}
+      {showAlertRestricted && (
+        <AlertPopup
+          rowTitle={"Uyarı!"}
+          row1={strings.registerPageRestrictedText}
+          onClick={() => handleImageClickRestricted()}
+          isOpen={showAlertRestricted}
         />
       )}{" "}
       <form className={classes.form} onSubmit={handleSubmit}>
@@ -337,7 +417,10 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
             });
           }}
           variant="outlined"
-          className={classes.textField}
+          // className={classes.textField}
+          className={`${classes.textField} ${
+            containsRestrictedText ? classes.textFieldError : ""
+          }`}
           error={formErrors.firstName}
           helperText={
             formErrors.firstName && strings.registerPageBuAlanZorunludur

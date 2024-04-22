@@ -128,10 +128,10 @@ const Intro = (props) => {
     ayYas: 0,
     gunYas: 0,
     il: "",
-    ayniIsimdeIlSayi: 0,
-    ayniIsimdeTurkiyeSayi: 0,
-    ayniTarihDoganIlSayi: 0,
-    ayniTarihDoganTurkiyeSayi: 0,
+    ayniIsimdeIlSayi: 10000,
+    ayniIsimdeTurkiyeSayi: 10000,
+    ayniTarihDoganIlSayi: 10000,
+    ayniTarihDoganTurkiyeSayi: 10000,
     boyOrtancaDeger: 0,
     kiloOrtancaDeger: 0,
     apiError: false,
@@ -215,7 +215,7 @@ const Intro = (props) => {
         console.error("Error getting dashboard data:", error);
         setState({
           ...state,
-          apiError: true,
+          // apiError: true,
           loading: true,
         });
       });
@@ -301,10 +301,10 @@ const Intro = (props) => {
                 yilYas={yilYas}
                 ayYas={ayYas}
                 gunYas={gunYas}
-                ayniIsimdeIlSayi={ayniIsimdeIlSayi}
-                ayniIsimdeTurkiyeSayi={ayniIsimdeTurkiyeSayi}
-                ayniTarihDoganIlSayi={ayniTarihDoganIlSayi}
-                ayniTarihDoganTurkiyeSayi={ayniTarihDoganTurkiyeSayi}
+                ayniIsimdeIlSayi={ayniIsimdeIlSayi.toLocaleString()}
+                ayniIsimdeTurkiyeSayi={ayniIsimdeTurkiyeSayi.toLocaleString()}
+                ayniTarihDoganIlSayi={ayniTarihDoganIlSayi.toLocaleString()}
+                ayniTarihDoganTurkiyeSayi={ayniTarihDoganTurkiyeSayi.toLocaleString()}
                 boyOrtancaDeger={boyOrtancaDeger}
                 kiloOrtancaDeger={kiloOrtancaDeger}
               />
@@ -334,10 +334,10 @@ const Intro = (props) => {
             yilYas={yilYas}
             ayYas={ayYas}
             gunYas={gunYas}
-            ayniIsimdeIlSayi={ayniIsimdeIlSayi}
-            ayniIsimdeTurkiyeSayi={ayniIsimdeTurkiyeSayi}
-            ayniTarihDoganIlSayi={ayniTarihDoganIlSayi}
-            ayniTarihDoganTurkiyeSayi={ayniTarihDoganTurkiyeSayi}
+            ayniIsimdeIlSayi={ayniIsimdeIlSayi.toLocaleString()}
+            ayniIsimdeTurkiyeSayi={ayniIsimdeTurkiyeSayi.toLocaleString()}
+            ayniTarihDoganIlSayi={ayniTarihDoganIlSayi.toLocaleString()}
+            ayniTarihDoganTurkiyeSayi={ayniTarihDoganTurkiyeSayi.toLocaleString()}
             boyOrtancaDeger={boyOrtancaDeger}
             kiloOrtancaDeger={kiloOrtancaDeger}
           />
