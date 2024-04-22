@@ -215,7 +215,7 @@ const Intro = (props) => {
         console.error("Error getting dashboard data:", error);
         setState({
           ...state,
-          // apiError: true,
+          apiError: true,
           loading: true,
         });
       });
