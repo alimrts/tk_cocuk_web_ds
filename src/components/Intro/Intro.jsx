@@ -257,7 +257,7 @@ const Intro = (props) => {
                 fontSize: "1.4rem",
               }}
             >
-              TÜİK Çocuk Platformu'na
+              TÜİK Çocuk Portalı'na
             </span>
             <span
               style={{
