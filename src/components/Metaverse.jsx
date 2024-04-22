@@ -60,7 +60,7 @@ function Metaverse(props) {
 
   // console.log("state is:", props.cinsiyet);
   const cinsiyet = props.cinsiyet;
-  // console.log("gelen cinsiyet metaverse: ", cinsiyet);
+  console.log("gelen cinsiyet metaverse: ", cinsiyet);
   const [clickedTofirst, setClickedToFirst] = useState(false);
   const [clickedTosecond, setClickedToSecond] = useState(false);
   const [clickedToThird, setClickedToThird] = useState(false);
