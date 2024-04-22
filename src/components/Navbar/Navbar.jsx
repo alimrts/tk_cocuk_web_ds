@@ -38,6 +38,36 @@ const Navbar = () => {
     history.push("/");
   };
 
+  ///for language
+  const { language, setLanguage, languageData } = useZustandStore();
+  const [selectedLanguage, setSelectedLanguage] = useState("");
+
+  const strings = languageData[language];
+
+  useEffect(() => {
+    // const storedLanguage = localStorage.getItem("selectedLanguage");
+    // if (storedLanguage) {
+    setSelectedLanguage("default");
+    // }
+  }, []);
+
+  const englishhURL = process.env.REACT_APP_ENGLISH_URL;
+  const handleLanguageChange = (selectedLanguage) => {
+    // setLanguage(selectedLanguage);
+
+    // //to remember which select value
+    // setSelectedLanguage(selectedLanguage);
+    // localStorage.setItem("selectedLanguage", selectedLanguage);
+    if (selectedLanguage === "eng") {
+      window.location.href = englishhURL;
+    } else {
+      setLanguage(selectedLanguage);
+      setSelectedLanguage(selectedLanguage);
+      // localStorage.setItem("selectedLanguage", selectedLanguage);
+    }
+  };
+  ///
+
   const transitionOfKus1 = {
     duration: 3,
     ease: "easeInOut",
@@ -167,7 +197,20 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        <div style={{ padding: "1rem" }}>
+        <div style={{ padding: "1rem", width: "3rem" }}>
+          <div>
+            <select
+              value={selectedLanguage}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+              style={{ color: "grey" }}
+            >
+              <option value="default">Türkçe</option>
+              <option value="eng">English</option>
+              {/* <option value="ger">Deutsch</option>
+              <option value="french">Français</option>
+              <option value="spanish">Española</option> */}
+            </select>
+          </div>
           {/* <NavLink to={{ pathname: "/" }} target="_self">
             Çıkış
           </NavLink> */}
