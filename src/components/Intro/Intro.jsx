@@ -223,9 +223,9 @@ const Intro = (props) => {
 
   useEffect(() => {
     // getInfo();
-    if (!isApiLoaded) {
-      getInfo();
-    }
+    // if (!isApiLoaded) {
+    getInfo();
+    // }
   }, []);
 
   let str = props.ad || "";
