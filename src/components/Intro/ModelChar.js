@@ -1,9 +1,9 @@
-import React, { useRef, useEffect,useState } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
-import {  useFrame } from "@react-three/fiber";
+import React, { useRef, useEffect, useState } from "react";
+import { useGLTF, useAnimations } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 export default function ModelChar({ ...props }) {
-  const group = useRef()
+  const group = useRef();
   const [active, setActive] = useState(false);
   const [hover, setHover] = useState(false);
   useFrame(() => {
@@ -12,26 +12,30 @@ export default function ModelChar({ ...props }) {
     }
   });
   // const { nodes, materials, animations } = useGLTF('/ece.glb')
-  const { nodes, materials, animations } = useGLTF('./models/ece.glb')
-  const { actions } = useAnimations(animations, group)
+  const { nodes, materials, animations } = useGLTF("./models/ece.glb");
+  const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
-    actions['idle'].play()
-  })
+    actions["idle"].play();
+  });
   return (
-    <group ref={group} {...props} dispose={null} >
-      
-      <group name="Scene" onPointerOver={() => {
+    <group ref={group} {...props} dispose={null}>
+      <group
+        name="Scene"
+        onPointerOver={() => {
           setHover(true);
         }}
         onPointerOut={() => {
           setHover(false);
-        }}>
-        
-       
-        <group name="Armature" rotation={[Math.PI / 2, 0, -Math.PI]} scale={0.01}>
+        }}
+      >
+        <group
+          name="Armature"
+          rotation={[Math.PI / 2, 0, -Math.PI]}
+          scale={0.01}
+        >
           <primitive object={nodes.mixamorigHips} />
-         
+
           <skinnedMesh
             geometry={nodes.ece_gozler.geometry}
             material={materials.ece_goz}
@@ -70,7 +74,7 @@ export default function ModelChar({ ...props }) {
         </group>
       </group>
     </group>
-  )
+  );
 }
 
-useGLTF.preload('./models/ece.glb')
+// useGLTF.preload('./models/ece.glb')

@@ -139,6 +139,88 @@ const Intro = (props) => {
 
   const {
     loading,
+    // adi,
+    // yilYas,
+    // ayYas,
+    // gunYas,
+    // il,
+    // ayniIsimdeIlSayi,
+    // ayniIsimdeTurkiyeSayi,
+    // ayniTarihDoganIlSayi,
+    // ayniTarihDoganTurkiyeSayi,
+    // boyOrtancaDeger,
+    // kiloOrtancaDeger,
+    apiError,
+  } = state;
+
+  // const getInfo = () => {
+  //   axios
+  //     .get(process.env.REACT_APP_PROXY_URL + "/dashboard", {
+  //       params: {
+  //         Ad: ad,
+  //         gun: dogumGunu,
+  //         ay: dogumAyi,
+  //         dogumyil: dogumYili,
+  //         boy: boy,
+  //         kilo: kilo,
+  //         ilKodu: sehir,
+  //         cinsiyet: cinsiyet,
+  //       },
+  //     })
+  //     .then((dashboardResponse) => {
+  //       console.log("Dashboard data:", dashboardResponse.data);
+  //       console.log(
+  //         "Dashboard data test AyniIsimdeIlSayi:",
+  //         dashboardResponse.data.AyniIsimdeIlSayi
+  //       );
+
+  //       if (dashboardResponse.data.Ad === undefined) {
+  //         setState({
+  //           ...state,
+
+  //           loading: true,
+  //           adi: "---",
+  //           yilYas: 0,
+  //           ayYas: 0,
+  //           gunYas: 0,
+  //           il: "---",
+  //           ayniIsimdeIlSayi: 0,
+  //           ayniIsimdeTurkiyeSayi: 0,
+  //           ayniTarihDoganIlSayi: 0,
+  //           ayniTarihDoganTurkiyeSayi: 0,
+  //           boyOrtancaDeger: 0,
+  //           kiloOrtancaDeger: 0,
+  //         });
+  //       } else {
+  //         setState({
+  //           ...state,
+  //           adi: dashboardResponse.data.Ad,
+  //           yilYas: dashboardResponse.data.Yil,
+  //           ayYas: dashboardResponse.data.Ay,
+  //           gunYas: dashboardResponse.data.Gun,
+  //           il: dashboardResponse.data.Il,
+  //           ayniIsimdeIlSayi: dashboardResponse.data.AyniIsimdeIlSayi,
+  //           ayniIsimdeTurkiyeSayi: dashboardResponse.data.AyniIsimdeTurkiyeSayi,
+  //           ayniTarihDoganIlSayi: dashboardResponse.data.AyniTarihDoganIlSayi,
+  //           ayniTarihDoganTurkiyeSayi:
+  //             dashboardResponse.data.AyniTarihDoganTurkiyeSayi,
+  //           boyOrtancaDeger: dashboardResponse.data.BoyOrtancaDeger,
+  //           kiloOrtancaDeger: dashboardResponse.data.KiloOrtancaDeger,
+  //           loading: true,
+  //         });
+  //         setIsApiLoaded(true);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error getting dashboard data:", error);
+  //       setState({
+  //         ...state,
+  //         apiError: true,
+  //         loading: true,
+  //       });
+  //     });
+  // };
+  const {
     adi,
     yilYas,
     ayYas,
@@ -150,75 +232,102 @@ const Intro = (props) => {
     ayniTarihDoganTurkiyeSayi,
     boyOrtancaDeger,
     kiloOrtancaDeger,
-    apiError,
-  } = state;
+  } = useZustandStore();
 
   const getInfo = () => {
-    axios
-      .get(process.env.REACT_APP_PROXY_URL + "/dashboard", {
-        params: {
-          Ad: ad,
-          gun: dogumGunu,
-          ay: dogumAyi,
-          dogumyil: dogumYili,
-          boy: boy,
-          kilo: kilo,
-          ilKodu: sehir,
-          cinsiyet: cinsiyet,
-        },
-      })
-      .then((dashboardResponse) => {
-        console.log("Dashboard data:", dashboardResponse.data);
-        console.log(
-          "Dashboard data test AyniIsimdeIlSayi:",
-          dashboardResponse.data.AyniIsimdeIlSayi
-        );
+    // Destructure required variables from Zustand store
 
-        if (dashboardResponse.data.Ad === undefined) {
+    // Check if any required variable is empty or null
+    if (
+      adi === null ||
+      yilYas === null ||
+      ayYas === null ||
+      gunYas === null ||
+      il === null ||
+      ayniIsimdeIlSayi === null ||
+      ayniIsimdeTurkiyeSayi === null ||
+      ayniTarihDoganIlSayi === null ||
+      ayniTarihDoganTurkiyeSayi === null ||
+      boyOrtancaDeger === null ||
+      kiloOrtancaDeger === null
+    ) {
+      // Proceed with Axios request to fetch data from the API
+      axios
+        .get(process.env.REACT_APP_PROXY_URL + "/dashboard", {
+          params: {
+            Ad: ad,
+            gun: dogumGunu,
+            ay: dogumAyi,
+            dogumyil: dogumYili,
+            boy: boy,
+            kilo: kilo,
+            ilKodu: sehir,
+            cinsiyet: cinsiyet,
+          },
+        })
+        .then((dashboardResponse) => {
+          console.log("Dashboard data:", dashboardResponse.data);
+
+          if (dashboardResponse.data.Ad === undefined) {
+            useZustandStore.setState((state) => ({
+              ...state,
+              adi: "---",
+              yilYas: 0,
+              ayYas: 0,
+              gunYas: 0,
+              il: "---",
+              ayniIsimdeIlSayi: 0,
+              ayniIsimdeTurkiyeSayi: 0,
+              ayniTarihDoganIlSayi: 0,
+              ayniTarihDoganTurkiyeSayi: 0,
+              boyOrtancaDeger: 0,
+              kiloOrtancaDeger: 0,
+            }));
+
+            setState({
+              ...state,
+              loading: true,
+            });
+          } else {
+            useZustandStore.setDashboardData({
+              adi: dashboardResponse.data.Ad,
+              yilYas: dashboardResponse.data.Yil,
+              ayYas: dashboardResponse.data.Ay,
+              gunYas: dashboardResponse.data.Gun,
+              il: dashboardResponse.data.Il,
+              ayniIsimdeIlSayi: dashboardResponse.data.AyniIsimdeIlSayi,
+              ayniIsimdeTurkiyeSayi:
+                dashboardResponse.data.AyniIsimdeTurkiyeSayi,
+              ayniTarihDoganIlSayi: dashboardResponse.data.AyniTarihDoganIlSayi,
+              ayniTarihDoganTurkiyeSayi:
+                dashboardResponse.data.AyniTarihDoganTurkiyeSayi,
+              boyOrtancaDeger: dashboardResponse.data.BoyOrtancaDeger,
+              kiloOrtancaDeger: dashboardResponse.data.KiloOrtancaDeger,
+            });
+
+            setState({
+              ...state,
+              loading: true,
+            });
+
+            setIsApiLoaded(true);
+          }
+        })
+        .catch((error) => {
+          console.error("Error getting dashboard data:", error);
           setState({
             ...state,
-
-            loading: true,
-            adi: "---",
-            yilYas: 0,
-            ayYas: 0,
-            gunYas: 0,
-            il: "---",
-            ayniIsimdeIlSayi: 0,
-            ayniIsimdeTurkiyeSayi: 0,
-            ayniTarihDoganIlSayi: 0,
-            ayniTarihDoganTurkiyeSayi: 0,
-            boyOrtancaDeger: 0,
-            kiloOrtancaDeger: 0,
-          });
-        } else {
-          setState({
-            ...state,
-            adi: dashboardResponse.data.Ad,
-            yilYas: dashboardResponse.data.Yil,
-            ayYas: dashboardResponse.data.Ay,
-            gunYas: dashboardResponse.data.Gun,
-            il: dashboardResponse.data.Il,
-            ayniIsimdeIlSayi: dashboardResponse.data.AyniIsimdeIlSayi,
-            ayniIsimdeTurkiyeSayi: dashboardResponse.data.AyniIsimdeTurkiyeSayi,
-            ayniTarihDoganIlSayi: dashboardResponse.data.AyniTarihDoganIlSayi,
-            ayniTarihDoganTurkiyeSayi:
-              dashboardResponse.data.AyniTarihDoganTurkiyeSayi,
-            boyOrtancaDeger: dashboardResponse.data.BoyOrtancaDeger,
-            kiloOrtancaDeger: dashboardResponse.data.KiloOrtancaDeger,
+            apiError: true,
             loading: true,
           });
-          setIsApiLoaded(true);
-        }
-      })
-      .catch((error) => {
-        console.error("Error getting dashboard data:", error);
-        setState({
-          ...state,
-          apiError: true,
-          loading: true,
         });
+    } else {
+      setIsApiLoaded(true);
+      setState({
+        ...state,
+        loading: true,
       });
+    }
   };
 
   useEffect(() => {
@@ -301,10 +410,28 @@ const Intro = (props) => {
                 yilYas={yilYas}
                 ayYas={ayYas}
                 gunYas={gunYas}
-                ayniIsimdeIlSayi={ayniIsimdeIlSayi.toLocaleString()}
-                ayniIsimdeTurkiyeSayi={ayniIsimdeTurkiyeSayi.toLocaleString()}
-                ayniTarihDoganIlSayi={ayniTarihDoganIlSayi.toLocaleString()}
-                ayniTarihDoganTurkiyeSayi={ayniTarihDoganTurkiyeSayi.toLocaleString()}
+                ayniIsimdeIlSayi={
+                  ayniIsimdeIlSayi
+                    ? ayniIsimdeIlSayi.toLocaleString().replace(/,/g, " ")
+                    : ""
+                }
+                ayniIsimdeTurkiyeSayi={
+                  ayniIsimdeTurkiyeSayi
+                    ? ayniIsimdeTurkiyeSayi.toLocaleString().replace(/,/g, " ")
+                    : ""
+                }
+                ayniTarihDoganIlSayi={
+                  ayniTarihDoganIlSayi
+                    ? ayniTarihDoganIlSayi.toLocaleString().replace(/,/g, " ")
+                    : ""
+                }
+                ayniTarihDoganTurkiyeSayi={
+                  ayniTarihDoganTurkiyeSayi
+                    ? ayniTarihDoganTurkiyeSayi
+                        .toLocaleString()
+                        .replace(/,/g, " ")
+                    : ""
+                }
                 boyOrtancaDeger={boyOrtancaDeger}
                 kiloOrtancaDeger={kiloOrtancaDeger}
               />
@@ -334,18 +461,26 @@ const Intro = (props) => {
             yilYas={yilYas}
             ayYas={ayYas}
             gunYas={gunYas}
-            ayniIsimdeIlSayi={ayniIsimdeIlSayi
-              .toLocaleString()
-              .replace(/,/g, " ")}
-            ayniIsimdeTurkiyeSayi={ayniIsimdeTurkiyeSayi
-              .toLocaleString()
-              .replace(/,/g, " ")}
-            ayniTarihDoganIlSayi={ayniTarihDoganIlSayi
-              .toLocaleString()
-              .replace(/,/g, " ")}
-            ayniTarihDoganTurkiyeSayi={ayniTarihDoganTurkiyeSayi
-              .toLocaleString()
-              .replace(/,/g, " ")}
+            ayniIsimdeIlSayi={
+              ayniIsimdeIlSayi
+                ? ayniIsimdeIlSayi.toLocaleString().replace(/,/g, " ")
+                : ""
+            }
+            ayniIsimdeTurkiyeSayi={
+              ayniIsimdeTurkiyeSayi
+                ? ayniIsimdeTurkiyeSayi.toLocaleString().replace(/,/g, " ")
+                : ""
+            }
+            ayniTarihDoganIlSayi={
+              ayniTarihDoganIlSayi
+                ? ayniTarihDoganIlSayi.toLocaleString().replace(/,/g, " ")
+                : ""
+            }
+            ayniTarihDoganTurkiyeSayi={
+              ayniTarihDoganTurkiyeSayi
+                ? ayniTarihDoganTurkiyeSayi.toLocaleString().replace(/,/g, " ")
+                : ""
+            }
             boyOrtancaDeger={boyOrtancaDeger}
             kiloOrtancaDeger={kiloOrtancaDeger}
           />

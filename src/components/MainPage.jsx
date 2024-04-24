@@ -72,6 +72,7 @@ const MainPage = () => {
       history.push("/");
       //exitFullScreen();
     }
+    console.log("userInfo: ", userInfo);
   }, [userInfo, history]);
 
   useEffect(() => {

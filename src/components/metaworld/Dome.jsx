@@ -89,4 +89,4 @@ export function Dome(props) {
   );
 }
 
-useGLTF.preload("/models/dome.glb");
+// useGLTF.preload("/models/dome.glb");

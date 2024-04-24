@@ -160,4 +160,4 @@ export default function ModelCharEge({ ...props }) {
   );
 }
 
-useGLTF.preload("./models/ege.glb");
+// useGLTF.preload("./models/ege.glb");
