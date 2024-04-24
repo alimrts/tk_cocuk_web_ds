@@ -123,17 +123,17 @@ const Intro = (props) => {
 
   const [state, setState] = useState({
     loading: false,
-    adi: "",
-    yilYas: 0,
-    ayYas: 0,
-    gunYas: 0,
-    il: "",
-    ayniIsimdeIlSayi: 10000,
-    ayniIsimdeTurkiyeSayi: 10000,
-    ayniTarihDoganIlSayi: 10000,
-    ayniTarihDoganTurkiyeSayi: 10000,
-    boyOrtancaDeger: 0,
-    kiloOrtancaDeger: 0,
+    // adi: "",
+    // yilYas: 0,
+    // ayYas: 0,
+    // gunYas: 0,
+    // il: "",
+    // ayniIsimdeIlSayi: 10000,
+    // ayniIsimdeTurkiyeSayi: 10000,
+    // ayniTarihDoganIlSayi: 10000,
+    // ayniTarihDoganTurkiyeSayi: 10000,
+    // boyOrtancaDeger: 0,
+    // kiloOrtancaDeger: 0,
     apiError: false,
   });
 
@@ -235,9 +235,6 @@ const Intro = (props) => {
   } = useZustandStore();
 
   const getInfo = () => {
-    // Destructure required variables from Zustand store
-
-    // Check if any required variable is empty or null
     if (
       adi === null ||
       yilYas === null ||
@@ -331,10 +328,7 @@ const Intro = (props) => {
   };
 
   useEffect(() => {
-    // getInfo();
-    // if (!isApiLoaded) {
     getInfo();
-    // }
   }, []);
 
   let str = props.ad || "";
