@@ -1,38 +1,57 @@
-import { useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 export default function useJoystick() {
-  const buttonMap = useRef({});
+  const [buttonMap, setButtonMap] = useState({});
 
   useEffect(() => {
     const onTouchStart = (direction) => {
-      buttonMap.current[direction] = true;
+      //   console.log("Touch start:", direction);
+      setButtonMap((prevButtonMap) => ({
+        ...prevButtonMap,
+        [direction]: true,
+      }));
     };
 
     const onTouchEnd = (direction) => {
-      buttonMap.current[direction] = false;
+      //   console.log("Touch end:", direction);
+      setButtonMap((prevButtonMap) => ({
+        ...prevButtonMap,
+        [direction]: false,
+      }));
     };
 
     const directions = ["left", "right", "up", "down"];
-    directions.forEach((direction) => {
-      const onTouchStartHandler = () => onTouchStart(direction);
-      const onTouchEndHandler = () => onTouchEnd(direction);
-      document
-        .getElementById(`${direction}ButtonNav`)
-        .addEventListener("touchstart", onTouchStartHandler);
-      document
-        .getElementById(`${direction}ButtonNav`)
-        .addEventListener("touchend", onTouchEndHandler);
-      // Cleanup listeners on unmount
-      return () => {
-        document
-          .getElementById(`${direction}ButtonNav`)
-          .removeEventListener("touchstart", onTouchStartHandler);
-        document
-          .getElementById(`${direction}ButtonNav`)
-          .removeEventListener("touchend", onTouchEndHandler);
-      };
-    });
+
+    const addEventListeners = () => {
+      directions.forEach((direction) => {
+        const onTouchStartHandler = () => onTouchStart(direction);
+        const onTouchEndHandler = () => onTouchEnd(direction);
+        const button = document.getElementById(`${direction}ButtonNav`);
+        if (button) {
+          //   console.log("Adding event listener for", direction);
+          button.addEventListener("touchstart", onTouchStartHandler);
+          button.addEventListener("touchend", onTouchEndHandler);
+        }
+      });
+    };
+
+    const removeEventListeners = () => {
+      directions.forEach((direction) => {
+        const button = document.getElementById(`${direction}ButtonNav`);
+        if (button) {
+          //   console.log("Removing event listener for", direction);
+          button.removeEventListener("touchstart", onTouchStart);
+          button.removeEventListener("touchend", onTouchEnd);
+        }
+      });
+    };
+
+    addEventListeners();
+
+    return () => {
+      removeEventListeners();
+    };
   }, []);
 
-  return buttonMap.current;
+  return buttonMap;
 }

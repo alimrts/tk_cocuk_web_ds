@@ -1,4 +1,4 @@
-import { useMemo, useRef, useEffect } from "react";
+import { useMemo, useRef } from "react";
 import { Vector3, Euler, Quaternion, Matrix4, AnimationMixer } from "three";
 import Ece from "./Ece";
 import Ege from "./Ege";
@@ -7,7 +7,7 @@ import { useFrame } from "@react-three/fiber";
 import { Vec3 } from "cannon-es";
 import useFollowCam from "./useFollowCam";
 import useZustandStore from "../../zustandStore";
-import useJoystick from "./useJoystick"; // Import the new hook
+import useJoystick from "./useJoystick";
 
 export default function PlayerCollider(props) {
   const isAnyGameOpened = useZustandStore((state) => state.isAnyGameOpened);
@@ -29,8 +29,7 @@ export default function PlayerCollider(props) {
   const mixer = useMemo(() => new AnimationMixer(), []);
   const actions = {};
 
-  // Replace useKeyboard with useJoystick
-  const joystick = useJoystick();
+  const buttonMap = useJoystick();
 
   const [ref, body] = useCompoundBody(
     () => ({
@@ -94,23 +93,21 @@ export default function PlayerCollider(props) {
     if (!isAnyGameOpened) {
       inputVelocity.set(0, 0, 0);
 
-      // Use joystick state instead of keyboard state
-      if (joystick["up"] || joystick["ArrowUp"]) {
+      // Use buttonMap state instead of keyboard state
+      if (buttonMap["up"]) {
         inputVelocity.z = -10 * delta;
       }
-      if (joystick["down"] || joystick["ArrowDown"]) {
+      if (buttonMap["down"]) {
         inputVelocity.z = 10 * delta;
       }
-      if (joystick["left"] || joystick["ArrowLeft"]) {
+      if (buttonMap["left"]) {
         inputVelocity.x = -10 * delta;
       }
-      if (joystick["right"] || joystick["ArrowRight"]) {
+      if (buttonMap["right"]) {
         inputVelocity.x = 10 * delta;
       }
 
-      // Handle other combinations as needed
-
-      if (joystick["space"]) {
+      if (buttonMap["space"]) {
         if (canJump.current) {
           canJump.current = false;
           inputVelocity.y = 9;

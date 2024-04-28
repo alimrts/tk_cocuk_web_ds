@@ -31,20 +31,6 @@ export default function PlayerCollider(props) {
 
   const keyboard = useKeyboard();
 
-  const isLeftButtonPressed = useZustandStore(
-    (state) => state.isLeftButtonPressed
-  );
-
-  const isRightButtonPressed = useZustandStore(
-    (state) => state.isRightButtonPressed
-  );
-
-  const isUpButtonPressed = useZustandStore((state) => state.isUpButtonPressed);
-
-  const isDownButtonPressed = useZustandStore(
-    (state) => state.isDownButtonPressed
-  );
-
   const [ref, body] = useCompoundBody(
     () => ({
       mass: 1,
@@ -107,18 +93,18 @@ export default function PlayerCollider(props) {
     if (!isAnyGameOpened) {
       inputVelocity.set(0, 0, 0);
 
-      if (keyboard["KeyW"] || keyboard["ArrowUp"] || isUpButtonPressed) {
+      if (keyboard["KeyW"] || keyboard["ArrowUp"]) {
         inputVelocity.z = -10 * delta;
         // console.log("delta: ", delta);
         // console.log("group.current.position: ", group.current.position);
       }
-      if (keyboard["KeyS"] || keyboard["ArrowDown"] || isDownButtonPressed) {
+      if (keyboard["KeyS"] || keyboard["ArrowDown"]) {
         inputVelocity.z = 10 * delta;
       }
-      if (keyboard["KeyA"] || keyboard["ArrowLeft"] || isLeftButtonPressed) {
+      if (keyboard["KeyA"] || keyboard["ArrowLeft"]) {
         inputVelocity.x = -10 * delta;
       }
-      if (keyboard["KeyD"] || keyboard["ArrowRight"] || isRightButtonPressed) {
+      if (keyboard["KeyD"] || keyboard["ArrowRight"]) {
         inputVelocity.x = 10 * delta;
       }
 
