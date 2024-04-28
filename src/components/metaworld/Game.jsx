@@ -4,6 +4,7 @@ import useZustandStore from "../../zustandStore";
 import Floor from "./Floor";
 import Obstacles from "./Obstacles";
 import Player from "./Player";
+import PlayerMobile from "./Player";
 import { CityScene1 } from "./CityScene1";
 import { Car1 } from "./Car1";
 
@@ -123,6 +124,16 @@ function ObstacleTriggerTuik({ args, onCollide, position, ...props }) {
 }
 
 export default function Game(props) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    setIsMobile(
+      !!userAgent.match(
+        /android|webos|iphone|ipad|ipod|blackberry|windows phone/i
+      )
+    );
+  }, []);
+
   const cinsiyet = props.cinsiyet;
   // console.log("cinsiyet in game: " + cinsiyet);
 
@@ -293,18 +304,33 @@ export default function Game(props) {
         }}
       />
 
-      <Player
-        position={
-          isGeriClickedInSolarSystem
-            ? [0.5, 0, 60.5]
-            : isGeriClickedInTuik
-            ? [-50.5, 0, 28.7]
-            : playerPosition
-        }
-        linearDamping={0.95}
-        material={"slippery"}
-        cinsiyet={cinsiyet}
-      />
+      {isMobile ? (
+        <PlayerMobile
+          position={
+            isGeriClickedInSolarSystem
+              ? [0.5, 0, 60.5]
+              : isGeriClickedInTuik
+              ? [-50.5, 0, 28.7]
+              : playerPosition
+          }
+          linearDamping={0.95}
+          material={"slippery"}
+          cinsiyet={cinsiyet}
+        />
+      ) : (
+        <Player
+          position={
+            isGeriClickedInSolarSystem
+              ? [0.5, 0, 60.5]
+              : isGeriClickedInTuik
+              ? [-50.5, 0, 28.7]
+              : playerPosition
+          }
+          linearDamping={0.95}
+          material={"slippery"}
+          cinsiyet={cinsiyet}
+        />
+      )}
 
       {/* </ToggleDebug> */}
     </>
