@@ -32,6 +32,9 @@ import InformationButton from "./metaworld/InformationButton";
 import MemoryGame from "./metaverse/MemoryGame";
 import JoystickButtons from "./metaworld/JoystickButtons";
 
+import Player from "./metaworld/Player";
+import PlayerMobile from "./metaworld/Player";
+
 function Loader() {
   const { progress } = useProgress();
   return (
@@ -72,6 +75,15 @@ function Metaverse(props) {
   const [hoveredFourth, setHoverFourth] = useState(false);
 
   const isAnyGameOpened = useZustandStore((state) => state.isAnyGameOpened);
+
+  const isGeriClickedInSolarSystem = useZustandStore(
+    (state) => state.isGeriClickedInSolarSystem
+  );
+  const isGeriClickedInTuik = useZustandStore(
+    (state) => state.isGeriClickedInTuik
+  );
+
+  const playerPosition = useZustandStore((state) => state.playerPosition);
 
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -269,6 +281,33 @@ function Metaverse(props) {
 
                 <Physics>
                   <Game cinsiyet={cinsiyet} />
+                  {isMobile ? (
+                    <PlayerMobile
+                      position={
+                        isGeriClickedInSolarSystem
+                          ? [0.5, 0, 60.5]
+                          : isGeriClickedInTuik
+                          ? [-50.5, 0, 28.7]
+                          : playerPosition
+                      }
+                      linearDamping={0.95}
+                      material={"slippery"}
+                      cinsiyet={cinsiyet}
+                    />
+                  ) : (
+                    <Player
+                      position={
+                        isGeriClickedInSolarSystem
+                          ? [0.5, 0, 60.5]
+                          : isGeriClickedInTuik
+                          ? [-50.5, 0, 28.7]
+                          : playerPosition
+                      }
+                      linearDamping={0.95}
+                      material={"slippery"}
+                      cinsiyet={cinsiyet}
+                    />
+                  )}
                 </Physics>
 
                 <mesh

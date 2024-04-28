@@ -304,7 +304,7 @@ export default function Game(props) {
         }}
       />
 
-      {isMobile ? (
+      {/* {isMobile ? (
         <PlayerMobile
           position={
             isGeriClickedInSolarSystem
@@ -330,7 +330,7 @@ export default function Game(props) {
           material={"slippery"}
           cinsiyet={cinsiyet}
         />
-      )}
+      )} */}
 
       {/* </ToggleDebug> */}
     </>
