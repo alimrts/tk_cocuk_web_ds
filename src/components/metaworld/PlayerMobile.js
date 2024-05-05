@@ -31,6 +31,8 @@ export default function PlayerCollider(props) {
 
   const buttonMap = useJoystick();
 
+  //   console.log("buttonMap: ", JSON.stringify(buttonMap));
+
   const [ref, body] = useCompoundBody(
     () => ({
       mass: 1,
@@ -94,16 +96,16 @@ export default function PlayerCollider(props) {
       inputVelocity.set(0, 0, 0);
 
       // Use buttonMap state instead of keyboard state
-      if (buttonMap["up"]) {
+      if (buttonMap?.["up"]) {
         inputVelocity.z = -10 * delta;
       }
-      if (buttonMap["down"]) {
+      if (buttonMap?.["down"]) {
         inputVelocity.z = 10 * delta;
       }
-      if (buttonMap["left"]) {
+      if (buttonMap?.["left"]) {
         inputVelocity.x = -10 * delta;
       }
-      if (buttonMap["right"]) {
+      if (buttonMap?.["right"]) {
         inputVelocity.x = 10 * delta;
       }
 

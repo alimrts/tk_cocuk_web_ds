@@ -159,7 +159,7 @@ export default function AnimatedModal(props) {
     text3Top: 160,
     text3Width: 280,
     text4Left: 500,
-    text4Top: 420,
+    text4Top: 450,
   });
 
   const classes = useStyles();
@@ -243,7 +243,7 @@ export default function AnimatedModal(props) {
         text1Top: 150,
         text2Left: 320,
         text2Top: 200,
-        text3Left: 180,
+        text3Left: 140,
         text3Top: 240,
         text3Width: 420,
         text4Left: 410,
@@ -319,7 +319,7 @@ export default function AnimatedModal(props) {
         text3Top: 215,
         text3Width: 420,
         text4Left: 200,
-        text4Top: 380,
+        text4Top: 395,
       });
     }
   };

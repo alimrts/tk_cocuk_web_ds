@@ -1,7 +1,5 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
-import { Color } from "three";
 
 export function KontrolOdasi(props) {
   const { nodes, materials } = useGLTF("./models/kontrolodasi2.glb");
@@ -285,4 +283,3 @@ export function KontrolOdasi(props) {
     </group>
   );
 }
-// useGLTF.preload("./models/kontrolodasi2.glb");

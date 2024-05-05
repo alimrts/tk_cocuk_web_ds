@@ -2312,7 +2312,7 @@ const PlanetPluto = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                   padding: "4px",
                 }}
               >
-                Plüto
+                Plüton
                 <div
                   class="glassFrameContent"
                   style={{
@@ -2347,7 +2347,7 @@ const PlanetPluto = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                   padding: "4px",
                 }}
               >
-                Plüto
+                Plüton
                 <div
                   class="glassFrameContent"
                   style={{
@@ -2403,7 +2403,7 @@ const PlanetPluto = ({ orbitRadius, speed, orbitRotation, planetScale }) => {
                   fontSize: "12pt",
                 }}
               >
-                Plüto
+                Plüton
               </div>
             </div>
           </Html>

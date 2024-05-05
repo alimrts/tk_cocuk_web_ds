@@ -31,7 +31,6 @@ import TuikIcLoby from "./metaworld/TuikIcLoby";
 import InformationButton from "./metaworld/InformationButton";
 import MemoryGame from "./metaverse/MemoryGame";
 import JoystickButtons from "./metaworld/JoystickButtons";
-import useJoystick from "./metaworld/useJoystick";
 
 import Player from "./metaworld/Player.jsx";
 import PlayerMobile from "./metaworld/PlayerMobile.js";
@@ -143,8 +142,6 @@ function Metaverse(props) {
     setClickedToFourth(false);
   }
 
-  const buttonMap = useJoystick();
-
   return (
     <>
       {clickedTofirst && (
@@ -201,7 +198,7 @@ function Metaverse(props) {
       ) : (
         <div className="canvas-container">
           {isMobile ? (
-            !isAnyGameOpened && <JoystickButtons joystickState={buttonMap} />
+            !isAnyGameOpened && <JoystickButtons />
           ) : (
             <div
               style={{

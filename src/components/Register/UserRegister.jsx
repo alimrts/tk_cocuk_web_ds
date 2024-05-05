@@ -21,7 +21,7 @@ import blacklist from "./blacklist.json";
 
 const cities = citiesImport[0];
 const lowerLimit = 1900;
-const currentYear = new Date().getFullYear();
+const currentYear = new Date().getFullYear() - 1;
 
 const years = Array.from(
   { length: currentYear - lowerLimit + 1 },
@@ -260,26 +260,6 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
     handleGenderChange(event);
   };
 
-  // const handleChangeName = (event) => {
-  //   const { name, value } = event.target;
-  //   const uppercaseValue = value.toUpperCase();
-  //   const uppercaseBlacklist = blacklist.words.map((word) =>
-  //     word.toUpperCase()
-  //   );
-  //   const isBlacklisted = uppercaseBlacklist.some((word) =>
-  //     uppercaseValue.includes(word)
-  //   );
-
-  //   if (isBlacklisted) {
-  //     return;
-  //   }
-
-  //   setFormData((prevFormData) => ({
-  //     ...prevFormData,
-  //     [name]: value,
-  //   }));
-  // };
-
   const handleChangeName = (event) => {
     const { name, value } = event.target;
 
@@ -290,6 +270,12 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
     const isBlacklisted = uppercaseBlacklist.includes(uppercaseValue);
 
     setContainsRestrictedText(isBlacklisted);
+
+    if (value.length < 2) {
+      setContainsRestrictedText(true);
+    } else {
+      setContainsRestrictedText(false);
+    }
 
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -311,34 +297,6 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
     setGender(event.target.value);
     onGenderChange(event.target.value);
   };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   // Check for empty fields
-  //   const errors = {};
-  //   Object.keys(formData).forEach((key) => {
-  //     if (!formData[key]) {
-  //       errors[key] = true;
-  //     }
-  //   });
-  //   setFormErrors(errors);
-  //   const formFields = Object.values(formData);
-  //   const hasEmptyFields = formFields.some((field) => field === ""); // check for empty fields
-  //   if (hasEmptyFields) {
-  //     // alert(strings.registerPageLutfenGerekliBilgiler);
-  //     setShowAlert(true); // Show the alert
-  //     return;
-  //   }
-
-  //   // Submit form if there are no errors
-  //   if (Object.keys(errors).length === 0) {
-  //     // Submit form
-  //     console.log("Form submitted:", formData);
-  //   }
-
-  //   onSubmit(formData);
-  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -368,7 +326,7 @@ const UserRegister = ({ onSubmit, onGenderChange }) => {
       }
       return false;
     });
-    if (containsBlacklistedWord) {
+    if (containsBlacklistedWord || containsRestrictedText) {
       setShowAlertRestricted(true);
       return;
     }
