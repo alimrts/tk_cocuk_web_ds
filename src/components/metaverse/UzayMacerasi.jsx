@@ -40,9 +40,10 @@ function UzayMacerasi({ closeTheGame }) {
       )}
       <Unity
         unityProvider={unityProvider}
+        className="spaceAdventure"
         style={{
-          width: 420,
-          height: 747,
+          // width: 420,
+          // height: 747,
           visibility: isLoaded ? "visible" : "hidden",
         }}
       />

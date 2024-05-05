@@ -36,9 +36,10 @@ function ArabaYarisi({ closeTheGame }) {
       )}
       <Unity
         unityProvider={unityProvider}
+        className="superCar"
         style={{
-          width: 480,
-          height: 854,
+          // width: 480,
+          // height: 854,
           visibility: isLoaded ? "visible" : "hidden",
         }}
       />
