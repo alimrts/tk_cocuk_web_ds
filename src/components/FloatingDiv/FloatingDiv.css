@@ -79,7 +79,6 @@
 .floatingDivForMenuAlt > img {
   transform: scale(0.8);
 }
-/* ----- */
 
 
 
@@ -98,6 +97,12 @@
 }
 .floatingDivForIntroRight > img {
   transform: scale(0.8);
+}
+
+/* ----- */
+.floatingDivForIntroRight:hover:not(.mobile) {
+  transform: scale(1.05);
+  filter: saturate(200%) brightness(100%);
 }
 
 /* Media query for mobile devices */
