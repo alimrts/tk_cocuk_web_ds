@@ -7,6 +7,9 @@ import upButtonImage from "./joystick_ui/up_arrow.png";
 import downButtonImage from "./joystick_ui/down_arrow.png";
 
 const JoystickButtons = () => {
+  const preventDefault = (event) => {
+    // Do nothing
+  };
   return (
     <div className="joystick-buttons">
       <button
@@ -17,6 +20,7 @@ const JoystickButtons = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
+        onTouchMove={preventDefault}
       ></button>
       <button
         id="rightButtonNav"
@@ -26,6 +30,7 @@ const JoystickButtons = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
+        onTouchMove={preventDefault}
       ></button>
 
       <button
@@ -36,6 +41,7 @@ const JoystickButtons = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
+        onTouchMove={preventDefault}
       ></button>
 
       <button
@@ -46,6 +52,7 @@ const JoystickButtons = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
+        onTouchMove={preventDefault}
       ></button>
     </div>
   );

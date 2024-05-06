@@ -20,7 +20,7 @@ import {
   Environment,
   useProgress,
   Html,
-  OrbitControls,
+  // OrbitControls,
 } from "@react-three/drei";
 
 import UzayMacerasi from "./metaverse/UzayMacerasi";
@@ -141,6 +141,34 @@ function Metaverse(props) {
     setClickedToFirst(false);
     setClickedToFourth(false);
   }
+
+  const exitFullScreen = () => {
+    if (
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement ||
+      document.msFullscreenElement
+    ) {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+    }
+  };
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflowY = "scroll";
+      document.body.style.overflowX = "hidden";
+      exitFullScreen();
+    };
+  }, []);
 
   return (
     <>

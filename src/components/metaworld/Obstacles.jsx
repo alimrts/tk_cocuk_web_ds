@@ -216,8 +216,8 @@ export default function Obstacles() {
 
       {/* yan sinir1 */}
       <Obstacle
-        args={[10, 50, 300]}
-        position={[-130, -0.017, -40]}
+        args={[50, 50, 300]}
+        position={[-125, -0.017, -40]}
         rotation={[0, 0, 0]}
         material={"ground"}
       />
