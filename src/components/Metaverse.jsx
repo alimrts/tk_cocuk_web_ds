@@ -195,13 +195,13 @@ function Metaverse(props) {
       {clickedToThird && (
         <div className="popup-containerM">
           <div className="popup-contentM">
-            <UlkelerBayrak />
             <button
               className="close-buttonM"
               onClick={(event) => setClickedToThird(false)}
             >
               X
             </button>
+            <UlkelerBayrak />
           </div>
         </div>
       )}

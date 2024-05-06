@@ -35,9 +35,6 @@
 
 }
 
-img {
-  -webkit-touch-callout: none; /* Disable default context menu on long-press */
-}
 
 .button {
   background: linear-gradient(180deg, #fdc50f 26.71%, #fb982f 99.36%);
@@ -161,6 +158,10 @@ img {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+
+
+
+
 .close-buttonM {
   position: absolute;
   top: 0;
@@ -183,6 +184,16 @@ img {
   height: 854px;
 }
 
+.ulkeBayrak{
+ transform: scale(1)
+}
+
+.memory{
+  transform: scale(1)
+ }
+
+
+
 
 /* ///////// for media queries ///////// */ 
 
@@ -197,6 +208,15 @@ img {
     width: 480px;
     height: 854px;
   }
+
+  .ulkeBayrak{
+    transform: scale(0.60)
+   }
+   .close-buttonM {
+    margin-top: 8rem;
+    margin-right: 6rem;
+  }
+   
 }
 
 /* Mobile Phones (Portrait and Landscape) */
@@ -211,6 +231,21 @@ img {
     width: 290px;
     height: 580px;
   }
+
+  .ulkeBayrak{
+    transform: scale(0.65)
+   }
+
+   .close-buttonM {
+    margin-top: 8rem;
+    margin-right: 5rem;
+  }
+
+  .memory{
+    transform: scale(0.65)
+   }
+  
+
 }
 
 @media only screen and (min-width: 375px) and (max-width: 424px) {
@@ -223,6 +258,21 @@ img {
     width: 331px;
     height: 590px;
   }
+
+  .ulkeBayrak{
+    transform: scale(0.75)
+   }
+   .close-buttonM {
+    margin-top: 6rem;
+    margin-right: 4rem;
+  }
+
+  .memory{
+    transform: scale(0.75)
+   }
+  
+
+  
 }
 
 @media only screen and (min-width: 425px) and (max-width: 767px) {
@@ -234,6 +284,20 @@ img {
     width: 380px;
     height: 672px;
   }
+
+  .ulkeBayrak{
+    transform: scale(0.8)
+   }
+
+   .close-buttonM {
+    margin-top: 5rem;
+    margin-right: 3rem;
+  }
+
+  .memory{
+    transform: scale(0.8)
+   }
+  
  
 }
 
@@ -249,6 +313,13 @@ img {
     width: 380px;
     height: 672px;
   }
+  .ulkeBayrak{
+    transform: scale(0.9)
+   }
+   .memory{
+    transform: scale(0.9)
+   }
+  
 }
 
 /* Tablets Landscape */
@@ -263,6 +334,13 @@ img {
     width: 380px;
     height: 672px;
   }
+  .ulkeBayrak{
+    transform: scale(0.9)
+   }
+   .memory{
+    transform: scale(0.9)
+   }
+  
 }
 
 /* Tablets and Small Desktops */
@@ -276,6 +354,14 @@ img {
     width: 380px;
     height: 672px;
   }
+
+  .ulkeBayrak{
+    transform: scale(0.9)
+   }
+   .memory{
+    transform: scale(0.9)
+   }
+  
  
 }
 
@@ -291,6 +377,14 @@ img {
     width: 390px;
     height: 690px;
   }
+
+  .ulkeBayrak{
+    transform: scale(0.9)
+   }
+   .memory{
+    transform: scale(0.9)
+   }
+ 
 }
 
 @media only screen and (min-width: 1440px) and (max-width: 1919px) {
@@ -303,6 +397,14 @@ img {
     width: 390px;
     height: 690px;
   }
+
+  .ulkeBayrak{
+    transform: scale(0.9)
+   }
+   .memory{
+    transform: scale(0.9)
+   }
+   
   
 }
 
@@ -317,6 +419,14 @@ img {
     width: 480px;
     height: 854px;
   }
+
+  .ulkeBayrak{
+    transform: scale(1)
+   }
+   .memory{
+    transform: scale(1)
+   }
+  
   
 }
 
@@ -332,6 +442,13 @@ img {
     width: 480px;
     height: 854px;
   }
+
+  .ulkeBayrak{
+    transform: scale(1)
+   }
+   .memory{
+    transform: scale(1)
+   }
   
 }
 
