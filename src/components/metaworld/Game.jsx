@@ -198,7 +198,7 @@ export default function Game(props) {
         position={[0, -0.0295, 0]}
         material={"ground"}
       />
-      <Obstacles />
+      {/* <Obstacles /> */}
       <CityScene1
         position={[0.5, -0.05, 3]}
         // rotation={[0, 3.1, 0]}
