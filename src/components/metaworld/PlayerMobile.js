@@ -1,7 +1,6 @@
 import { useMemo, useRef } from "react";
 import { Vector3, Euler, Quaternion, Matrix4, AnimationMixer } from "three";
-import Ece from "./Ece";
-import Ege from "./Ege";
+import Mod from "./Mod";
 import { useCompoundBody } from "@react-three/cannon";
 import { useFrame } from "@react-three/fiber";
 import { Vec3 } from "cannon-es";
@@ -136,9 +135,9 @@ export default function PlayerCollider(props) {
     <>
       <group ref={group}>
         {cinsiyet === "1" ? (
-          <Ege mixer={mixer} actions={actions} />
+          <Mod mixer={mixer} actions={actions} />
         ) : (
-          <Ece mixer={mixer} actions={actions} />
+          <Mod mixer={mixer} actions={actions} />
         )}
       </group>
     </>
