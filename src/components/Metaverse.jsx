@@ -20,7 +20,7 @@ import {
   Environment,
   useProgress,
   Html,
-  // OrbitControls,
+  OrbitControls,
 } from "@react-three/drei";
 
 import UzayMacerasi from "./metaverse/UzayMacerasi";
