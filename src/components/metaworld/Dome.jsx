@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useGLTF, Html } from "@react-three/drei";
-import * as THREE from "three";
-import { Color } from "three";
+
 import useZustandStore from "../../zustandStore";
 
 export function Dome(props) {
@@ -11,14 +10,13 @@ export function Dome(props) {
     (state) => state.isBilgiGateTriggered
   );
 
-  const setIsBilgiGateTriggered = useZustandStore(
-    (state) => state.setIsBilgiGateTriggered
+  const setIsGameCenterButton = useZustandStore(
+    (state) => state.setIsGameCenterButton
   );
 
-  // const handleGoToOyun = () => {
-  //   props.onOyunClick();
-  //   // setIsBilgiGateTriggered(false);
-  // };
+  const handleGoToOyun = () => {
+    setIsGameCenterButton(true);
+  };
 
   return (
     <group {...props} dispose={null}>
@@ -39,7 +37,7 @@ export function Dome(props) {
                 color: "lightblue",
                 padding: "4px",
               }}
-              // onClick={handleGoToOyun}
+              onClick={handleGoToOyun}
             >
               OYUN MERKEZİ
             </div>
@@ -88,5 +86,3 @@ export function Dome(props) {
     </group>
   );
 }
-
-// useGLTF.preload("/models/dome.glb");
