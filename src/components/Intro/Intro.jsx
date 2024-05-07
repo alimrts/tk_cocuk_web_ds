@@ -325,24 +325,24 @@ const Intro = (props) => {
                 ayniIsimdeIlSayi={
                   ayniIsimdeIlSayi
                     ? ayniIsimdeIlSayi.toLocaleString().replace(/,/g, " ")
-                    : ""
+                    : "0"
                 }
                 ayniIsimdeTurkiyeSayi={
                   ayniIsimdeTurkiyeSayi
                     ? ayniIsimdeTurkiyeSayi.toLocaleString().replace(/,/g, " ")
-                    : ""
+                    : "0"
                 }
                 ayniTarihDoganIlSayi={
                   ayniTarihDoganIlSayi
                     ? ayniTarihDoganIlSayi.toLocaleString().replace(/,/g, " ")
-                    : ""
+                    : "0"
                 }
                 ayniTarihDoganTurkiyeSayi={
                   ayniTarihDoganTurkiyeSayi
                     ? ayniTarihDoganTurkiyeSayi
                         .toLocaleString()
                         .replace(/,/g, " ")
-                    : ""
+                    : "0"
                 }
                 boyOrtancaDeger={boyOrtancaDeger}
                 kiloOrtancaDeger={kiloOrtancaDeger}
@@ -376,22 +376,22 @@ const Intro = (props) => {
             ayniIsimdeIlSayi={
               ayniIsimdeIlSayi
                 ? ayniIsimdeIlSayi.toLocaleString().replace(/,/g, " ")
-                : ""
+                : "0"
             }
             ayniIsimdeTurkiyeSayi={
               ayniIsimdeTurkiyeSayi
                 ? ayniIsimdeTurkiyeSayi.toLocaleString().replace(/,/g, " ")
-                : ""
+                : "0"
             }
             ayniTarihDoganIlSayi={
               ayniTarihDoganIlSayi
                 ? ayniTarihDoganIlSayi.toLocaleString().replace(/,/g, " ")
-                : ""
+                : "0"
             }
             ayniTarihDoganTurkiyeSayi={
               ayniTarihDoganTurkiyeSayi
                 ? ayniTarihDoganTurkiyeSayi.toLocaleString().replace(/,/g, " ")
-                : ""
+                : "0"
             }
             boyOrtancaDeger={boyOrtancaDeger}
             kiloOrtancaDeger={kiloOrtancaDeger}
