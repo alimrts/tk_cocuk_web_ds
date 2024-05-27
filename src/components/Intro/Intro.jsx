@@ -7,25 +7,25 @@ import { Link } from "react-scroll";
 
 import IntroLeft from "./IntroLeft";
 
-import leftFrameBg from "../../img/left_frame_bg.png";
+import leftFrameBg from "../../img/Intro_images/left_frame_bg.png";
 import AnimatedModal from "./AnimatedModal";
 
 import axios from "axios";
 
-import tkc_basla from "../../img/tkc_basla.png";
-import tkc_oyun_oynayalim from "../../img/tkc_oyun_oynayalim.png";
-import tkc_istatistik_ogrenelim from "../../img/tkc_istatistik_ogrenelim.png";
-import tkc_cocuk_haklari from "../../img/tkc_cocuk_haklari.png";
-import tkc_tuiki_taniyalim from "../../img/tkc_tuiki_taniyalim.png";
-import tkc_sdg_amaclari from "../../img/tkc_sdg_amaclari.png";
-import tkc_video_izleyelim from "../../img/tkc_video_izleyelim.png";
-import tkc_geleneksel_oyunlar from "../../img/tkc_geleneksel_oyunlar.png";
+import tkc_basla from "../../img/Intro_images/tkc_basla.png";
+import tkc_oyun_oynayalim from "../../img/Intro_images/tkc_oyun_oynayalim.png";
+import tkc_istatistik_ogrenelim from "../../img/Intro_images/tkc_istatistik_ogrenelim.png";
+import tkc_cocuk_haklari from "../../img/Intro_images/tkc_cocuk_haklari.png";
+import tkc_tuiki_taniyalim from "../../img/Intro_images/tkc_tuiki_taniyalim.png";
+import tkc_sdg_amaclari from "../../img/Intro_images/tkc_sdg_amaclari.png";
+import tkc_video_izleyelim from "../../img/Intro_images/tkc_video_izleyelim.png";
+import tkc_geleneksel_oyunlar from "../../img/Intro_images/tkc_geleneksel_oyunlar.png";
 
-import kus1 from "../../img/kus1.png";
-import kus2 from "../../img/kus2.png";
-import kus3 from "../../img/kus3.png";
-import kus4 from "../../img/kus4.png";
-import kus5 from "../../img/kus5.png";
+import kus1 from "../../img/Intro_images/kus1.png";
+import kus2 from "../../img/Intro_images/kus2.png";
+import kus3 from "../../img/Intro_images/kus3.png";
+import kus4 from "../../img/Intro_images/kus4.png";
+import kus5 from "../../img/Intro_images/kus5.png";
 
 import FloatinDivForNavbarMenu from "../FloatingDiv/FloatinDivForNavbarMenu";
 import FloatinDivForIntroRight from "../FloatingDiv/FloatinDivForIntroRight";
@@ -34,6 +34,8 @@ import LoadingIntro from "./LoadingIntro";
 
 import useZustandStore from "../../zustandStore";
 import LoadingIntroApiError from "./LoadingIntroApiError";
+
+import texts from "./texts_intro.json";
 
 function capitalizeFirstLetter(str) {
   if (str && typeof str === "string") {
@@ -278,7 +280,7 @@ const Intro = (props) => {
                 fontSize: "1.4rem",
               }}
             >
-              TÜİK Çocuk Portalı'na
+              {texts.welcomeMessage}
             </span>
             <span
               style={{
@@ -288,7 +290,7 @@ const Intro = (props) => {
                 fontSize: "1.4rem",
               }}
             >
-              Hoş geldin {capitalizedStr} !
+              {texts.greetingMessage} {capitalizedStr} !
             </span>
           </div>
 

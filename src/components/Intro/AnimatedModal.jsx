@@ -29,9 +29,10 @@ import sertifika10_thumb from "../../img/certs/sertifika10_thumb.png";
 import sertifika11 from "../../img/certs/sertifika11.png";
 import sertifika11_thumb from "../../img/certs/sertifika11_thumb.png";
 
-import tkc_sertifika from "../../img/tkc_sertifika.png";
+import tkc_sertifika from "../../img/Intro_images/tkc_sertifika.png";
 
 import FloatinDivForNavbarMenu from "../FloatingDiv/FloatinDivForNavbarMenu";
+import texts from "./texts_intro.json";
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -75,12 +76,12 @@ export default function AnimatedModal(props) {
 
   if (typeof props?.boyOrtancaDeger === "number") {
     if (props?.boyOrtancaDeger < 0) {
-      boyMessage = "altında.";
+      boyMessage = texts.altMessage;
     } else {
-      boyMessage = "üstünde.";
+      boyMessage = texts.ustMessage;
     }
   } else {
-    boyMessage = "tam ortanca değerde.";
+    boyMessage = texts.tamMessage;
   }
 
   let kiloMessage = "";
@@ -91,51 +92,70 @@ export default function AnimatedModal(props) {
 
   if (typeof props?.kiloOrtancaDeger === "number") {
     if (props?.kiloOrtancaDeger < 0) {
-      kiloMessage = "altında.";
+      kiloMessage = texts.altMessage;
     } else {
-      kiloMessage = "üstünde.";
+      kiloMessage = texts.ustMessage;
     }
   } else {
-    kiloMessage = "tam ortanca değerde.";
+    kiloMessage = texts.tamMessage;
   }
 
+  // const fullText =
+  //   "Bugün itibarıyla " +
+  //   props.yilYas +
+  //   " yıl " +
+  //   props.ayYas +
+  //   " ay " +
+  //   props.gunYas +
+  //   " günlüksün." +
+  //   "\n" +
+  //   "\n" +
+  //   "Senin isminde " +
+  //   props.il +
+  //   " ilinde " +
+  //   props.ayniIsimdeIlSayi +
+  //   ", Türkiye’de  " +
+  //   props.ayniIsimdeTurkiyeSayi +
+  //   " kişi var. " +
+  //   "\n" +
+  //   "\n" +
+  //   props.il +
+  //   " ilinde seninle aynı tarihte doğan " +
+  //   props.ayniTarihDoganIlSayi +
+  //   ", Türkiye’de " +
+  //   props.ayniTarihDoganTurkiyeSayi +
+  //   " kişi var." +
+  //   "\n" +
+  //   "\n" +
+  //   "Senin yaş ve cinsiyetine göre boyun, ortanca değerin " +
+  //   unsignedBoy +
+  //   " cm " +
+  //   boyMessage +
+  //   "\n" +
+  //   "\n" +
+  //   "Senin yaş ve cinsiyetine göre kilon, ortanca değerin " +
+  //   unsignedKilo +
+  //   " kg " +
+  //   kiloMessage;
+
+  const {
+    darkMode,
+    yilYas,
+    ayYas,
+    gunYas,
+    il,
+    ayniIsimdeIlSayi,
+    ayniIsimdeTurkiyeSayi,
+    ayniTarihDoganIlSayi,
+    ayniTarihDoganTurkiyeSayi,
+  } = props;
+
   const fullText =
-    "Bugün itibarıyla " +
-    props.yilYas +
-    " yıl " +
-    props.ayYas +
-    " ay " +
-    props.gunYas +
-    " günlüksün." +
-    "\n" +
-    "\n" +
-    "Senin isminde " +
-    props.il +
-    " ilinde " +
-    props.ayniIsimdeIlSayi +
-    ", Türkiye’de  " +
-    props.ayniIsimdeTurkiyeSayi +
-    " kişi var. " +
-    "\n" +
-    "\n" +
-    props.il +
-    " ilinde seninle aynı tarihte doğan " +
-    props.ayniTarihDoganIlSayi +
-    ", Türkiye’de " +
-    props.ayniTarihDoganTurkiyeSayi +
-    " kişi var." +
-    "\n" +
-    "\n" +
-    "Senin yaş ve cinsiyetine göre boyun, ortanca değerin " +
-    unsignedBoy +
-    " cm " +
-    boyMessage +
-    "\n" +
-    "\n" +
-    "Senin yaş ve cinsiyetine göre kilon, ortanca değerin " +
-    unsignedKilo +
-    " kg " +
-    kiloMessage;
+    `${texts.introLeftText1} ${yilYas} ${texts.introLeftText2} ${ayYas} ${texts.introLeftText3} ${gunYas} ${texts.introLeftText4}\n\n` +
+    `${texts.introLeftText5} ${il} ${texts.introLeftText6} ${ayniIsimdeIlSayi}, ${texts.introLeftText8} ${ayniIsimdeTurkiyeSayi} ${texts.introLeftText7}\n\n` +
+    `${il} ${texts.introLeftText9} ${ayniTarihDoganIlSayi}, ${texts.introLeftText10} ${ayniTarihDoganTurkiyeSayi} ${texts.introLeftText11}\n\n` +
+    `${texts.introLeftText12} ${unsignedBoy} ${texts.introLeftText13} ${boyMessage}\n\n` +
+    `${texts.introLeftText14} ${unsignedKilo} ${texts.introLeftText15} ${kiloMessage}`;
 
   console.log("fulltext: ", fullText);
 

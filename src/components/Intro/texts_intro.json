@@ -1,0 +1,22 @@
+{
+    "welcomeMessage": "TÜİK Çocuk Portalı'na",
+    "greetingMessage": "Hoş geldin",
+    "introLeftText1": "Bugün itibarıyla",
+    "introLeftText2": "yıl",
+    "introLeftText3": "ay",
+    "introLeftText4": "günlüksün.",
+    "introLeftText5": "Senin isminde",
+    "introLeftText6": "ilinde",
+    "introLeftText7": "kişi var.",
+    "introLeftText8": "Türkiye’de",
+    "introLeftText9": "ilinde seninle aynı tarihte doğan",
+    "introLeftText10": "Türkiye’de",
+    "introLeftText11": "kişi var.",
+    "introLeftText12": "Senin yaş ve cinsiyetine göre boyun, ortanca değerin",
+    "introLeftText13": "cm",
+    "introLeftText14": "Senin yaş ve cinsiyetine göre kilon, ortanca değerin",
+    "introLeftText15": "kg",
+    "altMessage": "altında.",
+    "ustMessage": "üstünde.",
+    "tamMessage": "tam ortanca değerde."
+  }

@@ -5,6 +5,7 @@ import { OrbitControls, Html, useProgress } from "@react-three/drei";
 import ModelCharMod from "./ModelCharMod";
 import { Suspense } from "react";
 import "./Intro.css";
+import texts from "./texts_intro.json";
 
 function Loader() {
   const { progress } = useProgress();
@@ -35,10 +36,12 @@ const IntroLeft = (props) => {
 
   if (typeof props?.boyOrtancaDeger === "number") {
     if (props?.boyOrtancaDeger < 0) {
-      boyMessage = "altında.";
+      boyMessage = texts.altMessage;
     } else {
-      boyMessage = "üstünde.";
+      boyMessage = texts.ustMessage;
     }
+  } else {
+    boyMessage = texts.tamMessage;
   }
 
   let kiloMessage = "";
@@ -49,10 +52,12 @@ const IntroLeft = (props) => {
 
   if (typeof props?.kiloOrtancaDeger === "number") {
     if (props?.kiloOrtancaDeger < 0) {
-      kiloMessage = "altında.";
+      kiloMessage = texts.altMessage;
     } else {
-      kiloMessage = "üstünde.";
+      kiloMessage = texts.ustMessage;
     }
+  } else {
+    kiloMessage = texts.tamMessage;
   }
 
   return (
@@ -128,26 +133,29 @@ const IntroLeft = (props) => {
         >
           {" "}
           <span className="introleft-text">
-            Bugün itibarıyla {props.yilYas} yıl {props.ayYas} ay {props.gunYas}{" "}
-            günlüksün. <br />
+            {texts.introLeftText1} {props.yilYas} {texts.introLeftText2}{" "}
+            {props.ayYas} {texts.introLeftText3} {props.gunYas}{" "}
+            {texts.introLeftText4}
             <br />
-            Senin isminde {props.il} ilinde {props.ayniIsimdeIlSayi},
             <br />
-            Türkiye’de {props.ayniIsimdeTurkiyeSayi} kişi var.
-            <br /> <br />
-            {props.il} ilinde seninle aynı tarihte doğan{" "}
-            {props.ayniTarihDoganIlSayi}, Türkiye’de{" "}
-            {props.ayniTarihDoganTurkiyeSayi} kişi var. <br />
+            {texts.introLeftText5} {props.il} {texts.introLeftText6}{" "}
+            {props.ayniIsimdeIlSayi},
             <br />
-            Senin yaş ve cinsiyetine göre boyun, ortanca değerin {
-              unsignedBoy
-            }{" "}
-            cm {boyMessage} <br />
+            {texts.introLeftText8} {props.ayniIsimdeTurkiyeSayi}{" "}
+            {texts.introLeftText7}
             <br />
-            Senin yaş ve cinsiyetine göre kilon, ortanca değerin {
-              unsignedKilo
-            }{" "}
-            kg {kiloMessage}
+            <br />
+            {props.il} {texts.introLeftText9} {props.ayniTarihDoganIlSayi},{" "}
+            {texts.introLeftText10} {props.ayniTarihDoganTurkiyeSayi}{" "}
+            {texts.introLeftText11}
+            <br />
+            <br />
+            {texts.introLeftText12} {unsignedBoy} {texts.introLeftText13}{" "}
+            {boyMessage}
+            <br />
+            <br />
+            {texts.introLeftText14} {unsignedKilo} {texts.introLeftText15}{" "}
+            {kiloMessage}
           </span>
         </div>
       </div>
