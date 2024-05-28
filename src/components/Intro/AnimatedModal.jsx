@@ -100,44 +100,6 @@ export default function AnimatedModal(props) {
     kiloMessage = texts.tamMessage;
   }
 
-  // const fullText =
-  //   "Bugün itibarıyla " +
-  //   props.yilYas +
-  //   " yıl " +
-  //   props.ayYas +
-  //   " ay " +
-  //   props.gunYas +
-  //   " günlüksün." +
-  //   "\n" +
-  //   "\n" +
-  //   "Senin isminde " +
-  //   props.il +
-  //   " ilinde " +
-  //   props.ayniIsimdeIlSayi +
-  //   ", Türkiye’de  " +
-  //   props.ayniIsimdeTurkiyeSayi +
-  //   " kişi var. " +
-  //   "\n" +
-  //   "\n" +
-  //   props.il +
-  //   " ilinde seninle aynı tarihte doğan " +
-  //   props.ayniTarihDoganIlSayi +
-  //   ", Türkiye’de " +
-  //   props.ayniTarihDoganTurkiyeSayi +
-  //   " kişi var." +
-  //   "\n" +
-  //   "\n" +
-  //   "Senin yaş ve cinsiyetine göre boyun, ortanca değerin " +
-  //   unsignedBoy +
-  //   " cm " +
-  //   boyMessage +
-  //   "\n" +
-  //   "\n" +
-  //   "Senin yaş ve cinsiyetine göre kilon, ortanca değerin " +
-  //   unsignedKilo +
-  //   " kg " +
-  //   kiloMessage;
-
   const {
     darkMode,
     yilYas,
@@ -159,17 +121,6 @@ export default function AnimatedModal(props) {
 
   console.log("fulltext: ", fullText);
 
-  // const text1Left = 160;
-  // const text1Top = 90;
-
-  // const text2Left = 320;
-  // const text2Top = 120;
-
-  // const text3Left = 210;
-  // const text3Top = 160;
-
-  // const text4Left = 500;
-  // const text4Top = 420;
   const [textPositions, setTextPositions] = useState({
     text1Left: 160,
     text1Top: 90,

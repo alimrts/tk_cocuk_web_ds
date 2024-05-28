@@ -5,7 +5,8 @@ import { themeContext } from "../../Context";
 
 import WrapperComponentForOne from "../WrapperComponentForOne";
 import NavbarRegister from "../../components/Navbar/NavbarCocukSdg";
-import gelenekselData from "../../gelenekselData.json";
+import gelenekselData from "./gelenekselData.json";
+import texts from "./texts_geleneksel.json";
 
 const Geleneksel = () => {
   // context
@@ -23,11 +24,11 @@ const Geleneksel = () => {
       <NavbarRegister />
       <div className="geleneksel">
         <div className="t-heading-geleneksel ">
-          <span>Geleneksel Oyunlarımızı</span>
-          <span> Öğrenelim!</span>
+          <span>{texts.textHeader1}</span>
+          <span> {texts.textHeader2}</span>
           <span style={{ fontSize: "14pt" }}>
             <br />
-            Açıklamalar için kartlara tıklayınız.
+            {texts.textAciklama}
           </span>
         </div>
 
