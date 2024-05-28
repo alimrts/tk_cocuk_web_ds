@@ -2,6 +2,7 @@ import React from "react";
 import FlippableCard from "./flippable-card";
 import { FilterTabs } from "./constants";
 import styled from "styled-components";
+import texts from "./texts_cocukhaklari2.json";
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -96,10 +97,7 @@ const CardsGrid = () => {
           userSelect: "none",
         }}
       >
-        Sözleşme toplamda 54 maddeden oluşmaktadır. 43-54. maddeler, çocukların
-        sahip oldukları haklardan faydalanmalarını sağlamak amacıyla yetişkinler
-        ve devletlerin iş birliği içerisinde yürüteceği faaliyetleri
-        açıklamaktadır.
+        {texts.textSonCard}
       </span>
     </Grid>
   );
