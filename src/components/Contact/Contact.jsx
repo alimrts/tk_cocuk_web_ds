@@ -3,10 +3,10 @@ import "./Contact.css";
 import emailjs from "@emailjs/browser";
 import { themeContext } from "../../Context";
 
-import tkc_iletisim_left from "../../img/tkc_iletisim_left.png";
+import tkc_iletisim_left from "../../img/iletisim_images/tkc_iletisim_left.png";
 
 import useZustandStore from "../../zustandStore";
-import AlertPopup from "../AlertPopup";
+import texts from "./texts_contact.json";
 
 const Contact = () => {
   const theme = useContext(themeContext);
@@ -81,7 +81,7 @@ const Contact = () => {
             type="text"
             name="user_name"
             className="user"
-            placeholder="Ad Soyad"
+            placeholder={texts.userName}
             value={userName}
             onChange={(event) => setUserName(event.target.value)}
           />
@@ -89,26 +89,26 @@ const Contact = () => {
             type="email"
             name="user_email"
             className="user"
-            placeholder="E-posta"
+            placeholder={texts.userEmail}
             value={userEmail}
             onChange={(event) => setUserEmail(event.target.value)}
           />
           <textarea
             name="message"
             className="user"
-            placeholder="Mesaj"
+            placeholder={texts.message}
             value={message}
             onChange={(event) => setMessage(event.target.value)}
           />
           <div>
             <input
               type="submit"
-              value="Gönder"
+              value={texts.buttonText}
               className={`button ${done ? "button-disabled" : ""}`}
               disabled={done}
             />
-            {isLoading && <div>Mesajınız Gönderiliyor...</div>}
-            {done && "Mesajınız İçin Teşekkür Ederiz"}
+            {isLoading && <div>{texts.sending}</div>}
+            {done && texts.thankYou}
           </div>
         </form>
       </div>
