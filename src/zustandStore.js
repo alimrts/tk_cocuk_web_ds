@@ -2,8 +2,8 @@ import create from "zustand";
 
 import { devtools, persist } from "zustand/middleware";
 
-import strings from "./components/strings/strings.json";
-import stringsEng from "./components/strings/stringsEng.json";
+import strings from "./components/Register/strings.json";
+import stringsEng from "./components/Register/stringsEng.json";
 
 const zustandStore = (set) => ({
   courses: [],
