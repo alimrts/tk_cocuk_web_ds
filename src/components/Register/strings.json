@@ -2,6 +2,7 @@
     "yukleniyor":"Yükleniyor...",
     "registerPageGiris":"TÜİK Çocuk Portalı Giriş",
     "registerPageBilgileriDoldur":"Bilgileri Doldur ve Başla",
+    "registerPageBilgileriDoldurma":"Bilgileri Doldurmadan Devam Et",
     "registerPageAdin":"Adın",
     "registerPageKilon":"Kilon kg",
     "registerPageBoyun":"Boyun cm",
@@ -19,5 +20,6 @@
     "registerPageBuAlanZorunludur":"Bu alan zorunludur.",
     "apiHatasi":"Hata!",
     "apiHatasiAciklama":"Gerekli bilgiler oluşturulamadı.",
+    "bilgilerAciklama":"Gerekli bilgiler oluşturulamadı. Giriş sayfasında bilgilerinizi girerek çeşitli istatistiklere ulaşabilirsiniz.",
     "registerPageRestrictedText":"Adın için kısıtlı kelimeleri kullanamazsın."
 }

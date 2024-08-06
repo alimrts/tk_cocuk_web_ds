@@ -19,5 +19,6 @@
     "registerPageBuAlanZorunludur": "This field is mandatory.",
     "apiHatasi":"Error!",
     "apiHatasiAciklama":"Required information could not be created.",
+    "bilgilerAciklama":"Required information could not be generated. You can access various statistics by entering your information on the login page.",
     "registerPageRestrictedText":"You cannot use restricted words for your name." 
 }

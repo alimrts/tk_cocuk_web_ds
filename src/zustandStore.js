@@ -227,14 +227,12 @@ const zustandStore = (set) => ({
 });
 
 const useZustandStore = create(
-  // to use localstorage
   devtools(
     persist(zustandStore, {
-      name: "zustand",
+      name: "tkctr-zus",
+      getStorage: () => sessionStorage,
     })
   )
-  // to not use localstorage
-  // zustandStore
 );
 
 export default useZustandStore;

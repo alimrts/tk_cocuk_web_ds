@@ -33,6 +33,7 @@ import tkc_sertifika from "../../img/Intro_images/tkc_sertifika.png";
 
 import FloatinDivForNavbarMenu from "../FloatingDiv/FloatinDivForNavbarMenu";
 import texts from "./texts_intro.json";
+import FloatinDivForAltMenu from "../FloatingDiv/FloatinDivForAltMenu";
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -301,7 +302,7 @@ export default function AnimatedModal(props) {
 
   return (
     <div>
-      <FloatinDivForNavbarMenu img={tkc_sertifika} onClick={handleOpen} />
+      <FloatinDivForAltMenu img={tkc_sertifika} onClick={handleOpen} />
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

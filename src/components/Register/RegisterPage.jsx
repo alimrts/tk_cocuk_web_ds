@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import "./RegisterPage.css";
+import { NavLink } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 import UserRegister from "./UserRegister";
 import video from "../../img/bayram_kutlama.mp4";
 import { useHistory } from "react-router-dom";
@@ -103,6 +105,10 @@ const RegisterPage = () => {
     };
   }, []);
 
+  const handleUserRegisterWithoutForm = () => {
+    setUserInfo("none");
+  };
+
   return (
     <>
       {" "}
@@ -194,6 +200,28 @@ const RegisterPage = () => {
                 onGenderChange={handleGenderChange}
                 onSubmit={handleUserRegister}
               />
+
+              <Button
+                variant="contained"
+                onClick={handleUserRegisterWithoutForm}
+                style={{
+                  marginTop: "0.5rem",
+                  textTransform: "none",
+                  backgroundColor: "#FaFfA6",
+                  borderRadius: "25px",
+                  color: "#fff",
+                  padding: "10px 20px",
+                  width: "18rem",
+                  "&:hover": {
+                    backgroundColor: "#FFFFD4",
+                    color: "#333",
+                  },
+                }}
+              >
+                <NavLink to={{ pathname: "/main" }} target="_self">
+                  {strings.registerPageBilgileriDoldurma}
+                </NavLink>
+              </Button>
             </div>
           </div>
         </>

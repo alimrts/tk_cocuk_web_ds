@@ -34,8 +34,10 @@ import LoadingIntro from "./LoadingIntro";
 
 import useZustandStore from "../../zustandStore";
 import LoadingIntroApiError from "./LoadingIntroApiError";
+import LoadingIntroWithoutRegister from "./LoadingIntroWithoutRegister";
 
 import texts from "./texts_intro.json";
+import AnimatedModalIstatistik from "./AnimatedModalIstatistik";
 
 function capitalizeFirstLetter(str) {
   if (str && typeof str === "string") {
@@ -127,15 +129,10 @@ const Intro = (props) => {
 
   const [state, setState] = useState({
     loading: false,
-
     apiError: false,
   });
 
-  const {
-    loading,
-
-    apiError,
-  } = state;
+  const { loading, apiError } = state;
 
   const {
     dashboardData: {
@@ -309,7 +306,9 @@ const Intro = (props) => {
               color: "gray",
             }}
           >
-            {apiError ? (
+            {adi === null && apiError ? (
+              <LoadingIntroWithoutRegister />
+            ) : apiError ? (
               <LoadingIntroApiError />
             ) : !loading ? (
               <LoadingIntro />
@@ -367,7 +366,36 @@ const Intro = (props) => {
           >
             <FloatinDivForNavbarMenu img={tkc_basla} />
           </Link>
-
+          <AnimatedModalIstatistik
+            ad={capitalizeFirstLetter(ad)}
+            il={il}
+            cinsiyet={cinsiyet}
+            yilYas={yilYas}
+            ayYas={ayYas}
+            gunYas={gunYas}
+            ayniIsimdeIlSayi={
+              ayniIsimdeIlSayi
+                ? ayniIsimdeIlSayi.toLocaleString().replace(/,/g, " ")
+                : "0"
+            }
+            ayniIsimdeTurkiyeSayi={
+              ayniIsimdeTurkiyeSayi
+                ? ayniIsimdeTurkiyeSayi.toLocaleString().replace(/,/g, " ")
+                : "0"
+            }
+            ayniTarihDoganIlSayi={
+              ayniTarihDoganIlSayi
+                ? ayniTarihDoganIlSayi.toLocaleString().replace(/,/g, " ")
+                : "0"
+            }
+            ayniTarihDoganTurkiyeSayi={
+              ayniTarihDoganTurkiyeSayi
+                ? ayniTarihDoganTurkiyeSayi.toLocaleString().replace(/,/g, " ")
+                : "0"
+            }
+            boyOrtancaDeger={boyOrtancaDeger}
+            kiloOrtancaDeger={kiloOrtancaDeger}
+          />
           <AnimatedModal
             ad={capitalizeFirstLetter(ad)}
             il={il}

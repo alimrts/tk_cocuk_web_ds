@@ -1,23 +1,19 @@
 import React, { useContext, useRef, useState } from "react";
+import axios from "axios";
 import "./Contact.css";
-import emailjs from "@emailjs/browser";
 import { themeContext } from "../../Context";
 
 import tkc_iletisim_left from "../../img/iletisim_images/tkc_iletisim_left.png";
 
 import useZustandStore from "../../zustandStore";
-import texts from "./texts_contact.json";
+import AlertPopup from "../AlertPopup";
 
 const Contact = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
-  const form = useRef();
   const [done, setDone] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [userEmail, setUserEmail] = useState("");
-  const [message, setMessage] = useState("");
 
   const { language, setLanguage, languageData } = useZustandStore();
   const strings = languageData[language];
@@ -35,34 +31,33 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+    const body = {};
+    new FormData(e.target).forEach((value, key) => {
+      body[key] = value;
+    });
+    console.log(body);
+
     if (
-      userName.trim() === "" ||
-      !isEmailValid(userEmail.trim()) ||
-      message.trim() === ""
+      body.user_name.trim() === "" ||
+      !isEmailValid(body.user_email.trim()) ||
+      body.message.trim() === ""
     ) {
       //alert("Lütfen Gerekli Alanları Doldurunuz.");
       setShowAlert(true);
       return;
     }
     setIsLoading(true);
-    emailjs
-      .sendForm(
-        "service_los6pu7",
-        "template_64au44w",
-        form.current,
-        "RWH1a8gTZ08e_3r0o"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setIsLoading(false);
-          setDone(true);
-          form.current.reset();
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    axios.post("/contact", body).then(
+      (result) => {
+        console.log(result.text);
+        setIsLoading(false);
+        setDone(true);
+        e.target.reset();
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   };
 
   return (
@@ -76,39 +71,29 @@ const Contact = () => {
           zIndex: "10",
         }}
       >
-        <form ref={form} onSubmit={sendEmail}>
+        <form onSubmit={sendEmail}>
           <input
             type="text"
             name="user_name"
             className="user"
-            placeholder={texts.userName}
-            value={userName}
-            onChange={(event) => setUserName(event.target.value)}
+            placeholder="Ad Soyad"
           />
           <input
             type="email"
             name="user_email"
             className="user"
-            placeholder={texts.userEmail}
-            value={userEmail}
-            onChange={(event) => setUserEmail(event.target.value)}
+            placeholder="E-posta"
           />
-          <textarea
-            name="message"
-            className="user"
-            placeholder={texts.message}
-            value={message}
-            onChange={(event) => setMessage(event.target.value)}
-          />
+          <textarea name="message" className="user" placeholder="Mesaj" />
           <div>
             <input
               type="submit"
-              value={texts.buttonText}
+              value="Gönder"
               className={`button ${done ? "button-disabled" : ""}`}
               disabled={done}
             />
-            {isLoading && <div>{texts.sending}</div>}
-            {done && texts.thankYou}
+            {isLoading && <div> Mesajınız Gönderiliyor...</div>}
+            {done && " Mesajınız İçin Teşekkür Ederiz"}
           </div>
         </form>
       </div>
