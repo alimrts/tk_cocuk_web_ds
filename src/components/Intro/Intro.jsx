@@ -366,66 +366,74 @@ const Intro = (props) => {
           >
             <FloatinDivForNavbarMenu img={tkc_basla} />
           </Link>
-          <AnimatedModalIstatistik
-            ad={capitalizeFirstLetter(ad)}
-            il={il}
-            cinsiyet={cinsiyet}
-            yilYas={yilYas}
-            ayYas={ayYas}
-            gunYas={gunYas}
-            ayniIsimdeIlSayi={
-              ayniIsimdeIlSayi
-                ? ayniIsimdeIlSayi.toLocaleString().replace(/,/g, " ")
-                : "0"
-            }
-            ayniIsimdeTurkiyeSayi={
-              ayniIsimdeTurkiyeSayi
-                ? ayniIsimdeTurkiyeSayi.toLocaleString().replace(/,/g, " ")
-                : "0"
-            }
-            ayniTarihDoganIlSayi={
-              ayniTarihDoganIlSayi
-                ? ayniTarihDoganIlSayi.toLocaleString().replace(/,/g, " ")
-                : "0"
-            }
-            ayniTarihDoganTurkiyeSayi={
-              ayniTarihDoganTurkiyeSayi
-                ? ayniTarihDoganTurkiyeSayi.toLocaleString().replace(/,/g, " ")
-                : "0"
-            }
-            boyOrtancaDeger={boyOrtancaDeger}
-            kiloOrtancaDeger={kiloOrtancaDeger}
-          />
-          <AnimatedModal
-            ad={capitalizeFirstLetter(ad)}
-            il={il}
-            cinsiyet={cinsiyet}
-            yilYas={yilYas}
-            ayYas={ayYas}
-            gunYas={gunYas}
-            ayniIsimdeIlSayi={
-              ayniIsimdeIlSayi
-                ? ayniIsimdeIlSayi.toLocaleString().replace(/,/g, " ")
-                : "0"
-            }
-            ayniIsimdeTurkiyeSayi={
-              ayniIsimdeTurkiyeSayi
-                ? ayniIsimdeTurkiyeSayi.toLocaleString().replace(/,/g, " ")
-                : "0"
-            }
-            ayniTarihDoganIlSayi={
-              ayniTarihDoganIlSayi
-                ? ayniTarihDoganIlSayi.toLocaleString().replace(/,/g, " ")
-                : "0"
-            }
-            ayniTarihDoganTurkiyeSayi={
-              ayniTarihDoganTurkiyeSayi
-                ? ayniTarihDoganTurkiyeSayi.toLocaleString().replace(/,/g, " ")
-                : "0"
-            }
-            boyOrtancaDeger={boyOrtancaDeger}
-            kiloOrtancaDeger={kiloOrtancaDeger}
-          />
+          <div className={!props.cinsiyet ? "passive" : ""}>
+            <AnimatedModalIstatistik
+              ad={capitalizeFirstLetter(ad)}
+              il={il}
+              cinsiyet={cinsiyet}
+              yilYas={yilYas}
+              ayYas={ayYas}
+              gunYas={gunYas}
+              ayniIsimdeIlSayi={
+                ayniIsimdeIlSayi
+                  ? ayniIsimdeIlSayi.toLocaleString().replace(/,/g, " ")
+                  : "0"
+              }
+              ayniIsimdeTurkiyeSayi={
+                ayniIsimdeTurkiyeSayi
+                  ? ayniIsimdeTurkiyeSayi.toLocaleString().replace(/,/g, " ")
+                  : "0"
+              }
+              ayniTarihDoganIlSayi={
+                ayniTarihDoganIlSayi
+                  ? ayniTarihDoganIlSayi.toLocaleString().replace(/,/g, " ")
+                  : "0"
+              }
+              ayniTarihDoganTurkiyeSayi={
+                ayniTarihDoganTurkiyeSayi
+                  ? ayniTarihDoganTurkiyeSayi
+                      .toLocaleString()
+                      .replace(/,/g, " ")
+                  : "0"
+              }
+              boyOrtancaDeger={boyOrtancaDeger}
+              kiloOrtancaDeger={kiloOrtancaDeger}
+            />
+          </div>
+          <div className={!props.cinsiyet ? "passive" : ""}>
+            <AnimatedModal
+              ad={capitalizeFirstLetter(ad)}
+              il={il}
+              cinsiyet={cinsiyet}
+              yilYas={yilYas}
+              ayYas={ayYas}
+              gunYas={gunYas}
+              ayniIsimdeIlSayi={
+                ayniIsimdeIlSayi
+                  ? ayniIsimdeIlSayi.toLocaleString().replace(/,/g, " ")
+                  : "0"
+              }
+              ayniIsimdeTurkiyeSayi={
+                ayniIsimdeTurkiyeSayi
+                  ? ayniIsimdeTurkiyeSayi.toLocaleString().replace(/,/g, " ")
+                  : "0"
+              }
+              ayniTarihDoganIlSayi={
+                ayniTarihDoganIlSayi
+                  ? ayniTarihDoganIlSayi.toLocaleString().replace(/,/g, " ")
+                  : "0"
+              }
+              ayniTarihDoganTurkiyeSayi={
+                ayniTarihDoganTurkiyeSayi
+                  ? ayniTarihDoganTurkiyeSayi
+                      .toLocaleString()
+                      .replace(/,/g, " ")
+                  : "0"
+              }
+              boyOrtancaDeger={boyOrtancaDeger}
+              kiloOrtancaDeger={kiloOrtancaDeger}
+            />{" "}
+          </div>
         </div>
       </div>
       {/* right image side */}

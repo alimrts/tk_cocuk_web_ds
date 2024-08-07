@@ -46,14 +46,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AnimatedModalIstatistik(props) {
-  const isMale = props.cinsiyet === "1";
+  // const isMale = props.cinsiyet === "1";
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const [loading, setLoading] = useState(true);
 
-  const [data, setData] = useState([]);
   const [variables, setVariables] = useState({
     isminIlkVerildigiYil: 1950,
     isminVerilisSirasiEnDusukYil: 1998,
@@ -109,7 +108,9 @@ export default function AnimatedModalIstatistik(props) {
       curve: "smooth",
     },
     title: {
-      text: turkishUpperCase(props.ad) + " İsminin Yıllara Göre Veriliş Sırası",
+      text:
+        turkishUpperCase(props.ad ?? "") +
+        " İsminin Yıllara Göre Veriliş Sırası",
       align: "left",
     },
     grid: {
@@ -147,13 +148,13 @@ export default function AnimatedModalIstatistik(props) {
   const [series, setSeries] = useState([]);
 
   const getInfo = () => {
-    if (props.ad != null) {
+    if (props.cinsiyet != null) {
       // .get(process.env.REACT_APP_PROXY_URL + "/dashboard", {
       axios
         .post(
           "https://nip.tuik.gov.tr/External/GetYilCocukIsimListWithParams",
           {
-            isim: turkishUpperCase(props.ad),
+            isim: turkishUpperCase(props.ad ?? ""),
             cinsiyet: parseInt(props.cinsiyet, 10),
           }
         )
@@ -211,6 +212,7 @@ export default function AnimatedModalIstatistik(props) {
           setLoading(false);
         });
     } else {
+      setLoading(false);
     }
   };
 
