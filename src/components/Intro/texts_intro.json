@@ -18,5 +18,18 @@
   "introLeftText15": "kg",
   "altMessage": "altında.",
   "ustMessage": "üstünde.",
-  "tamMessage": "tam ortanca değerde."
+  "tamMessage": "tam ortanca değerde.",
+  "yil":"Yıl",
+  "sira":"Sıra",
+  "isminSirasi":"İsminin Yıllara Göre Veriliş Sırası",
+  "istatistikler":"İstatistikler",
+  "isminIlkVerildigiYil":"İsmin İlk Verildiği Yıl:",
+  "isminVerilisSirasiEnDusukYil":"İsmin Veriliş Sırası En Düşük Yıl:",
+  "isminVerilisSirasiEnYuksekYil":"İsmin Veriliş Sırası En Yüksek Yıl:",
+  "isminEnSonVerildigiYil":"İsmin En Son Verildiği Yıl:"
+
+
+
+
+
 }
