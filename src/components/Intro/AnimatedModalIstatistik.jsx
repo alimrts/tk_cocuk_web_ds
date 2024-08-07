@@ -294,7 +294,8 @@ export default function AnimatedModalIstatistik(props) {
       // .get(process.env.REACT_APP_PROXY_URL + "/dashboard", {
       axios
         .post(
-          "https://snip.tuik.gov.tr/External/GetYilCocukIsimListWithParams",
+          process.env.REACT_APP_PROXY_FOR_NIP_URL +
+            "/External/GetYilCocukIsimListWithParams",
           {
             isim: turkishUpperCase(props.ad ?? ""),
             cinsiyet: parseInt(props.cinsiyet, 10),
