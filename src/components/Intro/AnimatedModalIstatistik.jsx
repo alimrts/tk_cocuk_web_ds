@@ -386,7 +386,7 @@ export default function AnimatedModalIstatistik(props) {
     setTimeout(() => {
       toPng(modalElement)
         .then((dataUrl) => {
-          saveAs(dataUrl, "modal-image.png");
+          saveAs(dataUrl, props.ad + "_istatistik.png");
 
           // Revert styles after download
           modalElement.style.cssText = originalStyle;
