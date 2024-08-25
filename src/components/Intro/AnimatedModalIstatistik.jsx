@@ -15,12 +15,17 @@ import LoadingIntro from "./LoadingIntro";
 
 import texts from "./texts_intro.json";
 
+import { toPng } from "html-to-image";
+import { saveAs } from "file-saver";
+
+import { dummyData } from "./dummyData";
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    width: "90vw",
+    width: "95vw",
     height: "90vh",
     padding: theme.spacing(1),
     margin: theme.spacing(1),
@@ -37,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "6px",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 2, 2),
-    overflowY: "auto", // Add overflow-y property
+    overflowY: "auto",
     maxHeight: "calc(100% - 88px)",
     [theme.breakpoints.down("sm")]: {
       width: "95%",
@@ -45,15 +50,21 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   variablesInfo: {
-    display: "flex",
-    flexDirection: "row",
+    display: "grid",
+    gridTemplateColumns: "repeat(4, 1fr)", // 4 columns initially
     gap: "0.5rem",
+    [theme.breakpoints.down("md")]: {
+      gridTemplateColumns: "repeat(2, 1fr)", // 2 columns on medium screens and below
+    },
+    [theme.breakpoints.down("sm")]: {
+      gridTemplateColumns: "1fr", // 1 column on small screens and below
+    },
   },
   boxes1: {
     display: "flex",
     backgroundColor: "lightgray",
-    width: "10rem",
-    height: "4.5rem",
+    width: "12rem",
+    height: "6rem",
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
@@ -62,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     backgroundColor: "#F8B12F",
     width: "12rem",
-    height: "4.5rem",
+    height: "6rem",
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
@@ -71,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     backgroundColor: "lightblue",
     width: "12rem",
-    height: "4.5rem",
+    height: "6rem",
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
@@ -79,8 +90,8 @@ const useStyles = makeStyles((theme) => ({
   boxes4: {
     display: "flex",
     backgroundColor: "lightgreen",
-    width: "10rem",
-    height: "4.5rem",
+    width: "12rem",
+    height: "6rem",
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
@@ -102,91 +113,11 @@ export default function AnimatedModalIstatistik(props) {
     isminEnSonVerildigiYil: 2022,
   });
 
-  const dummyData = {
-    yilSiraList: [
-      { dogumYil: 1950, sira: 368 },
-      { dogumYil: 1951, sira: 371 },
-      { dogumYil: 1952, sira: 386 },
-      { dogumYil: 1953, sira: 360 },
-      { dogumYil: 1954, sira: 373 },
-      { dogumYil: 1955, sira: 354 },
-      { dogumYil: 1956, sira: 370 },
-      { dogumYil: 1957, sira: 384 },
-      { dogumYil: 1958, sira: 356 },
-      { dogumYil: 1959, sira: 366 },
-      { dogumYil: 1960, sira: 355 },
-      { dogumYil: 1961, sira: 376 },
-      { dogumYil: 1962, sira: 379 },
-      { dogumYil: 1963, sira: 378 },
-      { dogumYil: 1964, sira: 358 },
-      { dogumYil: 1965, sira: 444 },
-      { dogumYil: 1966, sira: 359 },
-      { dogumYil: 1967, sira: 364 },
-      { dogumYil: 1968, sira: 377 },
-      { dogumYil: 1969, sira: 360 },
-      { dogumYil: 1970, sira: 382 },
-      { dogumYil: 1971, sira: 369 },
-      { dogumYil: 1972, sira: 357 },
-      { dogumYil: 1973, sira: 389 },
-      { dogumYil: 1974, sira: 371 },
-      { dogumYil: 1975, sira: 365 },
-      { dogumYil: 1976, sira: 354 },
-      { dogumYil: 1977, sira: 367 },
-      { dogumYil: 1978, sira: 373 },
-      { dogumYil: 1979, sira: 379 },
-      { dogumYil: 1980, sira: 388 },
-      { dogumYil: 1981, sira: 391 },
-      { dogumYil: 1982, sira: 375 },
-      { dogumYil: 1983, sira: 364 },
-      { dogumYil: 1984, sira: 354 },
-      { dogumYil: 1985, sira: 370 },
-      { dogumYil: 1986, sira: 380 },
-      { dogumYil: 1987, sira: 357 },
-      { dogumYil: 1988, sira: 368 },
-      { dogumYil: 1989, sira: 359 },
-      { dogumYil: 1990, sira: 385 },
-      { dogumYil: 1991, sira: 372 },
-      { dogumYil: 1992, sira: 366 },
-      { dogumYil: 1993, sira: 390 },
-      { dogumYil: 1994, sira: 358 },
-      { dogumYil: 1995, sira: 376 },
-      { dogumYil: 1996, sira: 369 },
-      { dogumYil: 1997, sira: 355 },
-      { dogumYil: 1998, sira: 301 },
-      { dogumYil: 1999, sira: 360 },
-      { dogumYil: 2000, sira: 379 },
-      { dogumYil: 2001, sira: 371 },
-      { dogumYil: 2002, sira: 364 },
-      { dogumYil: 2003, sira: 388 },
-      { dogumYil: 2004, sira: 357 },
-      { dogumYil: 2005, sira: 370 },
-      { dogumYil: 2006, sira: 385 },
-      { dogumYil: 2007, sira: 354 },
-      { dogumYil: 2008, sira: 367 },
-      { dogumYil: 2009, sira: 373 },
-      { dogumYil: 2010, sira: 376 },
-      { dogumYil: 2011, sira: 359 },
-      { dogumYil: 2012, sira: 386 },
-      { dogumYil: 2013, sira: 366 },
-      { dogumYil: 2014, sira: 391 },
-      { dogumYil: 2015, sira: 375 },
-      { dogumYil: 2016, sira: 354 },
-      { dogumYil: 2017, sira: 368 },
-      { dogumYil: 2018, sira: 377 },
-      { dogumYil: 2019, sira: 364 },
-      { dogumYil: 2020, sira: 389 },
-      { dogumYil: 2021, sira: 361 },
-      { dogumYil: 2022, sira: 370 },
-    ],
-
-    isminIlkVerildigiYil: 1950,
-    isminVerilisSirasiEnDusukYil: 1998,
-    isminVerilisSirasiEnYuksekYil: 1965,
-    isminEnSonVerildigiYil: 2022,
-  };
-
   const [minValue, setMinValue] = useState(null);
   const [maxValue, setMaxValue] = useState(null);
+
+  const [firstValue, setFirstValue] = useState(null);
+  const [lastValue, setLastValue] = useState(null);
 
   const turkishUpperCase = (str) => {
     return str.replace(/i/g, "İ").replace(/ı/g, "I").toUpperCase();
@@ -199,7 +130,10 @@ export default function AnimatedModalIstatistik(props) {
 
   const [options, setOptions] = useState({
     chart: {
-      height: 350,
+      fontFamily: "Noteworthy",
+      fontSize: "10pt",
+      width: "100%",
+      height: 400,
       type: "line",
       dropShadow: {
         enabled: true,
@@ -215,6 +149,16 @@ export default function AnimatedModalIstatistik(props) {
       toolbar: {
         show: false,
       },
+      responsive: [
+        {
+          breakpoint: 1000,
+          options: {
+            legend: {
+              position: "bottom",
+            },
+          },
+        },
+      ],
     },
     colors: ["#77B6EA", "#545454"],
     dataLabels: {
@@ -223,10 +167,10 @@ export default function AnimatedModalIstatistik(props) {
     stroke: {
       curve: "smooth",
     },
-    title: {
-      text: turkishUpperCase(props.ad ?? "") + " " + texts.isminSirasi,
-      align: "left",
-    },
+    // title: {
+    //   text: turkishUpperCase(props.ad ?? "") + " " + texts.isminSirasi,
+    //   align: "center",
+    // },
     grid: {
       borderColor: "#e7e7e7",
       row: {
@@ -246,22 +190,32 @@ export default function AnimatedModalIstatistik(props) {
         text: texts.yil,
       },
       labels: {
+        show: true,
+        rotate: -45,
+        rotateAlways: true,
+        hideOverlappingLabels: true,
         formatter: function (value) {
           return value % 10 === 0 ? value : "";
         },
       },
     },
     yaxis: {
+      reversed: true,
       title: {
         text: texts.sira,
       },
-      tickAmount: 10,
+      tickAmount: 5,
       labels: {
         formatter: function (value) {
-          return Math.floor(value / 10) * 10;
+          if (value === 1) {
+            return 1;
+          }
+          // const formattedValue = Math.floor(value / 2) * 2;
+          // return formattedValue < 5 ? 5 : formattedValue;
+          return Math.floor(value);
         },
       },
-      min: 0,
+      min: 1,
       max: 600,
     },
     legend: {
@@ -314,6 +268,14 @@ export default function AnimatedModalIstatistik(props) {
           setMinValue(minY);
           setMaxValue(maxY);
 
+          const firstValue = filteredData[0] ? filteredData[0].sira : null;
+          const lastValue = filteredData[filteredData.length - 1]
+            ? filteredData[filteredData.length - 1].sira
+            : null;
+
+          setFirstValue(firstValue);
+          setLastValue(lastValue);
+
           setOptions((prevOptions) => ({
             ...prevOptions,
             xaxis: {
@@ -322,7 +284,7 @@ export default function AnimatedModalIstatistik(props) {
             },
             yaxis: {
               ...prevOptions.yaxis,
-              min: minY,
+              min: 1,
               max: maxY,
             },
           }));
@@ -360,6 +322,18 @@ export default function AnimatedModalIstatistik(props) {
           setMinValue(minY);
           setMaxValue(maxY);
 
+          const filteredData = dummyData.yilSiraList.sort(
+            (a, b) => a.dogumYil - b.dogumYil
+          );
+
+          const firstValue = filteredData[0] ? filteredData[0].sira : null;
+          const lastValue = filteredData[filteredData.length - 1]
+            ? filteredData[filteredData.length - 1].sira
+            : null;
+
+          setFirstValue(firstValue);
+          setLastValue(lastValue);
+
           setOptions((prevOptions) => ({
             ...prevOptions,
             xaxis: {
@@ -368,7 +342,7 @@ export default function AnimatedModalIstatistik(props) {
             },
             yaxis: {
               ...prevOptions.yaxis,
-              min: minY,
+              min: 1,
               max: maxY,
             },
           }));
@@ -395,6 +369,36 @@ export default function AnimatedModalIstatistik(props) {
     setOpen(false);
   };
 
+  const handleDownload = () => {
+    const modalElement = document.getElementById("modal-content");
+
+    if (!modalElement) {
+      console.error("Element not found!");
+      return;
+    }
+
+    // Temporarily apply styles to hide overflow and scale content
+    const originalStyle = modalElement.style.cssText;
+    modalElement.style.overflow = "hidden";
+    modalElement.style.width = "auto";
+    modalElement.style.height = "auto";
+
+    setTimeout(() => {
+      toPng(modalElement)
+        .then((dataUrl) => {
+          saveAs(dataUrl, "modal-image.png");
+
+          // Revert styles after download
+          modalElement.style.cssText = originalStyle;
+        })
+        .catch((err) => {
+          console.error("Failed to download image", err);
+
+          // Revert styles in case of error
+          modalElement.style.cssText = originalStyle;
+        });
+    }, 500); // Ensure rendering is complete
+  };
   return (
     <div>
       <FloatinDivForAltMenu img={tkc_istatistik} onClick={handleOpen} />
@@ -411,18 +415,37 @@ export default function AnimatedModalIstatistik(props) {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
-            <div style={{ marginLeft: "10rem" }}>
+          <div className={classes.paper} id="modal-content">
+            <div style={{ marginLeft: "14rem" }}>
               <button className="certCloseBtn" onClick={handleClose}>
                 X
               </button>
             </div>
 
-            <h2
-              style={{ textAlign: "center", fontSize: "12pt", color: "orange" }}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "orange",
+              }}
             >
-              {texts.istatistikler}
-            </h2>
+              <h2
+                style={{
+                  fontSize: "15pt",
+                }}
+              >
+                {turkishUpperCase(props.ad ?? "") + " " + texts.isminSirasi}
+              </h2>
+
+              <h2
+                style={{
+                  fontSize: "14pt",
+                }}
+              ></h2>
+            </div>
+
             {loading ? (
               <LoadingIntro />
             ) : (
@@ -432,8 +455,8 @@ export default function AnimatedModalIstatistik(props) {
                     options={options}
                     series={series}
                     type="line"
-                    height={400}
-                    width={900}
+                    height="400px"
+                    maxWidth="890px"
                   />
                 </div>
                 <div
@@ -444,6 +467,10 @@ export default function AnimatedModalIstatistik(props) {
                     <p style={{ fontSize: "12pt" }}>
                       {texts.isminIlkVerildigiYil} <br />
                       {variables.isminIlkVerildigiYil}
+                      <br />
+                      {texts.sira}
+                      {": "}
+                      {firstValue}
                     </p>
                   </div>
                   <div className={classes.boxes2}>
@@ -451,7 +478,7 @@ export default function AnimatedModalIstatistik(props) {
                       {texts.isminVerilisSirasiEnDusukYil}
                       <br />
                       {variables.isminVerilisSirasiEnDusukYil}
-                      {" - "}
+                      <br />
                       {texts.sira}
                       {": "}
                       {minValue}
@@ -461,7 +488,7 @@ export default function AnimatedModalIstatistik(props) {
                     <p style={{ fontSize: "12pt" }}>
                       {texts.isminVerilisSirasiEnYuksekYil}
                       <br />
-                      {variables.isminVerilisSirasiEnYuksekYil} {" - "}
+                      {variables.isminVerilisSirasiEnYuksekYil} <br />
                       {texts.sira}
                       {": "}
                       {maxValue}
@@ -472,9 +499,35 @@ export default function AnimatedModalIstatistik(props) {
                       {texts.isminEnSonVerildigiYil}
                       <br />
                       {variables.isminEnSonVerildigiYil}
+                      <br />
+                      {texts.sira}
+                      {": "}
+                      {lastValue}
                     </p>
                   </div>
                 </div>
+                <div
+                  style={{
+                    marginTop: "1rem",
+                    fontSize: "12pt",
+                    textAlign: "center",
+                  }}
+                >
+                  "(*) Veriler 1850 yılından itibaren mevcuttur."
+                </div>
+
+                <button
+                  className="button"
+                  style={{
+                    position: "absolute",
+                    bottom: "20px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                  }}
+                  onClick={handleDownload}
+                >
+                  İndir
+                </button>
               </>
             )}
           </div>

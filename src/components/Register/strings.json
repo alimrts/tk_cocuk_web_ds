@@ -20,6 +20,6 @@
     "registerPageBuAlanZorunludur":"Bu alan zorunludur.",
     "apiHatasi":"Hata!",
     "apiHatasiAciklama":"Gerekli bilgiler oluşturulamadı.",
-    "bilgilerAciklama":"Gerekli bilgiler oluşturulamadı. Giriş sayfasında bilgilerinizi girerek çeşitli istatistiklere ulaşabilirsiniz.",
+    "bilgilerAciklama":"Gerekli bilgiler oluşturulamadı. İsminle ilgili istatistikleri görmek için önceki sayfaya git ve bilgilerini doldur.",
     "registerPageRestrictedText":"Adın için kısıtlı kelimeleri kullanamazsın."
 }

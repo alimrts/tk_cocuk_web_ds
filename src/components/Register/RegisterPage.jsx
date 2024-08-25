@@ -193,35 +193,30 @@ const RegisterPage = () => {
 
             <div className="formWrapper">
               <span className="formTitle">{strings.registerPageGiris}</span>
-              <span className="formTitle2">
-                {strings.registerPageBilgileriDoldur}
-              </span>
+
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <span className="formTitle2">
+                  {strings.registerPageBilgileriDoldur}
+                </span>
+                <NavLink
+                  to={{ pathname: "/main" }}
+                  target="_self"
+                  className="formTitle2"
+                  onClick={handleUserRegisterWithoutForm}
+                >
+                  {strings.registerPageBilgileriDoldurma}
+                </NavLink>
+              </div>
+
               <UserRegister
                 onGenderChange={handleGenderChange}
                 onSubmit={handleUserRegister}
               />
-
-              <Button
-                variant="contained"
-                onClick={handleUserRegisterWithoutForm}
-                style={{
-                  marginTop: "0.5rem",
-                  textTransform: "none",
-                  backgroundColor: "#FaFfA6",
-                  borderRadius: "25px",
-                  color: "#fff",
-                  padding: "10px 20px",
-                  width: "18rem",
-                  "&:hover": {
-                    backgroundColor: "#FFFFD4",
-                    color: "#333",
-                  },
-                }}
-              >
-                <NavLink to={{ pathname: "/main" }} target="_self">
-                  {strings.registerPageBilgileriDoldurma}
-                </NavLink>
-              </Button>
             </div>
           </div>
         </>

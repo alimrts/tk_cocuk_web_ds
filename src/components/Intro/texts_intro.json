@@ -21,10 +21,10 @@
   "tamMessage": "tam ortanca değerde.",
   "yil": "Yıl",
   "sira": "Sıra",
-  "isminSirasi": "İsminin Yıllara Göre Veriliş Sırası",
+  "isminSirasi": "İsminin O Yıl Doğan Erkek/Kız Bebeklere Verilen İsimler Arasındaki Sıralaması",
   "istatistikler": "İstatistikler",
   "isminIlkVerildigiYil": "İsmin İlk Verildiği Yıl:",
-  "isminVerilisSirasiEnDusukYil": "İsmin Veriliş Sırası En Düşük Yıl:",
-  "isminVerilisSirasiEnYuksekYil": "İsmin Veriliş Sırası En Yüksek Yıl:",
-  "isminEnSonVerildigiYil": "İsmin En Son Verildiği Yıl:"
+  "isminVerilisSirasiEnDusukYil": "İsmin Veriliş Sırasının En Yüksek Olduğu Yıl:",
+  "isminVerilisSirasiEnYuksekYil": "İsmin Veriliş Sırasının En Düşük Oldğuğu Yıl:",
+  "isminEnSonVerildigiYil": "İsmin Son Verildiği Yıl:"
 }
