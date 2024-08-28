@@ -436,7 +436,15 @@ export default function AnimatedModalIstatistik(props) {
                   fontSize: "15pt",
                 }}
               >
-                {turkishUpperCase(props.ad ?? "") + " " + texts.isminSirasi}
+                {turkishUpperCase(props.ad ?? "") +
+                  " " +
+                  texts.isminSirasi1 +
+                  " " +
+                  (props.cinsiyet === "1"
+                    ? texts.isminSirasiErkek
+                    : texts.isminSirasiKiz) +
+                  " " +
+                  texts.isminSirasi2}
               </h2>
 
               <h2
@@ -513,7 +521,7 @@ export default function AnimatedModalIstatistik(props) {
                     textAlign: "center",
                   }}
                 >
-                  "(*) Veriler 1850 yılından itibaren mevcuttur."
+                  (*) Veriler 1850 yılından itibaren mevcuttur.
                 </div>
 
                 <button
