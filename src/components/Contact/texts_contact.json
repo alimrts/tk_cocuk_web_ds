@@ -1,8 +1,5 @@
-{
-  "userName": "Ad Soyad",
-  "userEmail": "E-posta",
-  "message": "Mesaj",
-  "sending": "Mesajınız Gönderiliyor...",
-  "thankYou": "Mesajınız İçin Teşekkür Ederiz",
-  "buttonText": "Gönder"
-}
+[
+  {
+    "Content": null
+  }
+]
