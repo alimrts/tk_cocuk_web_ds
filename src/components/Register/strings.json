@@ -21,5 +21,5 @@
   "ApiHatasi": "Hata!",
   "ApiHatasiAciklama": "Gerekli bilgiler oluşturulamadı.",
   "BilgilerAciklama": "Gerekli bilgiler oluşturulamadı. İsminle ilgili istatistikleri görmek için önceki sayfaya git ve bilgilerini doldur.",
-  "RegisterPageRestrictedText": "Adın için kısıtlı kelimeleri kullanamazsın.ccc"
+  "RegisterPageRestrictedText": "Adın için kısıtlı kelimeleri kullanamazsın."
 }
