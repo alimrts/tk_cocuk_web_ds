@@ -521,7 +521,7 @@ export default function AnimatedModalIstatistik(props) {
                     textAlign: "center",
                   }}
                 >
-                  (*) Veriler 1850 yılından itibaren mevcuttur.
+                  {texts.verilerMevcuttur}
                 </div>
 
                 <button
@@ -534,7 +534,7 @@ export default function AnimatedModalIstatistik(props) {
                   }}
                   onClick={handleDownload}
                 >
-                  İndir
+                  {texts.indir}
                 </button>
               </>
             )}

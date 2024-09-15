@@ -18,7 +18,7 @@ function Loader() {
           color: "black",
         }}
       >
-        {Math.round(progress)} % yükleniyor
+        {Math.round(progress)} {texts.yukleniyor}
       </div>
     </Html>
   );

@@ -3,6 +3,8 @@ import { fabric } from "fabric";
 
 import { makeStyles } from "@material-ui/core/styles";
 
+import texts from "./texts_intro.json";
+
 const useStyles = makeStyles((theme) => ({
   rootOfCanvas: {
     position: "relative",
@@ -177,7 +179,7 @@ const ImageWithText = ({
             }}
             onClick={handleDownload}
           >
-            İndir
+            {texts.indir}
           </button>
         </>
       )}

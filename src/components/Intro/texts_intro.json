@@ -29,5 +29,8 @@
   "isminIlkVerildigiYil": "İsmin İlk Verildiği Yıl:",
   "isminVerilisSirasiEnDusukYil": "İsmin Veriliş Sırasının En Yüksek Olduğu Yıl:",
   "isminVerilisSirasiEnYuksekYil": "İsmin Veriliş Sırasının En Düşük Oldğuğu Yıl:",
-  "isminEnSonVerildigiYil": "İsmin Son Verildiği Yıl:"
+  "isminEnSonVerildigiYil": "İsmin Son Verildiği Yıl:",
+  "verilerMevcuttur":"(*) Veriler 1850 yılından itibaren mevcuttur.",
+  "indir":"İndir",
+  "yukleniyor": "% yükleniyor"
 }

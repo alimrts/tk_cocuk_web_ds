@@ -8,6 +8,8 @@ import tkc_iletisim_left from "../../img/iletisim_images/tkc_iletisim_left.png";
 import useZustandStore from "../../zustandStore";
 import AlertPopup from "../AlertPopup";
 
+import texts from "./texts_contact.json";
+
 const Contact = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
@@ -62,6 +64,15 @@ const Contact = () => {
 
   return (
     <div className="contact-form" id="contact">
+      {" "}
+      {showAlert && (
+        <AlertPopup
+          rowTitle={strings.registerPageUyari}
+          row1={strings.registerPageLutfenGerekliBilgiler}
+          onClick={() => handleImageClick()}
+          isOpen={showAlert}
+        />
+      )}{" "}
       <div className="left-column-contact">
         <img src={tkc_iletisim_left} alt="" />
       </div>
@@ -76,24 +87,28 @@ const Contact = () => {
             type="text"
             name="user_name"
             className="user"
-            placeholder="Ad Soyad"
+            placeholder={texts.UserName}
           />
           <input
             type="email"
             name="user_email"
             className="user"
-            placeholder="E-posta"
+            placeholder={texts.UserEmail}
           />
-          <textarea name="message" className="user" placeholder="Mesaj" />
+          <textarea
+            name="message"
+            className="user"
+            placeholder={texts.Message}
+          />
           <div>
             <input
               type="submit"
-              value="Gönder"
+              value={texts.ButtonText}
               className={`button ${done ? "button-disabled" : ""}`}
               disabled={done}
             />
-            {isLoading && <div> Mesajınız Gönderiliyor...</div>}
-            {done && " Mesajınız İçin Teşekkür Ederiz"}
+            {isLoading && <div> {texts.Sending}</div>}
+            {done && texts.ThankYou}
           </div>
         </form>
       </div>
