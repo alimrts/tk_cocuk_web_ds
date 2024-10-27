@@ -146,6 +146,7 @@ const IntroLeft = (props) => {
             <br />
             <br />
             {props.il} {texts.introLeftText9} {props.ayniTarihDoganIlSayi},{" "}
+            <br />
             {texts.introLeftText10} {props.ayniTarihDoganTurkiyeSayi}{" "}
             {texts.introLeftText11}
             <br />
