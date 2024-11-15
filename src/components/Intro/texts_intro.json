@@ -31,6 +31,8 @@
   "isminVerilisSirasiEnYuksekYil": "İsmin Veriliş Sırasının En Düşük Olduğu Yıl:",
   "isminEnSonVerildigiYil": "İsmin Son Verildiği Yıl:",
   "verilerMevcuttur": "(*) Veriler 1850 yılından itibaren mevcuttur.",
+  "nameError": "Yazdığın isim kayıtlarımızda bulunmamaktadır.",
+  "dataError": "Veriler çekilirken sorun oluştu.",
   "indir": "İndir",
   "yukleniyor": "% yükleniyor"
 }

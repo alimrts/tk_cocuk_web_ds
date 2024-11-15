@@ -97,6 +97,9 @@ export default function AnimatedModalIstatistik(props) {
 
   const [loading, setLoading] = useState(true);
 
+  const [nameError, setNameError] = useState(false);
+  const [dataError, setDataError] = useState(false);
+
   const [variables, setVariables] = useState({
     isminIlkVerildigiYil: 1950,
     isminVerilisSirasiEnDusukYil: 1998,
@@ -153,10 +156,7 @@ export default function AnimatedModalIstatistik(props) {
     stroke: {
       curve: "smooth",
     },
-    // title: {
-    //   text: turkishUpperCase(props.ad ?? "") + " " + texts.isminSirasi,
-    //   align: "center",
-    // },
+
     grid: {
       borderColor: "#e7e7e7",
       row: {
@@ -326,15 +326,32 @@ export default function AnimatedModalIstatistik(props) {
           const data = dashboardResponse.data;
           setApiData(data);
           setChartData(data);
+          setNameError(false);
           setLoading(false);
         })
         .catch((error) => {
           console.error("Error getting istatistik data:", error);
-          setChartData(dummyData); // Fallback to dummy data on error
+
+          // Fallback to dummy data
+          setChartData(dummyData);
           setLoading(false);
+
+          // Handle specific HTTP status codes
+          if (error.response) {
+            const status = error.response.status; // Access the status code
+            if (status === 404) {
+              setDataError(true);
+            } else if (status === 500) {
+              setNameError(true);
+            }
+          } else {
+            // Handle unexpected errors, e.g., network issues
+            console.error("Unexpected error:", error.message);
+          }
         });
     } else {
       setLoading(false);
+      setNameError(false);
     }
   };
   //////////////////////////////////////////////////
@@ -406,7 +423,7 @@ export default function AnimatedModalIstatistik(props) {
       >
         <Fade in={open}>
           <div className={classes.paper} id="modal-content">
-            <div style={{ marginLeft: "14rem" }}>
+            {/* <div style={{ marginLeft: "14rem" }}>
               <button
                 className="certCloseBtn"
                 id="modal-buttonx"
@@ -414,45 +431,82 @@ export default function AnimatedModalIstatistik(props) {
               >
                 X
               </button>
-            </div>
-
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-                color: "orange",
-              }}
-            >
-              <h2
+            </div> */}
+            <div style={{ position: "relative" }}>
+              <button
+                id="modal-buttonx"
+                onClick={handleClose}
                 style={{
-                  fontSize: "15pt",
+                  position: "absolute",
+                  top: "-12px",
+                  right: "-12px",
+                  fontSize: "18px",
+
+                  fontWeight: "bold",
+                  color: "red",
+                  cursor: "pointer",
                 }}
               >
-                {turkishUpperCase(props.ad ?? "") +
-                  " " +
-                  texts.isminSirasi1 +
-                  " " +
-                  (props.cinsiyet === "1"
-                    ? texts.isminSirasiErkek
-                    : texts.isminSirasiKiz) +
-                  " " +
-                  texts.isminSirasi2}
-              </h2>
-
-              <h2
-                style={{
-                  fontSize: "14pt",
-                }}
-              ></h2>
+                X
+              </button>
             </div>
 
-            {loading ? (
+            {nameError ? (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "orange",
+                  marginTop: "2rem",
+                }}
+              >
+                {texts.nameError}
+              </div>
+            ) : dataError ? (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "orange",
+                  marginTop: "2rem",
+                }}
+              >
+                {texts.dataError}
+              </div>
+            ) : loading ? (
               <LoadingIntro />
             ) : (
               <>
-                <div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    color: "orange",
+                  }}
+                >
+                  <h2
+                    style={{
+                      fontSize: "15pt",
+                    }}
+                  >
+                    {turkishUpperCase(props.ad ?? "") +
+                      " " +
+                      texts.isminSirasi1 +
+                      " " +
+                      (props.cinsiyet === "1"
+                        ? texts.isminSirasiErkek
+                        : texts.isminSirasiKiz) +
+                      " " +
+                      texts.isminSirasi2}
+                  </h2>
+                </div>
+                <div style={{ paddingRight: "1rem" }}>
                   <ReactApexChart
                     options={options}
                     series={series}
@@ -517,7 +571,6 @@ export default function AnimatedModalIstatistik(props) {
                 >
                   {texts.verilerMevcuttur}
                 </div>
-
                 <button
                   className="button"
                   id="modal-button"
