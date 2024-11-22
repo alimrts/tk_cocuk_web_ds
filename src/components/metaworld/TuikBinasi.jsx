@@ -1,7 +1,6 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import { useGLTF, Html } from "@react-three/drei";
-import * as THREE from "three";
-import { Color } from "three";
+
 import useZustandStore from "../../zustandStore";
 
 export function TuikBinasi(props) {

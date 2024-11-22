@@ -12,7 +12,6 @@ import texts from "./texts_contact.json";
 
 const Contact = () => {
   const theme = useContext(themeContext);
-  const darkMode = theme.state.darkMode;
   const [done, setDone] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -87,28 +86,28 @@ const Contact = () => {
             type="text"
             name="user_name"
             className="user"
-            placeholder={texts.UserName}
+            placeholder={texts.userName}
           />
           <input
             type="email"
             name="user_email"
             className="user"
-            placeholder={texts.UserEmail}
+            placeholder={texts.userEmail}
           />
           <textarea
             name="message"
             className="user"
-            placeholder={texts.Message}
+            placeholder={texts.message}
           />
           <div>
             <input
               type="submit"
-              value={texts.ButtonText}
+              value={texts.buttonText}
               className={`button ${done ? "button-disabled" : ""}`}
               disabled={done}
             />
-            {isLoading && <div> {texts.Sending}</div>}
-            {done && texts.ThankYou}
+            {isLoading && <div> {texts.sending}</div>}
+            {done && texts.thankYou}
           </div>
         </form>
       </div>

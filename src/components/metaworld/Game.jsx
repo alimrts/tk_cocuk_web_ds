@@ -4,7 +4,6 @@ import useZustandStore from "../../zustandStore";
 import Floor from "./Floor";
 import Obstacles from "./Obstacles";
 import Player from "./Player";
-import PlayerMobile from "./Player";
 import { CityScene1 } from "./CityScene1";
 import { Car1 } from "./Car1";
 
@@ -16,7 +15,7 @@ import { TuikBinasi } from "./TuikBinasi";
 import { BayrakTr } from "./BayrakTr";
 import { BayrakTuik } from "./BayrakTuik";
 import { GezegenlerBinasi } from "./GezegenlerBinasi";
-import { KontrolOdasi } from "./KontrolOdasi";
+import { DemoScene, KontrolOdasi } from "./KontrolOdasi";
 import BirdsGroups from "./BirdsGroups";
 
 function ToggleDebug({ children }) {
@@ -124,6 +123,9 @@ function ObstacleTriggerTuik({ args, onCollide, position, ...props }) {
 }
 
 export default function Game(props) {
+  const cinsiyet = props.cinsiyet;
+  // console.log("cinsiyet in game: " + cinsiyet);
+
   useContactMaterial("ground", "slippery", {
     friction: 0,
     restitution: 0.3,
@@ -133,6 +135,11 @@ export default function Game(props) {
 
   ///
 
+  const playerPosition = useZustandStore((state) => state.playerPosition);
+
+  const isBilgiIcTriggered = useZustandStore(
+    (state) => state.isBilgiIcTriggered
+  );
   const setIsBilgiIcTriggered = useZustandStore(
     (state) => state.setIsBilgiIcTriggered
   );
@@ -144,6 +151,9 @@ export default function Game(props) {
     // console.log("bilgi ic: " + isBilgiIcTriggered);
   };
 
+  const isBilgiGateTriggered = useZustandStore(
+    (state) => state.isBilgiGateTriggered
+  );
   const setIsBilgiGateTriggered = useZustandStore(
     (state) => state.setIsBilgiGateTriggered
   );
@@ -167,6 +177,9 @@ export default function Game(props) {
     console.log("gunes gate: " + isGunesGateTriggered);
   };
 
+  const isTuikGateTriggered = useZustandStore(
+    (state) => state.isTuikGateTriggered
+  );
   const setIsTuikGateTriggered = useZustandStore(
     (state) => state.setIsTuikGateTriggered
   );
@@ -174,6 +187,13 @@ export default function Game(props) {
     setIsTuikGateTriggered(true);
     // console.log("tuiks gate: " + isTuikGateTriggered);
   };
+
+  const isGeriClickedInSolarSystem = useZustandStore(
+    (state) => state.isGeriClickedInSolarSystem
+  );
+  const isGeriClickedInTuik = useZustandStore(
+    (state) => state.isGeriClickedInTuik
+  );
 
   const setIsGeriClickedInTuik = useZustandStore(
     (state) => state.setIsGeriClickedInTuik
